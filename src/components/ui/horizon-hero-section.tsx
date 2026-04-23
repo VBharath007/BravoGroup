@@ -2,7 +2,7 @@
 
 import React, { useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import logo from "../../assets/bgremovedlogo.webp";
+const logo = "/assets/bgremovedlogo-small.webp";
 
 // ─── Constants ────────────────────────────────────────────────────────────────
 const FRAME_COUNT = 44;
@@ -119,10 +119,10 @@ export default function FrameInjection() {
     pinned.style.position = "sticky";
     pinned.style.top = "0px";
 
-    const SECTION_TOP = section.offsetTop;
-    const SECTION_H = section.scrollHeight;
-    const VH = window.innerHeight;
-    const MAX_SCROLL = SECTION_H - VH;
+    let SECTION_TOP = section.offsetTop;
+    let SECTION_H = section.scrollHeight;
+    let VH = window.innerHeight;
+    let MAX_SCROLL = SECTION_H - VH;
 
     // Smooth progress — raw from scroll, lerped for rendering
     let rawProgress = 0;
@@ -154,7 +154,7 @@ export default function FrameInjection() {
           : 0;
 
         ref.style.opacity = String(clampedOp);
-        ref.style.transform = `translate(${tx}px, ${Math.max(ty, 0)}px)`;
+        ref.style.transform = `translate3d(${tx}px, ${Math.max(ty, 0)}px, 0)`;
         ref.style.pointerEvents = clampedOp > 0.1 ? "auto" : "none";
       });
 
@@ -211,6 +211,10 @@ export default function FrameInjection() {
 
     // ── Resize ──
     const onResize = () => {
+      SECTION_TOP = section.offsetTop;
+      SECTION_H = section.scrollHeight;
+      VH = window.innerHeight;
+      MAX_SCROLL = SECTION_H - VH;
       lastIdx = -1;
       draw(p2f(smoothProgress));
     };
@@ -232,7 +236,7 @@ export default function FrameInjection() {
   const pct = Math.round((loadedCount / FRAME_COUNT) * 100);
 
   return (
-    <div ref={sectionRef} style={{ height: "600dvh", position: "relative" }}>
+    <div ref={sectionRef} style={{ height: "600svh", position: "relative" }}>
 
       {/* ══ LOADER ══════════════════════════════════════════════════════ */}
       {!isReady && (
@@ -240,8 +244,6 @@ export default function FrameInjection() {
           <img
             src={logo}
             alt="Bravo Groups"
-            width="128"
-            height="128"
             style={{ width: "128px", height: "128px", objectFit: "contain", marginBottom: "2.5rem" }}
           />
           <div style={{ width: 220, height: 2, background: "rgba(255,255,255,0.08)", borderRadius: 99, overflow: "hidden" }}>
@@ -252,7 +254,7 @@ export default function FrameInjection() {
       )}
 
       {/* ══ PINNED PANEL ════════════════════════════════════════════════ */}
-      <div ref={pinnedRef} style={{ width: "100%", height: "100vh", overflow: "hidden", position: "relative" }}>
+      <div ref={pinnedRef} style={{ width: "100%", height: "100svh", overflow: "hidden", position: "relative" }}>
 
         {/* Canvas */}
         <canvas ref={canvasRef} style={{ position: "absolute", inset: 0, width: "100%", height: "100%", display: "block" }} />
@@ -286,7 +288,7 @@ export default function FrameInjection() {
         <ScrollPillBar pillRef={pillRef} />
 
         {/* ══ PHASE 1: MISSION ════════════════════════════════════════ */}
-        <div ref={missionRef} style={{ position: "absolute", top: 0, left: 0, width: "clamp(300px,44%,540px)", height: "100%", display: "flex", flexDirection: "column", justifyContent: "center", padding: "0 clamp(1.5rem,4vw,4rem)", opacity: 0, willChange: "transform,opacity" }}>
+        <div ref={missionRef} style={{ position: "absolute", top: 0, left: 0, width: "clamp(340px,92vw,540px)", height: "100%", display: "flex", flexDirection: "column", justifyContent: "center", padding: "0 clamp(1rem,4vw,4rem)", opacity: 0, willChange: "transform,opacity" }}>
           <div style={{ position: "absolute", top: "28%", left: "8%", width: 320, height: 320, borderRadius: "50%", background: "radial-gradient(circle,rgba(47,77,255,0.18) 0%,transparent 70%)", filter: "blur(60px)", pointerEvents: "none" }} />
           <div style={{ position: "relative", background: "rgba(4,10,28,0.76)", backdropFilter: "blur(40px)", WebkitBackdropFilter: "blur(40px)", border: "1px solid rgba(255,255,255,0.12)", borderRadius: "1.75rem", padding: "clamp(1.5rem,3vw,2.5rem)", boxShadow: "0 24px 64px rgba(0,0,0,0.65),inset 0 1px 1px rgba(255,255,255,0.1)", maxHeight: "76vh", overflowY: "auto", display: "flex", flexDirection: "column" }}>
             <div style={{ display: "inline-flex", alignItems: "center", gap: "0.5rem", background: "rgba(47,77,255,0.15)", border: "1px solid rgba(47,77,255,0.4)", borderRadius: 99, padding: "0.4rem 1.1rem", marginBottom: "1.4rem", alignSelf: "flex-start" }}>
@@ -305,7 +307,7 @@ export default function FrameInjection() {
         </div>
 
         {/* ══ PHASE 2: VISION ═════════════════════════════════════════ */}
-        <div ref={visionRef} style={{ position: "absolute", top: 0, right: 0, width: "clamp(300px,44%,540px)", height: "100%", display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "flex-end", padding: "0 clamp(1.5rem,4vw,4rem)", opacity: 0, willChange: "transform,opacity" }}>
+        <div ref={visionRef} style={{ position: "absolute", top: 0, right: 0, width: "clamp(340px,92vw,540px)", height: "100%", display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "flex-end", padding: "0 clamp(1rem,4vw,4rem)", opacity: 0, willChange: "transform,opacity" }}>
           <div style={{ position: "absolute", top: "28%", right: "8%", width: 320, height: 320, borderRadius: "50%", background: "radial-gradient(circle,rgba(139,92,246,0.15) 0%,transparent 70%)", filter: "blur(50px)", pointerEvents: "none" }} />
           <div style={{ position: "relative", background: "rgba(4,10,28,0.72)", backdropFilter: "blur(28px)", WebkitBackdropFilter: "blur(28px)", border: "1px solid rgba(139,92,246,0.2)", borderRadius: "1.5rem", padding: "clamp(1.5rem,3vw,2.5rem)", boxShadow: "0 12px 56px rgba(0,0,0,0.5),inset 0 1px 0 rgba(255,255,255,0.06)", maxHeight: "82vh", overflowY: "auto" }}>
             <div style={{ display: "inline-flex", alignItems: "center", gap: "0.4rem", background: "rgba(139,92,246,0.12)", border: "1px solid rgba(139,92,246,0.3)", borderRadius: 99, padding: "0.3rem 0.9rem", marginBottom: "1.2rem", marginTop: "20px" }}>
@@ -321,7 +323,7 @@ export default function FrameInjection() {
         </div>
 
         {/* ══ PHASE 3: ADMISSION ══════════════════════════════════════ */}
-        <div ref={admissionRef} style={{ position: "absolute", top: 0, left: 0, width: "clamp(280px,50%,620px)", height: "100%", display: "flex", flexDirection: "column", justifyContent: "center", padding: "0 clamp(1rem,4vw,4rem)", opacity: 0, willChange: "transform,opacity" }}>
+        <div ref={admissionRef} style={{ position: "absolute", top: 0, left: 0, width: "clamp(340px,95vw,620px)", height: "100%", display: "flex", flexDirection: "column", justifyContent: "center", padding: "0 clamp(1rem,4vw,4rem)", opacity: 0, willChange: "transform,opacity" }}>
           <div style={{ background: "rgba(4,10,28,0.7)", backdropFilter: "blur(20px)", WebkitBackdropFilter: "blur(20px)", border: "1px solid rgba(255,255,255,0.15)", borderRadius: "2rem", padding: "clamp(1.5rem,3vw,2.75rem)", boxShadow: "0 24px 80px rgba(0,0,0,0.7),inset 0 1px 1px rgba(255,255,255,0.12)", maxHeight: "76vh", overflowY: "auto", display: "flex", flexDirection: "column" }}>
             <h4 style={{ fontSize: "clamp(1.2rem,2.2vw,1.8rem)", fontWeight: 900, color: "#fff", marginBottom: "0.5rem", fontFamily: "system-ui,sans-serif", lineHeight: 1.1 }}>🎓 MBBS ADMISSION OPEN <span style={{ color: "#60a5fa", fontStyle: "italic", whiteSpace: "nowrap" }}>2026–2027</span></h4>
             <p style={{ fontSize: "clamp(0.85rem,1.2vw,1rem)", color: "rgba(180,180,180,1)", marginBottom: "1.5rem", fontFamily: "system-ui,sans-serif" }}>Study MBBS Abroad in <span style={{ color: "#3b82f6", fontWeight: 700 }}>Top Countries</span></p>

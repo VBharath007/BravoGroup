@@ -17,12 +17,13 @@ import LazyImage from '../../components/Lazyimage';
 
 
 
-import bgImg from '../../assets/BUKHARA-STATE-MEDICAL-UNIVERSITY.webp';
-import studImg from '../../assets/dr_vikram.webp';
-import campus1 from '../../assets/Bukharanet1.webp';
-import campus2 from '../../assets/bukahranet2.webp';
-import campus3 from '../../assets/bukaranet4.webp';
-import campus4 from '../../assets/bukharanet3.webp';
+// Assets are now served from the public/assets directory
+const bgImg = '/assets/BUKHARA-STATE-MEDICAL-UNIVERSITY.webp';
+const studImg = '/assets/dr_vikram.webp';
+const campus1 = '/assets/Bukharanet1.webp';
+const campus2 = '/assets/bukahranet2.webp';
+const campus3 = '/assets/bukaranet4.webp';
+const campus4 = '/assets/bukharanet3.webp';
 
 // ── Amber Ember Particles (Scroll-Synced) ────────────────────────────────────
 function EmberParticles({ scrollProgress }) {
@@ -92,7 +93,7 @@ const BukharaStateMedicalInstitute = () => {
 
 
   useEffect(() => {
-    AOS.init({ duration: 900, once: true, easing: 'ease-out-cubic' });
+    // AOS initialized globally
     window.scrollTo(0, 0);
   }, []);
 

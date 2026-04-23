@@ -173,7 +173,7 @@ export default function HorizonHeroSection() {
                     <div className="w-full h-full max-w-[1600px] flex items-center justify-center pointer-events-auto">
                         <SplineScene
                             //   scene="https://prod.spline.design/kZDDjO5HuC9GJUM2/scene.splinecode" robert
-                            scene="https://prod.spline.design/LN7Xor0GrRFHfZOJ/scene.splinecode"
+                            scene="/assets/Dna.splinecode"
                             className="w-full h-full"
                         />
                     </div>

@@ -4,20 +4,28 @@ import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import FloatingSocials from "./components/FloatingSocials";
 import ScrollToTop from "./components/ScrollToTop";
+import { useEffect } from "react";
+import AOS from 'aos';
 import 'aos/dist/aos.css';
 
+// Lazy load all pages
 const Home = lazy(() => import("./pages/HomePage"));
 const About = lazy(() => import("./pages/AboutPage"));
 const Countries = lazy(() => import("./pages/Countries"));
+const Apply = lazy(() => import("./pages/Apply"));
 const Contact = lazy(() => import("./pages/Contact"));
 const Universities = lazy(() => import("./pages/Universities"));
+const UzbekistanMBBS = lazy(() => import("./pages/Countries")); // Redirect to Countries
+const KyrgyzstanMBBS = lazy(() => import("./pages/Countries")); // Redirect to Countries
+const RussiaMBBS = lazy(() => import("./pages/Countries")); // Redirect to Countries
 const Services = lazy(() => import("./pages/Services"));
 const Blog = lazy(() => import("./pages/Blog"));
 const BlogPost = lazy(() => import("./pages/BlogPost"));
 const Gallery = lazy(() => import("./pages/GalleryPage"));
 const VideoGallery = lazy(() => import("./pages/VideoGallery"));
 const Testimonials = lazy(() => import("./pages/Testimonials"));
-
+const Login = lazy(() => import("./pages/Contact")); // Redirect to Contact
+const Register = lazy(() => import("./pages/Contact")); // Redirect to Contact
 
 // Lazy load university pages
 const TashkentMedicalAcademy = lazy(() => import("./pages/universities/TashkentMedicalAcademy"));
@@ -28,7 +36,6 @@ const FerganaMedicalInstitute = lazy(() => import("./pages/universities/FerganaM
 
 // Lazy load components
 const LeadPopup = lazy(() => import("./components/LeadPopup"));
-
 
 // Optimized loading fallback
 const PageLoader = () => (
@@ -42,6 +49,15 @@ const PageLoader = () => (
 );
 
 function App() {
+  useEffect(() => {
+    AOS.init({
+      duration: 1000,
+      once: false,
+      mirror: true,
+      offset: 100,
+    });
+  }, []);
+
   return (
     <BrowserRouter>
       <ScrollToTop />
@@ -60,14 +76,17 @@ function App() {
           <Route path="/blog" element={<Blog />} />
           <Route path="/blog/:slug" element={<BlogPost />} />
           <Route path="/countries" element={<Countries />} />
-
+          <Route path="/apply" element={<Apply />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/universities" element={<Universities />} />
-
+          <Route path="/mbbs-in-uzbekistan" element={<UzbekistanMBBS />} />
+          <Route path="/mbbs-in-kyrgyzstan" element={<KyrgyzstanMBBS />} />
+          <Route path="/mbbs-in-russia" element={<RussiaMBBS />} />
           <Route path="/gallery" element={<Gallery />} />
           <Route path="/video-gallery" element={<VideoGallery />} />
           <Route path="/testimonials" element={<Testimonials />} />
-
+          <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
 
           {/* University Routes */}
           <Route path="/university/tashkent-medical-academy" element={<TashkentMedicalAcademy />} />

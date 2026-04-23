@@ -12,13 +12,13 @@ import LazyImage from '../../components/Lazyimage';
 import Footer from '../../components/Footer';
 
 
-import bgImg from '../../assets/samarkand1.webp';
-
-import campus1 from '../../assets/samarkandnet3.webp';
-import campus2 from '../../assets/samarkand3.webp';
-import campus3 from '../../assets/samarkand4.webp';
-import campus4 from '../../assets/samarkand2.webp';
-import campus7 from '../../assets/samarkand-college.webp';
+// Assets are now served from the public/assets directory
+const bgImg = '/assets/samarkand1.webp';
+const campus1 = '/assets/samarkandnet3.webp';
+const campus2 = '/assets/samarkand3.webp';
+const campus3 = '/assets/samarkand4.webp';
+const campus4 = '/assets/samarkand2.webp';
+const campus7 = '/assets/samarkand-college.webp';
 
 
 // ── Silk Road Particles ──────────────────────────────────────────────────────
@@ -84,7 +84,7 @@ const SamarkandStateMedicalUniversity = () => {
   const sectionY2 = useTransform(sectionScroll, [0, 1], [0, 100]);
 
   useEffect(() => {
-    AOS.init({ duration: 900, once: true, easing: 'ease-out-cubic' });
+    // AOS initialized globally
     window.scrollTo(0, 0);
   }, []);
 

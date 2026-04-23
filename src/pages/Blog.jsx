@@ -8,19 +8,9 @@ import { motion, useMotionValue, useSpring, useTransform } from 'framer-motion';
 // Using centralized data
 import { blogPosts } from '../data/blogData';
 
-// Image assets mapping
-import logo from '../assets/bgremovedlogo.webp';
-import uni1 from '../assets/uni1.webp';
-import uni2 from '../assets/uni2.webp';
-import uni3 from '../assets/uni3.webp';
-import aboutHeroBg from '../assets/about.webp';
-
-
-const imageMap = {
-  "/assets/uni1.webp": uni1,
-  "/assets/uni2.webp": uni2,
-  "/assets/uni3.webp": uni3,
-};
+// Assets are now served from the public/assets directory
+const logo = '/assets/bgremovedlogo.webp';
+const aboutHeroBg = '/assets/about.webp';
 
 function BlogCard({ post, index }) {
   const x = useMotionValue(0);
@@ -89,7 +79,7 @@ function BlogCard({ post, index }) {
             />
 
             <motion.img
-              src={imageMap[post.image] || post.image}
+              src={post.image}
               alt={post.title}
               className="w-full h-full object-cover"
               whileHover={{ scale: 1.15, rotate: 2 }}
@@ -146,13 +136,6 @@ function BlogCard({ post, index }) {
 
 const Blog = () => {
   useEffect(() => {
-    AOS.init({
-      duration: 1000,
-      once: false,
-      mirror: true,
-      offset: 120,
-      easing: 'ease-in-out',
-    });
     window.scrollTo(0, 0);
   }, []);
 

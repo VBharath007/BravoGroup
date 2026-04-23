@@ -1,13 +1,13 @@
-// Main campus image
-import ferganaCampusImage from '../assets/fergana.webp';
+// Main campus image from public/assets
+const ferganaCampusImage = '/assets/fergana.webp';
 
-// Fergana-specific images (currently using generic placeholders - replace with actual Fergana images)
-import ferganaLibraryImage from '../assets/uni6.webp'; // Replace with actual Fergana library image
-import ferganaLabImage from '../assets/uni7.webp'; // Replace with actual Fergana lab image
-import ferganaCampusLifeImage from '../assets/uni1.webp'; // Replace with actual Fergana campus life image
-import ferganaClassroomImage from '../assets/uni2.webp'; // Replace with actual Fergana classroom image
-import ferganaAnatomyLabImage from '../assets/uni3.webp'; // Replace with actual Fergana anatomy lab image
-import ferganaHostelImage from '../assets/uni4.webp'; // Replace with actual Fergana hostel image
+// Fergana-specific images (currently using generic placeholders)
+const ferganaLibraryImage = '/assets/uni6.webp';
+const ferganaLabImage = '/assets/uni7.webp';
+const ferganaCampusLifeImage = '/assets/uni1.webp';
+const ferganaClassroomImage = '/assets/uni2.webp';
+const ferganaAnatomyLabImage = '/assets/uni3.webp';
+const ferganaHostelImage = '/assets/uni4.webp';
 
 export const ferganaMedicalInstitute = {
   id: 5,

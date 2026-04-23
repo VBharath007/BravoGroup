@@ -2,37 +2,23 @@ import React, { useEffect, useCallback, useState, useMemo } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { SplineScene } from '../components/ui/spline';
 
-// Images
-import kyrgyzUni1 from '../assets/Kyrgyzstan.webp';
-import kyrgyzUni2 from '../assets/Kyrgyzstan 2.webp';
-import kyrgyzUni3 from '../assets/Kyrgyzstan 3.webp';
-import kyrgyzUni4 from '../assets/Kyrgyzstan 4.webp';
-import georgiaUni1 from '../assets/Georgia 1.webp';
-import georgiaUni2 from '../assets/georgia2.webp';
-import georgiaUni3 from '../assets/Georgia 3.webp';
-import georgiaUni4 from '../assets/Georgia 4.webp';
-import georgiaUni5 from '../assets/Georgia 5.webp';
-import russiaUni1 from '../assets/rasia 1.webp';
-import russiaUni2 from '../assets/rasia 2.webp';
-import russiaUni3 from '../assets/rasia 3.webp';
-import russiaUni4 from '../assets/rasia 4.webp';
-import russiaUni5 from '../assets/rasia 5.webp';
+// Assets are now served from the public/assets directory
 
 const universities = [
-  { id: 'osh-state-university', name: 'Osh State University - International Medical Faculty', image: kyrgyzUni1, badge: 'Premier Choice', badgeColor: 'from-blue-600 to-indigo-400', glowColor: 'rgba(37,99,235,0.3)', desc: 'One of the oldest and most popular universities in Kyrgyzstan, offering high-standard clinical training and a vibrant student life.', details: ['NMC & WHO Approved', 'Clinical focus', 'Affordable structure', 'Indian food available'], fees: '₹2.8 – 3.5L / yr', duration: '6 Years', country: 'Kyrgyzstan' },
-  { id: 'ihsm-bishkek', name: 'International Higher School of Medicine', image: kyrgyzUni2, badge: 'Elite Institution', badgeColor: 'from-cyan-500 to-blue-400', glowColor: 'rgba(6,182,212,0.3)', desc: 'Bishkek-based institution specialized in training international medical students with global standards.', details: ['Modern infrastructure', 'English medium', 'Experienced faculty', 'Safe environment'], fees: '₹3.2 – 3.8L / yr', duration: '6 Years', country: 'Kyrgyzstan' },
-  { id: 'jasu-kyrgyzstan', name: 'Jalal Abad State University', image: kyrgyzUni3, badge: 'Quality Education', badgeColor: 'from-purple-500 to-indigo-400', glowColor: 'rgba(168,85,247,0.3)', desc: 'Renowned for its practical approach and community-based medical programs.', details: ['Government approved', 'Low living costs', 'High FMGE success', 'Qualified staff'], fees: '₹2.5 – 3.2L / yr', duration: '6 Years', country: 'Kyrgyzstan' },
-  { id: 'jaiu-medical', name: 'Jalal Abad International University', image: kyrgyzUni4, badge: 'Global Perspective', badgeColor: 'from-emerald-500 to-teal-400', glowColor: 'rgba(16,185,129,0.3)', desc: 'A growing hub for medical education with emphasis on global research and diagnostic skills.', details: ['Interactive sessions', 'Advanced labs', 'Direct admission', 'WHO listed'], fees: '₹2.6 – 3.3L / yr', duration: '6 Years', country: 'Kyrgyzstan' },
-  { id: 'bau-batumi', name: 'BAU International University Batumi', image: georgiaUni1, badge: 'European Standard', badgeColor: 'from-amber-500 to-orange-400', glowColor: 'rgba(245,158,11,0.3)', desc: 'A state-of-the-art university in the coastal city of Batumi, providing global standard medical curricula.', details: ['ECTS compatible', 'USMLE prep support', 'Beachfront campus', 'Global faculty'], fees: '₹4.5 – 5.5L / yr', duration: '6 Years', country: 'Georgia' },
-  { id: 'caucasus-university', name: 'Caucasus University', image: georgiaUni2, badge: 'Top Ranked', badgeColor: 'from-rose-500 to-red-400', glowColor: 'rgba(244,63,94,0.3)', desc: 'One of the most prestigious multi-disciplinary universities in Georgia with a leading medical school.', details: ['Accredited by WFME', 'Modern diagnostic center', 'European exchange', 'Vibrant student life'], fees: '₹4.2 – 5.2L / yr', duration: '6 Years', country: 'Georgia' },
-  { id: 'avicenna-batumi', name: 'Avicenna Batumi Medical University', image: georgiaUni3, badge: 'Clinical Excellence', badgeColor: 'from-indigo-600 to-purple-400', glowColor: 'rgba(79,70,229,0.3)', desc: 'Focused on modern medical practice and clinical rotations in large hospitals.', details: ['Modern lab setup', 'Affordable luxury', 'English medium', 'Highly secure'], fees: '₹4.0 – 5.0L / yr', duration: '6 Years', country: 'Georgia' },
-  { id: 'seu-tbilisi', name: 'Georgian National University SEU', image: georgiaUni4, badge: 'Massive Campus', badgeColor: 'from-violet-500 to-fuchsia-400', glowColor: 'rgba(139,92,246,0.3)', desc: 'Features one of the most advanced medical campuses in Tbilisi with ultra-modern simulation centers.', details: ['Largest private campus', 'Robotic labs', 'International team', 'High pass rates'], fees: '₹4.3 – 5.4L / yr', duration: '6 Years', country: 'Georgia' },
-  { id: 'uga-georgia', name: 'The University of Georgia', image: georgiaUni5, badge: 'Pioneer Unit', badgeColor: 'from-blue-700 to-blue-500', glowColor: 'rgba(29,78,216,0.3)', desc: 'A leader in research and high-quality education in Tbilisi with global recognitions.', details: ['High NMC success', 'Premium hostels', 'Research oriented', 'Global alumni'], fees: '₹4.6 – 5.8L / yr', duration: '6 Years', country: 'Georgia' },
-  { id: 'kazan-federal', name: 'Kazan Federal University', image: russiaUni1, badge: 'Top 10 Russia', badgeColor: 'from-red-600 to-rose-400', glowColor: 'rgba(220,38,38,0.3)', desc: 'A legendary university with a rich history of scientific medical discoveries.', details: ['Federal status', 'Heritage buildings', 'Global research hub', 'Modern clinics'], fees: '₹4.0 – 5.0L / yr', duration: '6 Years', country: 'Russia' },
-  { id: 'pirogov-moscow', name: 'Pirogov Russian National Research Medical University', image: russiaUni2, badge: 'Research Giant', badgeColor: 'from-blue-600 to-indigo-400', glowColor: 'rgba(37,99,235,0.3)', desc: 'Moscow-based medical university focusing on high-end clinical and theoretical research.', details: ['Moscow location', 'Premier faculty', 'Clinical priority', 'Advanced biology'], fees: '₹5.5 – 7.0L / yr', duration: '6 Years', country: 'Russia' },
-  { id: 'bashkir-state', name: 'Bashkir State Medical University', image: russiaUni3, badge: 'Popular Choice', badgeColor: 'from-green-600 to-teal-400', glowColor: 'rgba(22,163,74,0.3)', desc: 'Ufa-based university renowned for its strong robotic surgery department and large student mess.', details: ['Robotic surgery', 'Indian mess available', 'Supportive faculty', 'Safe city'], fees: '₹3.5 – 4.2L / yr', duration: '6 Years', country: 'Russia' },
-  { id: 'tver-state', name: 'Tver State Medical University', image: russiaUni4, badge: 'Legacy Institution', badgeColor: 'from-purple-600 to-pink-400', glowColor: 'rgba(147,51,234,0.3)', desc: 'One of the oldest medical colleges in Russia with an excellent alumni network in India.', details: ['Strong alumni base', 'Classic pedagogy', 'Central location', 'Clinical expertise'], fees: '₹3.8 – 4.5L / yr', duration: '6 Years', country: 'Russia' },
-  { id: 'volgograd-state', name: 'Volgograd State Medical University', image: russiaUni5, badge: 'Heritage Campus', badgeColor: 'from-amber-600 to-yellow-400', glowColor: 'rgba(217,119,6,0.3)', desc: 'Consistently ranked among the top medical schools in Russia for international students.', details: ['Excellent clinics', 'Proven track record', 'Student centered', 'WHO recognized'], fees: '₹3.6 – 4.4L / yr', duration: '6 Years', country: 'Russia' },
+  { id: 'osh-state-university', name: 'Osh State University - International Medical Faculty', image: '/assets/Kyrgyzstan.webp', badge: 'Premier Choice', badgeColor: 'from-blue-600 to-indigo-400', glowColor: 'rgba(37,99,235,0.3)', desc: 'One of the oldest and most popular universities in Kyrgyzstan, offering high-standard clinical training and a vibrant student life.', details: ['NMC & WHO Approved', 'Clinical focus', 'Affordable structure', 'Indian food available'], fees: '₹2.8 – 3.5L / yr', duration: '6 Years', country: 'Kyrgyzstan' },
+  { id: 'ihsm-bishkek', name: 'International Higher School of Medicine', image: '/assets/Kyrgyzstan 2.webp', badge: 'Elite Institution', badgeColor: 'from-cyan-500 to-blue-400', glowColor: 'rgba(6,182,212,0.3)', desc: 'Bishkek-based institution specialized in training international medical students with global standards.', details: ['Modern infrastructure', 'English medium', 'Experienced faculty', 'Safe environment'], fees: '₹3.2 – 3.8L / yr', duration: '6 Years', country: 'Kyrgyzstan' },
+  { id: 'jasu-kyrgyzstan', name: 'Jalal Abad State University', image: '/assets/Kyrgyzstan 3.webp', badge: 'Quality Education', badgeColor: 'from-purple-500 to-indigo-400', glowColor: 'rgba(168,85,247,0.3)', desc: 'Renowned for its practical approach and community-based medical programs.', details: ['Government approved', 'Low living costs', 'High FMGE success', 'Qualified staff'], fees: '₹2.5 – 3.2L / yr', duration: '6 Years', country: 'Kyrgyzstan' },
+  { id: 'jaiu-medical', name: 'Jalal Abad International University', image: '/assets/Kyrgyzstan 4.webp', badge: 'Global Perspective', badgeColor: 'from-emerald-500 to-teal-400', glowColor: 'rgba(16,185,129,0.3)', desc: 'A growing hub for medical education with emphasis on global research and diagnostic skills.', details: ['Interactive sessions', 'Advanced labs', 'Direct admission', 'WHO listed'], fees: '₹2.6 – 3.3L / yr', duration: '6 Years', country: 'Kyrgyzstan' },
+  { id: 'bau-batumi', name: 'BAU International University Batumi', image: '/assets/Georgia 1.webp', badge: 'European Standard', badgeColor: 'from-amber-500 to-orange-400', glowColor: 'rgba(245,158,11,0.3)', desc: 'A state-of-the-art university in the coastal city of Batumi, providing global standard medical curricula.', details: ['ECTS compatible', 'USMLE prep support', 'Beachfront campus', 'Global faculty'], fees: '₹4.5 – 5.5L / yr', duration: '6 Years', country: 'Georgia' },
+  { id: 'caucasus-university', name: 'Caucasus University', image: '/assets/georgia2.webp', badge: 'Top Ranked', badgeColor: 'from-rose-500 to-red-400', glowColor: 'rgba(244,63,94,0.3)', desc: 'One of the most prestigious multi-disciplinary universities in Georgia with a leading medical school.', details: ['Accredited by WFME', 'Modern diagnostic center', 'European exchange', 'Vibrant student life'], fees: '₹4.2 – 5.2L / yr', duration: '6 Years', country: 'Georgia' },
+  { id: 'avicenna-batumi', name: 'Avicenna Batumi Medical University', image: '/assets/Georgia 3.webp', badge: 'Clinical Excellence', badgeColor: 'from-indigo-600 to-purple-400', glowColor: 'rgba(79,70,229,0.3)', desc: 'Focused on modern medical practice and clinical rotations in large hospitals.', details: ['Modern lab setup', 'Affordable luxury', 'English medium', 'Highly secure'], fees: '₹4.0 – 5.0L / yr', duration: '6 Years', country: 'Georgia' },
+  { id: 'seu-tbilisi', name: 'Georgian National University SEU', image: '/assets/Georgia 4.webp', badge: 'Massive Campus', badgeColor: 'from-violet-500 to-fuchsia-400', glowColor: 'rgba(139,92,246,0.3)', desc: 'Features one of the most advanced medical campuses in Tbilisi with ultra-modern simulation centers.', details: ['Largest private campus', 'Robotic labs', 'International team', 'High pass rates'], fees: '₹4.3 – 5.4L / yr', duration: '6 Years', country: 'Georgia' },
+  { id: 'uga-georgia', name: 'The University of Georgia', image: '/assets/Georgia 5.webp', badge: 'Pioneer Unit', badgeColor: 'from-blue-700 to-blue-500', glowColor: 'rgba(29,78,216,0.3)', desc: 'A leader in research and high-quality education in Tbilisi with global recognitions.', details: ['High NMC success', 'Premium hostels', 'Research oriented', 'Global alumni'], fees: '₹4.6 – 5.8L / yr', duration: '6 Years', country: 'Georgia' },
+  { id: 'kazan-federal', name: 'Kazan Federal University', image: '/assets/rasia 1.webp', badge: 'Top 10 Russia', badgeColor: 'from-red-600 to-rose-400', glowColor: 'rgba(220,38,38,0.3)', desc: 'A legendary university with a rich history of scientific medical discoveries.', details: ['Federal status', 'Heritage buildings', 'Global research hub', 'Modern clinics'], fees: '₹4.0 – 5.0L / yr', duration: '6 Years', country: 'Russia' },
+  { id: 'pirogov-moscow', name: 'Pirogov Russian National Research Medical University', image: '/assets/rasia 2.webp', badge: 'Research Giant', badgeColor: 'from-blue-600 to-indigo-400', glowColor: 'rgba(37,99,235,0.3)', desc: 'Moscow-based medical university focusing on high-end clinical and theoretical research.', details: ['Moscow location', 'Premier faculty', 'Clinical priority', 'Advanced biology'], fees: '₹5.5 – 7.0L / yr', duration: '6 Years', country: 'Russia' },
+  { id: 'bashkir-state', name: 'Bashkir State Medical University', image: '/assets/rasia 3.webp', badge: 'Popular Choice', badgeColor: 'from-green-600 to-teal-400', glowColor: 'rgba(22,163,74,0.3)', desc: 'Ufa-based university renowned for its strong robotic surgery department and large student mess.', details: ['Robotic surgery', 'Indian mess available', 'Supportive faculty', 'Safe city'], fees: '₹3.5 – 4.2L / yr', duration: '6 Years', country: 'Russia' },
+  { id: 'tver-state', name: 'Tver State Medical University', image: '/assets/rasia 4.webp', badge: 'Legacy Institution', badgeColor: 'from-purple-600 to-pink-400', glowColor: 'rgba(147,51,234,0.3)', desc: 'One of the oldest medical colleges in Russia with an excellent alumni network in India.', details: ['Strong alumni base', 'Classic pedagogy', 'Central location', 'Clinical expertise'], fees: '₹3.8 – 4.5L / yr', duration: '6 Years', country: 'Russia' },
+  { id: 'volgograd-state', name: 'Volgograd State Medical University', image: '/assets/rasia 5.webp', badge: 'Heritage Campus', badgeColor: 'from-amber-600 to-yellow-400', glowColor: 'rgba(217,119,6,0.3)', desc: 'Consistently ranked among the top medical schools in Russia for international students.', details: ['Excellent clinics', 'Proven track record', 'Student centered', 'WHO recognized'], fees: '₹3.6 – 4.4L / yr', duration: '6 Years', country: 'Russia' },
 ];
 
 const Universities = () => {
@@ -46,17 +32,24 @@ const Universities = () => {
     if (idToScroll) {
       const targetUni = universities.find(u => u.id === idToScroll);
       if (targetUni) setFilterCountry(targetUni.country);
-      requestAnimationFrame(() => {
+      const rafId = requestAnimationFrame(() => {
         const element = document.getElementById(idToScroll);
         if (element) {
           const y = element.getBoundingClientRect().top + window.pageYOffset - 80;
           window.scrollTo({ top: y, behavior: 'smooth' });
         }
       });
+      return rafId;
     }
+    return null;
   }, [location.pathname]);
 
-  useEffect(() => { handleScrollToSection(); }, [location.pathname, handleScrollToSection]);
+  useEffect(() => {
+    const rafId = handleScrollToSection();
+    return () => {
+      if (rafId) cancelAnimationFrame(rafId);
+    };
+  }, [location.pathname, handleScrollToSection]);
 
   const countries = useMemo(() => ['All', 'Kyrgyzstan', 'Georgia', 'Russia'], []);
   const filteredUniversities = useMemo(() =>
@@ -69,7 +62,7 @@ const Universities = () => {
       <section className="relative w-full h-screen flex items-center justify-center overflow-hidden bg-[#020c1b]" style={{ minHeight: '-webkit-fill-available', height: '100dvh', contain: 'layout style paint', transform: 'translateZ(0)' }}>
         <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden bg-[#020c1b]">
           <div className="w-full h-full opacity-30 md:opacity-100" style={{ transform: 'translateZ(0) scale(1.3)', willChange: 'transform' }}>
-            <SplineScene scene="https://prod.spline.design/GF44GSF0i-dPoyNP/scene.splinecode" className="w-full h-full" />
+            <SplineScene scene="/assets/universities.splinecode" className="w-full h-full" />
           </div>
         </div>
         <div className="absolute inset-0 z-10 pointer-events-none bg-gradient-to-r from-[#020c1b]/98 via-[#020c1b]/70 to-transparent" />

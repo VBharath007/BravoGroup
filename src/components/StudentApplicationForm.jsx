@@ -28,7 +28,7 @@ const StudentApplicationForm = ({ isOpen, onClose, universityName }) => {
     e.preventDefault();
     console.log('Form submitted:', formData);
     setSubmitted(true);
-    setTimeout(() => {
+    const timerId = setTimeout(() => {
       setSubmitted(false);
       onClose();
       setFormData({
@@ -43,6 +43,7 @@ const StudentApplicationForm = ({ isOpen, onClose, universityName }) => {
         message: ''
       });
     }, 2000);
+    return () => clearTimeout(timerId);
   };
 
   if (!isOpen) return null;

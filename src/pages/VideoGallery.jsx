@@ -69,7 +69,7 @@ export default function VideoGallery() {
   const [activeVideo, setActiveVideo] = useState(null);
 
   useEffect(() => {
-    AOS.init({ duration: 1000, once: true });
+    // AOS initialized globally
     window.scrollTo(0, 0);
   }, []);
 

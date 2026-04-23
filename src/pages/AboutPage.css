@@ -56,7 +56,7 @@
 
 .hero-top-banner {
   background: linear-gradient(rgba(0, 51, 102, 0.4), rgba(0, 51, 102, 0.4)),
-    url('../assets/aboutHeroBg.webp');
+    url('/assets/aboutHeroBg.webp');
   background-size: cover;
   background-position: center;
   padding: 100px 0;
@@ -457,7 +457,7 @@
 
 .stats-bar-blue {
   background: linear-gradient(rgba(47, 77, 255, 0.9), rgba(47, 77, 255, 0.9)),
-    url('../assets/help-bg.webp');
+    url('/assets/help-bg.webp');
   background-size: cover;
   background-position: center;
   padding: 60px 0;
@@ -985,21 +985,4 @@
   .hero-main-title {
     font-size: 1.6rem;
   }
-}
-
-/* GPU Performance */
-.about-page {
-  transform: translateZ(0);
-  will-change: scroll-position;
-}
-
-.about-page section {
-  transform: translateZ(0);
-  contain: layout style paint;
-  backface-visibility: hidden;
-}
-
-.stat-pill {
-  transform: translateZ(0);
-  will-change: transform;
 }

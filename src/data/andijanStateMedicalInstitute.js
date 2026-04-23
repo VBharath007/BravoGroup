@@ -1,13 +1,13 @@
-// Main campus image
-import andijanCampusImage from '../assets/Andijan-State-Medical-University.webp';
+// Main campus image from public/assets
+const andijanCampusImage = '/assets/Andijan-State-Medical-University.webp';
 
-// Andijan-specific images (currently using generic placeholders - replace with actual Andijan images)
-import andijanLibraryImage from '../assets/uni3.webp'; // Replace with actual Andijan library image
-import andijanLabImage from '../assets/uni4.webp'; // Replace with actual Andijan lab image
-import andijanCampusLifeImage from '../assets/uni5.webp'; // Replace with actual Andijan campus life image
-import andijanClassroomImage from '../assets/uni6.webp'; // Replace with actual Andijan classroom image
-import andijanAnatomyLabImage from '../assets/uni7.webp'; // Replace with actual Andijan anatomy lab image
-import andijanHostelImage from '../assets/uni1.webp'; // Replace with actual Andijan hostel image
+// Andijan-specific images (currently using generic placeholders)
+const andijanLibraryImage = '/assets/uni3.webp';
+const andijanLabImage = '/assets/uni4.webp';
+const andijanCampusLifeImage = '/assets/uni5.webp';
+const andijanClassroomImage = '/assets/uni6.webp';
+const andijanAnatomyLabImage = '/assets/uni7.webp';
+const andijanHostelImage = '/assets/uni1.webp';
 
 export const andijanStateMedicalInstitute = {
   id: 4,

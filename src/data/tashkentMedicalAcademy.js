@@ -1,14 +1,14 @@
-// Main campus image
-import tashkentCampusImage from '../assets/TASHKENT-MEDICAL-ACADEMY.webp';
+// Main campus image from public/assets
+const tashkentCampusImage = '/assets/TASHKENT-MEDICAL-ACADEMY.webp';
 
-// Tashkent-specific images (currently using generic placeholders - replace with actual Tashkent images)
-import tashkentLibraryImage from '../assets/uni1.webp'; // Replace with actual Tashkent library image
-import tashkentLabImage from '../assets/uni2.webp'; // Replace with actual Tashkent lab image
-import tashkentCampusLifeImage from '../assets/uni3.webp'; // Replace with actual Tashkent campus life image
-import tashkentClassroomImage from '../assets/uni4.webp'; // Replace with actual Tashkent classroom image
-import tashkentAnatomyLabImage from '../assets/uni5.webp'; // Replace with actual Tashkent anatomy lab image
-import tashkentDigitalLabImage from '../assets/uni6.webp'; // Replace with actual Tashkent digital lab image
-import tashkentHostelImage from '../assets/uni7.webp'; // Replace with actual Tashkent hostel image
+// Tashkent-specific images (currently using generic placeholders)
+const tashkentLibraryImage = '/assets/uni1.webp';
+const tashkentLabImage = '/assets/uni2.webp';
+const tashkentCampusLifeImage = '/assets/uni3.webp';
+const tashkentClassroomImage = '/assets/uni4.webp';
+const tashkentAnatomyLabImage = '/assets/uni5.webp';
+const tashkentDigitalLabImage = '/assets/uni6.webp';
+const tashkentHostelImage = '/assets/uni7.webp';
 
 export const tashkentMedicalAcademy = {
   id: 1,

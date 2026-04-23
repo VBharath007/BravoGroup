@@ -1,5 +1,5 @@
 import './Footer.css';
-import logo from '../assets/bgremovedlogo-small.webp';
+const logo = '/assets/bgremovedlogo-small.webp';
 import { Link } from 'react-router-dom';
 import {
   uzbekistanRegions

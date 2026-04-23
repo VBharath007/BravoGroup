@@ -7,18 +7,9 @@ import LazyImage from '../components/Lazyimage';
 // Using centralized data
 import { blogPosts } from '../data/blogData';
 
-// Image assets mapping
-import logo from '../assets/bgremovedlogo.webp';
-import uni1 from '../assets/uni1.webp';
-import uni2 from '../assets/uni2.webp';
-import uni3 from '../assets/uni3.webp';
-import aboutHeroBg from '../assets/about.webp';
-
-const imageMap = {
-  "/assets/uni1.webp": uni1,
-  "/assets/uni2.webp": uni2,
-  "/assets/uni3.webp": uni3,
-};
+// Assets are now served from the public/assets directory
+const logo = '/assets/bgremovedlogo.webp';
+const aboutHeroBg = '/assets/about.webp';
 
 const BlogPost = () => {
   const navigate = useNavigate();
@@ -26,7 +17,6 @@ const BlogPost = () => {
   const [post, setPost] = useState(null);
 
   useEffect(() => {
-    AOS.init({ duration: 1000, once: true });
     window.scrollTo(0, 0);
 
     const foundPost = blogPosts.find((p) => p.slug === slug);
@@ -71,7 +61,7 @@ const BlogPost = () => {
             {/* Main Column */}
             <div className="lg:flex-[2]" data-aos="fade-right">
               <div className="relative rounded-[15px] overflow-hidden mb-5 bg-white shadow-sm">
-                <LazyImage src={imageMap[post.image] || post.image} alt={post.title} className="w-full h-[300px] lg:h-[380px] object-cover" />
+                <LazyImage src={post.image} alt={post.title} className="w-full h-[300px] lg:h-[380px] object-cover" />
                 <div className="absolute top-[15px] left-[15px] bg-white/90 p-[8px_12px] rounded-lg z-[2] flex items-center justify-center shadow-md">
                   <LazyImage src={logo} alt="bravogroup Logo" className="h-[50px] w-[50px] object-contain" />
                 </div>

@@ -13,11 +13,12 @@ import { Stethoscope, Microscope, FlaskConical, Globe2, GraduationCap, BookOpen,
 import AdmissionProtocol from '../../components/ui/AdmissionProtocol';
 import LazyImage from '../../components/Lazyimage';
 
-import bgImg from '../../assets/TASHKENT-MEDICAL-ACADEMY.webp';
-import cityImg from '../../assets/takshnet5.webp';
-import campusImg from '../../assets/takshnet1.webp';
-import campus2 from '../../assets/takshnet2.webp'
-import campus3 from '../../assets/tashkent_city.webp'
+// Assets are now served from the public/assets directory
+const bgImg = '/assets/TASHKENT-MEDICAL-ACADEMY.webp';
+const cityImg = '/assets/takshnet5.webp';
+const campusImg = '/assets/takshnet1.webp';
+const campus2 = '/assets/takshnet2.webp';
+const campus3 = '/assets/tashkent_city.webp';
 
 
 import Footer from '../../components/Footer';
@@ -78,7 +79,7 @@ const TashkentMedicalAcademy = () => {
   const heroRef = useRef();
 
   useEffect(() => {
-    AOS.init({ duration: 900, once: true, easing: 'ease-out-cubic' });
+    // AOS initialized globally
     window.scrollTo(0, 0);
   }, []);
 

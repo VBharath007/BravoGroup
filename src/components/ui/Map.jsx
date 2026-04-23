@@ -3,7 +3,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 
-import countryMap from "../../assets/mobile_hero_bg_2.webp";
+const countryMap = "/assets/mobile_hero_bg_2.webp";
 
 /**
  * PURE CINEMATIC MAP

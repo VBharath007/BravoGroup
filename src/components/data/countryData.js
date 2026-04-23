@@ -1,11 +1,12 @@
-import russiaImg from '../../assets/russia_landmark.webp';
-import georgiaImg from '../../assets/georgia_landmark.webp';
-import kyrgyzstanImg from '../../assets/kyrgyzstan_landmark.webp';
-import kazakhstanImg from '../../assets/kazakhstan_landmark.webp';
-import philippinesImg from '../../assets/philippines_landmark.webp';
-import vietnamImg from '../../assets/vietnam_landmark.webp';
-import tajikistanImg from '../../assets/tajikistan_landmark.webp';
-import uzbekistanImg from '../../assets/uzbekistan_mbbs_hero.webp';
+// Assets are now served from the public/assets directory
+const russiaImg = '/assets/russia_landmark.webp';
+const georgiaImg = '/assets/georgia_landmark.webp';
+const kyrgyzstanImg = '/assets/kyrgyzstan_landmark.webp';
+const kazakhstanImg = '/assets/kazakhstan_landmark.webp';
+const philippinesImg = '/assets/philippines_landmark.webp';
+const vietnamImg = '/assets/vietnam_landmark.webp';
+const tajikistanImg = '/assets/tajikistan_landmark.webp';
+const uzbekistanImg = '/assets/uzbekistan_mbbs_hero.webp';
 
 export const countryData = {
     russia: {

@@ -6,15 +6,17 @@ import { SplineScene } from '../components/ui/spline';
 import LazyImage from '../components/Lazyimage';
 
 
+
 /* flag images */
-import uzbekFlag from '../assets/uzbekistan.webp';
-import russiaFlag from '../assets/russia.webp';
-import georgiaFlag from '../assets/georgia.webp';
-import kyrgyzFlag from '../assets/krygyzstan.webp';
-import kazakhFlag from '../assets/kazakhstan.webp';
-import philFlag from '../assets/philipines.webp';
-import vietnamFlag from '../assets/viatnam.webp';
-import tajikFlag from '../assets/tajikistan.webp';
+/* flag images from public/assets */
+const uzbekFlag = '/assets/uzbekistan.webp';
+const russiaFlag = '/assets/russia.webp';
+const georgiaFlag = '/assets/georgia.webp';
+const kyrgyzFlag = '/assets/krygyzstan.webp';
+const kazakhFlag = '/assets/kazakhstan.webp';
+const philFlag = '/assets/philipines.webp';
+const vietnamFlag = '/assets/viatnam.webp';
+const tajikFlag = '/assets/tajikistan.webp';
 
 /* ─── per-country accent palette ──────────────────────────────── */
 const ACCENTS = {
@@ -105,7 +107,7 @@ const Countries = () => {
 
     /* Reusable scroll function with navbar offset */
     const scrollToDetails = () => {
-        setTimeout(() => {
+        return setTimeout(() => {
             const section = document.getElementById('expert-insights');
             if (section) {
                 const navbarHeight = 116; // 36px topbar + 80px nav
@@ -124,10 +126,14 @@ const Countries = () => {
     /* sync hash URL */
     useEffect(() => {
         const hash = location.hash.replace('#', '').toLowerCase();
+        let timer;
         if (hash && countryData[hash]) {
             setActiveId(hash);
-            scrollToDetails();
+            timer = scrollToDetails();
         }
+        return () => {
+            if (timer) clearTimeout(timer);
+        };
     }, [location.hash]);
 
     const activeCountry = countryData[activeId];
@@ -174,7 +180,7 @@ const Countries = () => {
                 >
                     <div className="w-full h-full scale-[2.2] md:scale-100">
                         <SplineScene
-                            scene="https://prod.spline.design/JlHMWbA1rJjCRcHW/scene.splinecode"
+                            scene="/assets/earth.splinecode"
                             className="w-full h-full"
                         />
                     </div>

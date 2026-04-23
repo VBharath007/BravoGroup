@@ -1,13 +1,13 @@
-// Main campus image
-import samarkandCampusImage from '../assets/samarkand-college.webp';
+// Main campus image from public/assets
+const samarkandCampusImage = '/assets/samarkand-college.webp';
 
-// Samarkand-specific images (currently using generic placeholders - replace with actual Samarkand images)
-import samarkandLibraryImage from '../assets/uni4.webp'; // Replace with actual Samarkand library image
-import samarkandResearchLabImage from '../assets/uni5.webp'; // Replace with actual Samarkand research lab image
-import samarkandCampusLifeImage from '../assets/uni6.webp'; // Replace with actual Samarkand campus life image
-import samarkandHeritageHallImage from '../assets/uni3.webp'; // Replace with actual Samarkand heritage hall image
-import samarkandAdvancedLabImage from '../assets/uni4.webp'; // Replace with actual Samarkand advanced lab image
-import samarkandHostelImage from '../assets/uni7.webp'; // Replace with actual Samarkand hostel image
+// Samarkand-specific images (currently using generic placeholders)
+const samarkandLibraryImage = '/assets/uni4.webp';
+const samarkandResearchLabImage = '/assets/uni5.webp';
+const samarkandCampusLifeImage = '/assets/uni6.webp';
+const samarkandHeritageHallImage = '/assets/uni3.webp';
+const samarkandAdvancedLabImage = '/assets/uni4.webp';
+const samarkandHostelImage = '/assets/uni7.webp';
 
 export const samarkandStateMedicalUniversity = {
   id: 2,

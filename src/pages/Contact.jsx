@@ -61,7 +61,8 @@ const Contact = () => {
       `*Query:* ${query}`;
     window.open(`https://wa.me/918838071494?text=${message}`, '_blank');
     setSubmitted(true);
-    setTimeout(() => setSubmitted(false), 4000);
+    const timerId = setTimeout(() => setSubmitted(false), 4000);
+    return () => clearTimeout(timerId);
   };
 
   return (

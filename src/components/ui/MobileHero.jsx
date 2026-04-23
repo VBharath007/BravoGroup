@@ -1,6 +1,6 @@
 import React from 'react';
 import './MobileHero.css';
-import heroImg from '../../assets/uzbekistan_mbbs_hero.webp';
+const heroImg = '/assets/uzbekistan_mbbs_hero.webp';
 
 import { useNavigate } from 'react-router-dom';
 

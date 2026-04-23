@@ -73,7 +73,7 @@ export default function Testimonials() {
   const listRef = useRef(null);
 
   useEffect(() => {
-    AOS.init({ duration: 1000, once: true });
+    // AOS initialized globally
     window.scrollTo(0, 0);
 
     let ctx = gsap.context(() => {

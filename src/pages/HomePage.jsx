@@ -12,43 +12,44 @@ import './HomePage.css';
 import HorizonHeroSection from '../components/ui/horizon-hero-section.tsx';
 import LazyImage from '../components/Lazyimage';
 
-import uni1 from '../assets/TASHKENT-MEDICAL-ACADEMY.webp';
-import uni2 from '../assets/samarkand-college.webp';
-import uni3 from '../assets/BUKHARA-STATE-MEDICAL-UNIVERSITY.webp';
-import uni4 from '../assets/andijan1.webp';
-import uni5 from '../assets/fergana.webp';
+// Assets are now served from the public/assets directory
+const uni1 = '/assets/TASHKENT-MEDICAL-ACADEMY.webp';
+const uni2 = '/assets/samarkand-college.webp';
+const uni3 = '/assets/BUKHARA-STATE-MEDICAL-UNIVERSITY.webp';
+const uni4 = '/assets/andijan1.webp';
+const uni5 = '/assets/fergana.webp';
 
-import aboutVideo from '../assets/aboutvideo1.mp4';
-import g1 from '../assets/stud1.webp';
-import g2 from '../assets/stud2.webp';
-import g3 from '../assets/stud3.webp';
+const aboutVideo = '/assets/aboutvideo1.mp4';
+const g1 = '/assets/stud1.webp';
+const g2 = '/assets/stud2.webp';
+const g3 = '/assets/stud3.webp';
 
-import pUni1 from '../assets/Kyrgyzstan.webp';
-import pUni2 from '../assets/Kyrgyzstan 2.webp';
-import pUni3 from '../assets/Kyrgyzstan 3.webp';
-import pUni4 from '../assets/Kyrgyzstan 4.webp';
-import pUni5 from '../assets/Georgia 1.webp';
-import pUni6 from '../assets/georgia2.webp';
-import pUni7 from '../assets/Georgia 3.webp';
-import wUni1 from '../assets/Georgia 4.webp';
-import wUni2 from '../assets/Georgia 5.webp';
-import wUni3 from '../assets/rasia 1.webp';
-import wUni4 from '../assets/rasia 2.webp';
-import wUni5 from '../assets/rasia 3.webp';
-import wUni6 from '../assets/rasia 4.webp';
-import wUni7 from '../assets/rasia 5.webp';
+const pUni1 = '/assets/Kyrgyzstan.webp';
+const pUni2 = '/assets/Kyrgyzstan 2.webp';
+const pUni3 = '/assets/Kyrgyzstan 3.webp';
+const pUni4 = '/assets/Kyrgyzstan 4.webp';
+const pUni5 = '/assets/Georgia 1.webp';
+const pUni6 = '/assets/georgia2.webp';
+const pUni7 = '/assets/Georgia 3.webp';
+const wUni1 = '/assets/Georgia 4.webp';
+const wUni2 = '/assets/Georgia 5.webp';
+const wUni3 = '/assets/rasia 1.webp';
+const wUni4 = '/assets/rasia 2.webp';
+const wUni5 = '/assets/rasia 3.webp';
+const wUni6 = '/assets/rasia 4.webp';
+const wUni7 = '/assets/rasia 5.webp';
 
-import img1 from "../assets/1 (1).webp"
-import img2 from "../assets/1 (2).webp"
-import img3 from "../assets/1 (3).webp"
-import img4 from "../assets/1 (4).webp"
-import img5 from "../assets/1 (5).webp"
-import img6 from "../assets/1 (6).webp"
-import img7 from "../assets/1 (7).webp"
-import img8 from "../assets/1 (8).webp"
-import img9 from "../assets/1 (9).webp"
-import img10 from "../assets/1 (10).webp"
-import img11 from "../assets/1 (11).webp"
+const img1 = "/assets/1 (1).webp";
+const img2 = "/assets/1 (2).webp";
+const img3 = "/assets/1 (3).webp";
+const img4 = "/assets/1 (4).webp";
+const img5 = "/assets/1 (5).webp";
+const img6 = "/assets/1 (6).webp";
+const img7 = "/assets/1 (7).webp";
+const img8 = "/assets/1 (8).webp";
+const img9 = "/assets/1 (9).webp";
+const img10 = "/assets/1 (10).webp";
+const img11 = "/assets/1 (11).webp";
 
 
 
@@ -191,13 +192,12 @@ const cardGpuStyle = {
   transform: 'translateZ(0)',
   contain: 'layout style paint',
   willChange: 'transform',
-  backfaceVisibility: 'hidden'
+  backfaceVisibility: 'hidden',
+  transition: 'all 0.2s cubic-bezier(0.4, 0, 0.2, 1)'
 };
 
 const sectionGpuStyle = {
-  transform: 'translateZ(0)',
-  willChange: 'scroll-position',
-  backfaceVisibility: 'hidden',
+  ...gpuStyle,
   contain: 'layout style paint'
 };
 
@@ -223,7 +223,7 @@ function VideoCard({ video, idx, onClick }) {
   }, []);
 
   return (
-    <div ref={cardRef} className="video-card" style={cardGpuStyle}>
+    <div ref={cardRef} className="video-card">
       {/* Shimmer sweep at top */}
       <div className="video-card-shine" />
 
@@ -273,23 +273,17 @@ function UniversityCard({ data, index, onUniClick }) {
   const x = useMotionValue(0);
   const y = useMotionValue(0);
 
-  const mouseXSpring = useSpring(x);
-  const mouseYSpring = useSpring(y);
+  const mouseXSpring = useSpring(x, { stiffness: 150, damping: 20 });
+  const mouseYSpring = useSpring(y, { stiffness: 150, damping: 20 });
 
-  const rotateX = useTransform(mouseYSpring, [-0.5, 0.5], ["10deg", "-10deg"]);
-  const rotateY = useTransform(mouseXSpring, [-0.5, 0.5], ["-10deg", "10deg"]);
+  const rotateX = useTransform(mouseYSpring, [-0.5, 0.5], ["12deg", "-12deg"]);
+  const rotateY = useTransform(mouseXSpring, [-0.5, 0.5], ["-12deg", "12deg"]);
 
   const handleMouseMove = (e) => {
-    if (window.innerWidth < 1024) return; // Disable for mobile/tablet
+    if (window.innerWidth < 1024) return; 
     const rect = e.currentTarget.getBoundingClientRect();
-    const width = rect.width;
-    const height = rect.height;
-    const mouseX = e.clientX - rect.left;
-    const mouseY = e.clientY - rect.top;
-    const xPct = mouseX / width - 0.5;
-    const yPct = mouseY / height - 0.5;
-    x.set(xPct);
-    y.set(yPct);
+    x.set((e.clientX - rect.left) / rect.width - 0.5);
+    y.set((e.clientY - rect.top) / rect.height - 0.5);
   };
 
   const handleMouseLeave = () => {
@@ -299,133 +293,83 @@ function UniversityCard({ data, index, onUniClick }) {
 
   return (
     <motion.div
-      className="dest-card cursor-pointer group relative overflow-hidden rounded-[28px] border border-white/10 bg-white/5 backdrop-blur-xl transition-all duration-500 hover:border-white/20 gpu-boost"
+      className="dest-card group"
       style={{
         rotateX: window.innerWidth >= 1024 ? rotateX : 0,
         rotateY: window.innerWidth >= 1024 ? rotateY : 0,
         transformStyle: "preserve-3d",
-        ...cardGpuStyle
       }}
-      initial={{ opacity: 0, y: 30 }}
+      initial={{ opacity: 0, y: 40 }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-50px" }}
-      transition={{
-        duration: 0.7,
-        delay: index * 0.1,
-        ease: [0.22, 1, 0.36, 1]
-      }}
+      viewport={{ once: true, margin: "-10%" }}
+      transition={{ duration: 0.8, delay: index * 0.1, ease: [0.16, 1, 0.3, 1] }}
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
       onClick={() => onUniClick(data.id)}
     >
-      {/* Dynamic Theme Background — Using Inline Style for guaranteed visibility */}
-      <div
-        className="absolute inset-0 z-0 opacity-40 transition-opacity duration-500 group-hover:opacity-70"
-        style={{ background: data.theme }}
-      />
-
-      {/* Main Container with Z-Depth */}
-      <div
-        style={{ transform: "translateZ(50px)", transformStyle: "preserve-3d" }}
-        className="relative z-10"
-      >
-        <div className="dest-image-container mb-0 rounded-b-none">
-          <motion.img
-            src={data.image}
-            alt={data.name}
-            className="dest-img"
-            whileHover={{ scale: 1.1, rotate: 1 }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
-          />
-          <div className="dest-overlay-glass"></div>
-
-          {/* Shimmer Flare */}
-          <motion.div
-            className="dest-card-flare"
-            initial={{ left: '-150%', top: '-150%' }}
-            whileHover={{ left: '150%', top: '150%' }}
-            transition={{ duration: 1.4, ease: "easeInOut" }}
-          />
+      <div className="absolute inset-0 z-0 opacity-40 group-hover:opacity-60 transition-opacity duration-700" style={{ background: data.theme }} />
+      
+      <div className="relative z-10 h-full flex flex-col" style={{ transform: "translateZ(40px)", transformStyle: "preserve-3d" }}>
+        <div className="dest-image-container">
+          <motion.img src={data.image} alt={data.name} className="dest-img" whileHover={{ scale: 1.15 }} transition={{ duration: 0.9 }} />
+          <div className="dest-overlay-glass" />
         </div>
 
-        <div className="dest-card-content relative border-t-0 bg-transparent" style={{ transform: "translateZ(30px)" }}>
+        <div className="dest-card-content flex-grow flex flex-col p-6 lg:p-8" style={{ transform: "translateZ(20px)" }}>
           <div className="flex justify-between items-start mb-4">
-            <h3 className="dest-name m-0 text-white group-hover:text-blue-200 transition-colors">
+            <h3 className="dest-name text-lg lg:text-xl font-bold text-white leading-snug group-hover:text-blue-300 transition-colors">
               {data.name}
             </h3>
-            <span className="text-[0.65rem] font-bold text-white/30 tracking-widest uppercase">
+            <span className="text-[10px] font-black text-white/20 tracking-tighter opacity-0 group-hover:opacity-100 transition-opacity">
               {`0${index + 1}`}
             </span>
           </div>
 
-          <p className="dest-sub text-white/70 line-clamp-3 group-hover:text-white/90 transition-colors">
+          <p className="dest-sub text-sm text-white/60 line-clamp-3 mb-6">
             {data.sub}
           </p>
 
-          <div className="dest-footer border-white/10 pt-4 mt-4">
-            <Button
-              variant="ghost"
-              className="px-0 hover:bg-transparent text-white/80 hover:text-white hover:translate-x-1 transition-all"
-              onClick={(e) => {
-                e.stopPropagation();
-                onUniClick(data.id);
-              }}
-            >
-              View Details
-              <span className="ml-2 text-lg">→</span>
-            </Button>
+          <div className="mt-auto pt-4 border-t border-white/10 flex items-center gap-2 text-white/80 group-hover:text-white transition-colors">
+            <span className="text-sm font-bold uppercase letter-spacing-wide">Explore University</span>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" className="group-hover:translate-x-2 transition-transform">
+              <path d="M5 12h14m-7-7l7 7-7 7" />
+            </svg>
           </div>
         </div>
       </div>
-
-      {/* Subtle Bottom Glow Overlay */}
-      <div className="absolute -bottom-12 -left-12 h-64 w-64 rounded-full blur-[80px] opacity-0 transition-opacity duration-700 group-hover:opacity-30 pointer-events-none bg-blue-400" />
     </motion.div>
   );
 }
 
-// ─── UniversitySection — Staggered Layout for Countries ───────────────────────
-function UniversitySection({ tag, title, unis, onUniClick, className }) {
+// ─── UniversitySection — Optimized Layout ───────────────────────
+function UniversitySection({ tag, title, unis, onUniClick, className, style }) {
   const scrollRef = useRef(null);
 
   return (
-    <section className={`section destinations ${className || ""}`} style={{ paddingTop: '6rem', paddingBottom: '6rem', transform: 'translateZ(0)', contain: 'layout style paint' }}>
+    <section className={`section destinations ${className || ""}`} style={style}>
       <div className="container">
-        <motion.div
+        <motion.header 
           className="dest-header"
-          initial={{ opacity: 0, x: -40, filter: "blur(10px)" }}
-          whileInView={{ opacity: 1, x: 0, filter: "blur(0px)" }}
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.8, ease: "easeOut" }}
         >
           <div className="section-tag">{tag}</div>
           <h2 className="section-title">{title}</h2>
-        </motion.div>
+        </motion.header>
 
-        {/* Ultra Smooth Horizontal Scroll Wrapper for Mobile */}
         <div className="dest-scroll-wrapper" ref={scrollRef}>
-          <div className="dest-grid" style={{ transform: "translateZ(0)", contain: "layout" }}>
+          <div className="dest-grid">
             {unis.map((uni, idx) => (
-              <UniversityCard
-                key={uni.id}
-                data={uni}
-                index={idx}
-                onUniClick={onUniClick}
-              />
+              <UniversityCard key={uni.id} data={uni} index={idx} onUniClick={onUniClick} />
             ))}
           </div>
         </div>
 
-        {/* Mobile Scroll Hint */}
         <div className="dest-scroll-hint mobile-only">
-          <span className="scroll-hint-text">Swipe for more</span>
+          <span className="scroll-hint-text">Slide to discover</span>
           <div className="scroll-hint-bar">
-            <motion.div
-              className="scroll-hint-progress"
-              initial={{ scaleX: 0 }}
-              whileInView={{ scaleX: 1 }}
-              transition={{ duration: 1.5 }}
-            />
+            <motion.div className="scroll-hint-progress" initial={{ scaleX: 0 }} whileInView={{ scaleX: 1 }} transition={{ duration: 2, ease: "easeInOut" }} />
           </div>
         </div>
       </div>
@@ -456,16 +400,7 @@ export default function HomePage() {
   }, []);
 
   useEffect(() => {
-    // ── INITIALIZE AOS ──
-    AOS.init({
-      duration: 800,
-      once: false,
-      mirror: true,
-      offset: 120,
-      easing: 'ease-out-cubic',
-      throttleDelay: 99,
-      debounceDelay: 50
-    });
+    // AOS is initialized globally in App.jsx
 
     // ── STICKY PANEL & STAGGER ANIMATION (GSAP ScrollTrigger) ──
     let ctx = gsap.context(() => {
@@ -512,7 +447,7 @@ export default function HomePage() {
   }, []);
 
   return (
-    <div style={gpuStyle}>
+    <>
 
       {/* ── HERO SECTIONS ── */}
       {isMobile ? (
@@ -576,7 +511,7 @@ export default function HomePage() {
       </section>
 
       {/* ── WHY CHOOSE US ── */}
-      <section className="section why-new" style={sectionGpuStyle}>
+      <section className="section why-new">
         <div className="container">
           <div className="why-new-header" data-aos="fade-up">
             <h2 className="section-h2">The Bravo Groups Overseas Advantage</h2>
@@ -641,7 +576,7 @@ export default function HomePage() {
       />
 
       {/* ── WHAT WE HELP YOU WITH ── */}
-      <section className="section help-you" style={sectionGpuStyle}>
+      <section className="section help-you">
         <div className="help-bg-blob help-blob-1 gpu-boost" />
         <div className="help-bg-blob help-blob-2 gpu-boost" />
         <div className="help-bg-grid" />
@@ -754,7 +689,7 @@ export default function HomePage() {
 
           {/* Row 1 — scrolls left */}
           <div className="carousel-row left">
-            <div className="carousel-track" style={{ transform: "translate3d(0,0,0)", willChange: "transform" }}>
+            <div className="carousel-track">
               {[...galleryPhotos, ...galleryPhotos].map((photo, idx) => (
                 <div className="carousel-item" key={`r1-${idx}`}>
                   <LazyImage src={photo.url} alt={`Gallery moment ${photo.id}`} loading="lazy" />
@@ -765,7 +700,7 @@ export default function HomePage() {
 
           {/* Row 2 — scrolls right */}
           <div className="carousel-row right">
-            <div className="carousel-track" style={{ transform: "translate3d(0,0,0)", willChange: "transform" }}>
+            <div className="carousel-track">
               {[...galleryPhotos, ...galleryPhotos].map((photo, idx) => (
                 <div className="carousel-item" key={`r2-${idx}`}>
                   <LazyImage src={photo.url} alt={`Gallery moment ${photo.id}`} loading="lazy" />
@@ -821,7 +756,7 @@ export default function HomePage() {
         </div>
 
         {/* ── Video Grid ── */}
-        <div className="video-grid" style={{ transform: "translateZ(0)", contain: "layout" }}>
+        <div className="video-grid">
           {galleryVideos && galleryVideos.length > 0 ? (
             galleryVideos.map((video, idx) => (
               <VideoCard key={video.id} video={video} idx={idx} onClick={setActiveVideo} />
@@ -888,7 +823,7 @@ export default function HomePage() {
           </div>
 
           {/* Testimonial Grid */}
-          <div className="testimonials-grid" style={{ transform: "translateZ(0)", contain: "layout" }}>
+          <div className="testimonials-grid" >
 
             {/* Card 1 - Video */}
             <div className="testimonial-card video-card" data-aos="fade-up" data-aos-delay="0" style={cardGpuStyle}>
@@ -1026,13 +961,13 @@ export default function HomePage() {
 
 
       {/* ── BLOG SECTION ── */}
-      <section className="section blogs" style={sectionGpuStyle}>
+      <section className="section blogs">
         <div className="container">
           <div className="blog-section-header">
             <h2 className="section-title">Latest Medical Education Blogs</h2>
             <div className="gold-line" />
           </div>
-          <div className="blog-grid" data-aos="fade-up" style={{ transform: "translateZ(0)", contain: "layout" }}>
+          <div className="blog-grid" data-aos="fade-up">
 
             {blogs.map((b, idx) => (
               <Link
@@ -1072,6 +1007,6 @@ export default function HomePage() {
 
 
 
-    </div>
+    </>
   );
 }

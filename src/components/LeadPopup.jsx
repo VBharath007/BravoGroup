@@ -1,10 +1,9 @@
 import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { useLocation } from 'react-router-dom';
-import logo from '../assets/bgremovedlogo-small.webp';
 import './LeadPopup.css';
-
-// Lazy load images
-const bgMap = new URL('../assets/bg-map.webp', import.meta.url).href;
+// Assets are now served from the public/assets directory
+const logo = '/assets/bgremovedlogo-small.webp';
+const bgMap = '/assets/bg-map.webp';
 
 // Reduce particles for better performance
 const PARTICLES = Array.from({ length: 8 }, (_, i) => ({
@@ -125,7 +124,8 @@ const LeadPopup = () => {
       `I'm interested in MBBS counseling. Please guide me.`;
     window.open(`https://wa.me/918838071494?text=${msg}`, '_blank');
     setSubmitted(true);
-    setTimeout(close, 2200);
+    if (timerRef.current) clearTimeout(timerRef.current);
+    timerRef.current = setTimeout(close, 2200);
   }, [formData, close]);
 
   if (phase === 'hidden') return null;
@@ -134,11 +134,11 @@ const LeadPopup = () => {
   const boxClass = `lp-box ${phase === 'visible' ? 'lp-box--in' : ''} ${phase === 'leaving' ? 'lp-box--out' : ''}`;
 
   return (
-    <div className={overlayClass} style={{ transform: "translateZ(0)", willChange: "opacity" }} onClick={(e) => e.target === e.currentTarget && close()}>
+    <div className={overlayClass} onClick={(e) => e.target === e.currentTarget && close()}>
       <div className="lp-orb lp-orb--blue" />
       <div className="" />
 
-      <div className={boxClass} style={{ transform: "translateZ(0)", willChange: "transform, opacity" }} role="dialog" aria-modal="true">
+      <div className={boxClass} role="dialog" aria-modal="true">
         <button className="lp-close" onClick={close} aria-label="Close">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">
             <line x1="18" y1="6" x2="6" y2="18" /><line x1="6" y1="6" x2="18" y2="18" />

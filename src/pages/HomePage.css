@@ -1658,7 +1658,7 @@ body {
 ═══════════════════════════════════════════════════════════ */
 .testimonials-modern {
   position: relative;
-  background-image: url('../assets/global_medical_educational_background_pattern_1775463044370.webp');
+  background-image: url('/assets/global_medical_educational_background_pattern_1775463044370.webp');
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
@@ -1964,7 +1964,7 @@ body {
 ═══════════════════════════════════════════════════════════ */
 .destinations {
   background: linear-gradient(135deg, #0f0c29 0%, #302b63 50%, #24243e 100%);
-  padding: 140px 8%;
+  padding: clamp(80px, 10vw, 140px) 0;
   position: relative;
   overflow: hidden;
   isolation: isolate;
@@ -2086,28 +2086,35 @@ body {
 /* ─── Header ─── */
 .dest-header {
   display: flex;
-  justify-content: space-between;
-  align-items: flex-end;
-  margin-bottom: 4.5rem;
-  flex-wrap: wrap;
-  gap: 1.5rem;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-bottom: clamp(3rem, 6vw, 4.5rem);
   position: relative;
   z-index: 3;
-  animation: fadeInUp 1s ease-out;
+}
+
+@media (max-width: 768px) {
+  .dest-header {
+    align-items: center;
+    text-align: center;
+    margin-bottom: 2.5rem;
+  }
 }
 
 .dest-header .section-tag {
-  color: #ffffff;
-  -webkit-text-fill-color: #ffffff;
+  color: #ffffff !important;
+  -webkit-text-fill-color: #ffffff !important;
   background: rgba(255, 255, 255, 0.1);
   backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
   padding: 0.6rem 1.75rem;
   border-radius: 50px;
   border: 1px solid rgba(255, 255, 255, 0.25);
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
-  position: relative;
-  overflow: hidden;
+  margin-bottom: 1.25rem;
+  font-size: 0.75rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
 }
 
 .dest-header .section-tag::before {
@@ -2180,43 +2187,43 @@ body {
   border-top: 1px solid rgba(255, 255, 255, 0.03);
 }
 
-/* ─── Smooth Scroll Wrapper (Mobile Only) ─── */
+/* ─── Scroll Wrapper Architecture ─── */
 .dest-scroll-wrapper {
   width: 100%;
+  position: relative;
+  z-index: 5;
 }
 
 @media (max-width: 1024px) {
   .dest-scroll-wrapper {
     overflow-x: auto;
     overflow-y: hidden;
-    padding: 20px 0 40px;
-    margin: 0 -8%;
-    width: calc(100% + 16%);
-    padding-left: 8%;
+    /* Negative margin must match container padding for full-bleed look */
+    margin: 0 -5vw; 
+    padding: 20px 5vw 40px;
+    width: calc(100% + 10vw);
     scroll-snap-type: x mandatory;
+    scroll-padding: 0 5vw;
     scrollbar-width: none;
-    /* Firefox */
     -webkit-overflow-scrolling: touch;
     cursor: grab;
   }
 
   .dest-scroll-wrapper::-webkit-scrollbar {
     display: none;
-    /* Chrome/Safari */
   }
 
   .dest-grid {
     display: flex !important;
-    grid-template-columns: none !important;
     gap: 20px !important;
     width: max-content;
-    padding-right: 8%;
+    padding-right: 5vw; /* Match initial padding */
   }
 
   .dest-card {
     flex: 0 0 85vw;
-    scroll-snap-align: center;
-    max-width: 400px;
+    scroll-snap-align: start; /* Standard for mobile carousels */
+    max-width: 420px;
   }
 }
 
@@ -2224,49 +2231,18 @@ body {
 .dest-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 32px;
+  gap: clamp(20px, 3vw, 32px);
   position: relative;
   z-index: 3;
-  perspective: 2000px;
   max-width: 1400px;
   margin: 0 auto;
 }
 
-/* ─── Scroll Hint ─── */
-.dest-scroll-hint {
-  display: none;
-  flex-direction: column;
-  align-items: center;
-  gap: 12px;
-  margin-top: 10px;
-}
-
-@media (max-width: 1024px) {
-  .dest-scroll-hint.mobile-only {
-    display: flex;
+@media (min-width: 1025px) and (max-width: 1440px) {
+  .dest-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
   }
-}
-
-.scroll-hint-text {
-  font-size: 0.75rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.15em;
-  color: rgba(255, 255, 255, 0.4);
-}
-
-.scroll-hint-bar {
-  width: 100px;
-  height: 2px;
-  background: rgba(255, 255, 255, 0.1);
-  border-radius: 2px;
-  overflow: hidden;
-}
-
-.scroll-hint-progress {
-  height: 100%;
-  background: linear-gradient(90deg, #f093fb, #4facfe);
-  transform-origin: left;
 }
 
 /* ─── Cards ─── */
@@ -2277,14 +2253,12 @@ body {
   flex-direction: column;
   background: linear-gradient(145deg, rgba(15, 23, 42, 0.95), rgba(30, 41, 59, 0.9));
   backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
   border-radius: 24px;
   border: 1px solid rgba(255, 255, 255, 0.1);
   box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   cursor: pointer;
   height: 100%;
-  transform: translateZ(0);
 }
 
 .dest-card:nth-child(1) {
@@ -2303,8 +2277,41 @@ body {
   --card-index: 3;
 }
 
-.dest-card:nth-child(5) {
-  --card-index: 4;
+/* ─── Scroll Hint ─── */
+.dest-scroll-hint {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  margin-top: 2rem;
+}
+
+@media (max-width: 1024px) {
+  .dest-scroll-hint.mobile-only {
+    display: flex;
+  }
+}
+
+.scroll-hint-text {
+  font-size: 0.7rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: rgba(255, 255, 255, 0.4);
+}
+
+.scroll-hint-bar {
+  width: 80px;
+  height: 2px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.scroll-hint-progress {
+  height: 100%;
+  background: linear-gradient(90deg, #f093fb, #4facfe);
+  transform-origin: left;
 }
 
 @keyframes cardFloat {
@@ -3966,59 +3973,6 @@ html {
 }
 
 body {
-  overflow-x: clip;
+  overflow-x: hidden;
   max-width: 100vw;
-}
-
-/* ═══════════════════════════════════════════════════════════
-   GPU PERFORMANCE OPTIMIZATIONS
-═══════════════════════════════════════════════════════════ */
-
-.section,
-.blogs,
-.home-gallery,
-.home-video-gallery,
-.testimonials-premium,
-.destinations,
-.about-bravogroup,
-.why-new,
-.help-you {
-  transform: translateZ(0);
-  will-change: scroll-position;
-  contain: layout style paint;
-  backface-visibility: hidden;
-}
-
-.dest-card,
-.blog-card,
-.video-card,
-.carousel-item,
-.testimonial-card,
-.why-new-card,
-.help-item {
-  transform: translateZ(0);
-  will-change: transform;
-  backface-visibility: hidden;
-  contain: layout style paint;
-}
-
-.carousel-track {
-  transform: translate3d(0, 0, 0);
-  will-change: transform;
-  backface-visibility: hidden;
-}
-
-.dest-grid,
-.blog-grid,
-.video-grid,
-.testimonials-grid,
-.why-new-grid {
-  transform: translateZ(0);
-  contain: layout;
-}
-
-.gpu-boost {
-  transform: translateZ(0);
-  will-change: transform;
-  backface-visibility: hidden;
 }

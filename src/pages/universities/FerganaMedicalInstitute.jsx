@@ -14,12 +14,13 @@ import { Stethoscope, Microscope, Globe2, ShieldCheck, ArrowRight, MapPin, Chevr
 import AdmissionProtocol from '../../components/ui/AdmissionProtocol';
 import LazyImage from '../../components/Lazyimage';
 
-import bgImg from '../../assets/fergonna2.webp';
-import bgImg1 from '../../assets/fer3.webp';
-import campus1 from '../../assets/FerganLibrary.webp';
-import campus2 from '../../assets/ferganaclassroom.webp';
-import campus3 from '../../assets/FerganamedicalPracticals2.webp';
-import campus4 from '../../assets/Ferganamedicalpractice.webp';
+// Assets are now served from the public/assets directory
+const bgImg = '/assets/fergonna2.webp';
+const bgImg1 = '/assets/fer3.webp';
+const campus1 = '/assets/FerganLibrary.webp';
+const campus2 = '/assets/ferganaclassroom.webp';
+const campus3 = '/assets/FerganamedicalPracticals2.webp';
+const campus4 = '/assets/Ferganamedicalpractice.webp';
 
 // ── Cyan Tech Particles ──────────────────────────────────────────────────────
 // ── Cyan Tech Particles with Burst ──────────────────────────────────────────
@@ -115,14 +116,18 @@ const FerganaMedicalInstitute = () => {
   const [burst, setBurst] = useState(false);
 
   useEffect(() => {
-    AOS.init({ duration: 1000, once: true, easing: 'ease-out-quint' });
+    // AOS initialized globally
     window.scrollTo(0, 0);
 
+    let timeoutId;
     const interval = setInterval(() => {
       setBurst(true);
-      setTimeout(() => setBurst(false), 1500);
+      timeoutId = setTimeout(() => setBurst(false), 1500);
     }, 5000);
-    return () => clearInterval(interval);
+    return () => {
+      clearInterval(interval);
+      if (timeoutId) clearTimeout(timeoutId);
+    };
   }, []);
 
 

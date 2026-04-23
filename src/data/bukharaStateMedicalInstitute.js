@@ -1,13 +1,13 @@
-// Main campus image
-import bukharaCampusImage from '../assets/BUKHARA-STATE-MEDICAL-UNIVERSITY.webp';
+// Main campus image from public/assets
+const bukharaCampusImage = '/assets/BUKHARA-STATE-MEDICAL-UNIVERSITY.webp';
 
-// Bukhara-specific images (currently using generic placeholders - replace with actual Bukhara images)
-import bukharaLibraryImage from '../assets/uni7.webp'; // Replace with actual Bukhara library image
-import bukharaLabImage from '../assets/uni1.webp'; // Replace with actual Bukhara lab image
-import bukharaCampusLifeImage from '../assets/uni2.webp'; // Replace with actual Bukhara campus life image
-import bukharaClassroomImage from '../assets/uni3.webp'; // Replace with actual Bukhara classroom image
-import bukharaAnatomyLabImage from '../assets/uni4.webp'; // Replace with actual Bukhara anatomy lab image
-import bukharaHostelImage from '../assets/uni5.webp'; // Replace with actual Bukhara hostel image
+// Bukhara-specific images (currently using generic placeholders)
+const bukharaLibraryImage = '/assets/uni7.webp';
+const bukharaLabImage = '/assets/uni1.webp';
+const bukharaCampusLifeImage = '/assets/uni2.webp';
+const bukharaClassroomImage = '/assets/uni3.webp';
+const bukharaAnatomyLabImage = '/assets/uni4.webp';
+const bukharaHostelImage = '/assets/uni5.webp';
 
 export const bukharaStateMedicalInstitute = {
   id: 3,

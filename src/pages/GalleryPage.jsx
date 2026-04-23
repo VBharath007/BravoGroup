@@ -4,17 +4,18 @@ import AOS from 'aos';
 import './GalleryPage.css';
 import LazyImage from '../components/Lazyimage';
 
-import img1 from '../assets/1 (1).webp';
-import img2 from '../assets/1 (2).webp';
-import img3 from '../assets/1 (3).webp';
-import img4 from '../assets/1 (4).webp';
-import img5 from '../assets/1 (5).webp';
-import img6 from '../assets/1 (6).webp';
-import img7 from '../assets/1 (7).webp';
-import img8 from '../assets/1 (8).webp';
-import img9 from '../assets/1 (9).webp';
-import img10 from '../assets/1 (10).webp';
-import img11 from '../assets/1 (11).webp';
+// Assets are now served from the public/assets directory
+const img1 = '/assets/1 (1).webp';
+const img2 = '/assets/1 (2).webp';
+const img3 = '/assets/1 (3).webp';
+const img4 = '/assets/1 (4).webp';
+const img5 = '/assets/1 (5).webp';
+const img6 = '/assets/1 (6).webp';
+const img7 = '/assets/1 (7).webp';
+const img8 = '/assets/1 (8).webp';
+const img9 = '/assets/1 (9).webp';
+const img10 = '/assets/1 (10).webp';
+const img11 = '/assets/1 (11).webp';
 
 const photos = [
   { id: 1, url: img1, title: 'Student Life', subtitle: 'Campus Interactions' },
@@ -91,7 +92,6 @@ export default function GalleryPage() {
   const [activePhoto, setActivePhoto] = useState(null);
 
   useEffect(() => {
-    AOS.init({ duration: 1000, once: true });
     window.scrollTo(0, 0);
   }, []);
 

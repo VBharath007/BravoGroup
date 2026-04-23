@@ -16,11 +16,12 @@ import AdmissionProtocol from '../../components/ui/AdmissionProtocol';
 
 import LazyImage from '../../components/Lazyimage';
 
-import bgImg from '../../assets/andijan1.webp';
-import campus1 from '../../assets/uni4.webp';
-import campus2 from '../../assets/andijan1.webp';
-import campus3 from '../../assets/andijan2.webp';
-import campus4 from '../../assets/andijan3.webp';
+// Assets are now served from the public/assets directory
+const bgImg = '/assets/andijan1.webp';
+const campus1 = '/assets/uni4.webp';
+const campus2 = '/assets/andijan1.webp';
+const campus3 = '/assets/andijan2.webp';
+const campus4 = '/assets/andijan3.webp';
 
 
 
@@ -76,7 +77,7 @@ const AndijanStateMedicalInstitute = () => {
   const [mouse, setMouse] = useState({ x: 50, y: 50 });
 
   useEffect(() => {
-    AOS.init({ duration: 900, once: true, easing: 'ease-out-cubic' });
+    // AOS initialized globally
     window.scrollTo(0, 0);
   }, []);
 
