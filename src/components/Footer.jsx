@@ -27,7 +27,6 @@ export default function Footer() {
               width="69"
               height="69"
               loading="lazy"
-              style={{ transform: 'translateZ(0)' }}
             />
             Bravo <span>Groups</span>
           </span>

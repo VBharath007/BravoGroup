@@ -95,7 +95,7 @@ const Universities = () => {
         </div>
       </section>
 
-      <section id="universities" className="pt-12 sm:pt-16 md:pt-20 pb-8 sm:pb-10 bg-white relative overflow-hidden z-30" style={{ contentVisibility: 'auto', containIntrinsicSize: '0 500px', contain: 'layout style paint', transform: 'translateZ(0)' }}>
+      <section id="universities" className="pt-12 sm:pt-16 md:pt-20 pb-8 sm:pb-10 bg-white relative overflow-hidden z-30">
         <div className="absolute -top-40 right-0 w-[500px] h-[500px] md:w-[600px] md:h-[600px] bg-blue-50 rounded-full blur-3xl opacity-50 pointer-events-none" />
         <div className="text-center max-w-3xl mx-auto px-4 sm:px-6 relative z-10">
           <span className="inline-block px-3 sm:px-4 py-1.5 rounded-full bg-blue-50 border border-blue-200 text-blue-600 text-[9px] sm:text-[10px] md:text-xs font-black tracking-widest uppercase mb-3 sm:mb-4 md:mb-5">Our Partner Institutions</span>
@@ -105,18 +105,18 @@ const Universities = () => {
         </div>
       </section>
 
-      <section className="py-12 sm:py-16 md:py-20 bg-neutral-50" id="explore" style={{ contain: 'layout style paint', transform: 'translateZ(0)', willChange: 'scroll-position' }}>
+      <section className="py-12 sm:py-16 md:py-20 bg-neutral-50" id="explore">
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <div className="flex flex-wrap gap-2 sm:gap-2.5 md:gap-3 justify-center mb-10 sm:mb-12 md:mb-14">
             {countries.map((c, i) => (
-              <button key={`${c}-${i}`} onClick={() => setFilterCountry(c)} className={`px-4 sm:px-5 md:px-6 py-2 sm:py-2.5 rounded-full text-xs sm:text-sm font-bold ${filterCountry === c ? 'bg-blue-600 text-white shadow-lg shadow-blue-200' : 'bg-white text-gray-600 border border-gray-100'}`} style={{ transform: 'translateZ(0)', transition: 'all 0.15s cubic-bezier(0.4, 0, 0.2, 1)', willChange: 'transform' }}>{c}</button>
+              <button key={`${c}-${i}`} onClick={() => setFilterCountry(c)} className={`px-4 sm:px-5 md:px-6 py-2 sm:py-2.5 rounded-full text-xs sm:text-sm font-bold transition-all duration-150 ${filterCountry === c ? 'bg-blue-600 text-white shadow-lg shadow-blue-200' : 'bg-white text-gray-600 border border-gray-100'}`}>{c}</button>
             ))}
           </div>
 
           {filteredUniversities.map((uni) => (
-            <div key={uni.id} id={uni.id} className="group relative mb-8 sm:mb-10 md:mb-12 rounded-2xl sm:rounded-[1.75rem] md:rounded-[2rem] overflow-hidden shadow-[0_12px_40px_rgba(0,0,0,0.08)] bg-white border border-gray-100/80" style={{ transform: 'translateZ(0)', contain: 'layout style paint', contentVisibility: 'auto', containIntrinsicSize: '0 600px', transition: 'box-shadow 0.2s ease', willChange: 'transform' }}>
+            <div key={uni.id} id={uni.id} className="group relative mb-8 sm:mb-10 md:mb-12 rounded-2xl sm:rounded-[1.75rem] md:rounded-[2rem] overflow-hidden shadow-[0_12px_40px_rgba(0,0,0,0.08)] bg-white border border-gray-100/80 transition-shadow duration-200 ease-in-out hover:shadow-[0_20px_50px_rgba(0,0,0,0.12)]">
               <div className="relative w-full h-[240px] sm:h-[280px] md:h-[320px] lg:h-[380px] overflow-hidden">
-                <img src={uni.image} alt={uni.name} loading="lazy" decoding="async" width="1200" height="380" className="w-full h-full object-cover" style={{ transform: 'translateZ(0)', transition: 'transform 0.3s ease' }} />
+                <img src={uni.image} alt={uni.name} loading="lazy" decoding="async" width="1200" height="380" className="w-full h-full object-cover transition-transform duration-300 ease-in-out group-hover:scale-105" />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/20 to-transparent" />
                 <div className="absolute bottom-0 left-0 right-0 p-4 sm:p-5 md:p-6 lg:p-7 flex flex-col sm:flex-row items-start sm:items-end justify-between z-10 gap-2 sm:gap-3">
                   <div className="flex-1"><span className={`inline-block px-2.5 sm:px-3 md:px-4 py-1 sm:py-1.5 rounded-full bg-gradient-to-r ${uni.badgeColor} text-white text-[9px] sm:text-[10px] md:text-xs font-black tracking-wide shadow-lg mb-2`}>{uni.badge}</span><h2 className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-extrabold text-white leading-tight drop-shadow-2xl">{uni.name}</h2></div>
@@ -133,14 +133,14 @@ const Universities = () => {
                 <p className="text-gray-500 text-xs sm:text-sm md:text-base leading-relaxed mb-4 sm:mb-5 md:mb-6">{uni.desc}</p>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 sm:gap-2.5 md:gap-3 mb-5 sm:mb-6 md:mb-7">
                   {uni.details.map((d, di) => (
-                    <div key={di} className={`flex items-center gap-2 sm:gap-2.5 md:gap-3 px-2.5 sm:px-3 md:px-4 py-2 sm:py-2.5 md:py-3 rounded-lg sm:rounded-xl bg-gradient-to-r ${uni.badgeColor}/5 border border-gray-100 text-[10px] sm:text-xs md:text-sm text-gray-700 font-medium`} style={{ transform: 'translateZ(0)', background: `linear-gradient(135deg, ${uni.glowColor.replace('0.3', '0.06')}, transparent)` }}>
+                    <div key={di} className={`flex items-center gap-2 sm:gap-2.5 md:gap-3 px-2.5 sm:px-3 md:px-4 py-2 sm:py-2.5 md:py-3 rounded-lg sm:rounded-xl bg-gradient-to-r ${uni.badgeColor}/5 border border-gray-100 text-[10px] sm:text-xs md:text-sm text-gray-700 font-medium`} style={{ background: `linear-gradient(135deg, ${uni.glowColor.replace('0.3', '0.06')}, transparent)` }}>
                       <span className={`w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 rounded-full bg-gradient-to-r ${uni.badgeColor} flex items-center justify-center text-white text-[8px] sm:text-[9px] md:text-[10px] font-black flex-shrink-0`}>✓</span>{d}
                     </div>
                   ))}
                 </div>
                 <div className="flex flex-col sm:flex-row gap-2.5 sm:gap-3 md:gap-4 items-stretch sm:items-center">
-                  <button onClick={() => window.dispatchEvent(new CustomEvent('openLeadPopup'))} className={`px-5 sm:px-6 md:px-8 py-2.5 sm:py-3 md:py-3.5 bg-gradient-to-r ${uni.badgeColor} text-white rounded-full font-bold text-xs sm:text-sm shadow-lg w-full sm:w-auto`} style={{ transform: 'translateZ(0)', transition: 'transform 0.15s ease', willChange: 'transform' }}>Apply for Admission →</button>
-                  <button onClick={() => navigate('/contact')} className="px-5 sm:px-6 md:px-8 py-2.5 sm:py-3 md:py-3.5 bg-white border border-gray-200 text-gray-700 rounded-full font-bold text-xs sm:text-sm shadow-sm w-full sm:w-auto" style={{ transform: 'translateZ(0)', transition: 'all 0.15s ease', willChange: 'transform' }}>Contact Us</button>
+                  <button onClick={() => window.dispatchEvent(new CustomEvent('openLeadPopup'))} className={`px-5 sm:px-6 md:px-8 py-2.5 sm:py-3 md:py-3.5 bg-gradient-to-r ${uni.badgeColor} text-white rounded-full font-bold text-xs sm:text-sm shadow-lg w-full sm:w-auto transition-transform duration-150 ease-in-out active:scale-95`}>Apply for Admission →</button>
+                  <button onClick={() => navigate('/contact')} className="px-5 sm:px-6 md:px-8 py-2.5 sm:py-3 md:py-3.5 bg-white border border-gray-200 text-gray-700 rounded-full font-bold text-xs sm:text-sm shadow-sm w-full sm:w-auto transition-all duration-150 ease-in-out hover:bg-gray-50 active:scale-95">Contact Us</button>
                 </div>
               </div>
             </div>
@@ -148,14 +148,14 @@ const Universities = () => {
         </div>
       </section>
 
-      <section className="py-12 sm:py-16 md:py-20 relative overflow-hidden" style={{ contain: 'layout style paint', transform: 'translateZ(0)' }}>
+      <section className="py-12 sm:py-16 md:py-20 relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-[#0f0c29] via-[#302b63] to-[#24243e]" /><div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_rgba(6,182,212,0.15),_transparent_70%)]" />
         <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 text-center">
           <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold text-white mb-4 sm:mb-5 md:mb-6 leading-tight px-2">Ready to Begin Your <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-purple-400">Medical Journey?</span></h2>
           <p className="text-white text-sm sm:text-base md:text-lg mb-6 sm:mb-8 md:mb-10 max-w-2xl mx-auto leading-relaxed px-2">Book a free session with our expert counselors today. 100% admission and visa success guaranteed.</p>
           <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center">
-            <button onClick={() => window.dispatchEvent(new CustomEvent('openLeadPopup'))} className="px-7 sm:px-8 md:px-10 py-3 sm:py-3.5 md:py-4 bg-gradient-to-r from-cyan-500 to-blue-600 text-white rounded-full font-bold text-sm sm:text-base w-full sm:w-auto" style={{ transform: 'translateZ(0)', transition: 'all 0.15s ease', willChange: 'transform' }}>Book Free Counseling</button>
-            <button onClick={() => navigate('/contact')} className="px-7 sm:px-8 md:px-10 py-3 sm:py-3.5 md:py-4 bg-white/5 border border-white/20 text-white rounded-full font-bold text-sm sm:text-base backdrop-blur-md w-full sm:w-auto" style={{ transform: 'translateZ(0)', transition: 'all 0.15s ease', willChange: 'transform' }}>Contact Us</button>
+            <button onClick={() => window.dispatchEvent(new CustomEvent('openLeadPopup'))} className="px-7 sm:px-8 md:px-10 py-3 sm:py-3.5 md:py-4 bg-gradient-to-r from-cyan-500 to-blue-600 text-white rounded-full font-bold text-sm sm:text-base w-full sm:w-auto transition-all duration-150 ease-in-out hover:shadow-lg active:scale-95">Book Free Counseling</button>
+            <button onClick={() => navigate('/contact')} className="px-7 sm:px-8 md:px-10 py-3 sm:py-3.5 md:py-4 bg-white/5 border border-white/20 text-white rounded-full font-bold text-sm sm:text-base backdrop-blur-md w-full sm:w-auto transition-all duration-150 ease-in-out hover:bg-white/10 active:scale-95">Contact Us</button>
           </div>
         </div>
       </section>
