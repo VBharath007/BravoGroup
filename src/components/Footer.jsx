@@ -16,7 +16,7 @@ const navigationLinks = [
 
 export default function Footer() {
   return (
-    <footer className="footer" style={{ contentVisibility: 'auto' }}>
+    <footer className="footer">
       <div className="footer-grid">
         <div className="footer-brand">
           <span className="footer-logo">

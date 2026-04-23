@@ -529,7 +529,7 @@ export default function HomePage() {
         <div className="about-bravogroup-container">
           <div className="about-bravogroup-visual">
             <div className="about-blob-bg" />
-            <video src={aboutVideo} className="about-img" autoPlay loop muted playsInline />
+            <video src={aboutVideo} className="about-img" autoPlay loop muted playsInline width="1920" height="1080" style={{ aspectRatio: '16/9', objectFit: 'cover' }} />
             <div className="about-float-badge" data-aos="fade-up">
               <div className="badge-year">4+</div>
               <div className="badge-label">Years of Professional Expertise</div>
