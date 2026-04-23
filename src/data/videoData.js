@@ -1,0 +1,42 @@
+export const videos = [
+  {
+    id: 1,
+    url: 'https://www.youtube.com/watch?v=RhJYpiJD7xk',
+    thumb: 'https://img.youtube.com/vi/RhJYpiJD7xk/hqdefault.jpg',
+    title: 'MBBS in Uzbekistan — Complete Guide 2024',
+    desc: 'Everything an Indian student needs to know before applying for MBBS in Uzbekistan.',
+    badge: 'Study Abroad',
+  },
+  {
+    id: 2,
+    url: 'https://www.youtube.com/watch?v=tdzvKSubF6M',
+    thumb: 'https://img.youtube.com/vi/tdzvKSubF6M/hqdefault.jpg',
+    title: 'Life of Indian Medical Students Abroad',
+    desc: 'A day in the life of an Indian MBBS student studying at a top university overseas.',
+    badge: 'Student Life',
+  },
+  {
+    id: 3,
+    url: 'https://www.youtube.com/watch?v=LMA__F95k5k',
+    thumb: 'https://img.youtube.com/vi/LMA__F95k5k/hqdefault.jpg',
+    title: 'FMGE / NExT Exam Preparation Tips',
+    desc: 'Expert strategies to crack the FMGE and NExT exams after completing MBBS abroad.',
+    badge: 'Exam Prep',
+  },
+  {
+    id: 4,
+    url: 'https://www.youtube.com/watch?v=yvH2_WOB08I',
+    thumb: 'https://img.youtube.com/vi/yvH2_WOB08I/hqdefault.jpg',
+    title: 'Tashkent Medical Academy — Campus Tour',
+    desc: 'An inside look at one of the most prestigious medical universities in Central Asia.',
+    badge: 'Campus Tour',
+  },
+  {
+    id: 5,
+    url: 'https://www.youtube.com/watch?v=EhrRTJqBqfc',
+    thumb: 'https://img.youtube.com/vi/EhrRTJqBqfc/hqdefault.jpg',
+    title: 'Doctor\'s Journey — From MBBS Abroad to Success',
+    desc: 'Inspiring story of a doctor who completed MBBS in Uzbekistan and built a stellar career.',
+    badge: 'Success Story',
+  },
+];

@@ -1,0 +1,253 @@
+/* ═══════════════════════════════════════════════════════════
+   🌟 TESTIMONIALS - PRO MAX MASONRY CSS
+═══════════════════════════════════════════════════════════ */
+
+.testimonials-page {
+  background: #0f172a;
+  min-height: 100vh;
+  color: #fff;
+  font-family: 'Inter', system-ui, sans-serif;
+  overflow-x: hidden;
+}
+
+/* ─── Hero Section ─── */
+.tm-hero {
+  position: relative;
+  padding: 180px 5% 80px;
+  text-align: center;
+  background: radial-gradient(circle at 50% 100%, rgba(59, 130, 246, 0.1), transparent 60%);
+}
+
+.tm-quote-bg {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 40vw;
+  font-weight: 900;
+  line-height: 1;
+  color: rgba(255, 255, 255, 0.02);
+  z-index: 0;
+  pointer-events: none;
+  font-family: serif;
+}
+
+.tm-hero-content {
+  position: relative;
+  z-index: 10;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.tm-eyebrow {
+  display: inline-block;
+  padding: 0.5rem 1.25rem;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 100px;
+  color: #93c5fd;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  margin-bottom: 2rem;
+}
+
+.tm-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(3rem, 6vw, 4.5rem);
+  font-weight: 800;
+  line-height: 1.1;
+  margin-bottom: 1.5rem;
+}
+
+.tm-title-accent {
+  position: relative;
+  background: linear-gradient(135deg, #60a5fa 0%, #a78bfa 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.tm-subtitle {
+  font-size: clamp(1.05rem, 1.5vw, 1.25rem);
+  color: #9ca3af;
+  line-height: 1.7;
+}
+
+/* ─── Stats Banner ─── */
+.tm-stats-banner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 3rem;
+  max-width: 1000px;
+  margin: 0 auto 100px;
+  padding: 2.5rem;
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 24px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+}
+
+.tm-stat-item {
+  text-align: center;
+}
+
+.tm-stat-item h2 {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: #fff;
+  margin-bottom: 0.25rem;
+}
+
+.tm-stat-item p {
+  color: #9ca3af;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-weight: 600;
+}
+
+.tm-stat-divider {
+  width: 2px;
+  height: 60px;
+  background: linear-gradient(180deg, transparent, rgba(255,255,255,0.1), transparent);
+}
+
+/* ─── Masonry Grid Section ─── */
+.tm-grid-section {
+  padding: 0 5% 120px;
+  position: relative;
+  z-index: 10;
+}
+
+.tm-container {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+/* ── Proper 3-column Grid with equal card heights ── */
+.tm-masonry-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+  align-items: start;
+}
+
+@media (max-width: 1024px) {
+  .tm-masonry-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 640px) {
+  .tm-masonry-grid { grid-template-columns: 1fr; }
+  .tm-stats-banner {
+    flex-direction: column;
+    gap: 1.5rem;
+    padding: 2rem;
+  }
+  .tm-stat-divider {
+    width: 100px;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
+  }
+}
+
+/* ─── Review Card ─── */
+.review-card {
+  display: flex;
+  flex-direction: column;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: 24px;
+  padding: 35px;
+  position: relative;
+  transition: all 0.4s ease;
+  height: 100%;
+}
+
+.review-card:hover {
+  background: rgba(255, 255, 255, 0.06);
+  border-color: rgba(96, 165, 250, 0.3);
+  transform: translateY(-5px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+}
+
+/* Push the footer to the bottom of the card */
+.rc-text {
+  flex: 1;
+}
+
+
+.rc-quote-icon {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  font-family: serif;
+  font-size: 5rem;
+  line-height: 1;
+  color: rgba(255, 255, 255, 0.05);
+}
+
+.rc-rating {
+  display: flex;
+  gap: 4px;
+  margin-bottom: 1.5rem;
+}
+
+.rc-rating svg {
+  width: 18px;
+  height: 18px;
+  color: #fbbf24;
+}
+
+.rc-text {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: #d1d5db;
+  margin-bottom: 2rem;
+  position: relative;
+  z-index: 2;
+}
+
+.rc-footer {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  padding-top: 1.5rem;
+}
+
+.rc-avatar {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+  font-size: 1.1rem;
+  color: #fff;
+  flex-shrink: 0;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.4);
+}
+
+.rc-info h4 {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 0.2rem;
+}
+
+.rc-university {
+  font-size: 0.85rem;
+  color: #60a5fa;
+  font-weight: 600;
+  margin-bottom: 0.1rem;
+}
+
+.rc-location {
+  font-size: 0.8rem;
+  color: #6b7280;
+}
