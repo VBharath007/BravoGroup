@@ -163,47 +163,55 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* ── SERVICES & TRUST SECTION (Matching Screenshot) ── */}
-      <section className="about-services-section relative overflow-hidden">
-        <div className="container">
-          <div className="services-row-flex flex flex-col     lg:flex-row gap-12 items-center">
+      {/* ── SERVICES & TRUST SECTION (Tailwind Redesign) ── */}
+      <section className="py-24 bg-white relative overflow-hidden">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="flex flex-col lg:flex-row gap-16 items-center">
 
+            {/* Left Content */}
             <motion.div
               initial={{ opacity: 0, x: -50 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true, margin: "-100px" }}
               transition={{ duration: 0.8 }}
-              className="services-content-left"
+              className="w-full lg:w-1/2"
             >
-              <div className="mb-10">
-                <h3 className="flex items-center gap-3 text-2xl font-bold text-blue-600 mb-4">
-                  <span className="text-3xl">🏢</span> Founded in Vellore
-                </h3>
-                <p className="text-lg text-neutral-700 leading-relaxed">
-                  <span className="font-bold text-neutral-900">BRAVO GROUPS PRIVATE LIMITED</span> was established in <span className="font-bold text-blue-600">2022 in Vellore, Tamil Nadu</span>, with a clear vision to make <span className="font-bold italic">MBBS abroad accessible, affordable, and transparent</span> for Indian students.
-                </p>
-              </div>
-
-              <div className="mb-10">
-                <h2 className="flex items-center gap-3 text-3xl md:text-4xl font-extrabold text-neutral-900 mb-6">
-                  <span className="text-4xl">📖</span> Our Story
-                </h2>
-                <p className="text-lg text-neutral-600 mb-6 leading-relaxed">
-                  BRAVO GROUPS was founded with the aim of solving a common problem—students struggling with <span className="font-semibold text-neutral-800">lack of proper guidance, high costs, and unclear admission processes</span> in medical education abroad.
-                </p>
-                <p className="text-lg text-neutral-600 mb-6 leading-relaxed">
-                  Starting with a small group of aspiring doctors, we focused on providing <span className="font-semibold text-blue-600">honest counseling and reliable support</span>, helping students choose the right universities based on their goals and budget.
-                </p>
-                <p className="text-lg text-neutral-600 leading-relaxed">
-                  Over time, our commitment to <span className="font-semibold text-neutral-800">transparency, trust, and student success</span> has helped us grow steadily. Today, BRAVO GROUPS has successfully guided <span className="font-bold text-blue-600">100+ students</span> toward their dream of studying MBBS abroad across multiple countries.
-                </p>
-              </div>
-
-              {/* Restored Services List */}
+              {/* Founded Block */}
               <div className="mb-12">
-                <h2 className="section-title text-3xl font-extrabold mb-6">Our Premium Services</h2>
-                <p className="services-intro text-lg text-neutral-600 mb-8 leading-relaxed">
-                  From counseling to accommodation, we provide complete end-to-end support for your MBBS journey. Our services ensure a smooth, secure, and successful experience.
+                <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-blue-50 border border-blue-100 text-blue-600 text-xs font-bold tracking-widest uppercase mb-4">
+                  Our Origins
+                </div>
+                <h3 className="text-3xl font-extrabold text-neutral-900 mb-4 tracking-tight">
+                  Founded in Vellore
+                </h3>
+                <p className="text-lg text-neutral-600 leading-relaxed">
+                  <span className="font-bold text-neutral-900">BRAVO GROUPS PRIVATE LIMITED</span> was established in <span className="font-semibold text-blue-600">2022 in Vellore, Tamil Nadu</span>, with a clear vision to make <span className="font-medium italic text-neutral-800">MBBS abroad accessible, affordable, and transparent</span> for Indian students.
+                </p>
+              </div>
+
+              {/* Story Block */}
+              <div className="mb-12">
+                <h2 className="text-3xl md:text-4xl font-extrabold text-neutral-900 mb-6 tracking-tight">
+                  Our Story
+                </h2>
+                <div className="space-y-4">
+                  <p className="text-lg text-neutral-600 leading-relaxed">
+                    BRAVO GROUPS was founded with the aim of solving a common problem—students struggling with <span className="font-semibold text-neutral-800">lack of proper guidance, high costs, and unclear admission processes</span> in medical education abroad.
+                  </p>
+                  <p className="text-lg text-neutral-600 leading-relaxed">
+                    Starting with a small group of aspiring doctors, we focused on providing <span className="font-semibold text-blue-600">honest counseling and reliable support</span>, helping students choose the right universities based on their goals and budget.
+                  </p>
+                  <p className="text-lg text-neutral-600 leading-relaxed">
+                    Over time, our commitment to <span className="font-semibold text-neutral-800">transparency, trust, and student success</span> has helped us grow steadily. Today, BRAVO GROUPS has successfully guided <span className="font-bold text-blue-600">100+ students</span> toward their dream of studying MBBS abroad across multiple countries.
+                  </p>
+                </div>
+              </div>
+
+              {/* Services List */}
+              <div className="mb-12">
+                <h2 className="text-2xl font-extrabold text-neutral-900 mb-4 tracking-tight">Premium Services</h2>
+                <p className="text-lg text-neutral-600 mb-8 leading-relaxed">
+                  From counseling to accommodation, we provide complete end-to-end support for your MBBS journey.
                 </p>
 
                 <motion.ul
@@ -213,12 +221,12 @@ export default function AboutPage() {
                   variants={{
                     visible: { transition: { staggerChildren: 0.1 } }
                   }}
-                  className="services-grid-list grid grid-cols-1 sm:grid-cols-2 gap-4"
+                  className="grid grid-cols-1 sm:grid-cols-2 gap-3"
                 >
                   {[
-                    "COUNSELING PROCESS", "VISA ASSISTANCE", "UNIVERSITY SELECTION",
-                    "BANK LOAN ASSISTANCE", "ADMISSION GUIDANCE", "TRAVEL ASSISTANCE",
-                    "DOCUMENTATION", "AIRPORT PICKUP", "ACCOMMODATION"
+                    "Counseling Process", "Visa Assistance", "University Selection",
+                    "Bank Loan Assistance", "Admission Guidance", "Travel Assistance",
+                    "Documentation", "Airport Pickup", "Accommodation"
                   ].map((service, idx) => (
                     <motion.li
                       key={idx}
@@ -226,25 +234,26 @@ export default function AboutPage() {
                         hidden: { opacity: 0, x: -20 },
                         visible: { opacity: 1, x: 0, transition: { type: "spring", bounce: 0.4 } }
                       }}
-                      whileHover={{ scale: 1.05, x: 5 }}
-                      className="flex items-center gap-3 p-3 bg-white rounded-xl shadow-[0_4px_20px_rgba(0,0,0,0.03)] border border-neutral-100 font-bold text-sm md:text-base text-neutral-800 cursor-pointer"
+                      whileHover={{ scale: 1.02 }}
+                      className="flex items-center gap-3 p-3.5 bg-neutral-50 rounded-xl border border-neutral-200/60 font-semibold text-sm text-neutral-700 hover:bg-white hover:border-blue-200 hover:shadow-md transition-all duration-200 cursor-default"
                     >
-                      <span className="check-icon text-blue-600 text-xl"><i className="fa-solid fa-circle-check"></i></span>
+                      <div className="w-5 h-5 rounded-full bg-blue-100 flex items-center justify-center flex-shrink-0">
+                        <div className="w-2 h-2 rounded-full bg-blue-600" />
+                      </div>
                       {service}
                     </motion.li>
                   ))}
                 </motion.ul>
               </div>
 
-              <div className="relative p-8 rounded-3xl bg-gradient-to-br from-blue-50 to-indigo-50 border border-blue-100 shadow-sm overflow-hidden">
-                <div className="absolute top-0 right-0 p-4 opacity-10">
-                  <i className="fa-solid fa-quote-right text-6xl text-blue-600"></i>
-                </div>
-                <h3 className="flex items-center gap-3 text-2xl font-bold text-neutral-900 mb-4">
-                  <span className="text-3xl">🌟</span> Our Belief
+              {/* Belief Block */}
+              <div className="relative p-8 rounded-3xl bg-gradient-to-br from-blue-50 via-white to-blue-50/50 border border-blue-100/80 shadow-sm overflow-hidden">
+                <div className="absolute top-0 left-0 w-1.5 h-full bg-gradient-to-b from-blue-400 to-indigo-600" />
+                <h3 className="text-xl font-extrabold text-neutral-900 mb-3 tracking-tight">
+                  Our Belief
                 </h3>
                 <blockquote className="text-xl font-medium text-blue-700 italic mb-4">
-                  “Your dream is our responsibility.”
+                  "Your dream is our responsibility."
                 </blockquote>
                 <p className="text-neutral-600 leading-relaxed">
                   We believe every student deserves the right guidance and a clear path to achieve their medical career goals without confusion or hidden processes.
@@ -258,19 +267,14 @@ export default function AboutPage() {
               whileInView={{ opacity: 1, scale: 1, rotate: 0 }}
               viewport={{ once: true, margin: "-100px" }}
               transition={{ duration: 1, type: "spring", bounce: 0.5 }}
-              className="services-visual-right relative"
+              className="w-full lg:w-1/2 relative"
             >
-              <div className="services-image-main relative">
-                {/* Glowing Abstract Backdrop */}
-                <div className="absolute inset-0 bg-gradient-to-tr from-blue-500 to-purple-500 rounded-[2.5rem] blur-3xl opacity-20 animate-pulse" />
-
-                <motion.img
-                  whileHover={{ scale: 1.03 }}
-                  transition={{ duration: 0.4 }}
+              <div className="relative w-full aspect-[4/5] rounded-[2.5rem] z-10 group">
+                <div className="absolute inset-0 bg-gradient-to-tr from-blue-500/20 to-purple-500/20 rounded-[2.5rem] blur-3xl group-hover:blur-2xl transition-all duration-500" />
+                <img
                   src={serviceStudent}
                   alt="Student Reading Brochure"
-                  className="relative z-10 w-full object-cover rounded-[2.5rem] shadow-2xl border-4 border-white/50"
-                  style={{ transformStyle: 'preserve-3d' }}
+                  className="relative z-10 w-full h-full object-cover rounded-[2.5rem] shadow-[0_20px_50px_rgba(0,0,0,0.15)] border border-white/60 transition-transform duration-500 group-hover:scale-[1.02]"
                 />
               </div>
             </motion.div>
@@ -278,195 +282,7 @@ export default function AboutPage() {
           </div>
         </div>
       </section>
-      {/* <section className="section our-process">
-        <div className="container">
-          <div className="section-header" data-aos="fade-up">
-            <div className="section-tag">Simplified Journey</div>
-            <h2 className="section-title">Our Transparent Process</h2>
-            <div className="gold-line" />
-          </div>
-          <div className="process-grid">
-            <div className="process-card" data-aos="fade-up">
-              <div className="process-icon-box">
-                <span className="p-icon">🤝</span>
-                <span className="process-number">01</span>
-              </div>
-              <div className="process-content">
-                <h3>Consulting</h3>
-                <p>We begin with a personalized consultation to capture your vision and needs.</p>
-              </div>
-              <span className="line-1"></span><span className="line-2"></span><span className="line-3"></span><span className="line-4"></span>
-            </div>
 
-            <div className="process-card" data-aos="fade-up">
-              <div className="process-icon-box">
-                <span className="p-icon">✈️</span>
-                <span className="process-number">02</span>
-              </div>
-              <div className="process-content">
-                <h3>Travel</h3>
-                <p>Our experts craft a detailed plan with eco-friendly practices for your approval.</p>
-              </div>
-              <span className="line-1"></span><span className="line-2"></span><span className="line-3"></span><span className="line-4"></span>
-            </div>
-
-            <div className="process-card" data-aos="fade-up">
-              <div className="process-icon-box">
-                <span className="p-icon">✅</span>
-                <span className="process-number">03</span>
-              </div>
-              <div className="process-content">
-                <h3>Execute</h3>
-                <p>Our skilled team transforms your medical journey with precision and care.</p>
-              </div>
-              <span className="line-1"></span><span className="line-2"></span><span className="line-3"></span><span className="line-4"></span>
-            </div>
-          </div>
-        </div> 
-      </section> */}
-
-      {/* ── OUR STORY ── */}
-      {/* <section className="section story">
-        <div className="container">
-          <div className="story-grid">
-            <div className="story-image" data-aos="fade-right">
-              <LazyImage src={aboutMain} alt="Our Journey" />
-              <div className="experience-badge">
-                <span>4+</span>
-                <p>Years of Excellence</p>
-              </div>
-            </div>
-            <div className="story-text" data-aos="fade-left">
-              <div className="section-tag">Our Legacy</div>
-              <h2 className="section-title">The Story Behind bravogroup Overseas</h2>
-              <div className="gold-line" />
-              <p>
-                Founded in 2024, bravogroup Overseas was born from a simple yet powerful goal:
-                to bridge the gap between talented aspiring doctors in India and the
-                world-class medical institutions in Uzbekistan.
-              </p>
-              <p>
-                What started as a small counseling office has now grown into a premier
-                international education consultancy. We have successfully guided
-                hundreds of students through the complex process of securing admission,
-                navigating visas, and settling into a new culture.
-              </p>
-              <div className="story-stats">
-                <div className="stat-item">
-                  <h3>100+</h3>
-                  <p>Students Placed</p>
-                </div>
-                <div className="stat-item">
-                  <h3>7+</h3>
-                  <p>Partner Universities</p>
-                </div>
-                <div className="stat-item">
-                  <h3>100%</h3>
-                  <p>Visa Success</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      
-      <section className="section vision-mission">
-        <div className="container">
-          <div className="vm-grid">
-            <div className="vm-card mission" data-aos="fade-up">
-              <div className="vm-icon">🎯</div>
-              <h3>Our Mission</h3>
-              <p>
-                Creating a seamless, ethical, and transparent journey for Indian students
-                pursuing MBBS in Uzbekistan. We aim to eliminate the hurdles of overseas
-                education through expert guidance and local support, ensuring every
-                student can focus solely on becoming an exceptional doctor.
-              </p>
-            </div>
-            <div className="vm-card vision" data-aos="fade-up" data-aos-delay="200">
-              <div className="vm-icon">👁️</div>
-              <h3>Our Vision</h3>
-              <p>
-                To be the most trusted name in international medical education,
-                recognized for our unwavering commitment to student success, integrity,
-                and the long-term impact we create in the global healthcare workforce.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      
-      <section className="section student-gallery-ticker">
-        <div className="container">
-          <div className="gallery-ticker-header">
-            <div className="gallery-header-left" data-aos="fade-right">
-              <h2 className="section-title">Student Success Gallery</h2>
-              <p className="gallery-header-desc">Get a glimpse of the dynamic and enriching student life at universities across Uzbekistan.</p>
-            </div>
-            <div className="gallery-controls" data-aos="fade-left">
-              <button className="gallery-arrow prev" onClick={() => scrollTicker('left')} aria-label="Previous">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="19" y1="12" x2="5" y2="12" /><polyline points="12 19 5 12 12 5" /></svg>
-              </button>
-              <button className="gallery-arrow next" onClick={() => scrollTicker('right')} aria-label="Next">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="5" y1="12" x2="19" y2="12" /><polyline points="12 5 19 12 12 19" /></svg>
-              </button>
-            </div>
-          </div>
-        </div>
-
-        <div className="ticker-wrapper" data-aos="fade-up">
-          <div className="ticker-inner" ref={tickerRef}>
-            <div className="ticker-track">
-              {studentImages.map((img, idx) => (
-                <div className="ticker-item" key={idx}>
-                  <LazyImage src={img} alt={`Student Image ${idx + 1}`} />
-                  <div className="ticker-overlay"></div>
-                </div>
-              ))}
-              
-              {studentImages.map((img, idx) => (
-                <div className="ticker-item" key={`dup-${idx}`}>
-                  <LazyImage src={img} alt={`Student Image Duplicated ${idx + 1}`} />
-                  <div className="ticker-overlay"></div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      
-      <section className="section our-office">
-        <div className="container">
-          <div className="office-grid">
-            <div className="office-content" data-aos="fade-right">
-              <div className="section-tag">Direct Access</div>
-              <h2 className="section-title">Our Physical Presence</h2>
-              <div className="gold-line" />
-              <p>
-                While we operate internationally, we believe in the transparency of a
-                local presence. Our headquarters in Vellore serves as a hub for student
-                counseling, document verification, and parent-teacher meetings.
-              </p>
-              <div className="office-address">
-                <div className="address-icon">📍</div>
-                <div className="address-text">
-                  RTJ Complex, 13th Street, Phase 2,<br />
-                  Sathuvacheri, Vellore, Tamil Nadu 632009
-                </div>
-              </div>
-              <button className="visit-btn">Schedule a Visit</button>
-            </div>
-            <div className="office-image" data-aos="fade-left">
-              <div className="office-placeholder-img">
-                <LazyImage src={whyChooseUs1} alt="Our Office" />
-              </div>
-            </div>
-          </div>
-        </div>
-      </section> */}
 
     </div>
   );

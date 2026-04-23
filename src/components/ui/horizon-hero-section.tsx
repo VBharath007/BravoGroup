@@ -71,7 +71,7 @@ export default function FrameInjection() {
     let done = 0;
     for (let i = 1; i <= FRAME_COUNT; i++) {
       const img = new Image();
-      img.src = `/frameinjection/video_in_${String(i).padStart(3, "0")}.png`;
+      img.src = `/frameinjection/video_in_${String(i).padStart(3, "0")}.webp`;
       const fin = () => { done++; setLoadedCount(done); };
       img.onload = fin;
       img.onerror = fin;
@@ -232,7 +232,7 @@ export default function FrameInjection() {
   const pct = Math.round((loadedCount / FRAME_COUNT) * 100);
 
   return (
-    <div ref={sectionRef} style={{ height: "600vh", position: "relative" }}>
+    <div ref={sectionRef} style={{ height: "600dvh", position: "relative" }}>
 
       {/* ══ LOADER ══════════════════════════════════════════════════════ */}
       {!isReady && (
@@ -240,6 +240,8 @@ export default function FrameInjection() {
           <img
             src={logo}
             alt="Bravo Groups"
+            width="128"
+            height="128"
             style={{ width: "128px", height: "128px", objectFit: "contain", marginBottom: "2.5rem" }}
           />
           <div style={{ width: 220, height: 2, background: "rgba(255,255,255,0.08)", borderRadius: 99, overflow: "hidden" }}>

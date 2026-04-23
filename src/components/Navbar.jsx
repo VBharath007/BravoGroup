@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import logo from '../assets/bgremovedlogo.webp';
+import logo from '../assets/bgremovedlogo-small.webp';
 import './Navbar.css';
 import { Link, useLocation } from 'react-router-dom';
 import universitiesData from '../data/universitiesData';

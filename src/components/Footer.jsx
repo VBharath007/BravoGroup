@@ -16,7 +16,7 @@ const navigationLinks = [
 
 export default function Footer() {
   return (
-    <footer className="footer">
+    <footer className="footer" style={{ transform: "translateZ(0)", contain: "layout style paint" }}>
       <div className="footer-grid">
         <div className="footer-brand">
           <span className="footer-logo">
@@ -66,9 +66,6 @@ export default function Footer() {
                 </li>
               );
             })}
-            <li>
-              <Link to="/mbbs-in-uzbekistan" className="text-secondary font-bold">Study in Uzbekistan →</Link>
-            </li>
           </ul>
         </div>
 

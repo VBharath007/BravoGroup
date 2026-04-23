@@ -191,12 +191,13 @@ const cardGpuStyle = {
   transform: 'translateZ(0)',
   contain: 'layout style paint',
   willChange: 'transform',
-  backfaceVisibility: 'hidden',
-  transition: 'all 0.2s cubic-bezier(0.4, 0, 0.2, 1)'
+  backfaceVisibility: 'hidden'
 };
 
 const sectionGpuStyle = {
-  ...gpuStyle,
+  transform: 'translateZ(0)',
+  willChange: 'scroll-position',
+  backfaceVisibility: 'hidden',
   contain: 'layout style paint'
 };
 
@@ -222,7 +223,7 @@ function VideoCard({ video, idx, onClick }) {
   }, []);
 
   return (
-    <div ref={cardRef} className="video-card">
+    <div ref={cardRef} className="video-card" style={cardGpuStyle}>
       {/* Shimmer sweep at top */}
       <div className="video-card-shine" />
 
@@ -388,7 +389,7 @@ function UniversitySection({ tag, title, unis, onUniClick, className }) {
   const scrollRef = useRef(null);
 
   return (
-    <section className={`section destinations ${className || ""}`} style={{ paddingTop: '6rem', paddingBottom: '6rem' }}>
+    <section className={`section destinations ${className || ""}`} style={{ paddingTop: '6rem', paddingBottom: '6rem', transform: 'translateZ(0)', contain: 'layout style paint' }}>
       <div className="container">
         <motion.div
           className="dest-header"
@@ -403,7 +404,7 @@ function UniversitySection({ tag, title, unis, onUniClick, className }) {
 
         {/* Ultra Smooth Horizontal Scroll Wrapper for Mobile */}
         <div className="dest-scroll-wrapper" ref={scrollRef}>
-          <div className="dest-grid">
+          <div className="dest-grid" style={{ transform: "translateZ(0)", contain: "layout" }}>
             {unis.map((uni, idx) => (
               <UniversityCard
                 key={uni.id}
@@ -511,7 +512,7 @@ export default function HomePage() {
   }, []);
 
   return (
-    <>
+    <div style={gpuStyle}>
 
       {/* ── HERO SECTIONS ── */}
       {isMobile ? (
@@ -575,7 +576,7 @@ export default function HomePage() {
       </section>
 
       {/* ── WHY CHOOSE US ── */}
-      <section className="section why-new">
+      <section className="section why-new" style={sectionGpuStyle}>
         <div className="container">
           <div className="why-new-header" data-aos="fade-up">
             <h2 className="section-h2">The Bravo Groups Overseas Advantage</h2>
@@ -640,7 +641,7 @@ export default function HomePage() {
       />
 
       {/* ── WHAT WE HELP YOU WITH ── */}
-      <section className="section help-you">
+      <section className="section help-you" style={sectionGpuStyle}>
         <div className="help-bg-blob help-blob-1 gpu-boost" />
         <div className="help-bg-blob help-blob-2 gpu-boost" />
         <div className="help-bg-grid" />
@@ -753,7 +754,7 @@ export default function HomePage() {
 
           {/* Row 1 — scrolls left */}
           <div className="carousel-row left">
-            <div className="carousel-track">
+            <div className="carousel-track" style={{ transform: "translate3d(0,0,0)", willChange: "transform" }}>
               {[...galleryPhotos, ...galleryPhotos].map((photo, idx) => (
                 <div className="carousel-item" key={`r1-${idx}`}>
                   <LazyImage src={photo.url} alt={`Gallery moment ${photo.id}`} loading="lazy" />
@@ -764,7 +765,7 @@ export default function HomePage() {
 
           {/* Row 2 — scrolls right */}
           <div className="carousel-row right">
-            <div className="carousel-track">
+            <div className="carousel-track" style={{ transform: "translate3d(0,0,0)", willChange: "transform" }}>
               {[...galleryPhotos, ...galleryPhotos].map((photo, idx) => (
                 <div className="carousel-item" key={`r2-${idx}`}>
                   <LazyImage src={photo.url} alt={`Gallery moment ${photo.id}`} loading="lazy" />
@@ -820,7 +821,7 @@ export default function HomePage() {
         </div>
 
         {/* ── Video Grid ── */}
-        <div className="video-grid">
+        <div className="video-grid" style={{ transform: "translateZ(0)", contain: "layout" }}>
           {galleryVideos && galleryVideos.length > 0 ? (
             galleryVideos.map((video, idx) => (
               <VideoCard key={video.id} video={video} idx={idx} onClick={setActiveVideo} />
@@ -887,7 +888,7 @@ export default function HomePage() {
           </div>
 
           {/* Testimonial Grid */}
-          <div className="testimonials-grid" >
+          <div className="testimonials-grid" style={{ transform: "translateZ(0)", contain: "layout" }}>
 
             {/* Card 1 - Video */}
             <div className="testimonial-card video-card" data-aos="fade-up" data-aos-delay="0" style={cardGpuStyle}>
@@ -1025,13 +1026,13 @@ export default function HomePage() {
 
 
       {/* ── BLOG SECTION ── */}
-      <section className="section blogs">
+      <section className="section blogs" style={sectionGpuStyle}>
         <div className="container">
           <div className="blog-section-header">
             <h2 className="section-title">Latest Medical Education Blogs</h2>
             <div className="gold-line" />
           </div>
-          <div className="blog-grid" data-aos="fade-up">
+          <div className="blog-grid" data-aos="fade-up" style={{ transform: "translateZ(0)", contain: "layout" }}>
 
             {blogs.map((b, idx) => (
               <Link
@@ -1071,6 +1072,6 @@ export default function HomePage() {
 
 
 
-    </>
+    </div>
   );
 }

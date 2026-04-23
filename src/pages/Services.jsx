@@ -23,7 +23,7 @@ const Services = () => {
   return (
     <div className="bg-[#020c1b] overflow-hidden">
       {/* Hero Section */}
-      <section className="relative w-full min-h-screen flex items-center justify-center overflow-hidden bg-[#020c1b]">
+      <section className="relative w-full min-h-screen flex items-center justify-center overflow-hidden bg-[#020c1b]" style={{ contain: "layout style paint", transform: "translateZ(0)" }}>
         <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden bg-[#020c1b]">
           <div className="w-full h-full opacity-40 md:opacity-100">
             <SplineScene scene="https://prod.spline.design/LN7Xor0GrRFHfZOJ/scene.splinecode" className="w-full h-full" />
@@ -69,7 +69,7 @@ const Services = () => {
       </section>
 
       {/* Services Grid */}
-      <section className="py-20 md:py-28 bg-gradient-to-br from-slate-50 to-blue-50 relative overflow-hidden">
+      <section className="py-20 md:py-28 bg-gradient-to-br from-slate-50 to-blue-50 relative overflow-hidden" style={{ contain: "layout style paint", transform: "translateZ(0)" }}>
         <div className="max-w-7xl mx-auto px-6 relative z-10">
           <div className="text-center mb-16">
             <span className="px-4 py-2 rounded-full bg-blue-100 border border-blue-300 text-blue-700 text-xs font-black tracking-widest uppercase inline-block mb-4">
@@ -90,7 +90,7 @@ const Services = () => {
             {servicesList.map((service, idx) => (
               <div
                 key={idx}
-                className="group relative p-6 rounded-2xl bg-white border border-gray-100 hover:border-transparent hover:shadow-xl transition-all duration-150 ease-in-out"
+                className="group relative p-6 rounded-2xl bg-white border border-gray-100 hover:border-transparent hover:shadow-xl" style={{ transform: "translateZ(0)", contain: "layout style paint", transition: "all 0.15s ease" }}
               >
                 <div className={`w-14 h-14 rounded-xl bg-gradient-to-br ${service.color} flex items-center justify-center text-white mb-4 shadow-md`}>
                   {service.icon}
@@ -108,7 +108,7 @@ const Services = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 md:py-24 relative overflow-hidden">
+      <section className="py-20 md:py-24 relative overflow-hidden" style={{ contain: "layout style paint", transform: "translateZ(0)" }}>
         <div className="absolute inset-0 bg-gradient-to-br from-[#0f0c29] via-[#302b63] to-[#24243e]" />
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_rgba(6,182,212,0.15),_transparent_70%)]" />
         <div className="relative z-10 max-w-4xl mx-auto px-6 text-center">
@@ -124,13 +124,13 @@ const Services = () => {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <button
               onClick={() => window.dispatchEvent(new CustomEvent('openLeadPopup'))}
-              className="px-10 py-4 bg-gradient-to-r from-cyan-500 to-blue-600 text-white rounded-full font-bold shadow-lg hover:shadow-xl active:scale-95 transition-all duration-150 ease-in-out"
+              className="px-10 py-4 bg-gradient-to-r from-cyan-500 to-blue-600 text-white rounded-full font-bold shadow-lg hover:shadow-xl active:scale-95" style={{ transform: "translateZ(0)", transition: "all 0.15s ease" }}
             >
               Book Free Counseling
             </button>
             <button
               onClick={() => window.location.href = '/contact'}
-              className="px-10 py-4 bg-white/5 border border-white/20 text-white rounded-full font-bold backdrop-blur-md hover:bg-white/10 active:scale-95 transition-all duration-150 ease-in-out"
+              className="px-10 py-4 bg-white/5 border border-white/20 text-white rounded-full font-bold backdrop-blur-md hover:bg-white/10 active:scale-95" style={{ transform: "translateZ(0)", transition: "all 0.15s ease" }}
             >
               Contact Us
             </button>

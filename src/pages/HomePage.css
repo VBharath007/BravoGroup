@@ -3966,6 +3966,59 @@ html {
 }
 
 body {
-  overflow-x: hidden;
+  overflow-x: clip;
   max-width: 100vw;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   GPU PERFORMANCE OPTIMIZATIONS
+═══════════════════════════════════════════════════════════ */
+
+.section,
+.blogs,
+.home-gallery,
+.home-video-gallery,
+.testimonials-premium,
+.destinations,
+.about-bravogroup,
+.why-new,
+.help-you {
+  transform: translateZ(0);
+  will-change: scroll-position;
+  contain: layout style paint;
+  backface-visibility: hidden;
+}
+
+.dest-card,
+.blog-card,
+.video-card,
+.carousel-item,
+.testimonial-card,
+.why-new-card,
+.help-item {
+  transform: translateZ(0);
+  will-change: transform;
+  backface-visibility: hidden;
+  contain: layout style paint;
+}
+
+.carousel-track {
+  transform: translate3d(0, 0, 0);
+  will-change: transform;
+  backface-visibility: hidden;
+}
+
+.dest-grid,
+.blog-grid,
+.video-grid,
+.testimonials-grid,
+.why-new-grid {
+  transform: translateZ(0);
+  contain: layout;
+}
+
+.gpu-boost {
+  transform: translateZ(0);
+  will-change: transform;
+  backface-visibility: hidden;
 }

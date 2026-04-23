@@ -986,3 +986,20 @@
     font-size: 1.6rem;
   }
 }
+
+/* GPU Performance */
+.about-page {
+  transform: translateZ(0);
+  will-change: scroll-position;
+}
+
+.about-page section {
+  transform: translateZ(0);
+  contain: layout style paint;
+  backface-visibility: hidden;
+}
+
+.stat-pill {
+  transform: translateZ(0);
+  will-change: transform;
+}
