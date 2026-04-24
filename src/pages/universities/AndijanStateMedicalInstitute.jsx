@@ -115,7 +115,7 @@ const AndijanStateMedicalInstitute = () => {
 
           {/* Word-by-word drop in */}
           <div className="mb-8">
-            {['Andijan State', 'Medical', 'Institute'].map((word, i) => (
+            {['Andijan State', 'Medical', 'university'].map((word, i) => (
               <div key={i} className="overflow-hidden">
                 <motion.div
                   initial={{ y: '110%', rotateX: -90 }}
@@ -132,7 +132,7 @@ const AndijanStateMedicalInstitute = () => {
 
           <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1, delay: 1 }}
             className="text-xl text-[#9a80bb] max-w-2xl mx-auto mb-12 leading-relaxed font-light">
-            Nestled in the fertile Fergana Valley, ASMI is where deep-rooted academic heritage fuses with tomorrow's clinical vision. A place where every aspiring doctor finds their true calling.
+            Nestled in the fertile Fergana Valley, ASMU is where deep-rooted academic heritage fuses with tomorrow's clinical vision. A place where every aspiring doctor finds their true calling.
           </motion.p>
 
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1, delay: 1.2 }}
@@ -167,9 +167,9 @@ const AndijanStateMedicalInstitute = () => {
               <div className="absolute inset-0 bg-gradient-to-t from-[#07030f] via-[#07030f]/50 to-transparent" />
               <div className="absolute inset-0 border border-[#a855f7]/20 rounded-3xl" />
               <div className="relative z-10">
-                <div className="text-[#a855f7] font-bold text-sm uppercase tracking-widest mb-3">The ASMI Legacy</div>
+                <div className="text-[#a855f7] font-bold text-sm uppercase tracking-widest mb-3">The ASMU Legacy</div>
                 <p className="text-gray-300 text-lg leading-relaxed">
-                  For decades, ASMI has produced physicians who serve Uzbekistan's most critical healthcare needs — and beyond. Its faculty of globally published researchers produces students who don't just pass exams, they outthink their peers on hospital floors around the world.
+                  For decades, ASMU has produced physicians who serve Uzbekistan's most critical healthcare needs — and beyond. Its faculty of globally published researchers produces students who don't just pass exams, they outthink their peers on hospital floors around the world.
                 </p>
               </div>
             </div>
@@ -216,11 +216,11 @@ const AndijanStateMedicalInstitute = () => {
         </div>
       </section>
 
-      {/* ═══ SECTION 3: WHY ASMI — 3D Floating Cards ═══════════════════════ */}
+      {/* ═══ SECTION 3: WHY ASMU — 3D Floating Cards ═══════════════════════ */}
       <section className="py-32 bg-gradient-to-b from-[#07030f] to-[#0e0518] overflow-hidden">
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-20" data-aos="fade-up">
-            <h2 className="text-4xl md:text-5xl font-black text-white mb-4">Why Choose <span className="text-[#a855f7]">ASMI?</span></h2>
+            <h2 className="text-4xl md:text-5xl font-black text-white mb-4">Why Choose <span className="text-[#a855f7]">ASMU?</span></h2>
             <div className="w-24 h-1 bg-gradient-to-r from-[#7c3aed] to-[#a855f7] mx-auto rounded-full" />
           </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -264,7 +264,7 @@ const AndijanStateMedicalInstitute = () => {
         </div>
 
         <div className="relative z-10 max-w-7xl mx-auto px-6 mb-16 text-center" data-aos="fade-up">
-          <h2 className="text-4xl md:text-5xl font-black text-white mb-4">Life at <span className="text-[#a855f7]">ASMI</span></h2>
+          <h2 className="text-4xl md:text-5xl font-black text-white mb-4">Life at <span className="text-[#a855f7]">ASMU</span></h2>
           <p className="text-[#6a4a9a] max-w-xl mx-auto">The Fergana Valley's most beautiful campus — where academic rigor and cultural richness coexist in perfect harmony.</p>
         </div>
 
@@ -283,12 +283,12 @@ const AndijanStateMedicalInstitute = () => {
           >
             {[bgImg, campus1, campus2, campus3, campus4].map((src, i) => (
               <SwiperSlide key={i} className="relative overflow-hidden border-2 border-[#a855f7]/40 group">
-                <LazyImage src={src} alt={`ASMI Campus ${i + 1}`} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000" />
+                <LazyImage src={src} alt={`ASMU Campus ${i + 1}`} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000" />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#0e0518] via-[#0e0518]/20 to-transparent opacity-80" />
                 <div className="absolute bottom-8 left-8 right-8">
                   <div className="inline-flex items-center gap-3 px-5 py-2 rounded-full bg-[#0e0518]/60 border border-[#a855f7]/50 backdrop-blur-xl mb-3 shadow-[0_0_20px_rgba(168,85,247,0.3)]">
                     <span className="w-2.5 h-2.5 rounded-full bg-[#a855f7] animate-pulse" />
-                    <span className="text-white text-xs font-black uppercase tracking-[0.2em]">ASMI View {i + 1}</span>
+                    <span className="text-white text-xs font-black uppercase tracking-[0.2em]">ASMU View {i + 1}</span>
                   </div>
                 </div>
               </SwiperSlide>
@@ -316,10 +316,10 @@ const AndijanStateMedicalInstitute = () => {
             <div className="hidden md:block absolute left-1/2 -translate-x-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-[#a855f7]/0 via-[#a855f7]/40 to-[#a855f7]/0" />
 
             {[
-              { icon: '✨', step: '01', title: 'The Aspiration', desc: 'You dream of becoming a doctor. ASMI has guided thousands of Indians just like you — through counseling, application, and beyond.', side: 'left' },
-              { icon: '📋', step: '02', title: 'The Admission', desc: 'Fully supported document processing, visa stamping, and offer letter from ASMI — handled end to end by our consultancy.', side: 'right' },
+              { icon: '✨', step: '01', title: 'The Aspiration', desc: 'You dream of becoming a doctor. ASMU has guided thousands of Indians just like you — through counseling, application, and beyond.', side: 'left' },
+              { icon: '📋', step: '02', title: 'The Admission', desc: 'Fully supported document processing, visa stamping, and offer letter from ASMU — handled end to end by our consultancy.', side: 'right' },
               { icon: '🏛️', step: '03', title: 'Campus Arrival', desc: 'Land in Andijan to a warm welcome. Orientation, dormitory allocation, and campus tour on Day 1.', side: 'left' },
-              { icon: '🩺', step: '04', title: 'Graduate as a Physician', desc: 'Walk out with an ASMI MBBS degree — recognized by NMC, WHO, and medical licensing boards across the globe.', side: 'right' },
+              { icon: '🩺', step: '04', title: 'Graduate as a Physician', desc: 'Walk out with an ASMU MBBS degree — recognized by NMC, WHO, and medical licensing boards across the globe.', side: 'right' },
             ].map(({ icon, step, title, desc, side }, i) => (
 
               <motion.div
@@ -402,7 +402,7 @@ const AndijanStateMedicalInstitute = () => {
 
               <p className="text-base sm:text-lg md:text-2xl text-white font-light italic leading-relaxed tracking-tight 
           border-l-0 lg:border-l-4 pl-0 lg:pl-12 border-white/10 text-center lg:text-left">
-                "Nestled in the fertile Fergana Valley, ASMI is where deep-rooted academic heritage fuses with tomorrow's clinical vision. A place where every aspiring doctor finds their true calling."
+                "Nestled in the fertile Fergana Valley, ASMU is where deep-rooted academic heritage fuses with tomorrow's clinical vision. A place where every aspiring doctor finds their true calling."
               </p>
 
             </div>
@@ -455,6 +455,24 @@ const AndijanStateMedicalInstitute = () => {
 
       {/* ═══ SECTION 7: ADMISSION PROTOCOL — ELIGIBILITY & DOSSIER ══════════ */}
       <AdmissionProtocol themeAccent="#a855f7" />
+
+
+      <section className="py-16 sm:py-20 md:py-24 bg-[#07030f] border-y border-white/5">
+
+        <div className="max-w-5xl mx-auto px-4 sm:px-5 md:px-6 
+    grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 
+    gap-6 md:gap-8 text-center">
+
+          <Counter target={4800} label="Students Placed" suffix="+" />
+          <Counter target={60} label="Partner Countries" suffix="+" />
+          <Counter target={25} label="EU Exchange Schools" suffix="+" />
+          <Counter target={96} label="NMC Success Rate" suffix="%" />
+
+        </div>
+
+      </section>
+
+
 
       {/* ═══ FINAL CTA: KYRGYZSTAN ADMISSIONS ══════════════════════════════════════ */}
 

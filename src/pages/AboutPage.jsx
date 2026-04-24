@@ -1,35 +1,20 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useMemo, useState } from 'react';
 import { motion } from 'framer-motion';
 import { SplineScene } from '../components/ui/spline';
-import AOS from 'aos';
-import 'aos/dist/aos.css';
-import './AboutPage.css';
 
-
-// Reusing assets
-// Assets are now served from the public/assets directory
 const serviceStudent = '/assets/service_student.webp';
-const splineScene = '/assets/scene.splinecode';
 
-// ── STATISTIC COUNTER COMPONENT ──
-function StatisticCounter({ target, suffix = "+", duration = 2000, step = 1 }) {
-  const [count, setCount] = React.useState(0);
-  const [visible, setVisible] = React.useState(false);
+const StatisticCounter = React.memo(({ target, suffix = "+", duration = 2000, step = 1 }) => {
+  const [count, setCount] = useState(0);
+  const [visible, setVisible] = useState(false);
   const elementRef = useRef(null);
 
-  // Adjusted calculated interval based on number of steps to reach target
-  const stepsCount = target / step;
-  const interval = duration / stepsCount;
+  const interval = useMemo(() => duration / (target / step), [duration, target, step]);
 
   useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setVisible(true);
-        }
-      },
-      { threshold: 0.1 }
-    );
+    const observer = new IntersectionObserver(([entry]) => {
+      if (entry.isIntersecting) setVisible(true);
+    }, { threshold: 0.1 });
     if (elementRef.current) observer.observe(elementRef.current);
     return () => observer.disconnect();
   }, []);
@@ -44,237 +29,179 @@ function StatisticCounter({ target, suffix = "+", duration = 2000, step = 1 }) {
     }
   }, [count, target, visible, interval, step]);
 
-  return (
-    <span ref={elementRef}>
-      {count}{suffix}
-    </span>
-  );
-}
+  return <span ref={elementRef}>{count}{suffix}</span>;
+});
 
-export default function AboutPage() {
+const AboutPage = () => {
+  const stats = useMemo(() => [
+    { target: 100, step: 5, label: "Students Placed" },
+    { target: 15, step: 1, label: "Partner Universities" },
+    { target: 100, step: 10, suffix: "%", label: "Visa Success" }
+  ], []);
+
+  const services = useMemo(() => [
+    "Counseling", "Visa Assistance", "University Selection",
+    "Bank Loan", "Admission Guidance", "Travel Help",
+    "Documentation", "Airport Pickup", "Accommodation"
+  ], []);
+
   useEffect(() => {
-    // AOS is now initialized globally in App.jsx
+    window.scrollTo(0, 0);
   }, []);
 
-  return (
-    <div className="about-page">
+  const memoizedHero = useMemo(() => (
+    <section className="relative w-full min-h-screen flex flex-col lg:flex-row items-center overflow-hidden pt-20">
+      <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden opacity-30 lg:opacity-100">
+         <SplineScene scene="/assets/scene.splinecode" className="w-full h-full" />
+      </div>
+      
+      <div className="absolute inset-0 z-10 bg-gradient-to-r from-[#020c1b] via-[#020c1b]/40 to-transparent pointer-events-none" />
+      <div className="absolute inset-0 z-10 bg-gradient-to-t from-[#020c1b] via-transparent to-transparent pointer-events-none" />
 
-      {/* ── DYNAMIC 3D HERO SECTION ── */}
-      <section className="relative w-full min-h-screen flex flex-col lg:flex-row bg-black overflow-x-hidden pt-24 lg:pt-0">
-
-        {/* Left Side: 50% Content */}
-        <div className="w-full lg:w-1/2 min-h-[60vh] lg:min-h-screen flex flex-col justify-center text-left px-6 lg:pl-20 xl:pl-32 lg:pr-12 relative z-20 pb-16 lg:pb-0">
-          <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 1, delay: 0.1 }}
-            className="mb-6 pt-10 lg:pt-0"
-          >
-            <span className="px-5 py-2 rounded-full bg-white/5 border border-white/10 text-purple-400 text-xs font-black tracking-[0.2em] uppercase backdrop-blur-md inline-block">
-              Empowering Medical Dreams
+      <div className="relative z-20 w-full max-w-7xl mx-auto px-6 py-20 flex flex-col items-center lg:items-start text-center lg:text-left">
+        <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }}>
+          <span className="px-4 py-1.5 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-[10px] font-black tracking-widest uppercase mb-8 inline-block">
+            Since 2022
+          </span>
+          <h1 className="text-3xl sm:text-5xl md:text-7xl lg:text-8xl font-black text-white leading-[1.1] mb-8">
+            Trusted <br />
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-cyan-400 to-indigo-400">
+              Medical Legacy
             </span>
-          </motion.div>
-
-          <motion.h1
-            initial={{ opacity: 0, x: -30 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 1.2, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
-            className="text-5xl md:text-6xl lg:text-[4.5rem] font-extrabold text-white tracking-tight mb-8 leading-[1.1] drop-shadow-2xl"
+          </h1>
+          <p className="text-gray-400 text-lg md:text-xl leading-relaxed mb-10 max-w-2xl">
+            Bravo Groups is dedicated to guiding aspiring medical students to achieve their dreams of studying MBBS abroad with transparency and excellence.
+          </p>
+          <button 
+            onClick={() => window.dispatchEvent(new CustomEvent('openLeadPopup'))}
+            className="px-10 py-5 bg-blue-600 text-white font-black uppercase tracking-widest rounded-full shadow-2xl hover:bg-blue-500 transition-all hover:-translate-y-1"
           >
-            Trusted Overseas <br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500">
-              Guidance
-            </span>
-          </motion.h1>
-
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, delay: 0.4 }}
-            className="bg-white/5 border border-white/10 backdrop-blur-xl p-8 rounded-3xl shadow-2xl relative overflow-hidden group max-w-2xl"
-          >
-            <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/5 to-white/0 -translate-x-full group-hover:translate-x-full transition-transform duration-1000" />
-            <p className="text-neutral-300 text-base lg:text-lg leading-relaxed mb-8 relative z-10">
-              <strong>Bravo Groups</strong> is dedicated to guiding aspiring medical students to achieve their dreams of studying MBBS abroad. We specialize in admissions to top government medical universities in Uzbekistan, offering transparent, affordable, and reliable services. From counseling to visa, travel, and post-arrival support, we ensure a smooth journey for every student.
-            </p>
-            <button
-              className="px-8 py-4 bg-blue-600 hover:bg-blue-500 text-white rounded-full font-bold transition-all shadow-[0_0_20px_rgba(37,99,235,0.3)] hover:shadow-[0_0_30px_rgba(37,99,235,0.6)] hover:-translate-y-1 relative z-10"
-              onClick={() => window.dispatchEvent(new CustomEvent('openLeadPopup'))}
-            >
-              Get Counseling Now
-            </button>
-          </motion.div>
-        </div>
-
-        {/* Right Side: 3D Spline Interactive Element */}
-        <motion.div
-          initial={{ opacity: 0, scale: 0.95 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 1.5, delay: 0.5 }}
-          className="absolute inset-0 top-0 lg:static w-full lg:w-1/2 h-[500px] lg:h-[700px] z-0 lg:z-10 pointer-events-none opacity-40 lg:opacity-100 flex items-center justify-center overflow-hidden"
-        >
-          {/* Optional ambient glow behind the 3D model */}
-          <div className="absolute inset-0 bg-blue-500/10 blur-[100px] rounded-full pointer-events-none" />
-
-          <SplineScene
-            scene="/assets/scene.splinecode"
-            className="w-full h-full relative z-10 block pointer-events-none"
-          />
+            Start Your Story
+          </button>
         </motion.div>
-        {/* Mission & Vision 3D Glass Cards */}
+      </div>
+    </section>
+  ), []);
 
-      </section>
-
-      {/* ── TRANSITION STATS BAR (Blue Background) ── */}
-      <section className="stats-bar-blue relative z-30">
-        <div className="container">
-          <motion.div
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-50px" }}
-            transition={{ duration: 0.8, staggerChildren: 0.2 }}
-            className="stats-grid-horizontal"
-          >
-            {[
-              { target: 100, step: 10, label: "Students Placed" },
-              { target: 7, step: 1, label: "Partner Universities" },
-              { target: 100, step: 20, suffix: "%", label: "Visa Success Rate" }
-            ].map((stat, i) => (
-              <motion.div
-                key={i}
-                initial={{ opacity: 0, scale: 0.8 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                whileHover={{ y: -5, scale: 1.05 }}
-                transition={{ duration: 0.5, delay: i * 0.15, type: "spring", stiffness: 100 }}
-                className="stat-pill shadow-lg hover:shadow-[0_0_25px_rgba(255,255,255,0.4)] transition-all"
-              >
-                <div className="stat-num">
-                  <StatisticCounter target={stat.target} step={stat.step} suffix={stat.suffix} />
-                </div>
-                <div className="stat-lbl">{stat.label}</div>
-              </motion.div>
-            ))}
-          </motion.div>
+  const memoizedStats = useMemo(() => (
+    <section className="relative z-30 py-12 bg-blue-600">
+      <div className="max-w-7xl mx-auto px-6">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          {stats.map((stat, i) => (
+            <div key={i} className="flex flex-col items-center text-center">
+              <span className="text-4xl md:text-6xl font-black text-white mb-2">
+                <StatisticCounter target={stat.target} step={stat.step} suffix={stat.suffix} />
+              </span>
+              <span className="text-blue-100 font-black text-xs uppercase tracking-widest">{stat.label}</span>
+            </div>
+          ))}
         </div>
-      </section>
+      </div>
+    </section>
+  ), [stats]);
 
-      {/* ── SERVICES & TRUST SECTION (Matching Screenshot) ── */}
-      <section className="about-services-section relative overflow-hidden">
-        <div className="container">
-          <div className="services-row-flex flex flex-col     lg:flex-row gap-12 items-center">
+  const memoizedContent = useMemo(() => (
+    <section className="py-24 bg-white relative overflow-hidden">
+      <div className="max-w-7xl mx-auto px-6">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-start mb-24">
+          <div className="order-2 lg:order-1">
+             <div className="mb-12">
+               <span className="text-blue-600 font-black text-xs uppercase tracking-widest mb-4 block">Our Roots</span>
+               <h2 className="text-3xl md:text-5xl font-black text-slate-900 mb-6">Founded in Vellore</h2>
+               <p className="text-slate-600 text-lg leading-relaxed mb-6">
+                 <strong>BRAVO GROUPS PRIVATE LIMITED</strong> was established in <strong>2022 in Vellore, Tamil Nadu</strong>, with a clear vision to make <strong>MBBS abroad accessible, affordable, and transparent</strong> for Indian students.
+               </p>
+               
+               <div className="h-px w-full bg-slate-100 my-10" />
 
-            <motion.div
-              initial={{ opacity: 0, x: -50 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true, margin: "-100px" }}
-              transition={{ duration: 0.8 }}
-              className="services-content-left"
-            >
-              <div className="mb-10">
-                <h3 className="flex items-center gap-3 text-2xl font-bold text-blue-600 mb-4">
-                  <span className="text-3xl">🏢</span> Founded in Vellore
-                </h3>
-                <p className="text-lg text-neutral-700 leading-relaxed">
-                  <span className="font-bold text-neutral-900">BRAVO GROUPS PRIVATE LIMITED</span> was established in <span className="font-bold text-blue-600">2022 in Vellore, Tamil Nadu</span>, with a clear vision to make <span className="font-bold italic">MBBS abroad accessible, affordable, and transparent</span> for Indian students.
-                </p>
-              </div>
+               <h2 className="text-3xl md:text-5xl font-black text-slate-900 mb-6">Our Story</h2>
+               <div className="space-y-6 text-slate-500 text-base leading-relaxed">
+                 <p>
+                   Bravo Groups was founded with the aim of solving a common problem—students struggling with <strong>lack of proper guidance, high costs, and unclear admission processes</strong> in medical education abroad.
+                 </p>
+                 <p>
+                   Starting with a small group of aspiring doctors, we focused on providing <strong>honest counseling and reliable support</strong>, helping students choose the right universities based on their goals and budget.
+                 </p>
+                 <p>
+                   Over time, our commitment to <strong>transparency, trust, and student success</strong> has helped us grow steadily. Today, Bravo Groups has successfully guided <strong>100+ students</strong> toward their dream of studying MBBS abroad across multiple countries.
+                 </p>
+               </div>
+             </div>
 
-              <div className="mb-10">
-                <h2 className="flex items-center gap-3 text-3xl md:text-4xl font-extrabold text-neutral-900 mb-6">
-                  <span className="text-4xl">📖</span> Our Story
-                </h2>
-                <p className="text-lg text-neutral-600 mb-6 leading-relaxed">
-                  BRAVO GROUPS was founded with the aim of solving a common problem—students struggling with <span className="font-semibold text-neutral-800">lack of proper guidance, high costs, and unclear admission processes</span> in medical education abroad.
-                </p>
-                <p className="text-lg text-neutral-600 mb-6 leading-relaxed">
-                  Starting with a small group of aspiring doctors, we focused on providing <span className="font-semibold text-blue-600">honest counseling and reliable support</span>, helping students choose the right universities based on their goals and budget.
-                </p>
-                <p className="text-lg text-neutral-600 leading-relaxed">
-                  Over time, our commitment to <span className="font-semibold text-neutral-800">transparency, trust, and student success</span> has helped us grow steadily. Today, BRAVO GROUPS has successfully guided <span className="font-bold text-blue-600">100+ students</span> toward their dream of studying MBBS abroad across multiple countries.
-                </p>
-              </div>
-
-              {/* Restored Services List */}
-              <div className="mb-12">
-                <h2 className="section-title text-3xl font-extrabold mb-6">Our Premium Services</h2>
-                <p className="services-intro text-lg text-neutral-600 mb-8 leading-relaxed">
-                  From counseling to accommodation, we provide complete end-to-end support for your MBBS journey. Our services ensure a smooth, secure, and successful experience.
-                </p>
-
-                <motion.ul
-                  initial="hidden"
-                  whileInView="visible"
-                  viewport={{ once: true, margin: "-50px" }}
-                  variants={{
-                    visible: { transition: { staggerChildren: 0.1 } }
-                  }}
-                  className="services-grid-list grid grid-cols-1 sm:grid-cols-2 gap-4"
-                >
-                  {[
-                    "COUNSELING PROCESS", "VISA ASSISTANCE", "UNIVERSITY SELECTION",
-                    "BANK LOAN ASSISTANCE", "ADMISSION GUIDANCE", "TRAVEL ASSISTANCE",
-                    "DOCUMENTATION", "AIRPORT PICKUP", "ACCOMMODATION"
-                  ].map((service, idx) => (
-                    <motion.li
-                      key={idx}
-                      variants={{
-                        hidden: { opacity: 0, x: -20 },
-                        visible: { opacity: 1, x: 0, transition: { type: "spring", bounce: 0.4 } }
-                      }}
-                      whileHover={{ scale: 1.05, x: 5 }}
-                      className="flex items-center gap-3 p-3 bg-white rounded-xl shadow-[0_4px_20px_rgba(0,0,0,0.03)] border border-neutral-100 font-bold text-sm md:text-base text-neutral-800 cursor-pointer"
-                    >
-                      <span className="check-icon text-blue-600 text-xl"><i className="fa-solid fa-circle-check"></i></span>
-                      {service}
-                    </motion.li>
-                  ))}
-                </motion.ul>
-              </div>
-
-              <div className="relative p-8 rounded-3xl bg-gradient-to-br from-blue-50 to-indigo-50 border border-blue-100 shadow-sm overflow-hidden">
-                <div className="absolute top-0 right-0 p-4 opacity-10">
-                  <i className="fa-solid fa-quote-right text-6xl text-blue-600"></i>
+             <div className="p-8 rounded-[2.5rem] bg-slate-900 text-white shadow-2xl relative overflow-hidden group" style={{ WebkitBackdropFilter: "blur(20px)" }}>
+                <div className="absolute top-0 right-0 p-6 opacity-10 group-hover:scale-110 transition-transform">
+                  <i className="fa-solid fa-quote-right text-6xl"></i>
                 </div>
-                <h3 className="flex items-center gap-3 text-2xl font-bold text-neutral-900 mb-4">
-                  <span className="text-3xl">🌟</span> Our Belief
-                </h3>
-                <blockquote className="text-xl font-medium text-blue-700 italic mb-4">
-                  “Your dream is our responsibility.”
-                </blockquote>
-                <p className="text-neutral-600 leading-relaxed">
+                <span className="text-blue-500 font-black text-[10px] uppercase tracking-widest mb-4 block">Our Belief</span>
+                <h3 className="text-2xl font-black mb-4 italic text-blue-400">"Your dream is our responsibility."</h3>
+                <p className="text-slate-400 text-sm leading-relaxed">
                   We believe every student deserves the right guidance and a clear path to achieve their medical career goals without confusion or hidden processes.
                 </p>
-              </div>
-            </motion.div>
+             </div>
+          </div>
 
-            {/* Right Visuals */}
-            <motion.div
-              initial={{ opacity: 0, scale: 0.9, rotate: -3 }}
-              whileInView={{ opacity: 1, scale: 1, rotate: 0 }}
-              viewport={{ once: true, margin: "-100px" }}
-              transition={{ duration: 1, type: "spring", bounce: 0.5 }}
-              className="services-visual-right relative"
-            >
-              <div className="services-image-main relative">
-                {/* Glowing Abstract Backdrop */}
-                <div className="absolute inset-0 bg-gradient-to-tr from-blue-500 to-purple-500 rounded-[2.5rem] blur-3xl opacity-20 animate-pulse" />
-
-                <motion.img
-                  whileHover={{ scale: 1.03 }}
-                  transition={{ duration: 0.4 }}
-                  src={serviceStudent}
-                  alt="Student Reading Brochure"
-                  className="relative z-10 w-full object-cover rounded-[2.5rem] shadow-2xl border-4 border-white/50"
-                  style={{ transformStyle: 'preserve-3d' }}
-                />
-              </div>
-            </motion.div>
-
+          <div className="order-1 lg:order-2 sticky top-28">
+             <div className="relative group">
+                <div className="absolute -inset-4 bg-blue-600/10 rounded-[3rem] blur-2xl group-hover:opacity-20 transition-opacity" />
+                <div className="relative rounded-[3rem] overflow-hidden shadow-2xl border-4 border-white">
+                   <img src={serviceStudent} alt="Student" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" fetchpriority="high" />
+                </div>
+                <div className="absolute -bottom-6 -left-6 bg-white p-6 rounded-2xl shadow-xl border border-slate-100 hidden sm:block">
+                   <div className="flex items-center gap-4">
+                      <div className="w-12 h-12 rounded-xl bg-blue-600 flex items-center justify-center text-white text-xl">
+                         <i className="fa-solid fa-graduation-cap"></i>
+                      </div>
+                      <div>
+                         <p className="text-[10px] font-black text-slate-400 uppercase tracking-widest">Global Success</p>
+                         <p className="text-lg font-black text-slate-900">100+ Placements</p>
+                      </div>
+                   </div>
+                </div>
+             </div>
           </div>
         </div>
-      </section>
 
+        {/* Feature Grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {services.map((s, i) => (
+            <div key={i} className="flex items-center gap-4 p-5 rounded-2xl bg-slate-50 border border-slate-100 group hover:bg-blue-600 hover:text-white hover:border-blue-600 transition-all duration-300 cursor-default">
+              <div className="w-8 h-8 rounded-lg bg-blue-100 group-hover:bg-blue-500 flex items-center justify-center text-blue-600 group-hover:text-white transition-colors">
+                <i className="fa-solid fa-check text-xs"></i>
+              </div>
+              <span className="font-bold text-sm">{s}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  ), [services]);
+
+  const memoizedCTA = useMemo(() => (
+    <section className="py-24 bg-[#020c1b] relative overflow-hidden text-center">
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-[800px] h-[400px] bg-blue-600/10 rounded-full blur-[120px] pointer-events-none" />
+      <div className="relative z-10 max-w-4xl mx-auto px-6">
+         <h2 className="text-3xl md:text-5xl font-black text-white mb-8">Ready to Join 100+ Successful Students?</h2>
+         <p className="text-gray-400 text-lg mb-10 max-w-2xl mx-auto">
+            Get personalized guidance from the most trusted medical consultancy in Vellore. Your global medical career starts here.
+         </p>
+         <button 
+           onClick={() => window.location.href = '/contact'}
+           className="px-12 py-6 bg-blue-600 text-white rounded-full font-black uppercase tracking-widest shadow-[0_20px_50px_rgba(37,99,235,0.3)] hover:bg-blue-500 hover:shadow-[0_20px_50px_rgba(37,99,235,0.5)] transition-all active:scale-95"
+         >
+           Contact Our Experts
+         </button>
+      </div>
+    </section>
+  ), []);
+
+  return (
+    <div className="bg-[#020c1b] overflow-hidden min-h-screen">
+      {memoizedHero}
+      {memoizedStats}
+      {memoizedContent}
+      {memoizedCTA}
     </div>
   );
-}
+};
+
+export default AboutPage;

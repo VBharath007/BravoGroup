@@ -24,7 +24,7 @@ const LeadPopup = () => {
     address: '',
     altPhone: '', // optional number
     neetMark: '',
-    cutOff: '',
+    //  cutOff: '',
     university: '',
   });
   const [submitted, setSubmitted] = useState(false);
@@ -84,16 +84,7 @@ const LeadPopup = () => {
     };
   }, [phase]);
 
-  // Auto-calculation logic for NEET Cut-off
-  useEffect(() => {
-    const mark = parseFloat(formData.neetMark);
-    if (!isNaN(mark) && mark > 0) {
-      const calculated = (mark * 100 / 720).toFixed(2);
-      setFormData(prev => ({ ...prev, cutOff: calculated }));
-    } else {
-      setFormData(prev => ({ ...prev, cutOff: '' }));
-    }
-  }, [formData.neetMark]);
+
 
   const handleChange = useCallback((e) => {
     setFormData(prev => ({ ...prev, [e.target.id]: e.target.value }));
@@ -120,9 +111,8 @@ const LeadPopup = () => {
       `*Alt Phone:* ${formData.altPhone || 'N/A'}%0A` +
       `*Address:* ${formData.address}%0A` +
       `*NEET Mark:* ${formData.neetMark}%0A` +
-      `*Calculated Cut-off:* ${formData.cutOff}%0A%0A` +
-      `I'm interested in MBBS counseling. Please guide me.`;
-    window.open(`https://wa.me/918838071494?text=${msg}`, '_blank');
+
+      window.open(`https://wa.me/918838071494?text=${msg}`, '_blank');
     setSubmitted(true);
     if (timerRef.current) clearTimeout(timerRef.current);
     timerRef.current = setTimeout(close, 2200);
@@ -170,7 +160,8 @@ const LeadPopup = () => {
               className="lp-logo"
               width="125"
               height="125"
-              loading="lazy"
+              loading="eager"
+              fetchpriority="high"
             />
 
             <div className="lp-left-badge">
@@ -318,17 +309,7 @@ const LeadPopup = () => {
                     <span className="lp-field-line" />
                   </div>
 
-                  <div className="lp-field lp-field--disabled">
-                    <label className="lp-label">Auto Cut-off</label>
-                    <input
-                      id="cutOff" type="text" readOnly
-                      placeholder="0.00"
-                      value={formData.cutOff}
-                      className="lp-input"
-                      style={{ opacity: 0.6, cursor: 'not-allowed' }}
-                    />
-                    <span className="lp-field-line" />
-                  </div>
+
                 </div>
 
                 <button type="submit" className="lp-submit">

@@ -1,7 +1,5 @@
 /* Google Fonts with display=swap */
 
-
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -10,8 +8,15 @@ body {
   margin: 0;
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+  font-display: swap; /* Prevent layout shift during font load */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block; /* Remove bottom whitespace shift */
 }
 
 /* Glass Button */
@@ -35,6 +40,7 @@ body {
   border: 1px solid rgba(255, 255, 255, 0.8);
   box-shadow: inset 0 4px 6px rgba(255, 255, 255, 0.9), inset 0 -2px 4px rgba(0, 0, 0, 0.05), 0 10px 20px rgba(0, 0, 0, 0.04);
   backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
   color: #0f172a;
   border-radius: 9999px;
   position: relative;
@@ -64,4 +70,23 @@ body {
 
 .bg-black {
   background-color: #060C17;
+}
+
+/* Safari Support for Backdrop Blur */
+.backdrop-blur-md, .backdrop-blur-xl, .backdrop-blur-lg, .backdrop-blur-sm {
+  -webkit-backdrop-filter: blur(var(--tw-backdrop-blur, 12px)) !important;
+}
+
+/* Smooth Touch Scrolling for iOS */
+* {
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Hide scrollbar utility */
+.no-scroll {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+.no-scroll::-webkit-scrollbar {
+  display: none; /* Chrome, Safari and Opera */
 }

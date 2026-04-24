@@ -1,7 +1,7 @@
 // Column 1: Uzbekistan countries (Sub-sections)
 export const uzbekistanRegions = [
-  { key: 'Eastern Uzbekistan', links: ['Andijan State Medical Institute', 'Fergana Medical Institute'] },
-  { key: 'Central Uzbekistan', links: ['Tashkent Medical Academy'] },
+  { key: 'Eastern Uzbekistan', links: ['Andijan State Medical University', 'Fergana Medical Institute'] },
+  { key: 'Central Uzbekistan', links: ['Tashkent State Medical University'] },
   { key: 'Western / Central-West', links: ['Samarkand State Medical University'] },
   { key: 'South-West Uzbekistan', links: ['Bukhara State Medical Institute'] }
 ];

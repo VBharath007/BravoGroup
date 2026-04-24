@@ -129,7 +129,7 @@ const TashkentMedicalAcademy = () => {
             className="inline-flex items-center gap-2 px-5 py-2 rounded-full border border-[#00D4FF]/40 bg-[#00D4FF]/10 backdrop-blur-md mb-8"
           >
             <MapPin className="w-4 h-4 text-[#00D4FF]" />
-            <span className="text-[#00D4FF] text-sm font-bold uppercase tracking-[0.25em]">Tashkent, Uzbekistan · Est. 1920</span>
+            <span className="text-[#00D4FF] text-sm font-bold uppercase tracking-[0.25em]">Tashkent, Uzbekistan · Est- 1920</span>
           </motion.div>
 
           {/* Staggered title */}
@@ -140,7 +140,7 @@ const TashkentMedicalAcademy = () => {
               variants={{ visible: { transition: { staggerChildren: 0.04 } } }}
               className="flex flex-wrap justify-center gap-x-4 gap-y-2"
             >
-              {['Tashkent', 'Medical', 'Academy'].map((word, wi) => (
+              {['Tashkent', 'State', 'Medical', 'University'].map((word, wi) => (
                 <span key={wi} className="overflow-hidden block">
                   <motion.span
                     variants={{ hidden: { y: '110%' }, visible: { y: 0, transition: { duration: 0.7, ease: [0.16, 1, 0.3, 1] } } }}
@@ -215,7 +215,7 @@ const TashkentMedicalAcademy = () => {
               Where Medical <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#0A66C2] to-[#00D4FF]">Legends Begin</span>
             </h2>
             <p className="text-[#8ba8c4] text-lg leading-loose mb-6">
-              Founded in 1920, Tashkent Medical Academy carries the weight of a century and the ambition of tomorrow. Long before Central Asia's medical landscape modernized, TMA was already shaping surgeons, researchers, and public health champions who would go on to serve continents — not just countries.
+              Founded in 1920, Tashkent State Medical University carries the weight of a century and the ambition of tomorrow. Long before Central Asia's medical landscape modernized, TSMU was already shaping surgeons, researchers, and public health champions who would go on to serve continents — not just countries.
             </p>
             <p className="text-[#8ba8c4] text-lg leading-loose">
               Today, thousands of Indian students walk its corridors, immersed in a globally recognized, WHO-listed curriculum taught in English, surrounded by the cultural richness of Uzbekistan's dynamic capital. This isn't just an institution — it's an origin story for the world's best physicians.
@@ -237,7 +237,7 @@ const TashkentMedicalAcademy = () => {
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(10,102,194,0.1)_0%,transparent_70%)]" />
         <div className="max-w-7xl mx-auto px-6 relative z-10">
           <div className="text-center mb-20" data-aos="fade-up">
-            <h2 className="text-4xl md:text-5xl font-black text-white mb-4">Why Tashkent Medical <span className="text-[#00D4FF]">Academy?</span></h2>
+            <h2 className="text-4xl md:text-5xl font-black text-white mb-4">Why Tashkent State  <span className="text-[#00D4FF]">  Medical University?</span></h2>
             <div className="w-24 h-1 bg-gradient-to-r from-[#0A66C2] to-[#00D4FF] mx-auto rounded-full" />
           </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -276,7 +276,7 @@ const TashkentMedicalAcademy = () => {
           <h2 className="text-4xl md:text-5xl font-black text-white mb-4">
             Campus <span className="text-[#00D4FF]">Experience</span>
           </h2>
-          <p className="text-[#6a8faa] max-w-xl mx-auto">Immerse yourself in the world-class infrastructure that defines TMA — from its historic facades to its cutting-edge labs.</p>
+          <p className="text-[#6a8faa] max-w-xl mx-auto">Immerse yourself in the world-class infrastructure that defines TSMU — from its historic facades to its cutting-edge labs.</p>
         </div>
         <Swiper
           effect="coverflow"
@@ -313,7 +313,7 @@ const TashkentMedicalAcademy = () => {
           {/* Heading */}
           <div className="text-center mb-12 md:mb-20" data-aos="fade-up">
             <h2 className="text-3xl md:text-5xl font-black text-white mb-4">
-              Your Journey at <span className="text-[#00D4FF]">TMA</span>
+              Your Journey at <span className="text-[#00D4FF]">TSMU</span>
             </h2>
             <p className="text-[#6a8faa] text-sm md:text-base">
               From aspiring student to world-class physician — each step crafted by decades of excellence.
@@ -423,7 +423,7 @@ const TashkentMedicalAcademy = () => {
 
           {/* Paragraph */}
           <p className="text-[#8ba8c4] text-sm sm:text-base md:text-xl mb-8 md:mb-14 font-light leading-relaxed px-2 sm:px-0">
-            Your medical legacy is waiting. Join thousands of students who chose TMA and never looked back.
+            Your medical legacy is waiting. Join thousands of students who chose TSMU and never looked back.
           </p>
 
           {/* Button */}
@@ -450,7 +450,7 @@ const TashkentMedicalAcademy = () => {
 
               {/* Content */}
               <span className="relative flex items-center justify-center gap-2 md:gap-3">
-                Apply To TMA
+                Apply To TSMU
                 <ArrowRight className="w-4 h-4 md:w-6 md:h-6 group-hover:translate-x-2 transition-transform" />
               </span>
 

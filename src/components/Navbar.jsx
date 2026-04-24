@@ -11,8 +11,6 @@ import {
 } from '../data/universityLinks';
 
 
-
-
 const navLinks = [
   { label: 'Home', href: '/' },
   { label: 'About Us', href: '/about' },
@@ -55,13 +53,11 @@ function UniLink({ item }) {
 
   const name = isObject ? formatLabel(item.name) : formatLabel(item);
 
-  // Directly route to the individual university page
   const path = isObject
     ? `/university/${item.id}`
     : `/university/${item.split(' (')[0].toLowerCase().replace(/\s+/g, '-')}`;
 
   const handleClick = (e) => {
-    // Sparkle effect logic
     const sparkleContainer = document.createElement('div');
     sparkleContainer.className = 'sparkle-container';
     sparkleContainer.style.left = `${e.clientX}px`;
@@ -91,8 +87,6 @@ function MegaDropdown() {
   return (
     <div className="mega-dropdown">
       <div className="mega-dropdown-inner">
-
-        {/* ── COLUMN 1: Uzbekistan (All Regions) ── */}
         <div className="mega-col">
           <div className="mega-header">
             <span className="mega-icon">🇺🇿</span>
@@ -105,15 +99,14 @@ function MegaDropdown() {
                 <span className="mega-sub-title">{region.key.toUpperCase()}</span>
               </div>
               <ul className="mega-list">
-                {region.links.map((item) => (
-                  <UniLink key={item.id} item={item} />
+                {region.links.map((item, idx) => (
+                  <UniLink key={idx} item={item} />
                 ))}
               </ul>
             </div>
           ))}
         </div>
 
-        {/* ── COLUMN 2: Kyrgyzstan ── */}
         <div className="mega-col">
           <div className="mega-header">
             <span className="mega-icon">🇰🇬</span>
@@ -126,7 +119,6 @@ function MegaDropdown() {
           </ul>
         </div>
 
-        {/* ── COLUMN 3: Georgia ── */}
         <div className="mega-col">
           <div className="mega-header">
             <span className="mega-icon">🇬🇪</span>
@@ -139,7 +131,6 @@ function MegaDropdown() {
           </ul>
         </div>
 
-        {/* ── COLUMN 4: Russia ── */}
         <div className="mega-col">
           <div className="mega-header">
             <span className="mega-icon">🇷🇺</span>
@@ -151,9 +142,48 @@ function MegaDropdown() {
             ))}
           </ul>
         </div>
-
       </div>
     </div>
+  );
+}
+
+function NavLinkItem({ link, setMenuOpen }) {
+  const [isHovered, setIsHovered] = useState(false);
+
+  return (
+    <li
+      className={link.mega ? 'mega-trigger' : link.dropdown ? 'mega-trigger' : ''}
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+    >
+      <Link to={link.href || "#"}>
+        {link.label}
+        {(link.mega || link.dropdown) && (
+          <svg className="dropdown-arrow" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+            <polyline points="6 9 12 15 18 9" />
+          </svg>
+        )}
+      </Link>
+      {isHovered && link.mega && <MegaDropdown data={universitiesData} />}
+      {isHovered && link.dropdown && (
+        <ul className="sub-dropdown country-grid-dropdown">
+          {link.dropdown.map((item) => {
+            const formatLabel = (str) => {
+              if (!str) return '';
+              return str.charAt(0).toUpperCase() + str.slice(1).toLowerCase();
+            };
+            return (
+              <li key={item.label} className="dropdown-item-with-dash">
+                <Link to={item.href} onClick={() => setMenuOpen(false)}>
+                  <span className="dropdown-chevron">›</span>
+                  {formatLabel(item.label)}
+                </Link>
+              </li>
+            );
+          })}
+        </ul>
+      )}
+    </li>
   );
 }
 
@@ -163,7 +193,6 @@ export default function Navbar() {
 
   return (
     <>
-      {/* Top Bar */}
       <div className="nav-topbar">
         <div className="nav-topbar-inner">
           <div className="nav-topbar-left">
@@ -187,50 +216,19 @@ export default function Navbar() {
                 <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" /><polyline points="22,6 12,13 2,6" /></svg>
                 bravogroups@gmail.com
               </a>
-
             </div>
           </div>
         </div>
       </div>
 
-      {/* Main Navbar */}
       <nav className="nav">
         <Link to="/" className="nav-logo">
-          <img src={logo} alt="Logo" />
+          <img src={logo} alt="Logo" fetchpriority="high" loading="eager" />
         </Link>
 
         <ul className="nav-links">
           {navLinks.map((link) => (
-            <li
-              key={link.label}
-              className={link.mega ? 'mega-trigger' : link.dropdown ? 'mega-trigger' : ''}
-            >
-              <Link to={link.href || "#"} >
-                {link.label}
-                {(link.mega || link.dropdown) && (
-                  <svg className="dropdown-arrow" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><polyline points="6 9 12 15 18 9" /></svg>
-                )}
-              </Link>
-              {link.mega && <MegaDropdown data={universitiesData} />}
-              {link.dropdown && (
-                <ul className="sub-dropdown country-grid-dropdown">
-                  {link.dropdown.map((item) => {
-                    const formatLabel = (str) => {
-                      if (!str) return '';
-                      return str.charAt(0).toUpperCase() + str.slice(1).toLowerCase();
-                    };
-                    return (
-                      <li key={item.label} className="dropdown-item-with-dash">
-                        <Link to={item.href} onClick={() => setMenuOpen(false)}>
-                          <span className="dropdown-chevron">›</span>
-                          {formatLabel(item.label)}
-                        </Link>
-                      </li>
-                    );
-                  })}
-                </ul>
-              )}
-            </li>
+            <NavLinkItem key={link.label} link={link} setMenuOpen={setMenuOpen} />
           ))}
         </ul>
 
@@ -250,68 +248,70 @@ export default function Navbar() {
         </button>
       </nav>
 
-      {/* Mobile Overlay */}
       <div
         className={`nav-mobile-overlay ${menuOpen ? 'visible' : ''}`}
         onClick={() => setMenuOpen(false)}
       />
 
-      {/* Mobile Drawer */}
       <div className={`nav-mobile-drawer ${menuOpen ? 'open' : ''}`}>
-        <div className="mobile-drawer-header">
-          <img src={logo} alt="Logo" className="mobile-drawer-logo" />
-          <button className="drawer-close" onClick={() => setMenuOpen(false)}>&times;</button>
-        </div>
-
-        <div className="mobile-drawer-links">
-          {navLinks.map((link, lIdx) => (
-            <div key={`${link.label}-${lIdx}`} className="mobile-nav-item">
-              <Link to={link.href} className="mobile-nav-link" onClick={() => setMenuOpen(false)}>
-                {link.label}
-              </Link>
-              {(link.mega || link.dropdown) && (
-                <div className="mobile-accordion-content expanded">
-                  {link.mega && Object.entries(universitiesData).map(([region, unis]) => (
-                    <div key={region} className="mobile-region-group">
-                      <div className="mobile-region-name">{region.toUpperCase()}</div>
-                      {unis.map(uni => {
-                        const isObject = typeof uni === 'object';
-                        const formatLabel = (str) => {
-                          if (!str) return '';
-                          return str.charAt(0).toUpperCase() + str.slice(1).toLowerCase();
-                        };
-                        const name = isObject ? formatLabel(uni.name) : formatLabel(uni);
-                        const id = isObject ? uni.id : uni.split(' (')[0].toLowerCase().replace(/\s+/g, '-');
-
-                        return (
-                          <Link
-                            key={id}
-                            to={`/university/${id}`}
-                            className="mobile-uni-link"
-                            onClick={() => setMenuOpen(false)}
-                          >
-                            {name}
-                          </Link>
-                        );
-                      })}
-                    </div>
-                  ))}
-                  {link.dropdown && link.dropdown.map(item => (
-                    <Link key={item.label} to={item.href} className="mobile-uni-link" onClick={() => setMenuOpen(false)}>
-                      {item.label}
-                    </Link>
-                  ))}
-                </div>
-              )}
+        {menuOpen && (
+          <>
+            <div className="mobile-drawer-header">
+              <img src={logo} alt="Logo" className="mobile-drawer-logo" />
+              <button className="drawer-close" onClick={() => setMenuOpen(false)}>&times;</button>
             </div>
-          ))}
-        </div>
 
-        <div className="mobile-drawer-footer">
-          <button className="nav-cta w-full" onClick={() => { window.dispatchEvent(new CustomEvent('openLeadPopup')); setMenuOpen(false); }}>
-            Get Counseling
-          </button>
-        </div>
+            <div className="mobile-drawer-links">
+              {navLinks.map((link, lIdx) => (
+                <div key={`${link.label}-${lIdx}`} className="mobile-nav-item">
+                  <Link to={link.href} className="mobile-nav-link" onClick={() => setMenuOpen(false)}>
+                    {link.label}
+                  </Link>
+                  {(link.mega || link.dropdown) && (
+                    <div className="mobile-accordion-content expanded">
+                      {link.mega && Object.entries(universitiesData).map(([region, unis]) => (
+                        <div key={region} className="mobile-region-group">
+                          <div className="mobile-region-name">{region.toUpperCase()}</div>
+                          {unis.map((uni, uIdx) => {
+                            const isObject = typeof uni === 'object';
+                            const formatLabel = (str) => {
+                              if (!str) return '';
+                              return str.charAt(0).toUpperCase() + str.slice(1).toLowerCase();
+                            };
+                            const name = isObject ? formatLabel(uni.name) : formatLabel(uni);
+                            const id = isObject ? uni.id : uni.split(' (')[0].toLowerCase().replace(/\s+/g, '-');
+
+                            return (
+                              <Link
+                                key={`${id}-${uIdx}`}
+                                to={`/university/${id}`}
+                                className="mobile-uni-link"
+                                onClick={() => setMenuOpen(false)}
+                              >
+                                {name}
+                              </Link>
+                            );
+                          })}
+                        </div>
+                      ))}
+                      {link.dropdown && link.dropdown.map(item => (
+                        <Link key={item.label} to={item.href} className="mobile-uni-link" onClick={() => setMenuOpen(false)}>
+                          {item.label}
+                        </Link>
+                      ))}
+                    </div>
+                  )}
+                </div>
+              ))}
+            </div>
+
+            <div className="mobile-drawer-footer">
+              <button className="nav-cta w-full" onClick={() => { window.dispatchEvent(new CustomEvent('openLeadPopup')); setMenuOpen(false); }}>
+                Get Counseling
+              </button>
+            </div>
+          </>
+        )}
       </div>
     </>
   );

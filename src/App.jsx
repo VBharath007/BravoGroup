@@ -89,10 +89,10 @@ function App() {
           <Route path="/register" element={<Register />} />
 
           {/* University Routes */}
-          <Route path="/university/tashkent-medical-academy" element={<TashkentMedicalAcademy />} />
+          <Route path="/university/tashkent-state-medical-university" element={<TashkentMedicalAcademy />} />
           <Route path="/university/samarkand-state-medical-university" element={<SamarkandStateMedicalUniversity />} />
           <Route path="/university/bukhara-state-medical-institute" element={<BukharaStateMedicalInstitute />} />
-          <Route path="/university/andijan-state-medical-institute" element={<AndijanStateMedicalInstitute />} />
+          <Route path="/university/andijan-state-medical-university" element={<AndijanStateMedicalInstitute />} />
           <Route path="/university/fergana-medical-institute" element={<FerganaMedicalInstitute />} />
 
           {/* Generic University Routes */}

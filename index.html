@@ -12,10 +12,19 @@
   <link rel="manifest" href="/manifest.json" />
 
   <!-- 
-    25+ Years Experience Architecture Note:
-    Self-hosting fonts eliminates 3rd-party dependencies, improves LCP, 
-    and ensures GDPR compliance. All fonts are served from /public/fonts/
+    LCP Optimization: Preload critical assets to eliminate Resource Load Delay.
+    Prioritize the first hero animation frame and 3D Spline assets.
   -->
+  <link rel="preload" as="image" href="/frameinjection/video_in_001.webp" fetchpriority="high" />
+  <link rel="preload" as="image" href="/assets/bgremovedlogo-small.webp" fetchpriority="high" />
+  
+  <link rel="preload" href="/fonts/Inter-Variable.woff2" as="font" type="font/woff2" crossorigin="anonymous" />
+  <link rel="preload" href="/fonts/Outfit-Variable.woff2" as="font" type="font/woff2" crossorigin="anonymous" />
+
+  <!-- Preload Critical Spline Assets for Countries and Universities pages -->
+  <link rel="preload" href="/assets/earth.splinecode" as="fetch" crossorigin="anonymous" />
+  <link rel="preload" href="/assets/universities.splinecode" as="fetch" crossorigin="anonymous" />
+
   <style>
     /* Critical Font Face Definitions - Inlined for Zero FOUT */
     @font-face {
@@ -25,6 +34,7 @@
       font-display: swap;
       font-style: normal;
     }
+
     @font-face {
       font-family: 'Playfair Display';
       src: url('/fonts/PlayfairDisplay-Variable.woff2') format('woff2-variations');
@@ -32,6 +42,7 @@
       font-display: swap;
       font-style: italic normal;
     }
+
     @font-face {
       font-family: 'Outfit';
       src: url('/fonts/Outfit-Variable.woff2') format('woff2-variations');
@@ -41,7 +52,9 @@
   </style>
 
   <!-- Optimized Local Vendor Assets -->
-  <link rel="stylesheet" href="/vendor/fontawesome/css/all.min.css" />
+  <!-- Defer non-critical CSS to eliminate render-blocking delay -->
+  <link rel="stylesheet" href="/vendor/fontawesome/css/all.min.css" media="print" onload="this.media='all'" />
+  <noscript><link rel="stylesheet" href="/vendor/fontawesome/css/all.min.css" /></noscript>
 
   <!-- Hardened Security Policy (No external font/script domains required) -->
   <meta http-equiv="Content-Security-Policy" content="
@@ -60,7 +73,7 @@
   <meta name="referrer" content="strict-origin-when-cross-origin" />
   <meta http-equiv="X-Content-Type-Options" content="nosniff" />
 
-  <title>Bravo Groups | Premier Overseas Medical Education</title>
+  <title>Bravo Groups | Premier Educational Consultancy Medical Education</title>
 </head>
 
 <body>

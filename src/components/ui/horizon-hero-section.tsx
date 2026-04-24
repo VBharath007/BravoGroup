@@ -71,6 +71,11 @@ export default function FrameInjection() {
     let done = 0;
     for (let i = 1; i <= FRAME_COUNT; i++) {
       const img = new Image();
+      // First frame is critical for LCP
+      if (i === 1) {
+        // @ts-ignore - fetchPriority is supported in modern browsers for LCP optimization
+        img.fetchPriority = "high";
+      }
       img.src = `/frameinjection/video_in_${String(i).padStart(3, "0")}.webp`;
       const fin = () => { done++; setLoadedCount(done); };
       img.onload = fin;
@@ -374,7 +379,7 @@ export default function FrameInjection() {
               <span style={{ color: "#3b82f6", textDecoration: "underline", textDecorationColor: "rgba(59,130,246,0.28)", textUnderlineOffset: "7px" }}>Trusted Bravo Groups</span>
             </h2>
             <p style={{ fontSize: "clamp(0.9rem,1.4vw,1.08rem)", color: "rgba(155,165,185,1)", maxWidth: 540, lineHeight: 1.8, fontFamily: "system-ui,sans-serif" }}>
-              Expert guidance, affordable MBBS admissions, and end-to-end support trusted by <strong style={{ color: "#fff" }}>100+ of students</strong>.
+              Expert guidance, affordable MBBS admissions, and end-to-end support trusted by <strong style={{ color: "#fff" }}>100+  students</strong>.
             </p>
             <div style={{ display: "flex", gap: "0.9rem", flexWrap: "wrap", justifyContent: "center", paddingTop: "0.4rem", pointerEvents: "auto" }}>
               <div onClick={() => window.dispatchEvent(new CustomEvent('openLeadPopup'))} style={{ display: "flex", alignItems: "center", gap: "0.5rem", padding: "0.85rem 2rem", background: "linear-gradient(135deg,#2F4DFF,#6B21C8)", borderRadius: 99, cursor: "pointer", fontSize: "0.88rem", fontWeight: 600, color: "#fff", fontFamily: "system-ui,sans-serif", boxShadow: "0 4px 28px rgba(47,77,255,0.4)" }}>
