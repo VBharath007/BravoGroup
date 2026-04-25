@@ -12,7 +12,7 @@ import 'aos/dist/aos.css';
 const Home = lazy(() => import("./pages/HomePage"));
 const About = lazy(() => import("./pages/AboutPage"));
 const Countries = lazy(() => import("./pages/Countries"));
-const Apply = lazy(() => import("./pages/Apply"));
+const Apply = lazy(() => import("./pages/Contact")); // Redirect to Contact
 const Contact = lazy(() => import("./pages/Contact"));
 const Universities = lazy(() => import("./pages/Universities"));
 const UzbekistanMBBS = lazy(() => import("./pages/Countries")); // Redirect to Countries

@@ -71,11 +71,6 @@ export default function FrameInjection() {
     let done = 0;
     for (let i = 1; i <= FRAME_COUNT; i++) {
       const img = new Image();
-      // First frame is critical for LCP
-      if (i === 1) {
-        // @ts-ignore - fetchPriority is supported in modern browsers for LCP optimization
-        img.fetchPriority = "high";
-      }
       img.src = `/frameinjection/video_in_${String(i).padStart(3, "0")}.webp`;
       const fin = () => { done++; setLoadedCount(done); };
       img.onload = fin;

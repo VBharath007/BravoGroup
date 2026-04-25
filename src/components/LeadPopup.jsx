@@ -160,8 +160,7 @@ const LeadPopup = () => {
               className="lp-logo"
               width="125"
               height="125"
-              loading="eager"
-              fetchpriority="high"
+              loading="lazy"
             />
 
             <div className="lp-left-badge">

@@ -4,10 +4,8 @@ const LazyImage = ({
     src,
     alt,
     className = '',
-    width,
-    height,
     // High-quality placeholder or blurred version can go here
-    placeholder = `data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${width || 400} ${height || 300}"%3E%3Crect fill="%231a1a1a" width="${width || 400}" height="${height || 300}"/%3E%3C/svg%3E`,
+    placeholder = 'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300"%3E%3Crect fill="%231a1a1a" width="400" height="300"/%3E%3C/svg%3E',
     style = {},
     ...props
 }) => {
@@ -68,14 +66,11 @@ const LazyImage = ({
             ref={imgRef}
             src={imageSrc}
             alt={alt}
-            width={width}
-            height={height}
             onLoad={handleLoad}
             // We use 'opacity-0' only until the REAL image is loaded
             // This ensures a smooth fade-in and prevents the "broken" look
             className={`${className} transition-opacity duration-1000 ease-in-out ${(!isLoaded && imageSrc === src) ? 'opacity-0' : 'opacity-100'}`}
             style={{
-                aspectRatio: width && height ? `${width} / ${height}` : 'auto',
                 ...style,
                 minHeight: '1px', // Ensure it has some height for the observer
                 minWidth: '1px'
