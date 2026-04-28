@@ -18,11 +18,11 @@ import LazyImage from '../../components/Lazyimage';
 
 // Assets are now served from the public/assets directory
 const bgImg = '/assets/andijansidebuilding.jpeg';
-const campus1 = '/assets/andiajnfront.jpeg';
+const campus1 = '/assets/andijanfront.jpeg';
 
 const campus2 = '/assets/andijan2.webp';
-const campus3 = '/assets/andistudents.webp';
-const campus4 = '/assets/andijanspeakingperson.jpg';
+const campus4 = '/assets/andistudents.jpeg';
+const campus3 = '/assets/andijanspeakingperson.jpeg';
 
 
 
@@ -232,7 +232,7 @@ const AndijanStateMedicalInstitute = () => {
               transition={{ duration: 0.8 }}
               className="md:col-span-2 relative overflow-hidden rounded-[2rem] md:rounded-3xl min-h-[350px] md:min-h-[380px] flex flex-col justify-end p-6 md:p-10"
             >
-              <LazyImage src={campus3} alt="" className="absolute inset-0 w-full h-full object-cover opacity-0.5" />
+              <LazyImage src={campus3} alt="" className="absolute inset-0 w-full h-full object-cover opacity-50" />
               <div className="absolute inset-0 bg-gradient-to-t from-[#07030f] via-[#07030f]/60 to-transparent" />
               <div className="absolute inset-0 border border-[#a855f7]/20 rounded-[2rem] md:rounded-3xl" />
               <div className="relative z-10">
@@ -243,7 +243,7 @@ const AndijanStateMedicalInstitute = () => {
                 <p className="text-gray-300 text-sm md:text-lg leading-relaxed">
                   Andijan State Medical university has a strong legacy in medical education in Uzbekistan with decades of academic excellence.
                   <br className="hidden md:block" />
-                  It is one of the oldest and most reputed government medical university in the region, 
+                  It is one of the oldest and most reputed government medical university in the region,
                   ASMU continues to grow as a trusted destination for international MBBS students, especially from India.
                 </p>
               </div>

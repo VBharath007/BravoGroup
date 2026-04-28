@@ -542,12 +542,19 @@ const Countries = () => {
                                 <motion.div variants={fadeUp} className="mb-12">
                                     <SectionLabel text="University Rankings" accent={accent} />
                                     <div className="space-y-3">
-                                        {UNIVERSITIES[activeId]?.map((uni, i) => (
-                                            <div key={i} className="flex items-center justify-between p-5 rounded-2xl glass hover:bg-white/5 transition-all">
-                                                <span className="text-sm font-bold text-neutral-200">{uni}</span>
-                                                <span className="text-[10px] font-black text-neutral-500 uppercase tracking-widest">Rank #{i + 1}</span>
-                                            </div>
-                                        ))}
+                                        {UNIVERSITIES[activeId]?.map((uni, i) => {
+                                            const route = getUniRoute(uni);
+                                            return (
+                                                <div 
+                                                    key={i} 
+                                                    onClick={() => route && navigate(route)}
+                                                    className={`flex items-center justify-between p-5 rounded-2xl glass transition-all ${route ? 'cursor-pointer hover:bg-white/10 active:scale-[0.98]' : 'hover:bg-white/5'}`}
+                                                >
+                                                    <span className="text-sm font-bold text-neutral-200">{uni}</span>
+                                                    <span className="text-[10px] font-black text-neutral-500 uppercase tracking-widest">Rank #{i + 1}</span>
+                                                </div>
+                                            );
+                                        })}
                                     </div>
                                 </motion.div>
 
