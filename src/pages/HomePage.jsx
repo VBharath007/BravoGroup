@@ -399,20 +399,25 @@ export default function HomePage() {
             <div className="section-tag-blue">About bravogroup's Educational Consultancy</div>
             <h2 className="section-h2">The Most Trusted Gateway to Global Medical Excellence</h2>
             <div className="about-story-block">
-              <h3 className="about-sub-h3">🏢 Founded in Vellore</h3>
+              <h3 className="about-sub-h3"> Founded in Vellore</h3>
               <p className="about-text"><strong>BRAVO GROUPS PRIVATE LIMITED</strong> was established in <strong>2022 in Vellore, Tamil Nadu</strong>, with a clear vision to make <strong>MBBS abroad accessible, affordable, and transparent</strong> for Indian students.</p>
             </div>
             <div className="about-story-block">
-              <h3 className="about-sub-h3">📖 Our Story</h3>
+              <h3 className="about-sub-h3">Our Story</h3>
               <p className="about-text" style={{ marginBottom: '1rem' }}>BRAVO GROUPS was founded with the aim of solving a common problem—students struggling with <strong>lack of proper guidance, high costs, and unclear admission processes</strong> in medical education abroad.</p>
               <p className="about-text" style={{ marginBottom: '1rem' }}>Starting with a small group of aspiring doctors, we focused on providing <strong>honest counseling and reliable support</strong>, helping students choose the right universities based on their goals and budget.</p>
               <p className="about-text">Over time, our commitment to <strong>transparency, trust, and student success</strong> has helped us grow steadily. Today, BRAVO GROUPS has successfully guided <strong>100+ students</strong> toward their dream of studying MBBS abroad across multiple countries.</p>
             </div>
             <div className="about-belief-card">
-              <h3 className="about-sub-h3">🌟 Our Belief</h3>
+              <h3 className="about-sub-h3">Our Belief</h3>
               <blockquote className="about-quote-box">Your dream is our responsibility.</blockquote>
               <p className="about-text" style={{ marginBottom: 0 }}>We believe every student deserves the right guidance and a clear path to achieve their medical career goals without confusion or hidden processes.</p>
             </div>
+
+            <Link to="/about" className="btn-elegant-story">
+              Start your story with us
+              <i className="fa-solid fa-arrow-right-long" />
+            </Link>
           </div>
         </div>
       </FadeSection>
@@ -421,7 +426,7 @@ export default function HomePage() {
       <FadeSection className="section why-new">
         <div className="container">
           <div className="why-new-header" data-aos="fade-up">
-            <h2 className="section-h2">The Bravo Groups Educational Consultancy Advantage</h2>
+            <h2 className="section-h2">Why Bravo Groups ? stands out </h2>
             <p className="about-text" style={{ margin: '0 auto 3rem', textAlign: 'center' }}>
               We provide you with all the right reasons to choose us, from free counseling to securing admission in top government medical universities abroad.
             </p>

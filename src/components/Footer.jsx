@@ -75,6 +75,10 @@ export default function Footer() {
             <li><Link to="/universities?country=Kyrgyzstan">MBBS in Kyrgyzstan</Link></li>
             <li><Link to="/universities?country=Georgia">MBBS in Georgia</Link></li>
             <li><Link to="/universities?country=Russia">MBBS in Russia</Link></li>
+            <li><Link to="/universities?country=Kazakhstan">MBBS in Kazakhstan</Link></li>
+            <li><Link to="/universities?country=Philippines">MBBS in Philippines</Link></li>
+            <li><Link to="/universities?country=Vietnam">MBBS in Vietnam</Link></li>
+            <li><Link to="/universities?country=Tajikistan">MBBS in Tajikistan</Link></li>
           </ul>
         </div>
 

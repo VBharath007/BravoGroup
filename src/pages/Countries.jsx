@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState, useMemo, memo } from 'react';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { countryData } from '../components/data/countryData';
 import LazyImage from '../components/Lazyimage';
@@ -32,14 +32,130 @@ const FLAGS = {
 };
 
 const UNIVERSITIES = {
-    uzbekistan: ['Tashkent State Medical University', 'Samarkand State Medical University', 'Bukhara State Medical Institute', 'Andijan State Medical University', 'Fergana State Medical Institute', 'Gulistan State Medical University', 'Tashkent State Pharmaceutical & Medical University', 'Namangan State Medical Institute'],
-    kyrgyzstan: ['Osh State University', 'International Higher School of Medicine', 'Jalal-Abad State University', 'Jalal-Abad International University'],
-    russia: ['Kazan Federal University', 'Pirogov Russian National Research Medical University', 'Bashkir State Medical University', 'Tver State Medical University', 'Volgograd State Medical University'],
-    kazakhstan: ['Asfendiyarov Kazakh National Medical University', 'Astana Medical University', 'Karaganda Medical University', 'Semey Medical University', 'South Kazakhstan Medical Academy'],
-    georgia: ['BAU International University Batumi', 'Caucasus University', 'Avicenna Batumi Medical University', 'Georgian National University SEU', 'The University of Georgia'],
-    tajikistan: ['Avicenna Tajik State Medical University', 'Tajik National University – Medicine', 'Khujand State University', 'Kulyab State University', 'Sugd State University'],
-    vietnam: ['Hanoi Medical University', 'University of Medicine & Pharmacy HCMC', 'Hue University of Medicine', 'Hai Phong University of Medicine', 'Thai Binh University of Medicine'],
-    philippines: ['University of the Philippines Manila', 'West Visayas State University', 'Mindanao State University', 'University of Northern Philippines', 'Cagayan State University'],
+    uzbekistan: [
+        'TASHKENT STATE MEDICAL UNIVERSITY',
+        'ANDIJAN STATE MEDICAL UNIVERSITY',
+        'TASHKENT STATE PHARMACEUTICAL & MEDICAL UNIVERSITY',
+        'GULISTAN STATE MEDICAL UNIVERSITY',
+        'BUKHARA STATE MEDICAL INSTITUTE',
+        'FERGANA MEDICAL INSTITUTE OF PUBLIC HEALTH',
+        'NAMANGAN STATE MEDICAL UNIVERSITY',
+        'SAMARKAND STATE MEDICAL UNIVERSITY',
+        'KARAKALPAKSTAN MEDICAL INSTITUTE'
+    ],
+    kyrgyzstan: [
+        'OSH STATE UNIVERSITY - INTERNATIONAL MEDICAL FACULTY',
+        'INTERNATIONAL HIGHER SCHOOL OF MEDICINE',
+        'JALAL ABAD STATE UNIVERSITY',
+        'JALAL ABAD INTERNATIONAL UNIVERSITY'
+    ],
+    georgia: [
+        'BAU INTERNATIONAL UNIVERSITY BATUMI',
+        'CAUCASUS UNIVERSITY',
+        'AVICENNA BATUMI MEDICAL UNIVERSITY',
+        'GEORGIAN NATIONAL UNIVERSITY SEU',
+        'THE UNIVERSITY OF GEORGIA'
+    ],
+    russia: [
+        'KAZAN FEDERAL UNIVERSITY',
+        'PIROGOV RUSSIAN NATIONAL RESEARCH MEDICAL UNIVERSITY',
+        'BASHKIR STATE MEDICAL UNIVERSITY',
+        'TVER STATE MEDICAL UNIVERSITY',
+        'VOLGOGRAD STATE MEDICAL UNIVERSITY'
+    ],
+    kazakhstan: [
+        'ASFENDIYAROV KAZAKH NATIONAL MEDICAL UNIVERSITY',
+        'ASTANA MEDICAL UNIVERSITY',
+        'KARAGANDA MEDICAL UNIVERSITY',
+        'SEMEY MEDICAL UNIVERSITY',
+        'SOUTH KAZAKHSTAN MEDICAL ACADEMY'
+    ],
+    tajikistan: [
+        'AVICENNA TAJIK STATE MEDICAL UNIVERSITY',
+        'TAJIK NATIONAL UNIVERSITY (FACULTY OF MEDICINE)',
+        'KHUJAND STATE UNIVERSITY (FACULTY OF MEDICINE)',
+        'KULYAB STATE UNIVERSITY (MEDICAL FACULTY)',
+        'SUGD STATE UNIVERSITY (MEDICAL FACULTY)'
+    ],
+    vietnam: [
+        'HANOI MEDICAL UNIVERSITY',
+        'UNIVERSITY OF MEDICINE AND PHARMACY HO CHI MINH CITY',
+        'HUE UNIVERSITY OF MEDICINE AND PHARMACY',
+        'HAI PHONG UNIVERSITY OF MEDICINE AND PHARMACY',
+        'THAI BINH UNIVERSITY OF MEDICINE AND PHARMACY'
+    ],
+    philippines: [
+        'UNIVERSITY OF THE PHILIPPINES MANILA – COLLEGE OF MEDICINE',
+        'WEST VISAYAS STATE UNIVERSITY – COLLEGE OF MEDICINE',
+        'MINDANAO STATE UNIVERSITY – COLLEGE OF MEDICINE',
+        'UNIVERSITY OF NORTHERN PHILIPPINES – COLLEGE OF MEDICINE',
+        'CAGAYAN STATE UNIVERSITY – COLLEGE OF MEDICINE'
+    ],
+};
+
+const getUniRoute = (name) => {
+    if (!name) return null;
+    const map = {
+        // Uzbekistan
+        'tashkent state medical university': '/university/tashkent-state-medical-university',
+        'andijan state medical university': '/university/andijan-state-medical-university',
+        'tashkent state pharmaceutical & medical university': '/university/tashkent-state-medical-university#tspmu',
+        'gulistan state medical university': '/university/uzbekistan-medical-universities#gulistan',
+        'bukhara state medical institute': '/university/bukhara-state-medical-institute',
+        'fergana medical institute of public health': '/university/fergana-medical-institute',
+        'namangan state medical university': '/university/uzbekistan-medical-universities#namangan',
+        'samarkand state medical university': '/university/samarkand-state-medical-university',
+        'karakalpakstan medical institute': '/university/uzbekistan-medical-universities#karakalpakstan',
+
+        // Kyrgyzstan
+        'osh state university - international medical faculty': '/university/osh-state-university',
+        'international higher school of medicine': '/university/ihsm-bishkek',
+        'jalal abad state university': '/university/jasu-kyrgyzstan',
+        'jalal abad international university': '/university/jaiu-medical',
+
+        // Georgia
+        'bau international university batumi': '/university/bau-batumi',
+        'caucasus university': '/university/caucasus-university',
+        'avicenna batumi medical university': '/university/avicenna-batumi',
+        'georgian national university seu': '/university/seu-tbilisi',
+        'the university of georgia': '/university/uga-georgia',
+
+        // Russia
+        'kazan federal university': '/university/kazan-federal',
+        'pirogov russian national research medical university': '/university/pirogov-moscow',
+        'bashkir state medical university': '/university/bashkir-state',
+        'tver state medical university': '/university/tver-state',
+        'volgograd state medical university': '/university/volgograd-state',
+
+        // Kazakhstan
+        'asfendiyarov kazakh national medical university': '/university/asfendiyarov-kazakh',
+        'astana medical university': '/university/astana-medical',
+        'karaganda medical university': '/university/kazakhstan-medical',
+        'semey medical university': '/university/semey-medical',
+        'south kazakhstan medical academy': '/university/south-kazakhstan',
+
+        // Tajikistan
+        'avicenna tajik state medical university': '/university/avicenna-tajik',
+        'tajik national university (faculty of medicine)': '/university/tajik-national',
+        'khujand state university (faculty of medicine)': '/university/khujand-state',
+        'kulyab state university (medical faculty)': '/university/kulyab-state',
+        'sugd state university (medical faculty)': '/university/sugd-state',
+
+        // Vietnam
+        'hanoi medical university': '/university/hanoi-medical',
+        'university of medicine and pharmacy ho chi minh city': '/university/hcmc-medical',
+        'hue university of medicine and pharmacy': '/university/hue-medical',
+        'hai phong university of medicine and pharmacy': '/university/hai-phong-medical',
+        'thai binh university of medicine and pharmacy': '/university/thai-binh-medical',
+
+        // Philippines
+        'university of the philippines manila – college of medicine': '/university/up-manila',
+        'west visayas state university – college of medicine': '/university/west-visayas-state',
+        'mindanao state university – college of medicine': '/university/mindanao-state',
+        'university of northern philippines – college of medicine': '/university/northern-philippines',
+        'cagayan state university – college of medicine': '/university/cagayan-state'
+    };
+    return map[name.toLowerCase()] || null;
 };
 
 const staggerContainer = {
@@ -59,15 +175,24 @@ const SectionLabel = memo(({ text, accent }) => (
     </div>
 ));
 
-const FeatureCard = memo(({ text, accent, delay }) => (
-    <motion.div
-        initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }} transition={{ delay, duration: 0.6 }}
-        className="flex items-center gap-4 p-5 rounded-2xl glass border border-white/5 hover:border-white/10 transition-all group"
-    >
-        <p className="text-sm font-semibold text-neutral-300 group-hover:text-white transition-colors">{text}</p>
-    </motion.div>
-));
+const FeatureCard = memo(({ text, accent, delay }) => {
+    const parts = text.split(/(\*\*.*?\*\*)/g);
+    return (
+        <motion.div
+            initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }} transition={{ delay, duration: 0.6 }}
+            className="flex items-center gap-4 p-5 rounded-2xl glass border border-white/5 hover:border-white/10 transition-all group"
+        >
+            <p className="text-sm text-neutral-300 group-hover:text-white transition-colors">
+                {parts.map((part, i) =>
+                    part.startsWith('**') && part.endsWith('**')
+                        ? <strong key={i} className="font-black text-white">{part.slice(2, -2)}</strong>
+                        : part
+                )}
+            </p>
+        </motion.div>
+    );
+});
 
 // ── VIDEO HERO — replaces legacy animation (zero load, zero CLS) ────────────
 const VideoHero = memo(() => {
@@ -110,9 +235,92 @@ const VideoHero = memo(() => {
 });
 
 
+// ── FAQ ACCORDION SECTION ────────────────────────────────────────────────
+const FaqSection = memo(({ activeCountry, accent, activeId }) => {
+    const [openIndex, setOpenIndex] = useState(null);
+
+    useEffect(() => { setOpenIndex(null); }, [activeId]);
+
+    if (!activeCountry?.faqs?.length) return null;
+
+    return (
+        <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className="mt-32 pt-20 border-t border-white/5"
+        >
+            <div className="text-center mb-16">
+                <SectionLabel text="Common Inquiries" accent={accent} />
+                <h2 className="text-3xl lg:text-5xl font-black text-white mb-4">Frequently Asked Questions</h2>
+                <p className="text-neutral-500 max-w-2xl mx-auto">
+                    Everything you need to know about pursuing MBBS in {activeCountry?.name}.
+                </p>
+            </div>
+
+            <div className="max-w-3xl mx-auto space-y-4">
+                {activeCountry.faqs.map((faq, i) => {
+                    const isOpen = openIndex === i;
+                    return (
+                        <motion.div
+                            key={i}
+                            initial={{ opacity: 0, y: 16 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ delay: i * 0.05, duration: 0.5 }}
+                            className="rounded-2xl overflow-hidden border transition-all duration-300"
+                            style={{
+                                border: isOpen ? `1px solid ${accent.from}55` : '1px solid rgba(255,255,255,0.06)',
+                                background: isOpen ? `${accent.from}0d` : 'rgba(255,255,255,0.03)',
+                            }}
+                        >
+                            <button
+                                onClick={() => setOpenIndex(isOpen ? null : i)}
+                                className="w-full flex items-center justify-between gap-4 px-7 py-5 text-left"
+                            >
+                                <span className="text-base font-bold text-white leading-snug">{faq.question}</span>
+                                <span
+                                    className="flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center transition-all duration-300"
+                                    style={{
+                                        background: isOpen ? `linear-gradient(135deg,${accent.from},${accent.to})` : 'rgba(255,255,255,0.06)',
+                                        transform: isOpen ? 'rotate(45deg)' : 'rotate(0deg)',
+                                    }}
+                                >
+                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                                        <line x1="12" y1="5" x2="12" y2="19" /><line x1="5" y1="12" x2="19" y2="12" />
+                                    </svg>
+                                </span>
+                            </button>
+
+                            <AnimatePresence initial={false}>
+                                {isOpen && (
+                                    <motion.div
+                                        key="content"
+                                        initial={{ height: 0, opacity: 0 }}
+                                        animate={{ height: 'auto', opacity: 1 }}
+                                        exit={{ height: 0, opacity: 0 }}
+                                        transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
+                                        style={{ overflow: 'hidden' }}
+                                    >
+                                        <p className="px-7 pb-6 text-neutral-400 text-sm leading-relaxed">
+                                            {faq.answer}
+                                        </p>
+                                    </motion.div>
+                                )}
+                            </AnimatePresence>
+                        </motion.div>
+                    );
+                })}
+            </div>
+        </motion.div>
+    );
+});
+
 // ── MAIN ──────────────────────────────────────────────────────────────────
 const Countries = () => {
     const location = useLocation();
+    const navigate = useNavigate();
     const [activeId, setActiveId] = useState('uzbekistan');
     const scrollContainerRef = useRef(null);
 
@@ -180,13 +388,15 @@ const Countries = () => {
                             Premium Destinations 2025/26
                         </span>
                         <h1 className="text-6xl sm:text-7xl lg:text-8xl font-black text-white leading-[1.02] tracking-tighter mb-8 italic">
-                            Medical <br />
+                            Global Medical  <br />
                             <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-blue-400 to-purple-500" style={{ padding: '12px' }}>
-                                Excellence
+                                Education 2026
                             </span>
                         </h1>
                         <p className="text-neutral-400 text-lg sm:text-xl leading-relaxed max-w-2xl mx-auto font-medium">
-                            Explore world-class MBBS degrees in top-ranked destinations. Verified by WHO, approved by NMC, and guided by Bravo Groups.
+                            Explore internationally recognized medical universities and begin your global medical
+                            journey with Bravo Groups.
+
                         </p>
                     </motion.div>
 
@@ -350,6 +560,9 @@ const Countries = () => {
                             </div>
                         </motion.div>
                     </AnimatePresence>
+
+                    {/* ══ FAQ SECTION ══ */}
+                    <FaqSection activeCountry={activeCountry} accent={accent} activeId={activeId} />
                 </div>
             </section>
         </div>

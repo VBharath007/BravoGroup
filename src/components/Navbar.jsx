@@ -80,6 +80,10 @@ function UniLink({ item }) {
     setTimeout(() => sparkleContainer.remove(), 1000);
   };
 
+  if (isObject && item.isDivider) {
+    return <li className="mega-divider" style={{ height: '1px', backgroundColor: 'rgba(255,255,255,0.1)', margin: '10px 0', listStyle: 'none' }}></li>;
+  }
+
   return (
     <li>
       <Link to={path} onClick={handleClick}>{name}</Link>
@@ -200,12 +204,21 @@ export default function Navbar() {
         </Link>
 
         <ul className="nav-links">
-          {navLinks.map((link) => (
-            <li
-              key={link.label}
-              className={link.mega ? 'mega-trigger' : link.dropdown ? 'mega-trigger' : ''}
-            >
-              <Link to={link.href || "#"} >
+          {navLinks.map((link) => {
+            const isActive = location.pathname === link.href || 
+                             (link.href !== '/' && location.pathname.startsWith(link.href)) || 
+                             (link.label === 'Universities' && location.pathname.startsWith('/university/')) ||
+                             (link.dropdown && link.dropdown.some(item => location.pathname === item.href));
+            
+            return (
+              <li
+                key={link.label}
+                className={link.mega ? 'mega-trigger' : link.dropdown ? 'mega-trigger' : ''}
+              >
+                <Link 
+                  to={link.href || "#"} 
+                  className={isActive ? 'active-link' : ''}
+                >
                 {link.label}
                 {(link.mega || link.dropdown) && (
                   <svg className="dropdown-arrow" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><polyline points="6 9 12 15 18 9" /></svg>
@@ -230,8 +243,9 @@ export default function Navbar() {
                   })}
                 </ul>
               )}
-            </li>
-          ))}
+              </li>
+            );
+          })}
         </ul>
 
         <button className="nav-cta" onClick={() => window.dispatchEvent(new CustomEvent('openLeadPopup'))}>
@@ -264,9 +278,19 @@ export default function Navbar() {
         </div>
 
         <div className="mobile-drawer-links">
-          {navLinks.map((link, lIdx) => (
-            <div key={`${link.label}-${lIdx}`} className="mobile-nav-item">
-              <Link to={link.href} className="mobile-nav-link" onClick={() => setMenuOpen(false)}>
+          {navLinks.map((link, lIdx) => {
+            const isActive = location.pathname === link.href || 
+                             (link.href !== '/' && location.pathname.startsWith(link.href)) || 
+                             (link.label === 'Universities' && location.pathname.startsWith('/university/')) ||
+                             (link.dropdown && link.dropdown.some(item => location.pathname === item.href));
+            
+            return (
+              <div key={`${link.label}-${lIdx}`} className="mobile-nav-item">
+                <Link 
+                  to={link.href} 
+                  className={`mobile-nav-link ${isActive ? 'active-link' : ''}`}
+                  onClick={() => setMenuOpen(false)}
+                >
                 {link.label}
               </Link>
               {(link.mega || link.dropdown) && (
@@ -304,7 +328,8 @@ export default function Navbar() {
                 </div>
               )}
             </div>
-          ))}
+          );
+        })}
         </div>
 
         <div className="mobile-drawer-footer">

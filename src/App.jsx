@@ -33,6 +33,7 @@ const SamarkandStateMedicalUniversity = lazy(() => import("./pages/universities/
 const BukharaStateMedicalInstitute = lazy(() => import("./pages/universities/BukharaStateMedicalInstitute"));
 const AndijanStateMedicalInstitute = lazy(() => import("./pages/universities/AndijanStateMedicalInstitute"));
 const FerganaMedicalInstitute = lazy(() => import("./pages/universities/FerganaMedicalInstitute"));
+const UzbekistanMedicalUniversities = lazy(() => import("./pages/universities/UzbekistanMedicalUniversities"));
 
 // Lazy load components
 const LeadPopup = lazy(() => import("./components/LeadPopup"));
@@ -94,22 +95,10 @@ function App() {
           <Route path="/university/bukhara-state-medical-institute" element={<BukharaStateMedicalInstitute />} />
           <Route path="/university/andijan-state-medical-university" element={<AndijanStateMedicalInstitute />} />
           <Route path="/university/fergana-medical-institute" element={<FerganaMedicalInstitute />} />
+          <Route path="/university/uzbekistan-medical-universities" element={<UzbekistanMedicalUniversities />} />
 
           {/* Generic University Routes */}
-          <Route path="/university/osh-state-university" element={<Universities />} />
-          <Route path="/university/ihsm-bishkek" element={<Universities />} />
-          <Route path="/university/jasu-kyrgyzstan" element={<Universities />} />
-          <Route path="/university/jaiu-medical" element={<Universities />} />
-          <Route path="/university/bau-batumi" element={<Universities />} />
-          <Route path="/university/caucasus-university" element={<Universities />} />
-          <Route path="/university/avicenna-batumi" element={<Universities />} />
-          <Route path="/university/seu-tbilisi" element={<Universities />} />
-          <Route path="/university/uga-georgia" element={<Universities />} />
-          <Route path="/university/kazan-federal" element={<Universities />} />
-          <Route path="/university/pirogov-moscow" element={<Universities />} />
-          <Route path="/university/bashkir-state" element={<Universities />} />
-          <Route path="/university/tver-state" element={<Universities />} />
-          <Route path="/university/volgograd-state" element={<Universities />} />
+          <Route path="/university/:id" element={<Universities />} />
         </Routes>
       </Suspense>
 

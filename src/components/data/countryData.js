@@ -66,6 +66,20 @@ export const countryData = {
             "Practice in India after clearing NExT/FMGE",
             "Pursue PG in USA (USMLE) or UK (PLAB)",
             "Clinical research and hospital management globally"
+        ],
+        faqs: [
+            {
+                question: "Is it safe for Indian students to study in Russia?",
+                answer: "Yes, Russia has a long history of hosting Indian students and provides a very safe and student-friendly environment with dedicated security in university hostels."
+            },
+            {
+                question: "What are the food facilities for Indian students in Russia?",
+                answer: "Most top universities have Indian messes serving authentic Indian food, and there are plenty of Indian restaurants in major cities like Moscow and Kazan."
+            },
+            {
+                question: "Can I practice in India after completing MBBS from Russia?",
+                answer: "Yes, students can practice in India after successfully clearing the FMGE (Foreign Medical Graduate Examination) or the upcoming NExT exam conducted by the NMC."
+            }
         ]
     },
     georgia: {
@@ -123,6 +137,20 @@ export const countryData = {
             "License to practice in Georgia and Europe",
             "Appear for USMLE (USA) or PLAB (UK)",
             "Practice in India (after NExT/FMGE)"
+        ],
+        faqs: [
+            {
+                question: "Do I need to clear IELTS or TOEFL for admission in Georgia?",
+                answer: "No, most Georgian medical universities do not require IELTS or TOEFL scores for admission as long as the student has a good command of English."
+            },
+            {
+                question: "Is the medical degree from Georgia valid in Europe?",
+                answer: "Yes, Georgia follows the ECTS (European Credit Transfer System), which means the medical degree is widely accepted across Europe and the UK."
+            },
+            {
+                question: "How is the climate in Georgia for Indian students?",
+                answer: "Georgia has a moderate and pleasant climate. While it has distinct seasons, the weather is generally very comfortable for Indian students compared to colder regions."
+            }
         ]
     },
     kyrgyzstan: {
@@ -180,6 +208,20 @@ export const countryData = {
             "Primary focus on clearing FMGE/NExT for India",
             "Practice in government or private hospitals abroad",
             "Specialize in various medical fields globally"
+        ],
+        faqs: [
+            {
+                question: "Why is Kyrgyzstan a popular destination for Indian students?",
+                answer: "Kyrgyzstan is highly popular due to its extremely affordable tuition fees, direct admission process, and a large, supportive Indian student community."
+            },
+            {
+                question: "Is the NEET exam required for MBBS in Kyrgyzstan?",
+                answer: "Yes, qualifying the NEET exam is mandatory for Indian students to be eligible for admission and to practice medicine in India after graduation."
+            },
+            {
+                question: "What is the cost of living in Kyrgyzstan for students?",
+                answer: "The cost of living is very low, typically ranging from ₹8,000 to ₹12,000 per month, which includes food, accommodation, and local transport."
+            }
         ]
     },
 
@@ -240,6 +282,20 @@ export const countryData = {
             "Pursue PG abroad",
             "Work in international hospitals",
             "Opportunities in medical research"
+        ],
+        faqs: [
+            {
+                question: "How many years is the MBBS course in Kazakhstan?",
+                answer: "The MBBS program in Kazakhstan typically lasts 5 to 6 years, which includes comprehensive clinical rotations and internship periods."
+            },
+            {
+                question: "Are there any entrance exams for MBBS in Kazakhstan?",
+                answer: "No separate entrance exams are usually required by Kazakh universities. Indian students only need to qualify for the NEET exam to be eligible."
+            },
+            {
+                question: "What is the average annual tuition fee in Kazakhstan?",
+                answer: "Tuition fees are very competitive, generally ranging between ₹3 Lakh and ₹5 Lakh per year, depending on the university and city."
+            }
         ]
     },
 
@@ -300,6 +356,20 @@ export const countryData = {
             "Appear for USMLE and work in USA",
             "Pursue PG globally",
             "Work in international healthcare sector"
+        ],
+        faqs: [
+            {
+                question: "Why is the Philippines preferred for USMLE preparation?",
+                answer: "The Philippines follows an American-style medical curriculum (BS+MD), which is highly compatible with the USMLE syllabus, making it ideal for US medical careers."
+            },
+            {
+                question: "What is the NMAT exam in the Philippines?",
+                answer: "NMAT is a mandatory national-level aptitude test in the Philippines that students must take to qualify for admission into the Doctor of Medicine (MD) program."
+            },
+            {
+                question: "Is English widely spoken in the Philippines medical colleges?",
+                answer: "Yes, English is one of the official languages of the Philippines. It is the sole medium of instruction in all medical colleges and the language of daily communication."
+            }
         ]
     },
 
@@ -360,6 +430,20 @@ export const countryData = {
             "Pursue higher studies abroad",
             "Work in hospitals globally",
             "Opportunities in research and healthcare"
+        ],
+        faqs: [
+            {
+                question: "Is Vietnam a good choice for medical studies?",
+                answer: "Yes, Vietnam offers high-quality education with modern clinical facilities, affordable living costs, and a culture that is very welcoming to international students."
+            },
+            {
+                question: "What is the duration of the MBBS program in Vietnam?",
+                answer: "The MBBS program in Vietnam is a 6-year course that includes intensive clinical training and hands-on experience in major government hospitals."
+            },
+            {
+                question: "Are medical degrees from Vietnam recognized globally?",
+                answer: "Yes, medical degrees from top Vietnamese universities are recognized by WHO, WDOMS, and the NMC, allowing graduates to practice globally after clearing license exams."
+            }
         ]
     },
 
@@ -417,6 +501,20 @@ export const countryData = {
             "Clear NExT/FMGE for India practice",
             "Work in European countries after PG",
             "International medical research"
+        ],
+        faqs: [
+            {
+                question: "Is Tajikistan affordable for MBBS compared to other countries?",
+                answer: "Yes, Tajikistan is one of the most budget-friendly destinations globally, with total course costs significantly lower than in many other foreign countries."
+            },
+            {
+                question: "What is the medium of instruction in Tajikistan medical colleges?",
+                answer: "The primary medium of instruction for all international medical programs in Tajikistan is English, ensuring ease of learning for global students."
+            },
+            {
+                question: "Is Indian food available for students in Tajikistan?",
+                answer: "Yes, most universities hosting Indian students provide dedicated Indian mess facilities serving traditional vegetarian and non-vegetarian Indian meals."
+            }
         ]
     },
 
@@ -477,6 +575,20 @@ export const countryData = {
             "Pursue PG in USA, UK, or Germany",
             "Hospital administration and research",
             "International healthcare consultancy"
+        ],
+        faqs: [
+            {
+                question: "Is MBBS in Uzbekistan recognized by the NMC?",
+                answer: "Yes, several top-ranked medical universities in Uzbekistan are fully recognized by the NMC (National Medical Commission) and the WHO."
+            },
+            {
+                question: "What is the medium of instruction for MBBS in Uzbekistan?",
+                answer: "The complete MBBS (MD) program for international students is conducted in English, eliminating any language barrier for Indian students."
+            },
+            {
+                question: "How long is the MBBS course duration in Uzbekistan?",
+                answer: "The MBBS course in Uzbekistan is a 6-year program, which includes 5 years of academic and clinical study followed by a mandatory 1-year clinical internship."
+            }
         ]
     }
 };

@@ -213,6 +213,10 @@ const LeadPopup = () => {
             <>
               <div className="lp-right-header">
                 <h2 className="lp-right-title">Start Your MBBS<br />Journey Abroad</h2>
+                <div className="lp-admission-status">
+                  <span className="lp-pulse-dot"></span>
+                  2026-2027 ADMISSION OPEN
+                </div>
                 <p className="lp-right-sub">Get a response within 24 hours.</p>
               </div>
 
