@@ -395,7 +395,7 @@ const Countries = () => {
                         </h1>
                         <p className="text-neutral-400 text-lg sm:text-xl leading-relaxed max-w-2xl mx-auto font-medium">
                             Explore internationally recognized medical universities and begin your global medical
-                            journey with Bravo Groups.
+                            journey with Zenova Groups.
 
                         </p>
                     </motion.div>
@@ -545,8 +545,8 @@ const Countries = () => {
                                         {UNIVERSITIES[activeId]?.map((uni, i) => {
                                             const route = getUniRoute(uni);
                                             return (
-                                                <div 
-                                                    key={i} 
+                                                <div
+                                                    key={i}
                                                     onClick={() => route && navigate(route)}
                                                     className={`flex items-center justify-between p-5 rounded-2xl glass transition-all ${route ? 'cursor-pointer hover:bg-white/10 active:scale-[0.98]' : 'hover:bg-white/5'}`}
                                                 >

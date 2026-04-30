@@ -13,7 +13,7 @@ const testimonialsData = [
     location: "Chennai, Tamil Nadu",
     university: "Tashkent Medical Academy",
     rating: 5,
-    text: "Thanks to Bravo Groups, I got into a top medical university in Uzbekistan. They were honest, responsive, and treated me like family throughout the journey. The documentation process was incredibly smooth.",
+    text: "Thanks to Zenova Groups, I got into a top medical university in Uzbekistan. They were honest, responsive, and treated me like family throughout the journey. The documentation process was incredibly smooth.",
     gradient: "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
     initials: "DS"
   },
@@ -23,7 +23,7 @@ const testimonialsData = [
     location: "Hyderabad, Telangana",
     university: "Samarkand State Medical University",
     rating: 5,
-    text: "Bravo Groups made the entire admission process stress-free. From selecting the university to getting my visa approved, everything was handled professionally and on time.",
+    text: "Zenova Groups made the entire admission process stress-free. From selecting the university to getting my visa approved, everything was handled professionally and on time.",
     gradient: "linear-gradient(135deg, #ff0844 0%, #ffb199 100%)",
     initials: "FM"
   },
@@ -53,7 +53,7 @@ const testimonialsData = [
     location: "Salem, Tamil Nadu",
     university: "Andijan State Medical Institute",
     rating: 5,
-    text: "I was worried about the language barrier, but Bravo Groups provided great preparatory sessions. I'm now studying at a top university with total confidence.",
+    text: "I was worried about the language barrier, but Zenova Groups provided great preparatory sessions. I'm now studying at a top university with total confidence.",
     gradient: "linear-gradient(135deg, #fa709a 0%, #fee140 100%)",
     initials: "MK"
   },
@@ -63,7 +63,7 @@ const testimonialsData = [
     location: "Madurai, Tamil Nadu",
     university: "Osh State University",
     rating: 5,
-    text: "From airport pickup to hostel settlement, Bravo Groups was there on the ground for me. I never felt alone in a new country thanks to their local team support.",
+    text: "From airport pickup to hostel settlement, Zenova Groups was there on the ground for me. I never felt alone in a new country thanks to their local team support.",
     gradient: "linear-gradient(135deg, #a18cd1 0%, #fbc2eb 100%)",
     initials: "PM"
   }
@@ -108,7 +108,7 @@ export default function Testimonials() {
           <span className="tm-eyebrow">Real Stories. Real Success.</span>
           <h1 className="tm-title">Voices of <span className="tm-title-accent">Trust</span></h1>
           <p className="tm-subtitle">
-            Don't just take our word for it. Hear directly from the hundreds of students who successfully started their medical journey with Bravo Groups.
+            Don't just take our word for it. Hear directly from the hundreds of students who successfully started their medical journey with Zenova Groups.
           </p>
         </div>
       </section>
@@ -138,7 +138,7 @@ export default function Testimonials() {
             {testimonialsData.map((review) => (
               <div key={review.id} className="review-card">
                 <div className="rc-quote-icon">“</div>
-                
+
                 <div className="rc-rating">
                   {[...Array(review.rating)].map((_, i) => (
                     <svg key={i} viewBox="0 0 24 24" fill="currentColor">
@@ -148,7 +148,7 @@ export default function Testimonials() {
                 </div>
 
                 <p className="rc-text">{review.text}</p>
-                
+
                 <div className="rc-footer">
                   <div className="rc-avatar" style={{ background: review.gradient }}>
                     {review.initials}

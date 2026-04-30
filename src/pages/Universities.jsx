@@ -448,7 +448,7 @@ const Universities = () => {
                       Take the <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-300 uppercase italic">First Step</span> Toward Your Dream
                     </h2>
                     <p className="text-blue-100/60 max-w-2xl mx-auto text-sm md:text-base">
-                      Join thousands of successful medical graduates with <span className="text-blue-400 font-bold">Bravo Groups Educational Consultancy</span> in Philippines.
+                      Join thousands of successful medical graduates with <span className="text-blue-400 font-bold">Zenova Groups Educational Consultants PVT LTD </span> in Philippines.
                     </p>
                   </div>
 
@@ -644,32 +644,32 @@ const Universities = () => {
                     From <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-300 uppercase italic">Dream</span> to Doctor
                   </h2>
                   <p className="text-blue-100/60 max-w-2xl mx-auto text-sm md:text-base">
-                    Take the next step towards becoming a doctor with <span className="text-blue-400 font-bold">Bravo Groups Educational Consultancy</span> in Tajikistan.
+                    Take the next step towards becoming a doctor with <span className="text-blue-400 font-bold">Zenova Groups Educational Consultants PVT LTD </span> in Tajikistan.
                   </p>
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-6 relative z-10">
-                    {[
-                      { icon: '✨', step: '01', title: 'Admission Assistance', desc: 'Secure your seat in top-tier Tajikistan universities with expert guidance and seamless application handling.' },
-                      { icon: '📋', step: '02', title: 'Visa Processing', desc: 'Hassle-free documentation and priority visa stamping managed entirely by our professional team.' },
-                      { icon: '✈️', step: '03', title: 'Travel & Accommodation', desc: 'Complete arrival support including airport pickup, university orientation, and premium hostel allocation.' },
-                    ].map(({ icon, step, title, desc }, idx) => (
-                      <motion.div
-                        key={step}
-                        initial={{ opacity: 0, y: 30 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true, margin: "-50px" }}
-                        transition={{ duration: 0.6, delay: idx * 0.2 }}
-                        className="bg-[#0b1b36]/80 border border-cyan-500/20 rounded-3xl p-8 backdrop-blur-md flex flex-col items-center text-center hover:border-cyan-500/40 hover:-translate-y-2 transition-all duration-300"
-                      >
-                        <div className="w-20 h-20 rounded-2xl bg-cyan-500/10 flex items-center justify-center text-4xl mb-6 shadow-inner">
-                          {icon}
-                        </div>
-                        <div className="text-cyan-400 text-[10px] font-black uppercase tracking-widest mb-3">Step {step}</div>
-                        <h3 className="text-xl font-bold text-white mb-3 leading-tight">{title}</h3>
-                        <p className="text-cyan-100/60 leading-relaxed text-sm">{desc}</p>
-                      </motion.div>
-                    ))}
+                  {[
+                    { icon: '✨', step: '01', title: 'Admission Assistance', desc: 'Secure your seat in top-tier Tajikistan universities with expert guidance and seamless application handling.' },
+                    { icon: '📋', step: '02', title: 'Visa Processing', desc: 'Hassle-free documentation and priority visa stamping managed entirely by our professional team.' },
+                    { icon: '✈️', step: '03', title: 'Travel & Accommodation', desc: 'Complete arrival support including airport pickup, university orientation, and premium hostel allocation.' },
+                  ].map(({ icon, step, title, desc }, idx) => (
+                    <motion.div
+                      key={step}
+                      initial={{ opacity: 0, y: 30 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true, margin: "-50px" }}
+                      transition={{ duration: 0.6, delay: idx * 0.2 }}
+                      className="bg-[#0b1b36]/80 border border-cyan-500/20 rounded-3xl p-8 backdrop-blur-md flex flex-col items-center text-center hover:border-cyan-500/40 hover:-translate-y-2 transition-all duration-300"
+                    >
+                      <div className="w-20 h-20 rounded-2xl bg-cyan-500/10 flex items-center justify-center text-4xl mb-6 shadow-inner">
+                        {icon}
+                      </div>
+                      <div className="text-cyan-400 text-[10px] font-black uppercase tracking-widest mb-3">Step {step}</div>
+                      <h3 className="text-xl font-bold text-white mb-3 leading-tight">{title}</h3>
+                      <p className="text-cyan-100/60 leading-relaxed text-sm">{desc}</p>
+                    </motion.div>
+                  ))}
                 </div>
               </div>
             </section>

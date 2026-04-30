@@ -271,7 +271,7 @@ export default function FrameInjection() {
 
         {/* Top bar */}
         <div style={{ position: "absolute", top: 0, left: 0, right: 0, display: "flex", alignItems: "center", justifyContent: "space-between", padding: "1.5rem clamp(1.5rem,4vw,3.5rem)", zIndex: 10, pointerEvents: "none" }}>
-          <span style={{ fontSize: "clamp(0.75rem,1.2vw,0.95rem)", fontWeight: 700, letterSpacing: "0.2em", color: "rgba(255,255,255,0.9)", textTransform: "uppercase", fontFamily: "system-ui,sans-serif", textShadow: "0 1px 8px rgba(0,0,0,0.6)" }}>BRAVO GROUPS</span>
+          <span style={{ fontSize: "clamp(0.75rem,1.2vw,0.95rem)", fontWeight: 700, letterSpacing: "0.2em", color: "rgba(255,255,255,0.9)", textTransform: "uppercase", fontFamily: "system-ui,sans-serif", textShadow: "0 1px 8px rgba(0,0,0,0.6)" }}>ZENOVA GROUPS</span>
           <div style={{ width: 120, height: 1.5, background: "rgba(255,255,255,0.15)", borderRadius: 99, overflow: "hidden" }}>
             <div ref={progressBarRef} style={{ height: "100%", width: "0%", background: "linear-gradient(90deg,#2F4DFF,#8B5CF6)", borderRadius: 99, boxShadow: "0 0 8px rgba(47,77,255,0.8)" }} />
           </div>
@@ -298,10 +298,10 @@ export default function FrameInjection() {
             <h2 style={{ fontSize: "clamp(1.8rem,3.2vw,3rem)", fontWeight: 900, color: "#fff", letterSpacing: "-0.045em", lineHeight: 1, marginBottom: "1.2rem", fontFamily: "'Inter','system-ui',sans-serif" }}>Empowering Every<br />Medical Dream</h2>
             <div style={{ width: 48, height: 2, background: "linear-gradient(90deg,#3b82f6,transparent)", borderRadius: 99, marginBottom: "1.5rem" }} />
             <div style={{ display: "flex", flexDirection: "column", gap: "0.9rem" }}>
-              <p style={{ fontSize: "clamp(0.85rem,1.1vw,0.98rem)", color: "rgba(220,230,255,0.85)", fontWeight: 400, lineHeight: 1.7, margin: 0, fontFamily: "system-ui,sans-serif" }}>Our mission at Bravo Groups Educational Consultancy Pvt. Ltd. is to guide aspiring medical students toward achieving their dreams of studying MBBS abroad through transparent, ethical, and reliable counseling.</p>
+              <p style={{ fontSize: "clamp(0.85rem,1.1vw,0.98rem)", color: "rgba(220,230,255,0.85)", fontWeight: 400, lineHeight: 1.7, margin: 0, fontFamily: "system-ui,sans-serif" }}>Our mission at <span style={{ color: "#3b82f6", fontWeight: 700 }}>Zenova Groups Educational Consultants PVT LTD</span> is to guide aspiring medical students toward achieving their dreams of studying MBBS abroad through transparent, ethical, and reliable counseling.</p>
               <p style={{ fontSize: "clamp(0.85rem,1.1vw,0.98rem)", color: "rgba(220,230,255,0.85)", fontWeight: 400, lineHeight: 1.7, margin: 0, fontFamily: "system-ui,sans-serif" }}>We are committed to providing accurate information, personalized guidance, and end-to-end support—from university selection to admission and visa processing.</p>
               <p style={{ fontSize: "clamp(0.85rem,1.1vw,0.98rem)", color: "rgba(220,230,255,0.85)", fontWeight: 400, lineHeight: 1.7, margin: 0, fontFamily: "system-ui,sans-serif" }}>We simplify the journey of international medical education and empower students with the right opportunities for global healthcare careers.</p>
-              <p style={{ fontSize: "clamp(0.85rem,1.1vw,0.98rem)", color: "#ffffff", fontWeight: 600, lineHeight: 1.6, margin: "0.8rem 0 0 0", padding: "0.8rem 1.2rem", background: "linear-gradient(90deg, rgba(59, 130, 246, 0.25) 0%, rgba(59, 130, 246, 0.05) 100%)", borderLeft: "3px solid #3b82f6", borderRadius: "0 8px 8px 0", fontFamily: "system-ui,sans-serif", letterSpacing: "0.02em" }}>✨ At Bravo Groups, we turn medical dreams into international success stories.</p>
+              <p style={{ fontSize: "clamp(0.85rem,1.1vw,0.98rem)", color: "#ffffff", fontWeight: 600, lineHeight: 1.6, margin: "0.8rem 0 0 0", padding: "0.8rem 1.2rem", background: "linear-gradient(90deg, rgba(59, 130, 246, 0.25) 0%, rgba(59, 130, 246, 0.05) 100%)", borderLeft: "3px solid #3b82f6", borderRadius: "0 8px 8px 0", fontFamily: "system-ui,sans-serif", letterSpacing: "0.02em" }}>✨ At ZENOVA Groups, we turn medical dreams into international success stories.</p>
             </div>
           </div>
         </div>
@@ -316,9 +316,9 @@ export default function FrameInjection() {
             </div>
             <h2 style={{ fontSize: "clamp(1.6rem,3vw,2.8rem)", fontWeight: 800, color: "#fff", letterSpacing: "-0.04em", lineHeight: 1.05, marginBottom: "1rem", fontFamily: "'system-ui','Segoe UI',sans-serif" }}>A Borderless Future<br />for Medicine</h2>
             <div style={{ width: 36, height: 2, background: "linear-gradient(90deg,#8B5CF6,transparent)", borderRadius: 99, marginBottom: "1.2rem" }} />
-            <p style={{ fontSize: "clamp(0.8rem,1.15vw,0.92rem)", color: "rgba(200,215,255,0.78)", fontWeight: 300, lineHeight: 1.7, margin: "0 0 0.8rem 0", fontFamily: "system-ui,sans-serif" }}>Our vision is to become a leading and most trusted educational consultancy in India for MBBS abroad admissions, recognized for our integrity, transparency, and student success.</p>
+            <p style={{ fontSize: "clamp(0.8rem,1.15vw,0.92rem)", color: "rgba(200,215,255,0.78)", fontWeight: 300, lineHeight: 1.7, margin: "0 0 0.8rem 0", fontFamily: "system-ui,sans-serif" }}>Our vision is to become a leading and most trusted Educational Consultants in India for MBBS abroad admissions, recognized for our integrity, transparency, and student success.</p>
             <p style={{ fontSize: "clamp(0.8rem,1.15vw,0.92rem)", color: "rgba(200,215,255,0.78)", fontWeight: 300, lineHeight: 1.7, margin: 0, fontFamily: "system-ui,sans-serif" }}>We aim to build a global network of reputed medical universities and create a seamless pathway for students to achieve their dreams of becoming internationally qualified doctors.</p>
-            <p style={{ fontSize: "clamp(0.85rem,1.15vw,0.92rem)", color: "#ffffff", fontWeight: 600, lineHeight: 1.6, margin: "0.8rem 0 0 0", padding: "0.8rem 1.2rem", background: "linear-gradient(90deg, rgba(139, 92, 246, 0.25) 0%, rgba(139, 92, 246, 0.05) 100%)", borderLeft: "3px solid #8B5CF6", borderRadius: "0 8px 8px 0", fontFamily: "system-ui,sans-serif", letterSpacing: "0.02em" }}>✨ Bravo Groups — a lifelong partner in every student's success journey.</p>
+            <p style={{ fontSize: "clamp(0.85rem,1.15vw,0.92rem)", color: "#ffffff", fontWeight: 600, lineHeight: 1.6, margin: "0.8rem 0 0 0", padding: "0.8rem 1.2rem", background: "linear-gradient(90deg, rgba(139, 92, 246, 0.25) 0%, rgba(139, 92, 246, 0.05) 100%)", borderLeft: "3px solid #8B5CF6", borderRadius: "0 8px 8px 0", fontFamily: "system-ui,sans-serif", letterSpacing: "0.02em" }}>✨ Zenova Groups — a lifelong partner in every student's success journey.</p>
           </div>
         </div>
 
@@ -371,7 +371,7 @@ export default function FrameInjection() {
             </div>
             <h2 style={{ fontSize: "clamp(1.8rem,4.5vw,3.4rem)", fontWeight: 900, color: "#fff", lineHeight: 1.08, letterSpacing: "-0.035em", fontFamily: "'system-ui','Segoe UI',sans-serif" }}>
               Study Abroad with the Most<br />
-              <span style={{ color: "#3b82f6", textDecoration: "underline", textDecorationColor: "rgba(59,130,246,0.28)", textUnderlineOffset: "7px" }}>Trusted Bravo Groups</span>
+              <span style={{ color: "#3b82f6", textDecoration: "underline", textDecorationColor: "rgba(59,130,246,0.28)", textUnderlineOffset: "7px" }}>Trusted Zenova Groups</span>
             </h2>
             <p style={{ fontSize: "clamp(0.9rem,1.4vw,1.08rem)", color: "rgba(155,165,185,1)", maxWidth: 540, lineHeight: 1.8, fontFamily: "system-ui,sans-serif" }}>
               Expert guidance, affordable MBBS admissions, and end-to-end support trusted by <strong style={{ color: "#fff" }}>100+  students</strong>.

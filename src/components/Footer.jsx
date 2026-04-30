@@ -1,5 +1,5 @@
 import './Footer.css';
-const logo = '/assets/bgremovedlogo-small.webp';
+const logo = '/assets/logo.jpeg';
 import { Link } from 'react-router-dom';
 import {
   uzbekistanRegions
@@ -28,21 +28,21 @@ export default function Footer() {
               height="69"
               loading="lazy"
             />
-            Bravo <span>Groups</span>
+            Zenova <span>Groups</span>
           </span>
           <p className="footer-desc">
             Empowering the next generation of global healthcare leaders through
-            excellence in international medical education consultancy.
+            excellence in international medical educational consultants.
           </p>
           <p className="footer-slogan">
             Dream Medical Career Abroad?<br />
-            Bravo Groups Make it Happens
+            Zenova Groups Make it Happens
           </p>
           <div className="footer-socials">
-            <a href="javascript:void(0)" title="Facebook" style={{ transform: 'translateZ(0)' }}>
+            <a href="https://www.facebook.com/share/1B4gYpAW5H/" target="_blank" rel="noopener noreferrer" title="Facebook" style={{ transform: 'translateZ(0)' }}>
               <i className="fa-brands fa-facebook-f"></i>
             </a>
-            <a href="javascript:void(0)" title="Instagram" style={{ transform: 'translateZ(0)' }}>
+            <a href="https://www.instagram.com/zenova_consultants?igsh=MTgzeXU1OThvcnVlZA==" target="_blank" rel="noopener noreferrer" title="Instagram" style={{ transform: 'translateZ(0)' }}>
               <i className="fa-brands fa-instagram"></i>
             </a>
             <a href="javascript:void(0)" title="YouTube" style={{ transform: 'translateZ(0)' }}>
@@ -102,7 +102,7 @@ export default function Footer() {
             <span className="icon"><i className="fa-solid fa-phone"></i></span> +91 88380 71494
           </div>
           <div className="footer-contact-item">
-            <span className="icon"><i className="fa-solid fa-location-dot"></i></span> RTJ Complex, 13th Street, Phase 2, Sathuvacheri, Vellore, Tamil Nadu 632009
+            <span className="icon"><i className="fa-solid fa-location-dot"></i></span> No: 265, Regional Transport Office Rd, opp. to Bombay Anandha, Phase II, Sathuvachari,<br /> Vellore, Tamil Nadu 632009,<br /> India.
           </div>
         </div>
       </div>
@@ -113,7 +113,7 @@ export default function Footer() {
             GET FREE COUNSELING NOW
           </button>
         </div>
-        <span>© 2026 Bravo Groups. All rights reserved.</span>
+        <span>© 2026 Zenova Groups. All rights reserved.</span>
       </div>
     </footer>
   );

@@ -1,5 +1,5 @@
 import { useState } from 'react';
-const logo = '/assets/bgremovedlogo-small.webp';
+const logo = '/assets/logo.jpeg';
 import './Navbar.css';
 import { Link, useLocation } from 'react-router-dom';
 import universitiesData from '../data/universitiesData';
@@ -172,13 +172,13 @@ export default function Navbar() {
         <div className="nav-topbar-inner">
           <div className="nav-topbar-left">
             <a
-              href="https://www.google.com/maps/search/?api=1&query=RTO+Office+Road,+Sathuvacheri,+Vellore,+Tamil+Nadu+632009"
+              href="https://www.google.co.in/maps/place/Zenova+groups+educational+counsultants+pvt.ltd/@12.933277,79.1515397,17z/data=!4m10!1m2!2m1!1sNo:+265,+Regional+Transport+Office+Rd,+opp.+to+Bombay+Anandha,+Phase+II,+Sathuvachari,+Vellore+632009,India.!3m6!1s0x3bad39007b7611f5:0x3b7413f7e9d0c2f5!8m2!3d12.9344923!4d79.1560305!15sCmxObzogMjY1LCBSZWdpb25hbCBUcmFuc3BvcnQgT2ZmaWNlIFJkLCBvcHAuIHRvIEJvbWJheSBBbmFuZGhhLCBQaGFzZSBJSSwgU2F0aHV2YWNoYXJpLCBWZWxsb3JlIDYzMjAwOSxJbmRpYS7gAQA!16s%2Fg%2F11nhy3sh_k?authuser=0&entry=ttu&g_ep=EgoyMDI2MDQyNy4wIKXMDSoASAFQAw%3D%3D"
               target="_blank"
               rel="noopener noreferrer"
               className="nav-topbar-item nav-topbar-link"
             >
               <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0 1 18 0z" /><circle cx="12" cy="10" r="3" /></svg>
-              RTJ Complex (RTO Office Road), Sathuvacheri, Vellore, Tamil Nadu 632009
+              No: 265, Regional Transport Office Rd, opp. to Bombay Anandha, Phase II, Sathuvachari, Vellore, Tamil Nadu 632009
             </a>
           </div>
           <div className="nav-topbar-right">
@@ -205,44 +205,44 @@ export default function Navbar() {
 
         <ul className="nav-links">
           {navLinks.map((link) => {
-            const isActive = location.pathname === link.href || 
-                             (link.href !== '/' && location.pathname.startsWith(link.href)) || 
-                             (link.label === 'Universities' && location.pathname.startsWith('/university/')) ||
-                             (link.dropdown && link.dropdown.some(item => location.pathname === item.href));
-            
+            const isActive = location.pathname === link.href ||
+              (link.href !== '/' && location.pathname.startsWith(link.href)) ||
+              (link.label === 'Universities' && location.pathname.startsWith('/university/')) ||
+              (link.dropdown && link.dropdown.some(item => location.pathname === item.href));
+
             return (
               <li
                 key={link.label}
                 className={link.mega ? 'mega-trigger' : link.dropdown ? 'mega-trigger' : ''}
               >
-                <Link 
-                  to={link.href || "#"} 
+                <Link
+                  to={link.href || "#"}
                   className={isActive ? 'active-link' : ''}
                 >
-                {link.label}
-                {(link.mega || link.dropdown) && (
-                  <svg className="dropdown-arrow" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><polyline points="6 9 12 15 18 9" /></svg>
+                  {link.label}
+                  {(link.mega || link.dropdown) && (
+                    <svg className="dropdown-arrow" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><polyline points="6 9 12 15 18 9" /></svg>
+                  )}
+                </Link>
+                {link.mega && <MegaDropdown data={universitiesData} />}
+                {link.dropdown && (
+                  <ul className="sub-dropdown country-grid-dropdown">
+                    {link.dropdown.map((item) => {
+                      const formatLabel = (str) => {
+                        if (!str) return '';
+                        return str.charAt(0).toUpperCase() + str.slice(1).toLowerCase();
+                      };
+                      return (
+                        <li key={item.label} className="dropdown-item-with-dash">
+                          <Link to={item.href} onClick={() => setMenuOpen(false)}>
+                            <span className="dropdown-chevron">›</span>
+                            {formatLabel(item.label)}
+                          </Link>
+                        </li>
+                      );
+                    })}
+                  </ul>
                 )}
-              </Link>
-              {link.mega && <MegaDropdown data={universitiesData} />}
-              {link.dropdown && (
-                <ul className="sub-dropdown country-grid-dropdown">
-                  {link.dropdown.map((item) => {
-                    const formatLabel = (str) => {
-                      if (!str) return '';
-                      return str.charAt(0).toUpperCase() + str.slice(1).toLowerCase();
-                    };
-                    return (
-                      <li key={item.label} className="dropdown-item-with-dash">
-                        <Link to={item.href} onClick={() => setMenuOpen(false)}>
-                          <span className="dropdown-chevron">›</span>
-                          {formatLabel(item.label)}
-                        </Link>
-                      </li>
-                    );
-                  })}
-                </ul>
-              )}
               </li>
             );
           })}
@@ -279,57 +279,57 @@ export default function Navbar() {
 
         <div className="mobile-drawer-links">
           {navLinks.map((link, lIdx) => {
-            const isActive = location.pathname === link.href || 
-                             (link.href !== '/' && location.pathname.startsWith(link.href)) || 
-                             (link.label === 'Universities' && location.pathname.startsWith('/university/')) ||
-                             (link.dropdown && link.dropdown.some(item => location.pathname === item.href));
-            
+            const isActive = location.pathname === link.href ||
+              (link.href !== '/' && location.pathname.startsWith(link.href)) ||
+              (link.label === 'Universities' && location.pathname.startsWith('/university/')) ||
+              (link.dropdown && link.dropdown.some(item => location.pathname === item.href));
+
             return (
               <div key={`${link.label}-${lIdx}`} className="mobile-nav-item">
-                <Link 
-                  to={link.href} 
+                <Link
+                  to={link.href}
                   className={`mobile-nav-link ${isActive ? 'active-link' : ''}`}
                   onClick={() => setMenuOpen(false)}
                 >
-                {link.label}
-              </Link>
-              {(link.mega || link.dropdown) && (
-                <div className="mobile-accordion-content expanded">
-                  {link.mega && Object.entries(universitiesData).map(([region, unis]) => (
-                    <div key={region} className="mobile-region-group">
-                      <div className="mobile-region-name">{region.toUpperCase()}</div>
-                      {unis.map(uni => {
-                        const isObject = typeof uni === 'object';
-                        const formatLabel = (str) => {
-                          if (!str) return '';
-                          return str.charAt(0).toUpperCase() + str.slice(1).toLowerCase();
-                        };
-                        const name = isObject ? formatLabel(uni.name) : formatLabel(uni);
-                        const id = isObject ? uni.id : uni.split(' (')[0].toLowerCase().replace(/\s+/g, '-');
+                  {link.label}
+                </Link>
+                {(link.mega || link.dropdown) && (
+                  <div className="mobile-accordion-content expanded">
+                    {link.mega && Object.entries(universitiesData).map(([region, unis]) => (
+                      <div key={region} className="mobile-region-group">
+                        <div className="mobile-region-name">{region.toUpperCase()}</div>
+                        {unis.map(uni => {
+                          const isObject = typeof uni === 'object';
+                          const formatLabel = (str) => {
+                            if (!str) return '';
+                            return str.charAt(0).toUpperCase() + str.slice(1).toLowerCase();
+                          };
+                          const name = isObject ? formatLabel(uni.name) : formatLabel(uni);
+                          const id = isObject ? uni.id : uni.split(' (')[0].toLowerCase().replace(/\s+/g, '-');
 
-                        return (
-                          <Link
-                            key={id}
-                            to={`/university/${id}`}
-                            className="mobile-uni-link"
-                            onClick={() => setMenuOpen(false)}
-                          >
-                            {name}
-                          </Link>
-                        );
-                      })}
-                    </div>
-                  ))}
-                  {link.dropdown && link.dropdown.map(item => (
-                    <Link key={item.label} to={item.href} className="mobile-uni-link" onClick={() => setMenuOpen(false)}>
-                      {item.label}
-                    </Link>
-                  ))}
-                </div>
-              )}
-            </div>
-          );
-        })}
+                          return (
+                            <Link
+                              key={id}
+                              to={`/university/${id}`}
+                              className="mobile-uni-link"
+                              onClick={() => setMenuOpen(false)}
+                            >
+                              {name}
+                            </Link>
+                          );
+                        })}
+                      </div>
+                    ))}
+                    {link.dropdown && link.dropdown.map(item => (
+                      <Link key={item.label} to={item.href} className="mobile-uni-link" onClick={() => setMenuOpen(false)}>
+                        {item.label}
+                      </Link>
+                    ))}
+                  </div>
+                )}
+              </div>
+            );
+          })}
         </div>
 
         <div className="mobile-drawer-footer">

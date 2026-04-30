@@ -9,7 +9,7 @@ import { motion, useMotionValue, useSpring, useTransform } from 'framer-motion';
 import { blogPosts } from '../data/blogData';
 
 // Assets are now served from the public/assets directory
-const logo = '/assets/bgremovedlogo.webp';
+const logo = '/assets/logo.jpeg';
 const aboutHeroBg = '/assets/about.webp';
 
 function BlogCard({ post, index }) {

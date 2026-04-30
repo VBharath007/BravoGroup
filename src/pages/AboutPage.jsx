@@ -396,7 +396,7 @@ export default function AboutPage() {
             <div className="absolute top-0 right-0 w-20 h-20 opacity-30 pointer-events-none"
               style={{ background: 'radial-gradient(circle at top right,rgba(59,130,246,0.4),transparent 70%)' }} />
             <p className="text-neutral-300 text-base lg:text-lg leading-relaxed mb-5 relative z-10" style={{ letterSpacing: '0.01em' }}>
-              <strong className="text-white font-semibold">Bravo Groups</strong> is dedicated to guiding aspiring medical students to achieve their dreams of studying MBBS abroad. We specialize in admissions to top government medical universities in Uzbekistan, offering transparent, affordable, and reliable services. From counseling to visa, travel, and post-arrival support, we ensure a smooth journey for every student.
+              <strong className="text-white font-semibold">Zenova Groups</strong> is dedicated to guiding aspiring medical students to achieve their dreams of studying MBBS abroad. We specialize in admissions to top government medical universities in Uzbekistan, offering transparent, affordable, and reliable services. From counseling to visa, travel, and post-arrival support, we ensure a smooth journey for every student.
             </p>
             <motion.button
               className="px-8 py-3.5 bg-blue-600 hover:bg-blue-500 text-white rounded-full font-bold transition-colors relative z-10"
@@ -480,7 +480,7 @@ export default function AboutPage() {
                   Founded in <span className="text-blue-600">Vellore, Tamil Nadu</span>
                 </h3>
                 <p className="text-lg md:text-xl text-neutral-600 leading-relaxed font-medium">
-                  <span className="text-neutral-900 font-bold">BRAVO GROUPS PRIVATE LIMITED</span> was established with a clear vision: to make <span className="text-blue-600 italic">MBBS abroad accessible, affordable, and transparent</span> for every Indian student.
+                  <span className="text-neutral-900 font-bold">Zenova Groups Educational Consultants PVT LTD </span> was established with a clear vision: to make <span className="text-blue-600 italic">MBBS abroad accessible, affordable, and transparent</span> for every Indian student.
                 </p>
               </div>
 
@@ -491,7 +491,7 @@ export default function AboutPage() {
                 </div>
                 <div className="space-y-6">
                   {[
-                    'BRAVO GROUPS was founded to solve a critical challenge: students struggling with lack of proper guidance, high hidden costs, and unclear admission processes in medical education abroad.',
+                    'Zenova Groups was founded to solve a critical challenge: students struggling with lack of proper guidance, high hidden costs, and unclear admission processes in medical education abroad.',
                     'Starting with a dedicated team, we focused on providing honest counseling and reliable support, helping students choose the right universities based on their unique goals and budget.',
                     'Today, our commitment to transparency and student success has helped us guide 100+ students toward their dream of becoming doctors.',
                   ].map((text, i) => (
@@ -703,8 +703,8 @@ export default function AboutPage() {
                     initial={{ opacity: 0, scale: 0.9 }} whileInView={{ opacity: 1, scale: 1 }}
                     viewport={{ once: true }} transition={{ duration: 0.5, delay: i * 0.1 }}
                     className={`flex items-center gap-2 px-4 py-2 rounded-full border font-bold text-sm ${badge.color === 'blue' ? 'bg-blue-50 border-blue-200 text-blue-700' :
-                        badge.color === 'green' ? 'bg-green-50 border-green-200 text-green-700' :
-                          'bg-purple-50 border-purple-200 text-purple-700'
+                      badge.color === 'green' ? 'bg-green-50 border-green-200 text-green-700' :
+                        'bg-purple-50 border-purple-200 text-purple-700'
                       }`}
                   >
                     <i className={`fa-solid ${badge.icon} text-xs`} />
@@ -765,7 +765,7 @@ export default function AboutPage() {
               viewport={{ once: true }} transition={{ duration: 0.7 }}
               className="text-4xl md:text-5xl font-black text-white tracking-tighter mb-5"
             >
-              What Makes <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-400">Bravo Groups</span> Different
+              What Makes <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-400">Zenova Groups</span> Different
             </motion.h2>
             <motion.p
               initial={{ opacity: 0 }} whileInView={{ opacity: 1 }}
@@ -900,7 +900,7 @@ export default function AboutPage() {
               viewport={{ once: true }} transition={{ duration: 0.7, delay: 0.1 }}
               className="text-neutral-400 font-medium max-w-xl mx-auto"
             >
-              BRAVO GROUPS PRIVATE LIMITED operates with full legal compliance and ethical counseling practices — because parents deserve confidence and peace of mind.
+              ZENOVA GROUPS EDUCATIONAL CONSULTANTS PRIVATE LIMITED operates with full legal compliance and ethical counseling practices — because parents deserve confidence and peace of mind.
             </motion.p>
           </div>
 
@@ -1014,10 +1014,10 @@ export default function AboutPage() {
                       className="flex items-center gap-4"
                     >
                       <div className={`w-9 h-9 rounded-xl flex items-center justify-center text-sm flex-shrink-0 ${color === 'blue' ? 'bg-blue-50 text-blue-600' :
-                          color === 'indigo' ? 'bg-indigo-50 text-indigo-600' :
-                            color === 'purple' ? 'bg-purple-50 text-purple-600' :
-                              color === 'amber' ? 'bg-amber-50 text-amber-600' :
-                                'bg-green-50 text-green-600'
+                        color === 'indigo' ? 'bg-indigo-50 text-indigo-600' :
+                          color === 'purple' ? 'bg-purple-50 text-purple-600' :
+                            color === 'amber' ? 'bg-amber-50 text-amber-600' :
+                              'bg-green-50 text-green-600'
                         }`}>
                         <i className={`fa-solid ${icon}`} />
                       </div>
@@ -1055,7 +1055,7 @@ export default function AboutPage() {
             </h2>
 
             <p className="text-xl text-blue-200 font-medium leading-relaxed mb-12 max-w-2xl mx-auto">
-              With BRAVO GROUPS, you get clear guidance, genuine universities, affordable solutions, complete support, and total peace of mind — from admission to graduation.
+              With ZENOVA GROUPS, you get clear guidance, genuine universities, affordable solutions, complete support, and total peace of mind — from admission to graduation.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center">

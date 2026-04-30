@@ -39,7 +39,7 @@ const quickActions = [
   { icon: '📞', label: 'Call Now', href: 'tel:+918838071494', color: 'from-blue-500 to-blue-600' },
   { icon: '💬', label: 'WhatsApp', href: 'https://wa.me/918838071494', color: 'from-green-500 to-green-600' },
   { icon: '📧', label: 'Send Email', href: 'mailto:bravogroups@gmail.com', color: 'from-purple-500 to-purple-600' },
-  { icon: '🌍', label: 'Visit Office', href: 'https://maps.google.com/?q=Sathuvacheri,Vellore,TamilNadu', color: 'from-orange-500 to-orange-600' },
+  { icon: '🌍', label: 'Visit Office', href: 'https://maps.google.com/?q=No:+265,+Regional+Transport+Office+Rd,+Sathuvachari,+Vellore', color: 'from-orange-500 to-orange-600' },
 ];
 
 /* ─── Component ──────────────────────────────────────────── */
@@ -54,7 +54,7 @@ const Contact = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     const { firstName, lastName, phone, email, query } = formData;
-    const message = `Hello Bravo Groups, I have a query.%0A%0A` +
+    const message = `Hello Zenova Groups, I have a query.%0A%0A` +
       `*Name:* ${firstName} ${lastName}%0A` +
       `*Phone:* ${phone}%0A` +
       `*Email:* ${email}%0A` +
@@ -66,7 +66,7 @@ const Contact = () => {
   };
 
   return (
-    <div className="bg-white font-sans overflow-x-hidden">
+    <div className="bg-white font-sans">
 
 
 
@@ -97,7 +97,7 @@ const Contact = () => {
           >
             Contact{' '}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400">
-              Bravo Groups
+              Zenova Groups Educational Consultants PVT LTD
             </span>
           </motion.h1>
 
@@ -172,7 +172,7 @@ const Contact = () => {
                 {[
                   {
                     icon: '🏢', label: 'Office Address',
-                    content: 'BRAVO GROUP EDUCATIONAL CONSULTANCY PRIVATE LIMITED\nRTO Office Road, Sathuvacheri, Vellore, Tamil Nadu – 632009, India',
+                    content: 'Zenova Groups Educational Consultants PVT LTD\nNo: 265, Regional Transport Office Rd, opp. to Bombay Anandha, Phase II, Sathuvachari, Vellore, Tamil Nadu 632009, India',
                     color: 'from-blue-500 to-cyan-400',
                   },
                   {
@@ -226,8 +226,8 @@ const Contact = () => {
               >
                 <span className="text-xs text-gray-400 font-bold uppercase tracking-widest">Follow Us:</span>
                 {[
-                  { icon: 'fab fa-instagram', href: '#', color: 'hover:bg-gradient-to-br hover:from-purple-500 hover:to-pink-500' },
-                  { icon: 'fab fa-facebook-f', href: '#', color: 'hover:bg-blue-600' },
+                  { icon: 'fab fa-instagram', href: 'https://www.instagram.com/zenova_consultants?igsh=MTgzeXU1OThvcnVlZA==', color: 'hover:bg-gradient-to-br hover:from-purple-500 hover:to-pink-500' },
+                  { icon: 'fab fa-facebook-f', href: 'https://www.facebook.com/share/1B4gYpAW5H/', color: 'hover:bg-blue-600' },
                   { icon: 'fab fa-youtube', href: '#', color: 'hover:bg-red-600' },
                   { icon: 'fab fa-whatsapp', href: 'https://wa.me/918838071494', color: 'hover:bg-green-500' },
                 ].map((s, i) => (
@@ -256,14 +256,20 @@ const Contact = () => {
             >
               <div className="absolute inset-0 bg-gradient-to-br from-blue-500 to-purple-500 rounded-[2rem] blur-3xl opacity-10 scale-105" />
               <div className="relative rounded-[2rem] overflow-hidden shadow-2xl border-4 border-white h-[480px]">
-                <iframe
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3888.123456789!2d79.1325!3d12.9165!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bad479f0000001%3A0x1234567890abcdef!2sSathuvacheri%2C%20Vellore%2C%20Tamil%20Nadu%20632009!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin"
-                  allowFullScreen=""
-                  loading="lazy"
-                  referrerPolicy="no-referrer-when-downgrade"
-                  title="Bravo Groups Location - Vellore"
-                  className="w-full h-full border-none"
-                />
+
+
+
+                <div className="w-full h-[400px] rounded-2xl overflow-hidden">
+                  <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3888.6020862001656!2d79.1515397!3d12.933277!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bad39007b7611f5%3A0x3b7413f7e9d0c2f5!2sZenova%20groups%20educational%20counsultants%20pvt.ltd!5e0!3m2!1sen!2sin!4v1777544328269!5m2!1sen!2sin"
+                    className="w-full h-full border-0"
+                    allowFullScreen
+                    loading="lazy"
+                    referrerPolicy="no-referrer-when-downgrade"
+                    title="Zenova Groups Location - Vellore"
+                  />
+                </div>
+
               </div>
               {/* Floating address card */}
               <motion.div
@@ -275,8 +281,8 @@ const Contact = () => {
               >
                 <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center text-white text-lg flex-shrink-0">📍</div>
                 <div>
-                  <p className="font-extrabold text-gray-900 text-sm">Bravo Groups – Vellore Office</p>
-                  <p className="text-gray-400 text-xs">RTO Office Road, Sathuvacheri, Vellore 632009</p>
+                  <p className="font-extrabold text-gray-900 text-sm">Zenova Groups – Vellore Office</p>
+                  <p className="text-gray-400 text-xs">No: 265, Regional Transport Office Rd, opp. to Bombay Anandha, Phase II, Sathuvachari, Vellore 632009, India.</p>
                 </div>
               </motion.div>
             </motion.div>
@@ -360,7 +366,7 @@ const Contact = () => {
                 </span>
               </h2>
               <p className="text-gray-500 leading-relaxed mb-6 text-base">
-                At <strong>Bravo Groups</strong>, our presence in <strong>Vellore</strong> reflects our commitment to supporting students from Tamil Nadu in achieving their dream of studying MBBS abroad. Known for its strong educational culture and medical institutions, Vellore serves as a key location where we provide dedicated guidance and personalized counseling to aspiring medical students.
+                At <strong>Zenova Groups</strong>, our presence in <strong>Vellore</strong> reflects our commitment to supporting students from Tamil Nadu in achieving their dream of studying MBBS abroad. Known for its strong educational culture and medical institutions, Vellore serves as a key location where we provide dedicated guidance and personalized counseling to aspiring medical students.
               </p>
               <p className="text-gray-500 leading-relaxed mb-10 text-base">
                 Through our growing network in <strong>Vellore</strong>, we ensure that students receive complete assistance—from career counseling and university selection to admission processing and visa support. Our local mentors and support team are always accessible, making the entire journey smooth, transparent, and stress-free.
@@ -381,11 +387,11 @@ const Contact = () => {
                     Your dream of becoming a doctor starts with the right guidance.
                   </p>
                   <p className="text-neutral-400 text-sm">
-                    BRAVO GROUP is with you from admission to your medical career journey.
+                    Zenova Groups is with you from admission to your medical career journey.
                   </p>
                   <div className="mt-5 flex items-center gap-3">
                     <div className="w-10 h-1 bg-blue-500 rounded-full" />
-                    <span className="text-blue-400 text-xs font-black tracking-widest uppercase">Bravo Groups</span>
+                    <span className="text-blue-400 text-xs font-black tracking-widest uppercase">Zenova Groups</span>
                   </div>
                 </div>
               </motion.div>
@@ -460,7 +466,7 @@ const Contact = () => {
                   </motion.button>
 
                   <p className="text-center text-xs text-gray-400 mt-2">
-                    By submitting, you agree to be contacted by Bravo Groups for MBBS guidance.
+                    By submitting, you agree to be contacted by Zenova Groups for MBBS guidance.
                   </p>
                 </form>
               </div>
@@ -485,7 +491,7 @@ const Contact = () => {
 
         <div className="relative z-10 max-w-4xl mx-auto px-6 text-center">
           <motion.p variants={fadeUp} className="text-neutral-400 text-sm font-black tracking-widest uppercase mb-4">
-            🔥 BRAVO GROUP – Your Trusted MBBS Abroad Guidance Partner
+            🔥 Zenova Groups – Your Trusted MBBS Abroad Guidance Partner
           </motion.p>
           <motion.h2 variants={fadeUp} custom={1} className="text-4xl md:text-5xl font-extrabold text-white mb-6 leading-tight">
             Ready to Begin Your{' '}
@@ -500,7 +506,7 @@ const Contact = () => {
             {[
               { label: '🎯 Get Free Counseling', href: '#', primary: true },
               { label: '📋 Apply Now for MBBS Abroad', href: '/apply', primary: false },
-              { label: '💬 Talk to Expert', href: 'https://wa.me/918838071494', primary: false },
+              { label: '💬 Talk to Expert', href: 'https://wa.me/9150484747', primary: false },
             ].map((btn, i) => (
               <motion.a
                 key={i}

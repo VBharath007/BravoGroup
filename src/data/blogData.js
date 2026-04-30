@@ -67,11 +67,11 @@ export const blogPosts = [
             <h3>How Parents in India Can Reach the Embassy</h3>
             <p>Parents should reach out if the student cannot be reached or in case of serious reported accidents. You can call the embassy emergency number, email the consular section, and must provide essential details like passport number and student ID.</p>
 
-            <h3>How We at Bravo Groups Assist</h3>
+            <h3>How We at Zenova Groups Assist</h3>
             <p>During emergencies, we help by guiding students on immediate actions and coordinating communication between the student, university, and the Indian Embassy. We ensure no step is missed due to panic.</p>
 
             <h3>Final Reassurance</h3>
-            <p>Problems abroad are scary—but you are not alone. Handle the immediate emergency, inform the university, and contact the Indian Embassy. At Bravo Groups, we ensure students and parents always know what to do and how to stay calm during crises.</p>
+            <p>Problems abroad are scary—but you are not alone. Handle the immediate emergency, inform the university, and contact the Indian Embassy. At Zenova Groups, we ensure students and parents always know what to do and how to stay calm during crises.</p>
         `
     },
     {
@@ -91,7 +91,7 @@ export const blogPosts = [
                 <li><strong>Internship:</strong> A compulsory rotatory internship of 12 months at the same foreign medical institution is required, followed by an additional 12-month internship in India after clearing the screening test.</li>
                 <li><strong>Medium of Instruction:</strong> The entire course must be taught in English.</li>
             </ul>
-            <p>At Bravo Groups, we only recommend universities that stringently follow all NMC guidelines, ensuring your degree is 100% valid and globally recognized.</p>
+            <p>At Zenova Groups, we only recommend universities that stringently follow all NMC guidelines, ensuring your degree is 100% valid and globally recognized.</p>
         `
     },
     {
@@ -109,7 +109,7 @@ export const blogPosts = [
             <p>This levels the playing field, as both Indian and foreign medical graduates will face the same evaluation standards before practicing in India.</p>
             <h3>How to Prepare?</h3>
             <p>Preparation should begin early. The top universities in Russia, Uzbekistan, and Georgia often align their curriculum with NExT requirements and offer specialized coaching for Indian students.</p>
-            <p>At Bravo Groups, we help you connect with institutions that offer FMGE/NExT coaching alongside the medical curriculum right from the third year, boosting your success rate significantly.</p>
+            <p>At Zenova Groups, we help you connect with institutions that offer FMGE/NExT coaching alongside the medical curriculum right from the third year, boosting your success rate significantly.</p>
         `
     },
     {
@@ -145,7 +145,7 @@ export const blogPosts = [
             <p>Most leading medical universities offer secure, on-campus accommodations equipped with 24/7 security, CCTV surveillance, and secure entry points. Additionally, the presence of large Indian student communities fosters a supportive and familiar environment.</p>
             <h3>Local Law and Culture</h3>
             <p>Understanding and respecting local customs further ensures a hassle-free stay. Our pre-departure briefings comprehensively cover cultural orientations and basic local laws.</p>
-            <p>Rest assured, the Bravo Groups local representatives are always available to handle any concerns, ensuring students feel safe and secure throughout their tenure.</p>
+            <p>Rest assured, the Zenova Groups local representatives are always available to handle any concerns, ensuring students feel safe and secure throughout their tenure.</p>
         `
     },
     {
@@ -164,7 +164,7 @@ export const blogPosts = [
             <p>Russia has a long-standing reputation for high-quality medical education fully recognized by the WHO and NMC. It boasts extremely advanced infrastructure, albeit with colder climates that require a bit of adaptation.</p>
             <h3>Georgia</h3>
             <p>Georgia provides a European standard of living and education. Safety is exceptionally high here, and its universities are known for their modern approach to medical science and high FMGE passing rates.</p>
-            <p>At Bravo Groups, our expert counselors help you choose the best country matching your budget, climate preference, and academic goals.</p>
+            <p>At Zenova Groups, our expert counselors help you choose the best country matching your budget, climate preference, and academic goals.</p>
         `
     }
 ];

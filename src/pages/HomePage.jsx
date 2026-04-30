@@ -396,17 +396,17 @@ export default function HomePage() {
             </div>
           </div>
           <div className="about-bravogroup-content" data-aos="fade-up">
-            <div className="section-tag-blue">About bravogroup's Educational Consultancy</div>
+            <div className="section-tag-blue">About Zenova Groups Educational Consultants PVT LTD</div>
             <h2 className="section-h2">The Most Trusted Gateway to Global Medical Excellence</h2>
             <div className="about-story-block">
               <h3 className="about-sub-h3"> Founded in Vellore</h3>
-              <p className="about-text"><strong>BRAVO GROUPS PRIVATE LIMITED</strong> was established in <strong>2022 in Vellore, Tamil Nadu</strong>, with a clear vision to make <strong>MBBS abroad accessible, affordable, and transparent</strong> for Indian students.</p>
+              <p className="about-text"><strong>ZENOVA GROUPS PRIVATE LIMITED</strong> was established in <strong>2022 in Vellore, Tamil Nadu</strong>, with a clear vision to make <strong>MBBS abroad accessible, affordable, and transparent</strong> for Indian students.</p>
             </div>
             <div className="about-story-block">
               <h3 className="about-sub-h3">Our Story</h3>
-              <p className="about-text" style={{ marginBottom: '1rem' }}>BRAVO GROUPS was founded with the aim of solving a common problem—students struggling with <strong>lack of proper guidance, high costs, and unclear admission processes</strong> in medical education abroad.</p>
+              <p className="about-text" style={{ marginBottom: '1rem' }}>ZENOVA GROUPS was founded with the aim of solving a common problem—students struggling with <strong>lack of proper guidance, high costs, and unclear admission processes</strong> in medical education abroad.</p>
               <p className="about-text" style={{ marginBottom: '1rem' }}>Starting with a small group of aspiring doctors, we focused on providing <strong>honest counseling and reliable support</strong>, helping students choose the right universities based on their goals and budget.</p>
-              <p className="about-text">Over time, our commitment to <strong>transparency, trust, and student success</strong> has helped us grow steadily. Today, BRAVO GROUPS has successfully guided <strong>100+ students</strong> toward their dream of studying MBBS abroad across multiple countries.</p>
+              <p className="about-text">Over time, our commitment to <strong>transparency, trust, and student success</strong> has helped us grow steadily. Today, ZENOVA GROUPS has successfully guided <strong>100+ students</strong> toward their dream of studying MBBS abroad across multiple countries.</p>
             </div>
             <div className="about-belief-card">
               <h3 className="about-sub-h3">Our Belief</h3>
@@ -426,7 +426,7 @@ export default function HomePage() {
       <FadeSection className="section why-new">
         <div className="container">
           <div className="why-new-header" data-aos="fade-up">
-            <h2 className="section-h2">Why Bravo Groups ? stands out </h2>
+            <h2 className="section-h2">Why ZENOVA Groups ? stands out </h2>
             <p className="about-text" style={{ margin: '0 auto 3rem', textAlign: 'center' }}>
               We provide you with all the right reasons to choose us, from free counseling to securing admission in top government medical universities abroad.
             </p>
@@ -456,7 +456,7 @@ export default function HomePage() {
               <span className="help-aside-tag">Our Services</span>
               <h2 className="help-aside-title">
                 🩺 Our Services<br />
-                <span className="help-aside-title-accent">BRAVO GROUPS CONSULTANCY</span>
+                <span className="help-aside-title-accent">ZENOVA Groups Educational Consultants</span>
               </h2>
               <p className="help-aside-desc">From the moment you decide to pursue medicine internationally, we take over every step — counseling, documentation, visa, and beyond.</p>
               <div className="help-aside-stats-grid">
@@ -563,13 +563,13 @@ export default function HomePage() {
           <div className="testimonials-header" data-aos="fade-up">
             <span className="testimonials-eyebrow">Student Success Stories</span>
             <h2 className="testimonials-title">Voices of Trust & Achievement</h2>
-            <p className="testimonials-subtitle">Real students, real journeys — hear from those who made their MBBS dreams a reality with Bravo Groups.</p>
+            <p className="testimonials-subtitle">Real students, real journeys — hear from those who made their MBBS dreams a reality with ZENOVA Groups Educational Consultants</p>
           </div>
           <div className="testimonials-grid">
             {[
-              { delay: 0, type: 'video', media: <iframe width="100%" height="100%" src="https://www.youtube.com/embed/EhrRTJqBqfc" title="Student Story" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen style={{ border: 'none' }} />, text: '"Bravo Groups made my MBBS journey smooth from day one. Their support in documentation and visa was exceptional."', initials: 'DS', name: 'Deepika Sharma', meta: 'MBBS • Tashkent Medical Academy', gradient: '135deg,#667eea 0%,#764ba2 100%' },
+              { delay: 0, type: 'video', media: <iframe width="100%" height="100%" src="https://www.youtube.com/embed/EhrRTJqBqfc" title="Student Story" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen style={{ border: 'none' }} />, text: '"ZENOVA Groups Educational Consultants made my MBBS journey smooth from day one. Their support in documentation and visa was exceptional."', initials: 'DS', name: 'Deepika Sharma', meta: 'MBBS • Tashkent Medical Academy', gradient: '135deg,#667eea 0%,#764ba2 100%' },
               { delay: .1, type: 'image', media: <LazyImage src={g2} alt="Student testimonial" />, text: '"From counseling to campus settlement, they were with me at every step. Truly grateful for their guidance."', initials: 'RK', name: 'Ravi Kumar', meta: 'MBBS • Samarkand State Medical', gradient: '135deg,#f093fb 0%,#f5576c 100%' },
-              { delay: .2, type: 'image', media: <LazyImage src={g3} alt="Student testimonial" />, text: '"Best decision I made was choosing Bravo Groups. Their transparency and local support in Vellore made all the difference."', initials: 'PM', name: 'Priya Menon', meta: 'MBBS • Bukhara State Medical', gradient: '135deg,#4facfe 0%,#00f2fe 100%' },
+              { delay: .2, type: 'image', media: <LazyImage src={g3} alt="Student testimonial" />, text: '"Best decision I made was choosing ZENOVA Groups Educational Consultants. Their transparency and local support in Vellore made all the difference."', initials: 'PM', name: 'Priya Menon', meta: 'MBBS • Bukhara State Medical', gradient: '135deg,#4facfe 0%,#00f2fe 100%' },
             ].map((t, i) => (
               <motion.div key={i} className={`testimonial-card ${t.type}-card`}
                 initial={{ opacity: 0, y: 32, scale: 0.95 }}

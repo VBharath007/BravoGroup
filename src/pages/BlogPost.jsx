@@ -8,7 +8,7 @@ import LazyImage from '../components/Lazyimage';
 import { blogPosts } from '../data/blogData';
 
 // Assets are now served from the public/assets directory
-const logo = '/assets/bgremovedlogo.webp';
+const logo = '/assets/logo.jpeg';
 const aboutHeroBg = '/assets/about.webp';
 
 const BlogPost = () => {

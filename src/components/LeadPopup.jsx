@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { useLocation } from 'react-router-dom';
 import './LeadPopup.css';
 // Assets are now served from the public/assets directory
-const logo = '/assets/bgremovedlogo-small.webp';
+const logo = '/assets/logo.jpeg';
 const bgMap = '/assets/bg-map.webp';
 
 // Reduce particles for better performance
@@ -175,7 +175,7 @@ const LeadPopup = () => {
             </h3>
 
             <p className="lp-left-sub">
-              <strong>Bravo Groups</strong> has guided 100s of students to world-class universities.
+              <strong>Zenova Groups</strong> has guided 100+ students to world-class universities.
             </p>
 
             <div className="lp-chips">
