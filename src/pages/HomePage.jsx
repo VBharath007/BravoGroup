@@ -426,7 +426,7 @@ export default function HomePage() {
       <FadeSection className="section why-new">
         <div className="container">
           <div className="why-new-header" data-aos="fade-up">
-            <h2 className="section-h2">Why ZENOVA Groups ? stands out </h2>
+            <h2 className="section-h2">Why ZENOVA Groups stands out ? </h2>
             <p className="about-text" style={{ margin: '0 auto 3rem', textAlign: 'center' }}>
               We provide you with all the right reasons to choose us, from free counseling to securing admission in top government medical universities abroad.
             </p>
