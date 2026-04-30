@@ -36,8 +36,8 @@ const services = [
 ];
 
 const quickActions = [
-  { icon: '📞', label: 'Call Now', href: 'tel:+918838071494', color: 'from-blue-500 to-blue-600' },
-  { icon: '💬', label: 'WhatsApp', href: 'https://wa.me/918838071494', color: 'from-green-500 to-green-600' },
+  { icon: '📞', label: 'Call Now', href: 'tel:+919150484747', color: 'from-blue-500 to-blue-600' },
+  { icon: '💬', label: 'WhatsApp', href: 'https://wa.me/919150484747', color: 'from-green-500 to-green-600' },
   { icon: '📧', label: 'Send Email', href: 'mailto:bravogroups@gmail.com', color: 'from-purple-500 to-purple-600' },
   { icon: '🌍', label: 'Visit Office', href: 'https://maps.google.com/?q=No:+265,+Regional+Transport+Office+Rd,+Sathuvachari,+Vellore', color: 'from-orange-500 to-orange-600' },
 ];
@@ -59,7 +59,7 @@ const Contact = () => {
       `*Phone:* ${phone}%0A` +
       `*Email:* ${email}%0A` +
       `*Query:* ${query}`;
-    window.open(`https://wa.me/918838071494?text=${message}`, '_blank');
+    window.open(`https://wa.me/919150484747?text=${message}`, '_blank');
     setSubmitted(true);
     const timerId = setTimeout(() => setSubmitted(false), 4000);
     return () => clearTimeout(timerId);
@@ -177,8 +177,8 @@ const Contact = () => {
                   },
                   {
                     icon: '📱', label: 'Phone / WhatsApp',
-                    content: '+91 88380 71494\nInstant WhatsApp Support Available',
-                    href: 'tel:+918838071494',
+                    content: '+91 91504 84747\nInstant WhatsApp Support Available',
+                    href: 'tel:+91 91504 84747',
                     color: 'from-green-500 to-teal-400',
                   },
                   {
@@ -229,7 +229,7 @@ const Contact = () => {
                   { icon: 'fab fa-instagram', href: 'https://www.instagram.com/zenova_consultants?igsh=MTgzeXU1OThvcnVlZA==', color: 'hover:bg-gradient-to-br hover:from-purple-500 hover:to-pink-500' },
                   { icon: 'fab fa-facebook-f', href: 'https://www.facebook.com/share/1B4gYpAW5H/', color: 'hover:bg-blue-600' },
                   { icon: 'fab fa-youtube', href: '#', color: 'hover:bg-red-600' },
-                  { icon: 'fab fa-whatsapp', href: 'https://wa.me/918838071494', color: 'hover:bg-green-500' },
+                  { icon: 'fab fa-whatsapp', href: 'https://wa.me/919150484747', color: 'hover:bg-green-500' },
                 ].map((s, i) => (
                   <motion.a
                     key={i}
@@ -428,7 +428,7 @@ const Contact = () => {
                   </div>
 
                   {[
-                    { name: 'phone', label: 'Phone / WhatsApp', placeholder: '+91 9876543210', icon: '📱', type: 'tel' },
+                    { name: 'phone', label: 'Phone / WhatsApp', placeholder: '+91 91504 84747', icon: '📱', type: 'tel' },
                     { name: 'email', label: 'Email Address', placeholder: 'you@gmail.com', icon: '📧', type: 'email' },
                   ].map((f) => (
                     <div key={f.name} className="flex flex-col gap-2">

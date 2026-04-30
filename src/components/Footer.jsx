@@ -48,7 +48,7 @@ export default function Footer() {
             <a href="javascript:void(0)" title="YouTube" style={{ transform: 'translateZ(0)' }}>
               <i className="fa-brands fa-youtube"></i>
             </a>
-            <a href="https://wa.me/918838071494" target="_blank" rel="noopener noreferrer" title="WhatsApp" style={{ transform: 'translateZ(0)' }}>
+            <a href="https://wa.me/919150484747" target="_blank" rel="noopener noreferrer" title="WhatsApp" style={{ transform: 'translateZ(0)' }}>
               <i className="fa-brands fa-whatsapp"></i>
             </a>
           </div>
@@ -99,7 +99,7 @@ export default function Footer() {
             <span className="icon"><i className="fa-solid fa-envelope"></i></span> bravogroups.edu@gmail.com
           </div>
           <div className="footer-contact-item">
-            <span className="icon"><i className="fa-solid fa-phone"></i></span> +91 88380 71494
+            <span className="icon"><i className="fa-solid fa-phone"></i></span> +91 91504 84747
           </div>
           <div className="footer-contact-item">
             <span className="icon"><i className="fa-solid fa-location-dot"></i></span> No: 265, Regional Transport Office Rd, opp. to Bombay Anandha, Phase II, Sathuvachari,<br /> Vellore, Tamil Nadu 632009,<br /> India.

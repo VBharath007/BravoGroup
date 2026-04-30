@@ -110,9 +110,9 @@ const LeadPopup = () => {
       `*Phone:* ${formData.phone}%0A` +
       `*Alt Phone:* ${formData.altPhone || 'N/A'}%0A` +
       `*Address:* ${formData.address}%0A` +
-      `*NEET Mark:* ${formData.neetMark}%0A` +
+      `*NEET Mark:* ${formData.neetMark}`;
 
-      window.open(`https://wa.me/918838071494?text=${msg}`, '_blank');
+    window.open(`https://wa.me/919150484747?text=${msg}`, '_blank');
     setSubmitted(true);
     if (timerRef.current) clearTimeout(timerRef.current);
     timerRef.current = setTimeout(close, 2200);
@@ -256,7 +256,7 @@ const LeadPopup = () => {
                     <label htmlFor="phone" className="lp-label">Phone</label>
                     <input
                       id="phone" type="tel" autoComplete="tel" required
-                      placeholder="+91 98765 43210"
+                      placeholder="+91 91504 84747"
                       value={formData.phone}
                       onChange={handleChange}
                       onFocus={() => setFocused('phone')}
