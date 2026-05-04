@@ -46,9 +46,11 @@ const universities = [
   // Tajikistan
   { id: 'avicenna-tajik', name: 'AVICENNA TAJIK STATE MEDICAL UNIVERSITY', image: '/assets/Tajikistan1.webp', badge: 'Top Govt Institution', badgeColor: 'from-purple-600 to-pink-500', glowColor: 'rgba(147,51,234,0.3)', desc: 'A premier medical university in Tajikistan, widely preferred by international students for its structured curriculum, experienced faculty, and strong clinical foundation. **MD (MBBS Equivalent)**', details: ['**Clinical Exposure:** Major government hospitals',], fees: '₹3.0 – 3.6L / yr', duration: '6 Years', country: 'Tajikistan', location: 'Dushanbe, Tajikistan' },
   { id: 'tajik-national', name: 'TAJIK NATIONAL UNIVERSITY (FACULTY OF MEDICINE)', image: '/assets/Tajikistan2.webp', badge: 'Academic Giant', badgeColor: 'from-indigo-600 to-blue-500', glowColor: 'rgba(79,70,229,0.3)', desc: 'One of the country’s top national universities offering medical education with a balanced focus on academics, research, and practical exposure.', details: ['**English / Bilingual**', '**Facilities:** Modern labs & classrooms'], fees: '₹3.2 – 3.8L / yr', duration: '6 Years', country: 'Tajikistan', location: 'Dushanbe, Tajikistan' },
-  { id: 'khujand-state', name: 'KHUJAND STATE UNIVERSITY (FACULTY OF MEDICINE)', image: '/assets/Tajikistan3.webp', badge: 'Cultural Capital', badgeColor: 'from-blue-500 to-cyan-400', glowColor: 'rgba(59,130,246,0.3)', desc: 'A well-established institution providing quality medical education in a peaceful and student-friendly city.', details: ['**Recognized Internationally**', '**Clinical Training:** Local teaching hospitals'], fees: '₹2.8 – 3.4L / yr', duration: '6 Years', country: 'Tajikistan', location: 'Khujand, Tajikistan' },
-  { id: 'kulyab-state', name: 'KULYAB STATE UNIVERSITY (MEDICAL FACULTY)', image: '/assets/tajikistan4.webp', badge: 'Affordable Hub', badgeColor: 'from-teal-500 to-emerald-400', glowColor: 'rgba(20,184,166,0.3)', desc: 'An emerging choice for MBBS aspirants looking for cost-effective education with essential clinical training facilities.', details: ['**Environment:** Safe campus with affordable living'], fees: '₹2.5 – 3.0L / yr', duration: '6 Years', country: 'Tajikistan', location: 'Kulyab, Tajikistan' },
-  { id: 'sugd-state', name: 'SUGD STATE UNIVERSITY (MEDICAL FACULTY)', image: '/assets/Tajikistan5.webp', badge: 'Modern Education', badgeColor: 'from-rose-500 to-pink-400', glowColor: 'rgba(244,63,94,0.3)', desc: 'Offers a supportive academic environment with growing popularity among international medical students.', details: ['**Training:** Hospital-based practical learning'], fees: '₹2.7 – 3.3L / yr', duration: '6 Years', country: 'Tajikistan', location: 'Khujand Region, Tajikistan' },
+  { id: 'khujand-state', name: 'KHUJAND STATE UNIVERSITY (FACULTY OF MEDICINE)', image: '/assets/khuju/khuj.jpeg', badge: 'Cultural Capital', badgeColor: 'from-blue-500 to-cyan-400', glowColor: 'rgba(59,130,246,0.3)', desc: 'A well-established institution providing quality medical education in a peaceful and student-friendly city.', details: ['**Recognized Internationally**', '**Clinical Training:** Local teaching hospitals'], fees: '₹2.8 – 3.4L / yr', duration: '6 Years', country: 'Tajikistan', location: 'Khujand, Tajikistan' },
+
+
+  { id: 'kulyab-state', name: 'KULYAB STATE UNIVERSITY (MEDICAL FACULTY)', image: '/assets/kulab/KULOB.webp', badge: 'Affordable Hub', badgeColor: 'from-teal-500 to-emerald-400', glowColor: 'rgba(20,184,166,0.3)', desc: 'An emerging choice for MBBS aspirants looking for cost-effective education with essential clinical training facilities.', details: ['**Environment:** Safe campus with affordable living'], fees: '₹2.5 – 3.0L / yr', duration: '6 Years', country: 'Tajikistan', location: 'Kulyab, Tajikistan' },
+  { id: 'sugd-state', name: 'SUGD STATE UNIVERSITY (MEDICAL FACULTY)', image: '/assets/sugduniversity/sugduniv.jpeg', badge: 'Modern Education', badgeColor: 'from-rose-500 to-pink-400', glowColor: 'rgba(244,63,94,0.3)', desc: 'Offers a supportive academic environment with growing popularity among international medical students.', details: ['**Training:** Hospital-based practical learning'], fees: '₹2.7 – 3.3L / yr', duration: '6 Years', country: 'Tajikistan', location: 'Khujand Region, Tajikistan' },
 
   // Vietnam
   // Vietnam
@@ -70,6 +72,7 @@ const universities = [
 const UniCard = memo(({ uni, navigate }) => {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: '0px 0px -60px 0px' });
+  const isKhujand = uni.id === 'khujand-state';
 
   return (
     <motion.div
@@ -81,18 +84,22 @@ const UniCard = memo(({ uni, navigate }) => {
       className="group relative mb-8 sm:mb-10 md:mb-12 rounded-2xl sm:rounded-[1.75rem] md:rounded-[2rem] overflow-hidden bg-white border border-gray-100/80"
       style={{ boxShadow: '0 12px 40px rgba(0,0,0,0.08)', willChange: 'transform' }}
     >
-      <div className="relative w-full h-[240px] sm:h-[280px] md:h-[320px] lg:h-[380px] overflow-hidden">
-        <img src={uni.image} alt={uni.name} loading="lazy" decoding="async" width="1200" height="380"
-          className="w-full h-full object-cover transition-transform duration-500 ease-out group-hover:scale-[1.04]"
+      <div className={`relative w-full ${isKhujand ? 'h-[350px] sm:h-[450px] md:h-[550px] lg:h-[650px]' : 'h-[240px] sm:h-[280px] md:h-[320px] lg:h-[380px]'} overflow-hidden bg-gray-900`}>
+        {isKhujand && (
+          <img src={uni.image} alt="" className="absolute inset-0 w-full h-full object-cover blur-2xl opacity-40 scale-110" />
+        )}
+        <img src={uni.image} alt={uni.name} loading="lazy" decoding="async" width="1200" height="650"
+          className={`w-full h-full ${isKhujand ? 'object-contain' : 'object-cover'} transition-transform duration-500 ease-out relative z-10`}
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/20 to-transparent" />
-        <div className={`absolute top-0 left-0 right-0 h-1 bg-gradient-to-r ${uni.badgeColor}`} />
-        <div className="absolute bottom-0 left-0 right-0 p-4 sm:p-6 lg:p-7 flex items-end justify-between gap-3 z-10">
-          <div>
+        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent z-20" />
+
+        <div className={`absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r ${uni.badgeColor} z-30`} />
+        <div className="absolute bottom-0 left-0 right-0 p-4 sm:p-6 lg:p-10 flex items-end justify-between gap-3 z-30">
+          <div className="max-w-[85%]">
             <span className={`inline-block px-3 py-1 rounded-full bg-gradient-to-r ${uni.badgeColor} text-white text-[9px] sm:text-[10px] font-black tracking-wide shadow-lg mb-2`}>{uni.badge}</span>
-            <h2 className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-extrabold text-white leading-tight drop-shadow-2xl">{uni.name}</h2>
+            <h2 className={`text-lg sm:text-xl md:text-2xl lg:text-3xl font-extrabold text-white leading-tight drop-shadow-2xl`}>{uni.name}</h2>
           </div>
-          <span className="px-3 py-1.5 rounded-xl bg-white/10 backdrop-blur-md text-white text-xs font-bold border border-white/20 flex-shrink-0">{uni.location || uni.country}</span>
+          <span className="px-3 py-1.5 rounded-xl bg-white/10 backdrop-blur-md text-white text-xs font-bold border border-white/20 flex-shrink-0 z-30">{uni.location || uni.country}</span>
         </div>
       </div>
 

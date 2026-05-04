@@ -16,8 +16,10 @@ gsap.registerPlugin(ScrollTrigger);
 const uni1 = '/assets/TASHKENT-MEDICAL-ACADEMY.webp';
 const uni2 = '/assets/samarkand-college.webp';
 const uni3 = '/assets/BUKHARA-STATE-MEDICAL-UNIVERSITY.webp';
-const uni4 = '/assets/andijan1.webp';
+const uni4 = '/assets/andijanfront.jpeg';
 const uni5 = '/assets/fergana.webp';
+const uniPharma = '/assets/taksh/takshpharmaa.jpeg';
+const uniGulistan = '/assets/gulistan1.webp';
 const aboutVideo = '/assets/aboutvideo1.mp4';
 const g1 = '/assets/stud1.webp';
 const g2 = '/assets/stud2.webp';
@@ -44,10 +46,10 @@ const img10 = '/assets/1 (10).webp', img11 = '/assets/1 (11).webp';
 // ── STATIC DATA (outside component — no re-create on render) ──────────────
 const destinations = [
   { id: 'tashkent-medical-academy', name: 'Tashkent State Medical University', image: uni1, sub: 'The leading medical institution in Central Asia with global recognition.', theme: 'linear-gradient(135deg,rgba(37,99,235,0.5),rgba(49,46,129,0.8))' },
-  { id: 'samarkand-state-medical-university', name: 'Samarkand State Medical University', image: uni2, sub: 'Traditional excellence meets modern medical technology in historical Samarkand.', theme: 'linear-gradient(135deg,rgba(16,185,129,0.5),rgba(20,83,45,0.8))' },
-  { id: 'bukhara-state-medical-institute', name: 'Bukhara State Medical Institute', image: uni3, sub: 'Renowned for high clinical exposure and international student community.', theme: 'linear-gradient(135deg,rgba(245,158,11,0.5),rgba(124,45,18,0.8))' },
   { id: 'andijan-state-medical-institute', name: 'Andijan State Medical University', image: uni4, sub: 'High-quality education with focus on practical bedside clinical training.', theme: 'linear-gradient(135deg,rgba(244,63,94,0.5),rgba(153,27,27,0.8))' },
-  { id: 'fergana-medical-institute', name: 'Fergana Medical Institute', image: uni5, sub: 'A fast-growing hub for public health and specialized medical research.', theme: 'linear-gradient(135deg,rgba(139,92,246,0.5),rgba(76,29,149,0.8))' },
+  { id: 'uzbekistan-medical-universities#gulistan', name: 'Gulistan State Medical University', image: uniGulistan, sub: 'A growing medical university known for its quality education and modern teaching approach.', theme: 'linear-gradient(135deg,rgba(139,92,246,0.5),rgba(76,29,149,0.8))' },
+  { id: 'bukhara-state-medical-institute', name: 'Bukhara State Medical Institute', image: uni3, sub: 'Renowned for high clinical exposure and international student community.', theme: 'linear-gradient(135deg,rgba(245,158,11,0.5),rgba(124,45,18,0.8))' },
+  { id: 'tashkent-state-medical-university#tspmu', name: 'Tashkent State Pharmaceutical And Medical University', image: uniPharma, sub: 'Dual strength in Medicine & Pharmaceutical Sciences with high global demand.', theme: 'linear-gradient(135deg,rgba(16,185,129,0.5),rgba(20,83,45,0.8))' }
 ];
 const kyrgyzstanUnis = [
   { id: 'osh-state-university', name: 'Osh State University - International Medical Faculty', image: pUni1, sub: 'Distinguished for its high academic standards and vibrant international student community.', theme: 'linear-gradient(135deg,rgba(14,165,233,0.5),rgba(30,58,138,0.8))' },
@@ -99,16 +101,16 @@ const helpServices = [
   { title: 'Parent Updates', desc: 'Monthly progress reports and direct access to our team.' },
 ];
 const blogs = [
-  { slug: 'is-mbbs-abroad-approved-by-nmc', image: uni1, date: 'April 17, 2026', title: 'Is MBBS Abroad Approved by NMC?', excerpt: 'Understand the critical NMC rules and guidelines that determine if your MBBS degree from abroad will be valid for practice in India.' },
-  { slug: 'fmge-next-required-after-mbbs-abroad', image: uni3, date: 'April 17, 2026', title: 'Is FMGE / NExT Required After MBBS Abroad?', excerpt: 'One of the most critical steps after completing your medical degree abroad is clearing the licensing exam in India.' },
-  { slug: 'do-indian-embassies-help-students-abroad', image: uni2, date: 'April 17, 2026', title: 'Do Indian Embassies Help Students Abroad?', excerpt: 'Learn about the scope and limitations of the support Indian embassies provide to medical students studying in foreign countries.' },
-  { slug: 'is-it-safe-for-indian-students-abroad', image: uni3, date: 'April 17, 2026', title: 'Is It Safe for Indian Students Abroad?', excerpt: 'One of the biggest questions parents ask is about safety and community support in major destinations.' },
-  { slug: 'best-countries-for-indian-students-to-study-mbbs', image: uni2, date: 'April 17, 2026', title: 'Which Countries are Best for Study MBBS?', excerpt: 'Compare top locations like Uzbekistan, Russia, and more to find your perfect fit.' },
+  { slug: 'is-mbbs-abroad-approved-by-nmc', image: '/assets/blogimages/blog1.jpeg', date: 'April 17, 2026', title: 'Is MBBS Abroad Approved by NMC?', excerpt: 'Understand the critical NMC rules and guidelines that determine if your MBBS degree from abroad will be valid for practice in India.' },
+  { slug: 'fmge-next-required-after-mbbs-abroad', image: '/assets/blogimages/blog2.jpeg', date: 'April 17, 2026', title: 'Is FMGE / NExT Required After MBBS Abroad?', excerpt: 'One of the most critical steps after completing your medical degree abroad is clearing the licensing exam in India.' },
+  { slug: 'do-indian-embassies-help-students-abroad', image: '/assets/blogimages/blog3.jpeg', date: 'April 17, 2026', title: 'Do Indian Embassies Help Students Abroad?', excerpt: 'Learn about the scope and limitations of the support Indian embassies provide to medical students studying in foreign countries.' },
+  { slug: 'is-it-safe-for-indian-students-abroad', image: '/assets/blogimages/blog4.jpeg', date: 'April 17, 2026', title: 'Is It Safe for Indian Students Abroad?', excerpt: 'One of the biggest questions parents ask is about safety and community support in major destinations.' },
+  { slug: 'best-countries-for-indian-students-to-study-mbbs', image: '/assets/blogimages/blog5.jpeg', date: 'April 17, 2026', title: 'Which Countries Are Best for Indian Students to Study MBBS?', excerpt: 'Compare top locations like Uzbekistan, Russia, and more to find your perfect fit.' },
 ];
-const galleryPhotos = [
-  { id: 1, url: img1 }, { id: 2, url: img2 }, { id: 3, url: img3 }, { id: 4, url: img4 }, { id: 5, url: img5 },
-  { id: 6, url: img6 }, { id: 7, url: img7 }, { id: 8, url: img8 }, { id: 9, url: img9 }, { id: 10, url: img10 }, { id: 11, url: img11 },
-];
+const galleryPhoto = Array.from({ length: 23 }, (_, i) => ({
+  id: i + 1,
+  url: `/assets/gallery/gallery${i + 1}.jpeg`
+}));
 const helpIcons = [
   <svg key={0} width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" /><circle cx="12" cy="7" r="4" /></svg>,
   <svg key={1} width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" /><polyline points="9 22 9 12 15 12 15 22" /></svg>,
@@ -236,7 +238,7 @@ const UniversityCard = memo(({ data, index, onUniClick }) => {
 });
 
 // ── UNIVERSITY SECTION — memo ─────────────────────────────────────────────
-const UniversitySection = memo(({ tag, title, unis, onUniClick, className, style }) => {
+const UniversitySection = memo(({ tag, title, unis, onUniClick, className, style, exploreLink, exploreLabel }) => {
   const scrollRef = useRef(null);
   return (
     <section className={`section destinations ${className || ''}`} style={style}>
@@ -261,6 +263,31 @@ const UniversitySection = memo(({ tag, title, unis, onUniClick, className, style
             <motion.div className="scroll-hint-progress" initial={{ scaleX: 0 }} whileInView={{ scaleX: 1 }} transition={{ duration: 2, ease: 'easeInOut' }} />
           </div>
         </div>
+
+        {exploreLink && exploreLabel && (
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className="flex justify-center mt-12 mb-4 relative z-20"
+          >
+            <Link to={exploreLink}>
+              <motion.button
+                whileHover={{ scale: 1.05, boxShadow: '0 0 40px rgba(168,85,247,0.5)' }}
+                whileTap={{ scale: 0.95 }}
+                className="relative overflow-hidden rounded-full p-[2px] group focus:outline-none"
+              >
+                <span className="absolute inset-0 bg-gradient-to-r from-[#7c3aed] to-[#a855f7] rounded-full blur-md opacity-70 group-hover:opacity-100 transition duration-500" />
+                <span className="relative flex items-center gap-3 bg-[#0e0518] px-10 py-4 rounded-full text-white font-bold tracking-widest uppercase text-sm border border-white/10 hover:bg-[#1a0b2e] transition-colors duration-300">
+                  {exploreLabel}
+                  <svg className="w-5 h-5 group-hover:translate-x-1.5 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M14 5l7 7m0 0l-7 7m7-7H3" /></svg>
+                </span>
+              </motion.button>
+            </Link>
+          </motion.div>
+        )}
+
       </div>
     </section>
   );
@@ -440,7 +467,7 @@ export default function HomePage() {
       </FadeSection>
 
       {/* ── UNIVERSITIES — lazy per-card animation ── */}
-      <UniversitySection tag="Elite Uzbekistan University" title="Top Medical Universities — Uzbekistan" unis={destinations} onUniClick={handleUniClick} className="section-uzbekistan" style={sectionGpuStyle} />
+      <UniversitySection tag="Elite Uzbekistan University" title="Top Medical Universities — Uzbekistan" unis={destinations} onUniClick={handleUniClick} className="section-uzbekistan" style={sectionGpuStyle} exploreLink="/mbbs-in-uzbekistan" exploreLabel="Explore More Universities" />
       <UniversitySection tag="Kyrgyzstan University" title="Top Medical Universities — Kyrgyzstan" unis={kyrgyzstanUnis} onUniClick={handleUniClick} className="section-kyrgyzstan" style={sectionGpuStyle} />
       <UniversitySection tag="Georgia University" title="Top Medical Universities — Georgia" unis={georgiaUnis} onUniClick={handleUniClick} className="section-georgia" style={sectionGpuStyle} />
       <UniversitySection tag="Russian University" title="Top Medical Universities — Russia" unis={russiaUnis} onUniClick={handleUniClick} className="section-russia" style={sectionGpuStyle} />
@@ -496,7 +523,7 @@ export default function HomePage() {
           ].map((row, ri) => (
             <div key={ri} className={`carousel-row ${row.dir}`} style={row.speed ? { '--carousel-speed': row.speed } : {}}>
               <div className="carousel-track" style={row.speed ? { animationDuration: row.speed } : {}}>
-                {[...galleryPhotos, ...galleryPhotos].map((photo, idx) => (
+                {[...galleryPhoto, ...galleryPhoto].map((photo, idx) => (
                   <div className="carousel-item" key={`r${ri}-${idx}`}>
                     <LazyImage src={photo.url} alt={`Gallery moment ${photo.id}`} loading="lazy" />
                   </div>

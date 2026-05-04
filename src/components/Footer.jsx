@@ -57,15 +57,18 @@ export default function Footer() {
         <div>
           <div className="footer-col-title">Universities in Uzbekistan</div>
           <ul className="footer-links">
-            {uzbekistanUniversities.slice(0, 6).map((uni) => {
-              const name = typeof uni === 'object' ? uni.name : uni;
-              const id = typeof uni === 'object' ? uni.id : uni.split(' (')[0].toLowerCase().replace(/\s+/g, '-');
-              return (
-                <li key={name}>
-                  <Link to={`/university/${id}`}>{name}</Link>
-                </li>
-              );
-            })}
+            {uzbekistanUniversities
+              .filter(uni => typeof uni === 'string' || (uni && !uni.isDivider))
+              .slice(0, 9)
+              .map((uni) => {
+                const name = typeof uni === 'object' ? uni.name : uni;
+                const id = typeof uni === 'object' ? uni.id : uni.split(' (')[0].toLowerCase().replace(/\s+/g, '-');
+                return (
+                  <li key={name}>
+                    <Link to={id.includes('#') ? `/university/${id}` : `/university/${id}`}>{name}</Link>
+                  </li>
+                );
+              })}
           </ul>
         </div>
 

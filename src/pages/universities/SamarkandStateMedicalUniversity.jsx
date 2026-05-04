@@ -4,7 +4,9 @@ import { Canvas, useFrame } from '@react-three/fiber';
 import { Points, PointMaterial } from '@react-three/drei';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
-import { Stethoscope, Globe2, ShieldCheck, ArrowRight, MapPin, HeartPulse, Wind, BookOpen } from 'lucide-react';
+import { Stethoscope, Globe2, ShieldCheck, ArrowRight, MapPin, HeartPulse, Wind, BookOpen, CalendarDays, BadgeCheck, Utensils, Users, Home } from 'lucide-react';
+
+
 import AdmissionProtocol from '../../components/ui/AdmissionProtocol';
 import LazyImage from '../../components/Lazyimage';
 
@@ -13,11 +15,12 @@ import Footer from '../../components/Footer';
 
 
 // Assets are now served from the public/assets directory
-const bgImg = '/assets/samarkand1.webp';
-const campus1 = '/assets/samarkandnet3.webp';
-const campus2 = '/assets/samarkand3.webp';
-const campus3 = '/assets/samarkand4.webp';
-const campus4 = '/assets/samarkand2.webp';
+const bgImg = '/assets/samrkandfront.webp';
+
+const campus1 = '/assets/samaruni/entrance.jpeg';
+const campus2 = '/assets/samaruni/samar2.jpeg';
+const campus3 = '/assets//samaruni/samar3.jpeg';
+const campus4 = '/assets//samaruni/samar4.jpeg';
 const campus7 = '/assets/samarkand-college.webp';
 
 
@@ -74,14 +77,7 @@ const SamarkandStateMedicalUniversity = () => {
   const heroScale = useTransform(scrollYProgress, [0, 0.3], [1, 1.08]);
   const [mouse, setMouse] = useState({ x: 50, y: 50 });
 
-  // 2026 Section Logic
-  const containerRef = useRef(null);
-  const { scrollYProgress: sectionScroll } = useScroll({
-    target: containerRef,
-    offset: ["start end", "end start"]
-  });
-  const sectionY1 = useTransform(sectionScroll, [0, 1], [0, -100]);
-  const sectionY2 = useTransform(sectionScroll, [0, 1], [0, 100]);
+
 
   useEffect(() => {
     // AOS initialized globally
@@ -107,8 +103,9 @@ const SamarkandStateMedicalUniversity = () => {
 
         {/* Parallax BG */}
         <motion.div style={{ y: heroY, scale: heroScale }} className="absolute inset-0 z-0">
-          <LazyImage src={bgImg} alt="" className="w-full h-full object-cover opacity-35" />
-          <div className="absolute inset-0 bg-gradient-to-b from-[#050e05]/60 via-[#050e05]/55 to-[#050e05]" />
+          <LazyImage src={bgImg} alt="Samarkand State Medical University" className="w-full h-full object-cover opacity-50" />
+          <div className="absolute inset-0 bg-gradient-to-b from-[#050e05]/40 via-[#050e05]/50 to-[#050e05]" />
+
           {/* Emerald gradient pulse overlay */}
           <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_50%_30%,rgba(34,197,94,0.12)_0%,transparent_60%)]" />
         </motion.div>
@@ -119,13 +116,6 @@ const SamarkandStateMedicalUniversity = () => {
 
         {/* Hero Content */}
         <div className="relative z-10 text-center px-6 max-w-6xl mx-auto pt-28">
-          {/* Animated badge */}
-          <motion.div initial={{ opacity: 0, scale: 0.8 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.8 }}
-            className="inline-flex items-center gap-2 px-5 py-2 rounded-full border border-[#22c55e]/40 bg-[#22c55e]/10 backdrop-blur-md mb-8">
-            <MapPin className="w-4 h-4 text-[#22c55e]" />
-            <span className="text-[#22c55e] text-sm font-bold uppercase tracking-[0.25em]">Samarkand – The Silk Road Capital</span>
-          </motion.div>
-
           {/* Title with stagger — RIGHT-to-LEFT reveal */}
           <div className="mb-8 overflow-hidden">
             {[
@@ -148,11 +138,40 @@ const SamarkandStateMedicalUniversity = () => {
           </div>
 
           <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1, delay: 0.9 }}
-            className="text-xl text-[#a0c4a0] max-w-2xl mx-auto mb-12 leading-relaxed font-light">
-            Where ancient Silk Road wisdom meets 21st-century medicine. The most internationally diverse medical campus in all of Central Asia.
+            className="text-xl text-[#a0c4a0] max-w-3xl mx-auto mb-12 leading-relaxed font-light">
+            Samarkand State Medical University is one of the oldest and most prestigious government
+            medical universities in Uzbekistan. It is known for its strong academic system, modern
+            clinical training, and internationally aligned MBBS program designed for global medical
+            careers.
           </motion.p>
 
-          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1, delay: 1.1 }}
+          {/* Badges moved here — above Apply Now */}
+          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 1.0 }}
+            className="flex flex-wrap gap-4 justify-center mb-10">
+            <div className="group flex items-center gap-3 px-6 py-3 rounded-2xl border border-[#22c55e]/30 bg-[#22c55e]/5 backdrop-blur-xl hover:bg-[#22c55e]/10 hover:border-[#22c55e]/60 transition-all shadow-[0_0_20px_rgba(34,197,94,0.1)]">
+              <div className="w-10 h-10 rounded-xl bg-[#22c55e]/20 flex items-center justify-center group-hover:scale-110 transition-transform">
+                <MapPin className="w-5 h-5 text-[#22c55e]" />
+              </div>
+              <div className="flex flex-col text-left">
+                <span className="text-[10px] text-[#22c55e] font-black uppercase tracking-tighter opacity-70">Location</span>
+                <span className="text-white text-sm font-bold">Samarkand, Uzbekistan</span>
+              </div>
+            </div>
+
+            <div className="group flex items-center gap-3 px-6 py-3 rounded-2xl border border-[#22c55e]/30 bg-[#22c55e]/5 backdrop-blur-xl hover:bg-[#22c55e]/10 hover:border-[#22c55e]/60 transition-all shadow-[0_0_20px_rgba(34,197,94,0.1)]">
+              <div className="w-10 h-10 rounded-xl bg-[#22c55e]/20 flex items-center justify-center group-hover:scale-110 transition-transform">
+                <CalendarDays className="w-5 h-5 text-[#22c55e]" />
+
+              </div>
+              <div className="flex flex-col text-left">
+                <span className="text-[10px] text-[#22c55e] font-black uppercase tracking-tighter opacity-70">Established</span>
+                <span className="text-white text-sm font-bold">1930</span>
+              </div>
+            </div>
+
+          </motion.div>
+
+          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1, delay: 1.2 }}
             className="flex flex-wrap gap-4 justify-center">
             <button onClick={() => window.dispatchEvent(new CustomEvent('openLeadPopup', { detail: 'Samarkand State Medical University' }))}>
               <motion.button whileHover={{ scale: 1.06, boxShadow: '0 0 60px rgba(34,197,94,0.45)' }} whileTap={{ scale: 0.97 }}
@@ -168,92 +187,24 @@ const SamarkandStateMedicalUniversity = () => {
         </div>
       </section>
 
-      {/* ═══ SECTION 2: 2026 HYPER-MINIMALIST STORY ═════════════════════════ */}
-      <section ref={containerRef} className="relative py-32 bg-[#050e05] overflow-hidden selection:bg-[#22c55e] selection:text-black">
-        {/* Background Decorative Mesh - 2026 Gradient Style */}
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full opacity-30 pointer-events-none">
-          <div className="absolute top-[-10%] left-[-10%] w-[50%] h-[50%] bg-[#22c55e]/20 blur-[120px] rounded-full" />
-        </div>
 
-        <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-
-          {/* Left Side: Modern Asymmetrical Image Composition */}
-          <div className="lg:col-span-6 relative flex justify-center items-center h-[600px]">
-            <motion.div style={{ y: sectionY1 }} className="relative z-20 w-4/5 aspect-[4/5] rounded-[2rem] overflow-hidden border border-white/5 ring-1 ring-white/10 shadow-2xl">
-              <LazyImage src={bgImg} alt="SSMU Main" className="w-full h-full object-cover scale-105" />
-            </motion.div>
-
-            <motion.div
-              style={{ y: sectionY2 }}
-              className="absolute -right-4 bottom-12 z-30 w-1/2 aspect-square rounded-[2rem] overflow-hidden border-4 border-[#050e05] shadow-[0_20px_50px_rgba(0,0,0,0.5)]"
-            >
-              <LazyImage src={campus7} alt="Detail" className="w-full h-full object-cover" />
-            </motion.div>
-
-            {/* Floating Stats Badge */}
-
-          </div>
-
-          {/* Right Side: High-Contrast Content */}
-          <div className="lg:col-span-6 space-y-8">
-            <div className="space-y-4">
-              <motion.div
-                initial={{ x: 20, opacity: 0 }}
-                whileInView={{ x: 0, opacity: 1 }}
-                className="flex items-center gap-3"
-              >
-                <div className="h-[1px] w-8 bg-[#22c55e]" />
-                <span className="text-[#22c55e] text-sm font-bold tracking-[0.2em] uppercase">
-                  First Medical University in Uzbekistan
-                </span>
-              </motion.div>
-
-              <h2 className="text-3xl lg:text-7xl font-bold text-white tracking-tight leading-[0.95]">
-                "Training the hands that will heal  <br />
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#22c55e] to-[#4ade80]">
-                  the world "
-                </span>
-              </h2>
-            </div>
-
-            <div className="space-y-6 max-w-xl">
-              <p className="text-white/70 text-lg font-light leading-relaxed">
-                Samarkand State Medical University carries a distinction no other institution can claim: <span className="text-white font-medium">it was the very first.</span> Established at the crossroads of civilization, we produce physicians for every continent on Earth.
-              </p>
-
-              <p className="text-white/50 text-base leading-relaxed italic border-l-2 border-[#22c55e]/30 pl-6">
-                Indian students discover modern simulation centers rivaling European academies and a curriculum laser-focused on FMGE performance.
-              </p>
-            </div>
-
-            {/* Minimalist Bento Tags */}
-            <div className="grid grid-cols-2 gap-3 pt-4">
-              {['WHO Listed', 'NMC Approved', 'FMGE-Focused', '60+ Nationalities'].map((t, i) => (
-                <div key={i} className="group cursor-default p-4 rounded-xl bg-white/[0.03] border border-white/5 hover:border-[#22c55e]/40 transition-colors">
-                  <span className="text-white/80 text-sm font-medium group-hover:text-[#22c55e] transition-colors">{t}</span>
-                </div>
-              ))}
-            </div>
-          </div>
-
-        </div>
-      </section>
 
       {/* ═══ SECTION 3: WHY SSMU — Horizontal Scroll Visual ════════════════ */}
       <section className="py-32 bg-gradient-to-b from-[#050e05] to-[#0a1a0a]">
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-20" data-aos="fade-up">
-            <h2 className="text-4xl md:text-5xl font-black text-white mb-4">Why Choose <span className="text-[#22c55e]">SSMU?</span></h2>
+            <h2 className="text-4xl md:text-5xl font-black text-white mb-4">Why Choose <span className="text-[#22c55e]">This University</span></h2>
             <div className="w-24 h-1 bg-gradient-to-r from-[#16a34a] to-[#22c55e] mx-auto rounded-full" />
           </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {[
-              { icon: Stethoscope, title: 'Simulation Labs', desc: 'Europe-grade clinical simulation suits — practice on human patient simulators before hospital exposure.' },
-              { icon: Globe2, title: 'Silk Road Diversity', desc: '60+ nationalities create a unique multicultural lens for every student\'s medical education.' },
-              { icon: HeartPulse, title: 'FMGE Champion Rate', desc: 'Year-on-year, SSMU graduates outperform national FMGE averages by a significant margin.' },
-              { icon: BookOpen, title: 'English First', desc: 'Entire 6-year program delivered in English. No language barrier, full academic freedom.' },
-              { icon: Wind, title: 'Iconic City Life', desc: 'Samarkand\'s UNESCO heritage sites surround your academic life — culture and medicine intertwined.' },
-              { icon: ShieldCheck, title: 'Fully Recognized', desc: 'Degree recognized in India, USA, UK, Europe and beyond for licensing and postgraduate equivalency.' },
+              { icon: ShieldCheck, title: 'Government  medical university with strong reputation.', desc: 'A prestigious government medical university with a strong reputation and decades of academic excellence.' },
+              { icon: BadgeCheck, title: 'Recognized as per WHO & NMC guidelines', desc: 'Fully recognized as per WHO and NMC guidelines, ensuring global validity of your medical degree.' },
+              { icon: Globe2, title: 'English-medium MBBS program for international students', desc: '100% English-medium program for international students, ensuring seamless learning and communication.' },
+              { icon: Stethoscope, title: 'Excellent clinical exposure in multi-specialty hospitals', desc: 'Excellent clinical training and exposure in multi-specialty hospitals with advanced medical infrastructure.' },
+              { icon: HeartPulse, title: 'Affordable Fee structure compared to global standards', desc: 'Highly competitive and affordable fee structure compared to global standards, making quality education accessible.' },
+              { icon: Users, title: 'Safe and culturally rich student environment', desc: 'A secure and multicultural campus fostering academic growth and personal safety in Samarkand.' },
+              { icon: Utensils, title: 'Indian Food and Hostel facilities available', desc: 'Dedicated Indian mess and comfortable hostel accommodations tailored for international students.' },
             ].map(({ icon: Icon, title, desc }, i) => (
               <motion.div key={title}
                 initial={{ opacity: 0, y: 40 }}
@@ -275,11 +226,45 @@ const SamarkandStateMedicalUniversity = () => {
         </div>
       </section>
 
-      {/* ═══ SECTION 4: CAMPUS GALLERY — Fade Swiper with Overlays ═════════ */}
-      <section id="campus" className="py-32 bg-[#0a1a0a] overflow-hidden">
-        <div className="max-w-7xl mx-auto px-6 mb-16 text-center" data-aos="fade-up">
-          <h2 className="text-4xl md:text-5xl font-black text-white mb-4">The <span className="text-[#22c55e]">Samarkand</span> Campus</h2>
-          <p className="text-[#5a8a5a] max-w-xl mx-auto">From its Silk Road architecture to ultramodern medical facilities, every corner of this campus is designed to inspire.</p>
+      {/* ═══ SECTION 5: PROGRAM DETAILS ══════════════════ */}
+      <section className="py-20 md:py-32 bg-[#050e05]">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="text-center mb-16 md:mb-20" data-aos="fade-up">
+            <h2 className="text-3xl md:text-5xl font-black text-white mb-4 leading-tight">Program <span className="text-[#22c55e]">Details</span></h2>
+            <p className="text-[#5a8a5a] text-sm md:text-base">Comprehensive MBBS program designed for global medical standards.</p>
+          </div>
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {[
+              { num: '01', icon: '🎓', color: '#22c55e', title: 'Academic Program', desc: 'MBBS (General Medicine) — A comprehensive clinical degree program fully aligned with international medical standards.', aos: 'fade-up' },
+              { num: '02', icon: '⏳', color: '#16a34a', title: 'Course Duration', desc: '6 Years (5 Years Academic + 1 Year Internship) in government-affiliated hospitals.', aos: 'fade-down' },
+              { num: '03', icon: '🗣️', color: '#22c55e', title: 'Medium of Instruction', desc: '100% ENGLISH curriculum, ensuring seamless comprehension for international medical aspirants.', aos: 'fade-up' },
+              { num: '04', icon: '💰', color: '#16a34a', title: '₹ 3.5 LAKHS', desc: 'Highly competitive tuition fee per annum, offering premium education at an accessible value.', aos: 'fade-down' },
+            ].map(({ num, icon, color, title, desc, aos }, i) => (
+              <motion.div key={num}
+                data-aos={aos}
+                data-aos-delay={i * 150}
+                whileHover={{ y: -10, scale: 1.02 }}
+                className="relative p-8 rounded-3xl bg-[#0a1a0a]/40 border border-white/5 hover:border-[#22c55e]/40 transition-all duration-500 group overflow-hidden backdrop-blur-sm"
+              >
+                <div className="absolute top-0 left-0 w-full h-1 rounded-t-3xl" style={{ background: `linear-gradient(90deg, transparent, ${color}, transparent)` }} />
+                <div className="w-16 h-16 rounded-2xl bg-white/5 flex items-center justify-center text-4xl mb-6 group-hover:scale-110 group-hover:bg-[#22c55e]/10 transition-all duration-500">{icon}</div>
+
+                <h3 className="text-xl font-bold text-white mb-4 group-hover:text-[#22c55e] transition-colors leading-tight">{title}</h3>
+                <p className="text-[#5a8a5a] text-sm leading-relaxed font-medium">{desc}</p>
+                <div className="absolute -bottom-4 -right-2 text-8xl font-black text-white/[0.03] group-hover:text-[#22c55e]/10 transition-all duration-700 pointer-events-none">{num}</div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ═══ SECTION 6: ADMISSION PROTOCOL — ELIGIBILITY & DOSSIER ══════════ */}
+      <AdmissionProtocol themeAccent="#22c55e" />
+
+      {/* ═══ SECTION 4: LIFE AT SAMARKAND — GALLERY ═════════ */}
+      <section id="campus" className="py-20 md:py-32 bg-[#0a1a0a] overflow-hidden">
+        <div className="max-w-7xl mx-auto px-6 mb-12 md:mb-16 text-center" data-aos="fade-up">
+          <h2 className="text-3xl md:text-5xl font-black text-white mb-4">Life at <span className="text-[#22c55e]">Samarkand</span></h2>
         </div>
         <div className="grid md:grid-cols-2 gap-4 max-w-6xl mx-auto px-6">
           {[campus1, campus2, campus3, campus4].map((src, i) => (
@@ -300,13 +285,31 @@ const SamarkandStateMedicalUniversity = () => {
             </motion.div>
           ))}
         </div>
+        {/* Neater, More Professional Description */}
+        <div className="max-w-4xl mx-auto mt-20 px-6" data-aos="fade-up">
+          <div className="relative p-8 md:p-12 rounded-[2.5rem] bg-[#0d1a0a]/40 border border-[#22c55e]/10 backdrop-blur-sm overflow-hidden group">
+            <div className="absolute top-0 right-0 w-32 h-32 bg-[#22c55e]/5 rounded-full blur-3xl" />
+            <div className="relative z-10 flex flex-col md:flex-row items-center gap-8">
+              <div className="w-16 h-16 rounded-2xl bg-[#22c55e]/10 flex items-center justify-center shrink-0">
+                <Globe2 className="w-8 h-8 text-[#22c55e]" />
+              </div>
+              <p className="text-[#a0c4a0] text-lg md:text-xl font-medium leading-relaxed text-center md:text-left">
+                Students experience a balanced academic environment in one of Uzbekistan’s most historic
+                and student-friendly cities. The university provides <span className="text-white">modern classrooms</span>,
+                <span className="text-white"> comfortable hostels</span>, and a <span className="text-white">supportive international student community</span>.
+              </p>
+            </div>
+          </div>
+        </div>
       </section>
 
       {/* ═══ SECTION 5: STUDENT JOURNEY — Horizontal Motion Cards ══════════ */}
       <section className="py-32 bg-[#050e05]">
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-20" data-aos="fade-up">
-            <h2 className="text-4xl md:text-5xl font-black text-white mb-4">Your Path to Becoming a <span className="text-[#22c55e]">Physician</span></h2>
+            <h2 className="text-3xl md:text-5xl font-black text-white mb-4 leading-tight uppercase tracking-tight">
+              The Strategic Roadmap to <span className="text-[#22c55e]">Medical Excellence</span>
+            </h2>
           </div>
           <div className="grid md:grid-cols-4 gap-4">
             {[
@@ -333,25 +336,9 @@ const SamarkandStateMedicalUniversity = () => {
         </div>
       </section>
 
-      {/* ═══ SECTION 6: ADMISSION PROTOCOL — ELIGIBILITY & DOSSIER ══════════ */}
-      <AdmissionProtocol themeAccent="#22c55e" />
 
-      {/* ═══ COUNTERS ════════════════════════════════════════════════════════ */}
 
-      <section className="py-16 md:py-24 bg-[#0a1a0a] border-y border-white/5">
 
-        <div className="max-w-5xl mx-auto px-4 md:px-6 
-    grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 
-    gap-6 md:gap-8 text-center">
-
-          <Counter target={6000} label="Students Placed" suffix="+" />
-          <Counter target={60} label="Nationalities" suffix="+" />
-          <Counter target={98} label="FMGE Pass Rate" suffix="%" />
-          <Counter target={45} label="Years Global Impact" />
-
-        </div>
-
-      </section>
 
 
 
@@ -365,16 +352,20 @@ const SamarkandStateMedicalUniversity = () => {
         <div className="relative z-10 px-4 md:px-6 max-w-3xl mx-auto" data-aos="zoom-in">
 
           {/* Heading */}
-          <h2 className="text-3xl sm:text-4xl md:text-6xl font-black text-white mb-4 md:mb-6 leading-tight">
-            Walk the Silk Road
-            <br className="hidden sm:block" />
-            <span className="text-[#22c55e]"> Conquer Medicine</span>
+          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-white mb-4 md:mb-6 leading-tight uppercase tracking-tight">
+            Start Your <span className="text-[#22c55e]">Medical Journey</span>
           </h2>
 
           {/* Paragraph */}
-          <p className="text-[#a0c4a0] text-sm sm:text-base md:text-xl mb-8 md:mb-14 font-light px-2 sm:px-0">
-            Join thousands of doctors who started their journey in Samarkand and practice today across 45+ countries.
-          </p>
+          <div className="space-y-4 mb-8 md:mb-14" data-aos="fade-up" data-aos-delay="200">
+            <p className="text-[#a0c4a0] text-sm sm:text-base md:text-xl font-light px-2 sm:px-0">
+              Choose a university that combines tradition, quality education, and global opportunities. <br className="hidden md:block" />
+              Your path to becoming a doctor begins here.
+            </p>
+            <p className="text-white text-base md:text-2xl font-bold italic tracking-wide">
+              "Study with confidence. Build your medical future globally."
+            </p>
+          </div>
 
           {/* Button */}
           <button onClick={() => window.dispatchEvent(new CustomEvent('openLeadPopup', { detail: 'Samarkand State Medical University' }))}>
@@ -400,7 +391,7 @@ const SamarkandStateMedicalUniversity = () => {
 
               {/* Content */}
               <span className="relative flex items-center justify-center gap-2 md:gap-3">
-                Apply to SSMU
+                Apply now
                 <ArrowRight className="w-4 h-4 md:w-6 md:h-6 group-hover:translate-x-2 transition-transform" />
               </span>
 

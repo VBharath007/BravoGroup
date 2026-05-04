@@ -1,17 +1,18 @@
 // Column 1: Uzbekistan countries (Sub-sections)
 export const uzbekistanRegions = [
-  { key: 'Eastern Uzbekistan', links: ['Andijan State Medical University', 'Fergana Medical Institute'] },
-  { key: 'Central Uzbekistan', links: ['Tashkent State Medical University', { name: 'Tashkent State Pharmaceutical And Medical University', id: 'tashkent-state-medical-university#tspmu' }] },
-  { key: 'Western / Central-West', links: ['Samarkand State Medical University'] },
-  { 
-    key: 'South-West Uzbekistan', 
+  {
+    key: 'Uzbekistan',
     links: [
+      'Tashkent State Medical University',
+      'Andijan State Medical University',
+      { name: 'Gulistan State Medical University', id: 'uzbekistan-medical-universities#gulistan' },
       'Bukhara State Medical Institute',
-      { name: 'divider', id: 'div-1', isDivider: true },
-      { name: 'Gulistan State medical University', id: 'uzbekistan-medical-universities#gulistan' },
+      { name: 'Tashkent State Pharmaceutical & Medical University', id: 'tashkent-state-medical-university#tspmu' },
+      { name: 'Fergana Medical Institute of Public Health', id: 'fergana-medical-institute' },
+      'Samarkand State Medical University',
+      { name: 'Karakalpakstan Medical Institute', id: 'uzbekistan-medical-universities#karakalpakstan' },
       { name: 'Namangan State Medical University', id: 'uzbekistan-medical-universities#namangan' },
-      { name: 'Karakalpakstan Medical Institute', id: 'uzbekistan-medical-universities#karakalpakstan' }
-    ] 
+    ]
   }
 ];
 

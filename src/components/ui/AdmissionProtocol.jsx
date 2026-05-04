@@ -2,7 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { CheckCircle2, ShieldCheck, FileText, ClipboardCheck, Award } from 'lucide-react';
 
-const AdmissionProtocol = ({ themeAccent = "#00D4FF" }) => {
+const AdmissionProtocol = ({ themeAccent = "#00D4FF", bgColor = "#030814" }) => {
   const eligibility = [
     { title: 'Academic Requirement', desc: ' Minimum 50% in Physics, Chemistry, and Biology (PCB) as per NMC guidelines.' },
     { title: 'NEET Qualification', desc: ' Candidates must have qualified  NEET- UG   in the current or previous two years, as per NMC regulations.' },
@@ -20,7 +20,8 @@ const AdmissionProtocol = ({ themeAccent = "#00D4FF" }) => {
   ];
 
   return (
-    <section className="py-32 relative bg-[#030814] overflow-hidden">
+    <section className="py-16 md:py-32 relative overflow-hidden" style={{ backgroundColor: bgColor }}>
+
       <div className="max-w-7xl mx-auto px-6 relative z-10">
 
         {/* Header */}

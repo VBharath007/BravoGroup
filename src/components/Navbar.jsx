@@ -102,19 +102,11 @@ function MegaDropdown() {
             <span className="mega-icon">🇺🇿</span>
             <h4 className="mega-region">{"Uzbekistan".toUpperCase()}</h4>
           </div>
-          {uzbekistanRegions.map((region) => (
-            <div className="mega-sub-section" key={region.key} style={{ marginBottom: '15px' }}>
-              <div className="mega-sub-header">
-                <span className="mega-sub-dot"></span>
-                <span className="mega-sub-title">{region.key.toUpperCase()}</span>
-              </div>
-              <ul className="mega-list">
-                {region.links.map((item) => (
-                  <UniLink key={item.id} item={item} />
-                ))}
-              </ul>
-            </div>
-          ))}
+          <ul className="mega-list">
+            {uzbekistanRegions.flatMap(region => region.links).map((item, idx) => (
+              <UniLink key={item.id || idx} item={item} />
+            ))}
+          </ul>
         </div>
 
         {/* ── COLUMN 2: Kyrgyzstan ── */}
@@ -128,6 +120,55 @@ function MegaDropdown() {
               <UniLink key={item.id} item={item} />
             ))}
           </ul>
+          
+          {/* Quick Country Links */}
+          <div className="mega-country-links" style={{ marginTop: '20px', display: 'flex', flexDirection: 'column', gap: '8px' }}>
+            <Link to="/universities?country=Tajikistan" className="mega-country-btn" style={{ 
+              padding: '10px 14px', 
+              backgroundColor: 'rgba(37,99,235,0.06)', 
+              borderRadius: '10px', 
+              fontSize: '11px', 
+              fontWeight: '800', 
+              color: '#1e40af',
+              display: 'flex',
+              alignItems: 'center',
+              gap: '10px',
+              border: '1px solid rgba(37,99,235,0.15)',
+              transition: 'all 0.3s'
+            }}>
+              <span style={{ fontSize: '16px' }}>🇹🇯</span> MBBS IN TAJIKISTAN
+            </Link>
+            <Link to="/universities?country=Vietnam" className="mega-country-btn" style={{ 
+              padding: '10px 14px', 
+              backgroundColor: 'rgba(239,68,68,0.06)', 
+              borderRadius: '10px', 
+              fontSize: '11px', 
+              fontWeight: '800', 
+              color: '#b91c1c',
+              display: 'flex',
+              alignItems: 'center',
+              gap: '10px',
+              border: '1px solid rgba(239,68,68,0.15)',
+              transition: 'all 0.3s'
+            }}>
+              <span style={{ fontSize: '16px' }}>🇻🇳</span> MBBS IN VIETNAM
+            </Link>
+            <Link to="/universities?country=Philippines" className="mega-country-btn" style={{ 
+              padding: '10px 14px', 
+              backgroundColor: 'rgba(14,165,233,0.06)', 
+              borderRadius: '10px', 
+              fontSize: '11px', 
+              fontWeight: '800', 
+              color: '#0369a1',
+              display: 'flex',
+              alignItems: 'center',
+              gap: '10px',
+              border: '1px solid rgba(14,165,233,0.15)',
+              transition: 'all 0.3s'
+            }}>
+              <span style={{ fontSize: '16px' }}>🇵🇭</span> MBBS IN PHILIPPINES
+            </Link>
+          </div>
         </div>
 
         {/* ── COLUMN 3: Georgia ── */}
@@ -318,6 +359,13 @@ export default function Navbar() {
                             </Link>
                           );
                         })}
+                        {region === 'Kyrgyzstan' && (
+                          <div style={{ marginTop: '12px', marginBottom: '12px', display: 'flex', flexDirection: 'column', gap: '6px' }}>
+                            <Link to="/universities?country=Tajikistan" className="mobile-uni-link" style={{ color: '#1e40af', fontWeight: '900', borderLeft: '3px solid #1e40af', paddingLeft: '12px', background: 'rgba(30,64,175,0.05)' }} onClick={() => setMenuOpen(false)}>🇹🇯 MBBS IN TAJIKISTAN</Link>
+                            <Link to="/universities?country=Vietnam" className="mobile-uni-link" style={{ color: '#b91c1c', fontWeight: '900', borderLeft: '3px solid #b91c1c', paddingLeft: '12px', background: 'rgba(185,28,28,0.05)' }} onClick={() => setMenuOpen(false)}>🇻🇳 MBBS IN VIETNAM</Link>
+                            <Link to="/universities?country=Philippines" className="mobile-uni-link" style={{ color: '#0369a1', fontWeight: '900', borderLeft: '3px solid #0369a1', paddingLeft: '12px', background: 'rgba(3,105,161,0.05)' }} onClick={() => setMenuOpen(false)}>🇵🇭 MBBS IN PHILIPPINES</Link>
+                          </div>
+                        )}
                       </div>
                     ))}
                     {link.dropdown && link.dropdown.map(item => (

@@ -86,9 +86,9 @@ function BlogCard({ post, index }) {
               transition={{ duration: 0.9, ease: "easeOut" }}
             />
 
-            {/* Hover Logo Badge */}
-            <div className="absolute top-[15px] left-[15px] bg-white/95 backdrop-blur-md p-[8px] rounded-xl z-[2] flex items-center justify-center shadow-[0_8px_20px_rgba(0,0,0,0.1)] border border-white/20 transform-gpu transition-all duration-500 group-hover:-translate-y-1">
-              <img src={logo} alt="bravogroup Logo" className="h-[45px] w-[45px] object-contain" />
+            {/* Hover Logo Badge - Glassmorphism Effect */}
+            <div className="absolute top-[15px] left-[15px] bg-white/10 backdrop-blur-[12px] p-[8px] rounded-xl z-[2] flex items-center justify-center shadow-[0_8px_32px_0_rgba(0,0,0,0.2)] border border-white/30 transform-gpu transition-all duration-500 group-hover:-translate-y-1">
+              <img src={logo} alt="Zenova Logo" className="h-[45px] w-[45px] object-contain drop-shadow-md" />
             </div>
 
             {/* Flare Effect */}

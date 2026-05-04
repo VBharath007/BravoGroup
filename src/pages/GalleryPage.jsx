@@ -1,35 +1,25 @@
 import React, { useEffect, useState } from 'react';
-import { motion, useMotionValue, useSpring, useTransform } from 'framer-motion';
+import { motion, useMotionValue, useSpring, useTransform, AnimatePresence } from 'framer-motion';
 import AOS from 'aos';
 import './GalleryPage.css';
 import LazyImage from '../components/Lazyimage';
 
-// Assets are now served from the public/assets directory
-const img1 = '/assets/1 (1).webp';
-const img2 = '/assets/1 (2).webp';
-const img3 = '/assets/1 (3).webp';
-const img4 = '/assets/1 (4).webp';
-const img5 = '/assets/1 (5).webp';
-const img6 = '/assets/1 (6).webp';
-const img7 = '/assets/1 (7).webp';
-const img8 = '/assets/1 (8).webp';
-const img9 = '/assets/1 (9).webp';
-const img10 = '/assets/1 (10).webp';
-const img11 = '/assets/1 (11).webp';
+// Assets are now served from the public/assets/gallery directory
+const photos = Array.from({ length: 23 }, (_, i) => ({
+  id: i + 1,
+  url: `/assets/gallery/gallery${i + 1}.jpeg`
+}));
 
-const photos = [
-  { id: 1, url: img1, title: 'Student Life', subtitle: 'Campus Interactions' },
-  { id: 2, url: img2, title: 'Clinical Training', subtitle: 'Practical Learning' },
-  { id: 3, url: img3, title: 'Global Exposure', subtitle: 'International Friends' },
-  { id: 4, url: img4, title: 'Medical Library', subtitle: '24/7 Access' },
-  { id: 5, url: img5, title: 'Labs & Research', subtitle: 'High-Tech Equipment' },
-  { id: 6, url: img6, title: 'Cultural Fest', subtitle: 'Celebrating Our Roots' },
-  { id: 7, url: img7, title: 'Campus Life', subtitle: 'Vibrant Community' },
-  { id: 8, url: img8, title: 'Orientation Day', subtitle: 'Welcome to Your Future' },
-  { id: 9, url: img9, title: 'Clinical Rounds', subtitle: 'Real Hospital Experience' },
-  { id: 10, url: img10, title: 'Study Sessions', subtitle: 'Guided Learning' },
-  { id: 11, url: img11, title: 'Graduation Moments', subtitle: 'Dreams Fulfilled' },
-];
+const itemVariants = {
+  hidden: { opacity: 0, y: 60, scale: 0.8, rotate: -2 },
+  show: { 
+    opacity: 1, 
+    y: 0, 
+    scale: 1, 
+    rotate: 0,
+    transition: { type: 'spring', bounce: 0.5, duration: 1 } 
+  }
+};
 
 function TiltPhotoCard({ photo, onClick }) {
   const x = useMotionValue(0);
@@ -60,13 +50,13 @@ function TiltPhotoCard({ photo, onClick }) {
     <motion.div
       className="photo-tilt-card group"
       style={{ rotateX, rotateY, transformStyle: "preserve-3d" }}
+      variants={itemVariants}
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
       onClick={() => onClick(photo)}
-      data-aos="fade-up"
     >
       <div className="pt-card-inner">
-        <LazyImage className="pt-img" src={photo.url} alt={photo.title} loading="lazy" />
+        <LazyImage className="pt-img" src={photo.url} alt={`Gallery Image ${photo.id}`} loading="lazy" />
 
         {/* Interactive Overlay */}
         <div className="pt-overlay" style={{ transform: "translateZ(30px)" }}>
@@ -74,10 +64,6 @@ function TiltPhotoCard({ photo, onClick }) {
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
               <circle cx="11" cy="11" r="8" /><line x1="21" y1="21" x2="16.65" y2="16.65" /><line x1="11" y1="8" x2="11" y2="14" /><line x1="8" y1="11" x2="14" y2="11" />
             </svg>
-          </div>
-          <div className="pt-info">
-            <h3 className="pt-title">{photo.title}</h3>
-            <p className="pt-subtitle">{photo.subtitle}</p>
           </div>
         </div>
 
@@ -95,52 +81,96 @@ export default function GalleryPage() {
     window.scrollTo(0, 0);
   }, []);
 
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    show: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1,
+        delayChildren: 0.3
+      }
+    }
+  };
+
   return (
     <div className="photo-gallery-page">
       {/* ─── Hero Section ─── */}
       <section className="pg-hero">
         <div className="pg-bg-glow"></div>
-        <div className="pg-hero-content" data-aos="zoom-out-up">
-          <span className="pg-eyebrow">A Glimpse of Excellence</span>
-          <h1 className="pg-title">
+        <div className="pg-hero-content">
+          <motion.span 
+            className="pg-eyebrow"
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+          >A Glimpse of Excellence</motion.span>
+          <motion.h1 
+            className="pg-title"
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.8, type: "spring", bounce: 0.4, delay: 0.3 }}
+          >
             Our <span className="pg-title-accent">Visual</span> Journey
-          </h1>
-          <p className="pg-subtitle">
+          </motion.h1>
+          <motion.p 
+            className="pg-subtitle"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.8, delay: 0.6 }}
+          >
             Explore authentic moments from our campus, sophisticated medical labs, and the vibrant life our students enjoy everyday.
-          </p>
+          </motion.p>
         </div>
       </section>
 
       {/* ─── Masonry Grid Section ─── */}
       <section className="pg-grid-section">
         <div className="pg-container">
-          <div className="pg-masonry-grid">
+          <motion.div 
+            className="pg-masonry-grid"
+            variants={containerVariants}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true, margin: "-100px" }}
+          >
             {photos.map((photo) => (
               <TiltPhotoCard key={photo.id} photo={photo} onClick={setActivePhoto} />
             ))}
-          </div>
+          </motion.div>
         </div>
       </section>
 
       {/* ─── Lightbox Modal ─── */}
-      {activePhoto && (
-        <div className="pg-lightbox-overlay" onClick={() => setActivePhoto(null)}>
-          <button className="pg-lightbox-close" onClick={() => setActivePhoto(null)}>
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-              <line x1="18" y1="6" x2="6" y2="18" />
-              <line x1="6" y1="6" x2="18" y2="18" />
-            </svg>
-          </button>
+      <AnimatePresence>
+        {activePhoto && (
+          <motion.div 
+            className="pg-lightbox-overlay" 
+            onClick={() => setActivePhoto(null)}
+            initial={{ opacity: 0, backdropFilter: "blur(0px)" }}
+            animate={{ opacity: 1, backdropFilter: "blur(20px)" }}
+            exit={{ opacity: 0, backdropFilter: "blur(0px)" }}
+            transition={{ duration: 0.4 }}
+          >
+            <button className="pg-lightbox-close" onClick={() => setActivePhoto(null)}>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                <line x1="18" y1="6" x2="6" y2="18" />
+                <line x1="6" y1="6" x2="18" y2="18" />
+              </svg>
+            </button>
 
-          <div className="pg-lightbox-content" onClick={(e) => e.stopPropagation()}>
-            <LazyImage src={activePhoto.url} alt={activePhoto.title} />
-            <div className="pg-lightbox-info">
-              <h2>{activePhoto.title}</h2>
-              <p>{activePhoto.subtitle}</p>
-            </div>
-          </div>
-        </div>
-      )}
+            <motion.div 
+              className="pg-lightbox-content" 
+              onClick={(e) => e.stopPropagation()}
+              initial={{ scale: 0.5, opacity: 0, y: 100, rotateX: 20 }}
+              animate={{ scale: 1, opacity: 1, y: 0, rotateX: 0 }}
+              exit={{ scale: 0.8, opacity: 0, y: 100, rotateX: -20 }}
+              transition={{ type: "spring", damping: 20, stiffness: 200 }}
+            >
+              <LazyImage src={activePhoto.url} alt={`Gallery Image ${activePhoto.id}`} />
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
 
     </div>
   );

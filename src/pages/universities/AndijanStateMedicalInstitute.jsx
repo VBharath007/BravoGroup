@@ -6,9 +6,10 @@ import { Link } from 'react-router-dom';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Autoplay, EffectCards, Pagination } from 'swiper/modules';
+import { Autoplay, EffectCards, Pagination, EffectCoverflow } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/effect-cards';
+import 'swiper/css/effect-coverflow';
 import 'swiper/css/pagination';
 import { Globe2, ShieldCheck, CheckCircle2, ArrowRight, MapPin, ChevronDown, BookOpen, Users, Library, BedDouble, Target, Zap, Compass, Layout, Star, Microscope, Smartphone, GraduationCap, Languages, Banknote, Sparkles } from 'lucide-react';
 import Footer from '../../components/Footer';
@@ -17,13 +18,13 @@ import AdmissionProtocol from '../../components/ui/AdmissionProtocol';
 import LazyImage from '../../components/Lazyimage';
 
 // Assets are now served from the public/assets directory
-const bgImg = '/assets/andijansidebuilding.jpeg';
+const bgImg = '/assets/aandijannewimage/andijannewimage3.jpeg';
 const campus1 = '/assets/andijanfront.jpeg';
 
-const campus2 = '/assets/andijan2.webp';
-const campus4 = '/assets/andistudents.jpeg';
-const campus3 = '/assets/andijanspeakingperson.jpeg';
-
+const campus2 = '/assets/aandijannewimage/andigroupimage.jpeg';
+const campus4 = '/assets/aandijannewimage/aandifootball.jpeg';
+const campus3 = '/assets/aandijannewimage/aandioperation.jpeg';
+const campus5 = '/assets/aandijannewimage/andilegacyimage.jpeg';
 
 
 // ── Violet Cosmic Particles ──────────────────────────────────────────────────
@@ -102,7 +103,7 @@ const AndijanStateMedicalInstitute = () => {
         </div>
 
         <motion.div style={{ y: heroY }} className="absolute inset-0 z-0">
-          <LazyImage src={bgImg} alt="" className="w-full h-full object-cover opacity-25" />
+          <LazyImage src={bgImg} alt="" className="w-full h-full object-cover opacity-80" />
           <div className="absolute inset-0 bg-gradient-to-b from-[#07030f]/70 via-[#07030f]/60 to-[#07030f]" />
           <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(168,85,247,0.12)_0%,transparent_60%)]" />
         </motion.div>
@@ -232,7 +233,7 @@ const AndijanStateMedicalInstitute = () => {
               transition={{ duration: 0.8 }}
               className="md:col-span-2 relative overflow-hidden rounded-[2rem] md:rounded-3xl min-h-[350px] md:min-h-[380px] flex flex-col justify-end p-6 md:p-10"
             >
-              <LazyImage src={campus3} alt="" className="absolute inset-0 w-full h-full object-cover opacity-50" />
+              <LazyImage src={campus5} alt="" className="absolute inset-0 w-full h-full object-cover opacity-120" />
               <div className="absolute inset-0 bg-gradient-to-t from-[#07030f] via-[#07030f]/60 to-transparent" />
               <div className="absolute inset-0 border border-[#a855f7]/20 rounded-[2rem] md:rounded-3xl" />
               <div className="relative z-10">
@@ -243,7 +244,7 @@ const AndijanStateMedicalInstitute = () => {
                 <p className="text-gray-300 text-sm md:text-lg leading-relaxed">
                   Andijan State Medical university has a strong legacy in medical education in Uzbekistan with decades of academic excellence.
                   <br className="hidden md:block" />
-                  It is one of the oldest and most reputed government medical university in the region,
+                  It is one of the oldest and most reputed government medical university in the region, The university has trained thousands of Doctors ,serving across different Countries.It is  Known for its consistent Focus on Clinical Practice and Research based Learning
                   ASMU continues to grow as a trusted destination for international MBBS students, especially from India.
                 </p>
               </div>
@@ -418,7 +419,7 @@ const AndijanStateMedicalInstitute = () => {
               <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-[#7c3aed] to-[#a855f7] flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300 shadow-[0_0_30px_rgba(168,85,247,0.4)]">
                 <Banknote className="w-8 h-8 text-white" />
               </div>
-              <h3 className="text-3xl font-black text-white mb-1">₹ 2.5 LAKHS</h3>
+              <h3 className="text-4xl md:text-3xl font-black text-white mb-1">₹ 2.5 LAKHS</h3>
               <p className="text-[#a855f7] font-bold text-sm tracking-widest uppercase mb-4">Per Year</p>
               <p className="text-white/70 leading-relaxed font-medium">
                 Highly affordable tuition fees with premium educational facilities.
@@ -554,104 +555,49 @@ const AndijanStateMedicalInstitute = () => {
           </p>
         </motion.div>
 
-        {/* 🌟 Premium Bento Grid Gallery — MASSA VFX EDITION 🌟 */}
+
+
         <div className="relative z-10 max-w-7xl mx-auto px-4 md:px-6">
-          <div className="grid grid-cols-1 md:grid-cols-12 gap-4 h-[1000px] md:h-[650px]">
-
-            {/* Left Main Card */}
-            <motion.div
-              initial={{ opacity: 0, x: -30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              whileHover={{ y: -10, scale: 1.01 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8 }}
-              className="md:col-span-5 relative group overflow-hidden rounded-[2.5rem] border border-white/10 shadow-[0_0_40px_rgba(168,85,247,0.1)] cursor-pointer"
+          {/* ═══ EXTRA GALLERY: DYNAMIC MASS SHOWCASE (Merged) ══════════════════════════ */}
+          <div className="mt-16">
+            <Swiper
+              modules={[Autoplay, Pagination, EffectCoverflow]}
+              effect="coverflow"
+              grabCursor={true}
+              centeredSlides={true}
+              slidesPerView="auto"
+              coverflowEffect={{
+                rotate: 20,
+                stretch: 0,
+                depth: 200,
+                modifier: 1,
+                slideShadows: true,
+              }}
+              autoplay={{ delay: 3000, disableOnInteraction: false }}
+              pagination={{ clickable: true, dynamicBullets: true }}
+              className="pb-20 !overflow-visible"
             >
-              {/* Shiny Sweep VFX */}
-              <div className="absolute inset-0 z-20 pointer-events-none overflow-hidden">
-                <motion.div
-                  animate={{ x: ['-200%', '200%'] }}
-                  transition={{ duration: 4, repeat: Infinity, ease: "easeInOut", repeatDelay: 3 }}
-                  className="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/5 to-transparent -skew-x-20"
-                />
-              </div>
-
-              {/* Glowing Border Hover */}
-              <div className="absolute inset-0 border-2 border-transparent group-hover:border-[#a855f7]/40 rounded-[2.5rem] transition-colors duration-500 z-30 pointer-events-none" />
-
-              <LazyImage src={campus1} alt="ASMU Campus" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000" />
-            </motion.div>
-
-            {/* Right Column Grid */}
-            <div className="md:col-span-7 grid grid-cols-1 md:grid-cols-2 gap-4">
-
-              {/* Feature Wide Card */}
-              <motion.div
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                whileHover={{ y: -8, scale: 1.01 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.8, delay: 0.1 }}
-                className="md:col-span-2 relative group overflow-hidden rounded-[2.5rem] border border-white/10 h-[300px] cursor-pointer"
-              >
-                <div className="absolute inset-0 z-20 pointer-events-none overflow-hidden">
+              {[
+                '/assets/aandijannewimage/aandioperation.jpeg',
+                '/assets/aandijannewimage/andigroupimage.jpeg',
+                '/assets/aandijannewimage/andigruopimage2.jpeg',
+                '/assets/aandijannewimage/aandifootball.jpeg',
+                '/assets/aandijannewimage/andijannewimage3.jpeg',
+              ].map((src, idx) => (
+                <SwiperSlide key={idx} className="!w-[300px] sm:!w-[450px]">
                   <motion.div
-                    animate={{ x: ['-200%', '200%'] }}
-                    transition={{ duration: 4, repeat: Infinity, ease: "easeInOut", repeatDelay: 2 }}
-                    className="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/5 to-transparent -skew-x-20"
-                  />
-                </div>
-                <div className="absolute inset-0 border-2 border-transparent group-hover:border-[#a855f7]/40 rounded-[2.5rem] transition-colors duration-500 z-30 pointer-events-none" />
+                    whileHover={{ y: -15, scale: 1.05 }}
+                    transition={{ type: "spring", stiffness: 300 }}
+                    className="rounded-[2.5rem] overflow-hidden border border-white/10 hover:border-[#a855f7]/40 shadow-[0_20px_50px_rgba(0,0,0,0.5)] group relative h-[350px] md:h-[500px] cursor-grab active:cursor-grabbing"
+                  >
+                    {/* Cinematic overlay without blur */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-10" />
 
-                <LazyImage src={bgImg} alt="ASMU Training" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000" />
-              </motion.div>
-
-              {/* Bottom Cards Section */}
-              <div className="md:col-span-2 grid grid-cols-2 md:grid-cols-3 gap-4">
-                {/* Bottom Small Card 1 */}
-                <motion.div
-                  initial={{ opacity: 0, scale: 0.9 }}
-                  whileInView={{ opacity: 1, scale: 1 }}
-                  whileHover={{ y: -10, scale: 1.03 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.8, delay: 0.2 }}
-                  className="relative group overflow-hidden rounded-[2.5rem] border border-white/10 cursor-pointer h-[150px] md:h-full"
-                >
-                  <div className="absolute inset-0 border-2 border-transparent group-hover:border-[#a855f7]/40 rounded-[2.5rem] transition-colors duration-500 z-30 pointer-events-none" />
-                  <LazyImage src={campus2} alt="ASMU Hostel" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000" />
-                  <div className="absolute inset-0 bg-[#a855f7]/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                </motion.div>
-
-                {/* Bottom Small Card 2 */}
-                <motion.div
-                  initial={{ opacity: 0, scale: 0.9 }}
-                  whileInView={{ opacity: 1, scale: 1 }}
-                  whileHover={{ y: -10, scale: 1.03 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.8, delay: 0.3 }}
-                  className="relative group overflow-hidden rounded-[2.5rem] border border-white/10 cursor-pointer h-[150px] md:h-full"
-                >
-                  <div className="absolute inset-0 border-2 border-transparent group-hover:border-[#a855f7]/40 rounded-[2.5rem] transition-colors duration-500 z-30 pointer-events-none" />
-                  <LazyImage src={campus3} alt="ASMU Lab" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000" />
-                  <div className="absolute inset-0 bg-[#7c3aed]/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                </motion.div>
-
-                {/* Bottom Small Card 3 (campus4) */}
-                <motion.div
-                  initial={{ opacity: 0, scale: 0.9 }}
-                  whileInView={{ opacity: 1, scale: 1 }}
-                  whileHover={{ y: -10, scale: 1.03 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.8, delay: 0.4 }}
-                  className="col-span-2 md:col-span-1 relative group overflow-hidden rounded-[2.5rem] border border-white/10 cursor-pointer h-[150px] md:h-full"
-                >
-                  <div className="absolute inset-0 border-2 border-transparent group-hover:border-[#a855f7]/40 rounded-[2.5rem] transition-colors duration-500 z-30 pointer-events-none" />
-                  <LazyImage src={campus4} alt="ASMU Clinical" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000" />
-                  <div className="absolute inset-0 bg-[#6d28d9]/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                </motion.div>
-              </div>
-
-            </div>
+                    <LazyImage src={src} alt={`ASMU Campus ${idx + 1}`} className="w-full h-full object-cover group-hover:scale-[1.15] transition-all duration-700 ease-out" />
+                  </motion.div>
+                </SwiperSlide>
+              ))}
+            </Swiper>
           </div>
         </div>
       </section>

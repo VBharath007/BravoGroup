@@ -21,6 +21,15 @@ const campusImg = '/assets/takshnet1.webp';
 const campus2 = '/assets/takshnet2.webp';
 const campus3 = '/assets/tashkent_city.webp';
 
+// New Gallery Assets
+const taksh1 = '/assets/taksh/taksh1.jpeg';
+const taksh2 = '/assets/taksh/taksh2.jpeg';
+const taksh3 = '/assets/taksh/taksh3.jpeg';
+const taksh4 = '/assets/taksh/taksh4.jpeg';
+const taksh5 = '/assets/taksh/taksh5.jpeg';
+const taksh6 = '/assets/taksh/taksh6.jpeg';
+const takshPharma = '/assets/taksh/takshpharmaa.jpeg';
+
 
 import Footer from '../../components/Footer';
 
@@ -470,14 +479,14 @@ const TashkentMedicalAcademy = () => {
           watchSlidesProgress
           className="w-full py-12 [&_.swiper-slide]:max-w-[420px]"
         >
-          {[bgImg, cityImg, campusImg, campus2, campus3].map((src, i) => (
+          {[taksh1, taksh2, taksh3, taksh4, taksh5, taksh6].map((src, i) => (
             <SwiperSlide key={i}>
               <motion.div whileHover={{ scale: 1.03 }} className="relative overflow-hidden rounded-3xl group cursor-pointer">
-                <img 
-                  src={src} 
-                  alt={`Campus ${i + 1}`} 
+                <img
+                  src={src}
+                  alt={`Campus ${i + 1}`}
                   loading="lazy"
-                  className="w-full h-[300px] lg:h-[400px] object-cover group-hover:scale-110 transition-transform duration-700" 
+                  className="w-full h-[300px] lg:h-[400px] object-cover group-hover:scale-110 transition-transform duration-700"
                 />
                 <div className="absolute inset-0 border-2 border-[#00D4FF]/0 group-hover:border-[#00D4FF]/40 rounded-3xl transition-all duration-500 shadow-[inset_0_0_30px_rgba(0,212,255,0)] group-hover:shadow-[inset_0_0_30px_rgba(0,212,255,0.1)]" />
               </motion.div>
@@ -566,21 +575,26 @@ const TashkentMedicalAcademy = () => {
       {/* ════════════════════════════════════════════════════════════════════════ */}
       {/* ═══ TASHKENT STATE PHARMACEUTICAL AND MEDICAL UNIVERSITY ═════════════ */}
       {/* ════════════════════════════════════════════════════════════════════════ */}
-      
+
       <div id="tspmu" className="w-full h-px bg-gradient-to-r from-transparent via-[#00D4FF] to-transparent opacity-30 mt-10 mb-20" />
 
       <section className="relative py-20 bg-[#030814] overflow-hidden">
+        {/* Background Image for TSPMU */}
+        <div className="absolute inset-0 opacity-20 pointer-events-none">
+          <LazyImage src={takshPharma} alt="TSPMU Campus" className="w-full h-full object-cover" />
+          <div className="absolute inset-0 bg-gradient-to-b from-[#030814] via-transparent to-[#030814]" />
+        </div>
         <div className="max-w-6xl mx-auto px-6 relative z-10 text-center">
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#00D4FF]/10 border border-[#00D4FF]/20 mb-6">
             <Star className="w-4 h-4 text-[#FFD700]" />
             <span className="text-[#00D4FF] text-xs font-bold uppercase tracking-widest">A Center of Excellence</span>
           </div>
-          
+
           <h2 className="text-4xl md:text-6xl font-black text-white mb-6 leading-tight">
-            Tashkent State Pharmaceutical <br className="hidden md:block"/>
+            Tashkent State Pharmaceutical <br className="hidden md:block" />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#0A66C2] to-[#00D4FF]">And Medical University</span>
           </h2>
-          
+
           <p className="text-xl text-white font-semibold mb-8">Shape Your Future in Global Healthcare</p>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-2xl mx-auto mb-12">
@@ -614,7 +628,7 @@ const TashkentMedicalAcademy = () => {
         <div className="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-16 items-center">
           <div data-aos="fade-right">
             <h3 className="text-3xl md:text-4xl font-black text-white mb-6">
-              A Legacy That Builds <br/><span className="text-[#00D4FF]">Doctors, Innovators & Leaders</span>
+              A Legacy That Builds <br /><span className="text-[#00D4FF]">Doctors, Innovators & Leaders</span>
             </h3>
             <p className="text-[#8ba8c4] text-lg leading-loose mb-6">
               For over 85 years, the university has been a driving force in shaping the future of healthcare education.
@@ -623,7 +637,7 @@ const TashkentMedicalAcademy = () => {
               Blending <strong className="text-white text-xl">medical science with pharmaceutical expertise</strong>, it offers a unique academic environment where students gain both theoretical depth and hands-on clinical experience. Its graduates are now practicing across multiple countries, contributing to global healthcare systems.
             </p>
           </div>
-          
+
           <div className="p-8 rounded-3xl bg-white/5 border border-white/10 backdrop-blur-sm" data-aos="fade-left">
             <h4 className="text-white font-bold text-2xl mb-8 flex items-center gap-3">
               <ClipboardCheck className="w-6 h-6 text-[#00D4FF]" />
@@ -685,7 +699,7 @@ const TashkentMedicalAcademy = () => {
             <h2 className="text-4xl font-black text-white mb-4">Admission <span className="text-[#00D4FF]">Made Simple</span></h2>
             <p className="text-[#6a8faa]">Start your journey with a smooth and guided admission process</p>
           </div>
-          
+
           <div className="grid md:grid-cols-2 gap-8 mb-12">
             <div className="p-8 rounded-3xl bg-[#030814] border border-white/5">
               <h3 className="text-2xl font-bold text-white mb-6 border-b border-white/10 pb-4">Eligibility Criteria</h3>
@@ -704,7 +718,7 @@ const TashkentMedicalAcademy = () => {
                 </div>
               </div>
             </div>
-            
+
             <div className="p-8 rounded-3xl bg-[#030814] border border-white/5">
               <h3 className="text-2xl font-bold text-white mb-6 border-b border-white/10 pb-4">Required Documents</h3>
               <p className="text-xs text-[#00D4FF] mb-6 uppercase tracking-wider font-bold">Both scanned and originals</p>
@@ -729,10 +743,10 @@ const TashkentMedicalAcademy = () => {
               </div>
             </div>
           </div>
-          
+
           <div className="p-6 rounded-2xl bg-[#00D4FF]/5 border border-[#00D4FF]/20 text-center">
             <p className="text-[#a8c8e8] text-sm leading-relaxed">
-              <strong>Note:</strong> All documents must be notarized and apostilled as per international admission requirements. <br/>
+              <strong>Note:</strong> All documents must be notarized and apostilled as per international admission requirements. <br />
               Our counseling team provides complete guidance throughout the admission and documentation process.
             </p>
           </div>
@@ -765,7 +779,7 @@ const TashkentMedicalAcademy = () => {
               </div>
             ))}
           </div>
-          
+
           <div className="p-8 rounded-3xl bg-gradient-to-r from-[#040c1a] to-[#030814] border border-white/5 text-center">
             <h3 className="text-2xl font-bold text-white mb-6">Complete Student Support by our team</h3>
             <div className="flex flex-wrap justify-center gap-3">
@@ -793,10 +807,13 @@ const TashkentMedicalAcademy = () => {
             <p className="text-[#6a8faa]">Studying in Tashkent means living in one of the most developed and student-friendly cities in Central Asia.</p>
           </div>
           <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <div className="grid grid-cols-2 gap-4" data-aos="fade-right">
-              <img src={campusImg} alt="" className="rounded-2xl w-full h-48 object-cover" />
-              <img src={campus2} alt="" className="rounded-2xl w-full h-48 object-cover" />
-              <img src={cityImg} alt="" className="rounded-2xl w-full h-48 object-cover col-span-2" />
+            <div data-aos="fade-right" className="relative group">
+              <LazyImage 
+                src={takshPharma} 
+                alt="Tashkent Campus Life" 
+                className="rounded-3xl w-full h-[450px] object-cover shadow-2xl transition-transform duration-700 group-hover:scale-[1.02]" 
+              />
+              <div className="absolute inset-0 rounded-3xl border-2 border-[#00D4FF]/20 pointer-events-none" />
             </div>
             <div className="space-y-4" data-aos="fade-left">
               {[
@@ -846,7 +863,7 @@ const TashkentMedicalAcademy = () => {
             Take the First Step Toward <span className="text-[#00D4FF]">Your Dream</span>
           </h2>
           <p className="text-[#8ba8c4] text-lg mb-8 font-light">
-            Your ambition deserves the right platform. <br className="hidden md:block"/>
+            Your ambition deserves the right platform. <br className="hidden md:block" />
             Tashkent State Pharmaceutical and Medical University gives you the knowledge, exposure, and global recognition to succeed.
           </p>
           <div className="space-y-4">

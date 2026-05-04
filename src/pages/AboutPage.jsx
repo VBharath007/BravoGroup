@@ -390,26 +390,26 @@ export default function AboutPage() {
           <motion.div
             initial={{ opacity: 0, y: 40 }} animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 0.55 }}
-            className="bg-white/[0.04] border border-white/[0.08] backdrop-blur-2xl p-5 md:p-7 rounded-3xl shadow-2xl relative overflow-hidden group w-full max-w-xl"
+            className="bg-white/[0.04] border border-white/[0.08] backdrop-blur-2xl p-5 md:p-7 mb-35 rounded-3xl shadow-2xl relative overflow-hidden group w-full max-w-xl"
             whileHover={{ borderColor: 'rgba(255,255,255,0.15)' }}
           >
             <div className="absolute top-0 right-0 w-20 h-20 opacity-30 pointer-events-none"
               style={{ background: 'radial-gradient(circle at top right,rgba(59,130,246,0.4),transparent 70%)' }} />
-            <p className="text-neutral-300 text-base lg:text-lg leading-relaxed mb-5 relative z-10" style={{ letterSpacing: '0.01em' }}>
-              <strong className="text-white font-semibold">Zenova Groups</strong> is dedicated to guiding aspiring medical students to achieve their dreams of studying MBBS abroad. We specialize in admissions to top government medical universities in Uzbekistan, offering transparent, affordable, and reliable services. From counseling to visa, travel, and post-arrival support, we ensure a smooth journey for every student.
-            </p>
-            <motion.button
-              className="px-8 py-3.5 bg-blue-600 hover:bg-blue-500 text-white rounded-full font-bold transition-colors relative z-10"
-              style={{ boxShadow: '0 0 20px rgba(37,99,235,0.3)' }}
-              whileHover={{ boxShadow: '0 0 35px rgba(37,99,235,0.6)', scale: 1.03 }}
-              whileTap={{ scale: 0.97 }}
-              onClick={() => window.dispatchEvent(new CustomEvent('openLeadPopup'))}
-            >
-              <span className="flex items-center gap-2">
-                Get Counseling Now
-                <motion.span animate={{ x: [0, 4, 0] }} transition={{ duration: 1.5, repeat: Infinity }}>→</motion.span>
-              </span>
-            </motion.button>
+            <div className="text-neutral-300 text-sm lg:text-base leading-relaxed mb-6 relative z-10 space-y-4" style={{ letterSpacing: '0.01em' }}>
+              <p>
+                <strong className="text-white font-semibold">Zenova Groups Educational Consultants PVT LTD</strong> is a professionally managed educational consultancy company, established in 2022 in Vellore, Tamil Nadu, India, with a strong commitment to helping Indian students achieve their dream of becoming doctors through MBBS abroad programs.
+              </p>
+              <p>
+                In today’s competitive environment—where medical seats in India are limited and expensive—Zenova GROUPS stands as a <span className="text-blue-400 italic">trusted bridge between students and globally recognized medical universities</span>.
+              </p>
+              <p>
+                With a foundation built on <span className="text-blue-400 italic">transparency, ethics, and student success</span>, we have already guided <strong className="text-white">100+ students</strong> toward their medical careers across multiple countries.
+              </p>
+              <div className="mt-4 p-3 rounded-xl bg-blue-900/30 border border-blue-500/20 inline-block">
+                <span className="text-white font-medium italic tracking-wide">✨ "We don’t just guide students—we shape future doctors."</span>
+              </div>
+            </div>
+
           </motion.div>
         </motion.div>
 
@@ -480,7 +480,7 @@ export default function AboutPage() {
                   Founded in <span className="text-blue-600">Vellore, Tamil Nadu</span>
                 </h3>
                 <p className="text-lg md:text-xl text-neutral-600 leading-relaxed font-medium">
-                  <span className="text-neutral-900 font-bold">Zenova Groups Educational Consultants PVT LTD </span> was established with a clear vision: to make <span className="text-blue-600 italic">MBBS abroad accessible, affordable, and transparent</span> for every Indian student.
+                  <span className="text-neutral-900 font-bold">Zenova Groups Educational Consultants PVT LTD</span> was established with a clear vision: to make <span className="text-blue-600 italic">MBBS abroad accessible, affordable, and transparent</span> for every Indian student.
                 </p>
               </div>
 
@@ -491,9 +491,9 @@ export default function AboutPage() {
                 </div>
                 <div className="space-y-6">
                   {[
-                    'Zenova Groups was founded to solve a critical challenge: students struggling with lack of proper guidance, high hidden costs, and unclear admission processes in medical education abroad.',
-                    'Starting with a dedicated team, we focused on providing honest counseling and reliable support, helping students choose the right universities based on their unique goals and budget.',
-                    'Today, our commitment to transparency and student success has helped us guide 100+ students toward their dream of becoming doctors.',
+                    'The idea behind Zenova GROUPS was born from a real problem faced by thousands of Indian students every year.',
+                    'Recognizing this gap, Zenova GROUPS was founded with a mission to provide: Honest guidance, Affordable options, Verified universities, and Complete clarity in process.',
+                    'Starting with a small group of students, we focused on building trust rather than just business. Today, that trust has grown into a strong network of students, parents, and international partners.',
                   ].map((text, i) => (
                     <motion.p key={i}
                       initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }}
@@ -592,6 +592,94 @@ export default function AboutPage() {
         </div>
       </section>
 
+      {/* ── OUR JOURNEY & PURPOSE ── */}
+      <section className="py-24 bg-white relative overflow-hidden">
+        <div className="absolute inset-0 opacity-[0.03] pointer-events-none" style={{ backgroundImage: 'radial-gradient(#3b82f6 1px,transparent 1px)', backgroundSize: '30px 30px' }} />
+        <div className="container relative z-10 mx-auto px-6 max-w-6xl">
+          <div className="text-center mb-16">
+            <SectionLabel text="Our Journey & Purpose" />
+            <motion.h2
+              initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }} transition={{ duration: 0.7 }}
+              className="text-3xl md:text-4xl font-black text-neutral-900 tracking-tighter mb-6 leading-tight max-w-4xl mx-auto"
+            >
+              The idea behind <span className="text-blue-600">Zenova GROUPS</span> was born from a real problem faced by thousands of Indian students every year.
+            </motion.h2>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-20">
+            {/* Left Col - Challenges */}
+            <motion.div
+              initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }} transition={{ duration: 0.8 }}
+              className="p-8 md:p-10 rounded-[2rem] bg-red-50/50 border border-red-100"
+            >
+              <h3 className="text-2xl font-black text-red-500 mb-8 flex items-center gap-3">
+                <i className="fa-solid fa-ban text-2xl" /> The Challenges Students Face
+              </h3>
+              <ul className="space-y-5">
+                {[
+                  'Extremely high donation fees in private medical colleges',
+                  'Limited government MBBS seats in India',
+                  'Lack of accurate guidance for studying abroad',
+                  'Fear of fraud consultancies and hidden charges',
+                  'Confusion about NMC rules and university recognition'
+                ].map((challenge, i) => (
+                  <li key={i} className="flex items-start gap-4">
+                    <div className="mt-0.5 w-6 h-6 rounded-full bg-red-100 flex items-center justify-center text-red-500 flex-shrink-0 shadow-sm">
+                      <i className="fa-solid fa-xmark text-xs" />
+                    </div>
+                    <span className="text-lg text-neutral-700 font-medium leading-snug">{challenge}</span>
+                  </li>
+                ))}
+              </ul>
+            </motion.div>
+
+            {/* Right Col - Solutions */}
+            <motion.div
+              initial={{ opacity: 0, x: 30 }} whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }} transition={{ duration: 0.8, delay: 0.2 }}
+              className="p-8 md:p-10 rounded-[2rem] bg-green-50/50 border border-green-100"
+            >
+              <h3 className="text-2xl font-black text-green-600 mb-4 flex items-center gap-3">
+                <i className="fa-solid fa-check-double text-2xl" /> Recognizing this gap
+              </h3>
+              <p className="text-lg text-neutral-600 mb-8 font-medium">
+                Zenova GROUPS was founded with a mission to provide:
+              </p>
+              <ul className="space-y-6 mb-8">
+                {[
+                  'Honest guidance',
+                  'Affordable options',
+                  'Verified universities',
+                  'Complete clarity in process'
+                ].map((solution, i) => (
+                  <li key={i} className="flex items-center gap-4">
+                    <div className="w-10 h-10 rounded-full bg-green-100 border border-green-200 flex items-center justify-center text-green-600 shadow-sm flex-shrink-0">
+                      <i className="fa-solid fa-check text-sm" />
+                    </div>
+                    <span className="text-xl font-bold text-neutral-800">{solution}</span>
+                  </li>
+                ))}
+              </ul>
+            </motion.div>
+          </div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }} transition={{ duration: 0.8, delay: 0.4 }}
+            className="mt-12 p-8 md:p-10 rounded-3xl bg-blue-50 border border-blue-100 text-center relative overflow-hidden"
+          >
+            <div className="absolute top-0 right-0 w-32 h-32 opacity-10 pointer-events-none"
+              style={{ background: 'radial-gradient(circle at top right,#2563eb,transparent)' }} />
+            <p className="text-xl md:text-2xl text-blue-900 font-medium leading-relaxed italic relative z-10">
+              Starting with a small group of students, we focused on <strong className="font-black text-blue-700">building trust rather than just business</strong>. Today, that trust has grown into a strong network of students, parents, and international partners.
+            </p>
+          </motion.div>
+
+        </div>
+      </section>
+
       {/* ── GLOBAL PRESENCE ── */}
       <section className="py-28 relative overflow-hidden" style={{ background: 'linear-gradient(135deg,#f8faff 0%,#eef2ff 50%,#f0f9ff 100%)' }}>
         <div className="absolute inset-0 opacity-[0.04] pointer-events-none" style={{ backgroundImage: 'radial-gradient(#2563eb 0.8px,transparent 0.8px)', backgroundSize: '28px 28px' }} />
@@ -603,14 +691,14 @@ export default function AboutPage() {
               viewport={{ once: true }} transition={{ duration: 0.7 }}
               className="text-4xl md:text-5xl font-black text-neutral-900 tracking-tighter mb-5"
             >
-              We Are Present in <span className="text-blue-600">8+ Countries</span>
+              Our Global Presence
             </motion.h2>
             <motion.p
               initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }} transition={{ duration: 0.7, delay: 0.1 }}
-              className="text-lg text-neutral-500 font-medium max-w-2xl mx-auto leading-relaxed"
+              className="text-lg text-neutral-600 font-medium max-w-2xl mx-auto leading-relaxed"
             >
-              With on-ground support systems, local representatives, and dedicated student teams abroad — we ensure students feel secure and guided in every destination.
+              We provide MBBS admissions in multiple countries with <span className="italic text-blue-600 font-bold">on-ground support systems</span>.
             </motion.p>
           </div>
 
@@ -618,9 +706,9 @@ export default function AboutPage() {
           <div className="mb-10">
             <motion.p
               initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }}
-              className="text-xs font-black uppercase tracking-[0.3em] text-blue-600 mb-4 text-center"
+              className="text-sm font-black uppercase tracking-[0.2em] text-blue-600 mb-4 text-center flex justify-center items-center gap-2"
             >
-              ⭐ Core Destinations — High Student Volume
+              <span className="text-xl">🌟</span> Core Countries (High Student Volume)
             </motion.p>
             <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-2 gap-4 max-w-sm mx-auto">
               {['Uzbekistan', 'Kyrgyzstan'].map((c, i) => (
@@ -633,9 +721,9 @@ export default function AboutPage() {
           <div>
             <motion.p
               initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }}
-              className="text-xs font-black uppercase tracking-[0.3em] text-neutral-400 mb-4 text-center"
+              className="text-sm font-black uppercase tracking-[0.2em] text-neutral-500 mb-4 text-center flex justify-center items-center gap-2"
             >
-              🌐 Expanding Destinations
+              <span className="text-xl">🌐</span> Expanding Destinations
             </motion.p>
             <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4">
               {['Kazakhstan', 'Philippines', 'Tajikistan', 'Vietnam', 'Russia', 'Georgia'].map((c, i) => (
@@ -645,25 +733,42 @@ export default function AboutPage() {
           </div>
 
           {/* Support pillars */}
-          <div className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-6">
-            {[
-              { icon: 'fa-location-dot', title: 'Local Representatives', desc: 'On-ground support in every destination country for quick assistance.' },
-              { icon: 'fa-handshake', title: 'University Collaborations', desc: 'Strong direct partnerships — no middle agents, authentic admissions.' },
-              { icon: 'fa-headset', title: 'Dedicated Student Teams', desc: 'Round-the-clock support teams ensuring students feel at home abroad.' },
-            ].map((pillar, i) => (
-              <motion.div key={i}
-                initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }} transition={{ duration: 0.6, delay: i * 0.12 }}
-                whileHover={{ y: -5 }}
-                className="flex flex-col items-center text-center gap-4 p-8 rounded-3xl bg-white border border-blue-100/60 shadow-lg shadow-blue-500/5"
-              >
-                <div className="w-14 h-14 rounded-2xl bg-blue-600 flex items-center justify-center text-white text-xl shadow-lg shadow-blue-600/30">
-                  <i className={`fa-solid ${pillar.icon}`} />
-                </div>
-                <h4 className="font-black text-neutral-900 text-base tracking-tight">{pillar.title}</h4>
-                <p className="text-sm text-neutral-500 leading-relaxed font-medium">{pillar.desc}</p>
-              </motion.div>
-            ))}
+          <div className="mt-16 text-center">
+            <motion.p
+              initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }}
+              className="text-2xl font-black text-neutral-800 mb-8"
+            >
+              Our presence includes:
+            </motion.p>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              {[
+                { icon: 'fa-earth-asia', title: 'Local representatives abroad' },
+                { icon: 'fa-handshake', title: 'Strong university collaborations' },
+                { icon: 'fa-user-graduate', title: 'Dedicated student support teams' },
+              ].map((pillar, i) => (
+                <motion.div key={i}
+                  initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }} transition={{ duration: 0.6, delay: i * 0.12 }}
+                  whileHover={{ y: -5 }}
+                  className="flex flex-col items-center text-center gap-4 p-8 rounded-3xl bg-white border border-blue-100/60 shadow-lg shadow-blue-500/5"
+                >
+                  <div className="w-14 h-14 rounded-2xl bg-blue-600 flex items-center justify-center text-white text-xl shadow-lg shadow-blue-600/30">
+                    <i className={`fa-solid ${pillar.icon}`} />
+                  </div>
+                  <h4 className="font-black text-neutral-900 text-base tracking-tight">{pillar.title}</h4>
+                </motion.div>
+              ))}
+            </div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }} transition={{ duration: 0.6, delay: 0.4 }}
+              className="mt-12 p-6 md:p-8 rounded-[2rem] bg-gradient-to-r from-blue-50 to-indigo-50 border border-blue-100 inline-block shadow-sm"
+            >
+              <p className="text-lg md:text-xl text-blue-900 font-medium leading-relaxed">
+                This ensures students feel <span className="italic text-blue-700 font-black">secure, guided, and comfortable</span> even in a foreign country.
+              </p>
+            </motion.div>
           </div>
         </div>
       </section>
@@ -682,35 +787,55 @@ export default function AboutPage() {
                 viewport={{ once: true }} transition={{ duration: 0.7 }}
                 className="text-4xl md:text-5xl font-black text-neutral-900 tracking-tighter mb-6 leading-tight"
               >
-                Direct <span className="text-blue-600">University</span> Partnerships
+                Our <span className="text-blue-600">University</span> Network
               </motion.h2>
               <motion.p
                 initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }} transition={{ duration: 0.7, delay: 0.1 }}
                 className="text-lg text-neutral-600 leading-relaxed font-medium mb-10"
               >
-                We maintain direct collaborations with leading government medical universities — no middlemen, authentic admission letters, faster processing, and genuine fee structures.
+                We proudly maintain <span className="italic text-blue-600 font-bold">direct partnerships</span> with leading government medical universities, including:
               </motion.p>
 
+              <div className="mb-8">
+                <h3 className="text-xl font-black text-neutral-900 mb-5 flex items-center gap-2">
+                  <span>✔️</span> Why This Matters:
+                </h3>
+                <ul className="space-y-4">
+                  {[
+                    'No middle agents',
+                    'Authentic admission letters',
+                    'Faster processing',
+                    'Genuine fee structure'
+                  ].map((item, i) => (
+                    <li key={i} className="flex items-center gap-3">
+                      <div className="w-7 h-7 rounded-full bg-blue-50 border border-blue-100 flex items-center justify-center text-blue-600">
+                        <i className="fa-solid fa-check text-xs" />
+                      </div>
+                      <span className="font-semibold text-neutral-700">{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
               {/* Recognition badges */}
-              <div className="flex gap-4 flex-wrap">
-                {[
-                  { label: 'NMC Recognised', icon: 'fa-shield-halved', color: 'blue' },
-                  { label: 'WHO Listed', icon: 'fa-earth-asia', color: 'green' },
-                  { label: 'FMGE Eligible', icon: 'fa-stethoscope', color: 'purple' },
-                ].map((badge, i) => (
-                  <motion.div key={i}
-                    initial={{ opacity: 0, scale: 0.9 }} whileInView={{ opacity: 1, scale: 1 }}
-                    viewport={{ once: true }} transition={{ duration: 0.5, delay: i * 0.1 }}
-                    className={`flex items-center gap-2 px-4 py-2 rounded-full border font-bold text-sm ${badge.color === 'blue' ? 'bg-blue-50 border-blue-200 text-blue-700' :
-                      badge.color === 'green' ? 'bg-green-50 border-green-200 text-green-700' :
-                        'bg-purple-50 border-purple-200 text-purple-700'
-                      }`}
-                  >
-                    <i className={`fa-solid ${badge.icon} text-xs`} />
-                    {badge.label}
-                  </motion.div>
-                ))}
+              <div className="mb-8 lg:mb-0">
+                <p className="text-sm font-bold text-neutral-500 mb-4">All universities are recognized by:</p>
+                <div className="flex gap-4 flex-col sm:flex-row flex-wrap">
+                  {[
+                    { label: 'NMC (National Medical Commission)', icon: 'fa-shield-halved', color: 'blue' },
+                    { label: 'WHO (World Health Organization)', icon: 'fa-earth-asia', color: 'green' },
+                  ].map((badge, i) => (
+                    <motion.div key={i}
+                      initial={{ opacity: 0, scale: 0.9 }} whileInView={{ opacity: 1, scale: 1 }}
+                      viewport={{ once: true }} transition={{ duration: 0.5, delay: i * 0.1 }}
+                      className={`flex items-center gap-2 px-4 py-3 rounded-xl border font-bold text-sm ${badge.color === 'blue' ? 'bg-blue-50 border-blue-200 text-blue-700' : 'bg-green-50 border-green-200 text-green-700'}`}
+                    >
+                      <i className={`fa-solid ${badge.icon} text-sm`} />
+                      {badge.label}
+                    </motion.div>
+                  ))}
+                </div>
               </div>
             </div>
 
@@ -730,18 +855,96 @@ export default function AboutPage() {
               <motion.div
                 initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }} transition={{ duration: 0.6, delay: 0.5 }}
-                className="mt-8 p-6 rounded-2xl bg-gradient-to-r from-blue-50 to-indigo-50 border border-blue-100 flex items-start gap-4"
+                className="mt-8 p-6 md:p-8 rounded-[2rem] bg-gradient-to-r from-blue-50 to-indigo-50 border border-blue-100 flex items-start sm:items-center gap-5 shadow-sm"
               >
-                <div className="w-10 h-10 rounded-xl bg-blue-600 flex items-center justify-center text-white flex-shrink-0">
-                  <i className="fa-solid fa-circle-info text-sm" />
+                <div className="w-12 h-12 rounded-2xl bg-blue-600 flex items-center justify-center text-white flex-shrink-0 shadow-lg shadow-blue-500/20">
+                  <i className="fa-solid fa-user-doctor text-lg" />
                 </div>
-                <p className="text-sm text-neutral-600 font-medium leading-relaxed">
-                  All partner universities are fully recognised by <strong className="text-blue-700">NMC (National Medical Commission)</strong> and listed by the <strong className="text-blue-700">World Health Organization</strong>, ensuring eligibility for FMGE/NEXT and global medical careers.
+                <p className="text-lg md:text-xl text-blue-900 font-medium leading-relaxed">
+                  Ensuring eligibility for <span className="italic text-blue-700 font-black">FMGE/NEXT and global medical careers</span>.
                 </p>
               </motion.div>
             </div>
 
           </div>
+        </div>
+      </section>
+
+      {/* ── WHAT WE DO (SERVICE MODEL) ── */}
+      <section className="py-28 bg-neutral-50 relative overflow-hidden">
+        <div className="absolute inset-0 opacity-[0.03] pointer-events-none" style={{ backgroundImage: 'radial-gradient(#3b82f6 1px,transparent 1px)', backgroundSize: '30px 30px' }} />
+        <div className="container relative z-10 mx-auto px-6 max-w-7xl">
+          <div className="text-center mb-16">
+            <SectionLabel text="Our Complete Service Model" />
+            <motion.h2
+              initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }} transition={{ duration: 0.7 }}
+              className="text-4xl md:text-5xl font-black text-neutral-900 tracking-tighter mb-6 leading-tight"
+            >
+              What We Do
+            </motion.h2>
+            <motion.p
+              initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }} transition={{ duration: 0.7, delay: 0.1 }}
+              className="text-xl text-neutral-600 font-medium max-w-3xl mx-auto leading-relaxed"
+            >
+              At Zenova GROUPS, we follow a <span className="italic text-blue-600 font-black">360° student support system</span>.
+            </motion.p>
+          </div>
+
+          <motion.h3
+            initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }}
+            className="text-2xl font-black text-center text-neutral-800 mb-12 flex items-center justify-center gap-3"
+          >
+            <span className="text-3xl">🧭</span> Step-by-Step Support:
+          </motion.h3>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 mb-16">
+            {[
+              { num: 1, title: 'Career Counseling', items: ['Free one-on-one consultation', 'Country & university comparison', 'Budget-based planning'] },
+              { num: 2, title: 'Admission Assistance', items: ['University selection', 'Application processing', 'Admission confirmation'] },
+              { num: 3, title: 'Documentation & Visa', items: ['Complete document verification', 'Visa application support', 'Interview preparation'] },
+              { num: 4, title: 'Financial & Travel Support', items: ['Education loan guidance', 'Forex assistance', 'Flight ticket booking'] },
+              { num: 5, title: 'Pre-Departure Preparation', items: ['Orientation sessions', 'Packing guidance', 'Cultural awareness'] },
+              { num: 6, title: 'Post-Arrival Support', items: ['Airport pickup', 'Hostel allocation', 'Local SIM & basic setup'] },
+              { num: 7, title: 'Continuous Support Till Graduation', items: ['Academic guidance', 'University coordination', 'Emergency support'], colSpan: 'lg:col-span-2 xl:col-span-1' },
+            ].map((step, i) => (
+              <motion.div key={i}
+                initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }} transition={{ duration: 0.6, delay: i * 0.1 }}
+                whileHover={{ y: -5 }}
+                className={`flex flex-col p-8 rounded-3xl bg-white border border-neutral-100 shadow-xl shadow-neutral-200/40 relative overflow-hidden ${step.colSpan || ''}`}
+              >
+                <div className="absolute top-0 right-0 w-24 h-24 opacity-[0.03] pointer-events-none" style={{ background: 'radial-gradient(circle at top right,#2563eb,transparent)' }} />
+                <div className="flex items-center gap-4 mb-6 relative z-10">
+                  <div className="w-10 h-10 rounded-2xl bg-gradient-to-br from-blue-500 to-blue-700 flex items-center justify-center text-white font-black text-lg shadow-md flex-shrink-0">
+                    {step.num}
+                  </div>
+                  <h4 className="font-black text-neutral-900 text-lg leading-tight">{step.title}</h4>
+                </div>
+                <ul className="space-y-3 relative z-10 flex-grow">
+                  {step.items.map((item, j) => (
+                    <li key={j} className="flex items-start gap-3">
+                      <div className="mt-1 w-1.5 h-1.5 rounded-full bg-blue-400 flex-shrink-0" />
+                      <span className="text-sm font-medium text-neutral-600 leading-relaxed">{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </motion.div>
+            ))}
+          </div>
+
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95 }} whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }} transition={{ duration: 0.6, delay: 0.5 }}
+            className="p-8 md:p-10 rounded-[2rem] bg-gradient-to-r from-blue-600 to-indigo-700 text-center relative overflow-hidden shadow-2xl shadow-blue-900/20 max-w-4xl mx-auto"
+          >
+            <div className="absolute inset-0 opacity-20" style={{ backgroundImage: 'radial-gradient(circle at center,white 1px,transparent 1px)', backgroundSize: '20px 20px' }} />
+            <p className="text-xl md:text-2xl text-white font-medium leading-relaxed relative z-10 flex flex-col md:flex-row items-center justify-center gap-3">
+              <span className="text-3xl mb-2 md:mb-0">💡</span>
+              <span>We stay connected with students <span className="italic font-black text-blue-200">throughout their MBBS journey</span>, not just admission</span>
+            </p>
+          </motion.div>
         </div>
       </section>
 
@@ -763,20 +966,20 @@ export default function AboutPage() {
             <motion.h2
               initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }} transition={{ duration: 0.7 }}
-              className="text-4xl md:text-5xl font-black text-white tracking-tighter mb-5"
+              className="text-4xl md:text-5xl font-black text-white tracking-tighter mb-8"
             >
-              What Makes <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-400">Zenova Groups</span> Different
+              Why <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-400">Zenova GROUPS</span> is Different
             </motion.h2>
-            <motion.p
-              initial={{ opacity: 0 }} whileInView={{ opacity: 1 }}
-              viewport={{ once: true }} transition={{ duration: 0.7, delay: 0.1 }}
-              className="text-neutral-400 font-medium max-w-xl mx-auto leading-relaxed"
+
+            <motion.h3
+              initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }}
+              className="text-2xl font-black text-white flex items-center justify-center gap-3"
             >
-              We focus on quality over quantity — ensuring each student receives individual attention and genuine support from start to graduation.
-            </motion.p>
+              <span className="text-3xl">🔥</span> Our Core Strengths
+            </motion.h3>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 mb-14">
             {[
               'Direct University Partnerships',
               '100% Transparent Process',
@@ -792,6 +995,16 @@ export default function AboutPage() {
               <StrengthCard key={i} item={item} idx={i} />
             ))}
           </div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }} transition={{ duration: 0.7, delay: 0.2 }}
+            className="text-center"
+          >
+            <p className="text-lg md:text-xl text-neutral-300 font-medium max-w-3xl mx-auto leading-relaxed italic border border-white/10 bg-white/5 py-5 px-8 rounded-full backdrop-blur-sm shadow-xl">
+              We focus on <span className="font-bold text-white">quality over quantity</span>, ensuring each student gets <strong className="text-blue-400 font-black">individual attention</strong>.
+            </p>
+          </motion.div>
         </div>
       </section>
 
@@ -842,9 +1055,9 @@ export default function AboutPage() {
                 viewport={{ once: true }} transition={{ duration: 0.6, delay: 0.3 }}
                 className="mt-10 p-6 rounded-2xl text-center border border-blue-100 bg-blue-50 max-w-xs"
               >
-                <i className="fa-solid fa-bullseye text-blue-600 text-2xl mb-3 block" />
+                <span className="text-3xl mb-3 block">🎯</span>
                 <p className="text-sm font-bold text-blue-800 leading-relaxed">
-                  Our goal is not just MBBS admission — but <span className="text-blue-600">successful medical licensing in India.</span>
+                  Our goal is not just MBBS admission—but <span className="italic text-blue-600 font-black">successful medical licensing in India</span>.
                 </p>
               </motion.div>
             </motion.div>
@@ -856,24 +1069,30 @@ export default function AboutPage() {
                 viewport={{ once: true }} transition={{ duration: 0.7 }}
                 className="text-4xl md:text-5xl font-black text-neutral-900 tracking-tighter mb-6 leading-tight"
               >
-                Built for <span className="text-blue-600">Exam Success</span>,<br />Not Just Admission
+                FMGE / NEXT Focused Guidance
               </motion.h2>
               <motion.p
                 initial={{ opacity: 0 }} whileInView={{ opacity: 1 }}
                 viewport={{ once: true }} transition={{ duration: 0.7, delay: 0.1 }}
-                className="text-lg text-neutral-600 leading-relaxed font-medium mb-10"
+                className="text-lg text-neutral-600 leading-relaxed font-medium mb-8"
               >
-                We understand the critical importance of clearing FMGE / NEXT for Indian students returning from abroad. Our guidance is designed with this end-goal in mind.
+                We understand the importance of clearing <span className="italic font-bold">FMGE (Foreign Medical Graduate Examination)</span> / NEXT for Indian students.
               </motion.p>
-              <div className="space-y-4">
-                {[
-                  'Suggesting academically strong universities known for high FMGE pass rates',
-                  'Guiding students toward concept-based learning approaches from Day 1',
-                  'Providing regular updates on latest NMC guidelines and policy changes',
-                  'Supporting students in planning dedicated exam preparation strategies',
-                ].map((step, i) => (
-                  <StepCard key={i} step={step} idx={i} />
-                ))}
+
+              <div className="mb-6">
+                <h3 className="text-xl font-black text-neutral-900 mb-5 flex items-center gap-3">
+                  <span className="text-2xl">📚</span> Our Approach:
+                </h3>
+                <div className="space-y-4">
+                  {[
+                    'Suggesting academically strong universities',
+                    'Guiding students toward concept-based learning',
+                    'Providing updates on NMC guidelines',
+                    'Supporting students in planning exam preparation strategies',
+                  ].map((step, i) => (
+                    <StepCard key={i} step={step} idx={i} />
+                  ))}
+                </div>
               </div>
             </div>
 
@@ -891,50 +1110,102 @@ export default function AboutPage() {
             <motion.h2
               initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }} transition={{ duration: 0.7 }}
-              className="text-4xl md:text-5xl font-black text-white tracking-tighter mb-5"
+              className="text-4xl md:text-5xl font-black text-white tracking-tighter mb-5 flex items-center justify-center gap-3"
             >
-              Complete <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-400">Transparency</span> at Every Stage
+              <span className="text-3xl">🛡️</span> Trust, Legal & <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-400">Transparency</span>
             </motion.h2>
-            <motion.p
-              initial={{ opacity: 0 }} whileInView={{ opacity: 1 }}
-              viewport={{ once: true }} transition={{ duration: 0.7, delay: 0.1 }}
-              className="text-neutral-400 font-medium max-w-xl mx-auto"
-            >
-              ZENOVA GROUPS EDUCATIONAL CONSULTANTS PRIVATE LIMITED operates with full legal compliance and ethical counseling practices — because parents deserve confidence and peace of mind.
-            </motion.p>
           </div>
 
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 mb-16">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 mb-16">
             {[
-              { icon: 'fa-building', label: 'Registered Company' },
-              { icon: 'fa-gavel', label: 'Legally Compliant Operations' },
-              { icon: 'fa-file-contract', label: 'Clear Written Agreements' },
-              { icon: 'fa-heart', label: 'Ethical Counseling' },
-              { icon: 'fa-ban', label: 'No False Promises' },
+              { icon: 'fa-building', label: 'Registered Company: Zenova GROUPS PRIVATE LIMITED' },
+              { icon: 'fa-gavel', label: 'Legally compliant operations' },
+              { icon: 'fa-file-contract', label: 'Clear written agreements' },
+              { icon: 'fa-heart', label: 'Ethical counseling practices' },
+              { icon: 'fa-ban', label: 'No false promises' },
             ].map((item, i) => <TrustBadge key={i} item={item} idx={i} />)}
           </div>
 
-          {/* Why parents trust */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {[
-              { icon: 'fa-comments', title: 'Honest Advice', desc: 'We provide straightforward guidance without exaggerating or misleading students or parents about any aspect of studying abroad.' },
-              { icon: 'fa-link', title: 'Stay Connected Always', desc: 'Our relationship does not end at admission. We stay in touch with students throughout their entire MBBS journey and beyond.' },
-              { icon: 'fa-shield-halved', title: 'Student Safety Assured', desc: 'With on-ground representatives in every destination, we ensure every student feels safe, secure, and supported abroad.' },
-            ].map((card, i) => (
-              <motion.div key={i}
-                initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }} transition={{ duration: 0.6, delay: i * 0.12 }}
-                whileHover={{ y: -5 }}
-                className="flex flex-col gap-5 p-8 rounded-3xl border border-white/10 backdrop-blur-md"
-                style={{ background: 'rgba(255,255,255,0.04)' }}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }} transition={{ duration: 0.7, delay: 0.2 }}
+            className="text-center mb-16"
+          >
+            <p className="text-lg md:text-xl text-neutral-300 font-medium max-w-3xl mx-auto leading-relaxed border border-white/10 bg-white/5 py-5 px-8 rounded-full backdrop-blur-sm shadow-xl">
+              We maintain <span className="italic font-bold text-white">complete transparency at every stage</span>, ensuring parents feel confident and secure.
+            </p>
+          </motion.div>
+
+          {/* Why Students & Parents Trust Us */}
+          <div className="pt-16 border-t border-white/10">
+            <div className="text-center mb-12">
+              <motion.h3
+                initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }} transition={{ duration: 0.7 }}
+                className="text-3xl md:text-4xl font-black text-white tracking-tight mb-5"
               >
-                <div className="w-12 h-12 rounded-2xl bg-blue-500/15 border border-blue-400/20 flex items-center justify-center text-blue-400 text-xl">
-                  <i className={`fa-solid ${card.icon}`} />
+                Why Students & Parents Trust Us
+              </motion.h3>
+              <motion.p
+                initial={{ opacity: 0 }} whileInView={{ opacity: 1 }}
+                viewport={{ once: true }} transition={{ duration: 0.7, delay: 0.1 }}
+                className="text-lg text-neutral-400 font-medium max-w-xl mx-auto"
+              >
+                Because we believe in <span className="italic font-bold text-white">responsibility, not just consultancy</span>.
+              </motion.p>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+              <motion.div
+                initial={{ opacity: 0, x: -20 }} whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }} transition={{ duration: 0.6 }}
+                className="p-8 md:p-10 rounded-3xl bg-white/5 border border-white/10 backdrop-blur-md flex flex-col items-center text-center shadow-2xl"
+              >
+                <div className="w-14 h-14 rounded-2xl bg-blue-500/20 text-blue-400 flex items-center justify-center text-2xl mb-6 border border-blue-500/20 shadow-inner">
+                  <i className="fa-solid fa-user-graduate" />
                 </div>
-                <h4 className="font-black text-white text-lg tracking-tight">{card.title}</h4>
-                <p className="text-neutral-400 text-sm leading-relaxed font-medium">{card.desc}</p>
+                <h4 className="text-xl font-bold text-white mb-6">We treat every student as:</h4>
+                <ul className="space-y-4 text-left w-full max-w-xs mx-auto">
+                  {[
+                    'A future doctor',
+                    'A family responsibility',
+                    'A long-term relationship'
+                  ].map((item, i) => (
+                    <li key={i} className="flex items-center gap-4 text-neutral-300 font-medium">
+                      <div className="w-6 h-6 rounded-full bg-blue-500/20 flex items-center justify-center flex-shrink-0">
+                        <i className="fa-solid fa-check text-blue-400 text-[10px]" />
+                      </div>
+                      {item}
+                    </li>
+                  ))}
+                </ul>
               </motion.div>
-            ))}
+
+              <motion.div
+                initial={{ opacity: 0, x: 20 }} whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }} transition={{ duration: 0.6, delay: 0.2 }}
+                className="p-8 md:p-10 rounded-3xl bg-white/5 border border-white/10 backdrop-blur-md flex flex-col items-center text-center shadow-2xl"
+              >
+                <div className="w-14 h-14 rounded-2xl bg-cyan-500/20 text-cyan-400 flex items-center justify-center text-2xl mb-6 border border-cyan-500/20 shadow-inner">
+                  <i className="fa-solid fa-shield-heart" />
+                </div>
+                <h4 className="text-xl font-bold text-white mb-6">Parents trust us because:</h4>
+                <ul className="space-y-4 text-left w-full max-w-xs mx-auto">
+                  {[
+                    'We provide honest advice',
+                    'We stay connected even after admission',
+                    'We ensure student safety abroad'
+                  ].map((item, i) => (
+                    <li key={i} className="flex items-center gap-4 text-neutral-300 font-medium">
+                      <div className="w-6 h-6 rounded-full bg-cyan-500/20 flex items-center justify-center flex-shrink-0">
+                        <i className="fa-solid fa-check text-cyan-400 text-[10px]" />
+                      </div>
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </motion.div>
+            </div>
           </div>
         </div>
       </section>
@@ -951,37 +1222,56 @@ export default function AboutPage() {
               <motion.h2
                 initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }} transition={{ duration: 0.7 }}
-                className="text-4xl md:text-5xl font-black text-neutral-900 tracking-tighter mb-6 leading-tight"
+                className="text-4xl md:text-5xl font-black text-neutral-900 tracking-tighter mb-6 leading-tight flex items-center gap-3"
               >
-                Building India's Most <span className="text-blue-600">Student-Centric</span> MBBS Consultancy
+                <span className="text-4xl">🎯</span> Our Vision
               </motion.h2>
-              <motion.p
+              <motion.div
                 initial={{ opacity: 0 }} whileInView={{ opacity: 1 }}
                 viewport={{ once: true }} transition={{ duration: 0.7, delay: 0.1 }}
-                className="text-lg text-neutral-600 leading-relaxed font-medium mb-10"
+                className="mb-10"
               >
-                Our vision is to become one of India's most trusted MBBS abroad consultancies — known for excellence in guidance, strong global partnerships, and high student success rates.
-              </motion.p>
+                <p className="text-lg text-neutral-600 leading-relaxed font-medium mb-5">
+                  To become one of India’s <span className="italic font-bold text-blue-600">most trusted and student-centric MBBS abroad consultancies</span>, known for:
+                </p>
+                <ul className="space-y-3 pl-2">
+                  {[
+                    'Excellence in guidance',
+                    'Strong global partnerships',
+                    'High student success rate'
+                  ].map((item, i) => (
+                    <li key={i} className="flex items-center gap-3">
+                      <div className="w-2 h-2 rounded-full bg-blue-600 flex-shrink-0" />
+                      <span className="text-neutral-700 font-bold">{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </motion.div>
 
               {/* Future goals */}
-              <div className="space-y-4">
-                {[
-                  { icon: 'fa-map-location-dot', goal: 'Expand to more countries with new on-ground support networks' },
-                  { icon: 'fa-trophy', goal: 'Partner with top-ranked medical universities globally' },
-                  { icon: 'fa-briefcase-medical', goal: 'Introduce guidance for other healthcare courses beyond MBBS' },
-                  { icon: 'fa-earth-asia', goal: 'Build a global student support ecosystem for Indian medical graduates' },
-                ].map(({ icon, goal }, i) => (
-                  <motion.div key={i}
-                    initial={{ opacity: 0, x: -20 }} whileInView={{ opacity: 1, x: 0 }}
-                    viewport={{ once: true }} transition={{ duration: 0.5, delay: i * 0.1 }}
-                    className="flex items-start gap-4 p-5 rounded-2xl bg-gradient-to-r from-blue-50/60 to-white border border-blue-100/60"
-                  >
-                    <div className="w-10 h-10 rounded-xl bg-blue-600 flex items-center justify-center text-white flex-shrink-0">
-                      <i className={`fa-solid ${icon} text-sm`} />
-                    </div>
-                    <p className="text-neutral-700 font-semibold text-sm leading-relaxed pt-2">{goal}</p>
-                  </motion.div>
-                ))}
+              <div className="mb-6 lg:mb-0">
+                <h3 className="text-2xl font-black text-neutral-900 mb-6 flex items-center gap-3">
+                  <span className="text-3xl">🚀</span> Future Goals:
+                </h3>
+                <div className="space-y-4">
+                  {[
+                    { icon: 'fa-map-location-dot', goal: 'Expand to more countries' },
+                    { icon: 'fa-trophy', goal: 'Partner with top-ranked universities' },
+                    { icon: 'fa-briefcase-medical', goal: 'Introduce guidance for other healthcare courses' },
+                    { icon: 'fa-earth-asia', goal: 'Build a global student support ecosystem' },
+                  ].map(({ icon, goal }, i) => (
+                    <motion.div key={i}
+                      initial={{ opacity: 0, x: -20 }} whileInView={{ opacity: 1, x: 0 }}
+                      viewport={{ once: true }} transition={{ duration: 0.5, delay: i * 0.1 }}
+                      className="flex items-start gap-4 p-5 rounded-2xl bg-gradient-to-r from-blue-50/60 to-white border border-blue-100/60 shadow-sm"
+                    >
+                      <div className="w-10 h-10 rounded-xl bg-blue-600 flex items-center justify-center text-white flex-shrink-0 shadow-md">
+                        <i className={`fa-solid ${icon} text-sm`} />
+                      </div>
+                      <p className="text-neutral-800 font-bold text-[15px] leading-relaxed pt-2.5">{goal}</p>
+                    </motion.div>
+                  ))}
+                </div>
               </div>
             </div>
 
@@ -990,38 +1280,37 @@ export default function AboutPage() {
               <motion.div
                 initial={{ opacity: 0, scale: 0.95 }} whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }} transition={{ duration: 0.8 }}
-                className="relative p-10 rounded-[2rem] border border-neutral-100 shadow-2xl shadow-neutral-200/60 overflow-hidden mb-8"
+                className="relative p-8 md:p-10 rounded-[2rem] border border-neutral-100 shadow-2xl shadow-neutral-200/60 overflow-hidden mb-8"
                 style={{ background: 'linear-gradient(135deg,#f8faff,#ffffff)' }}
               >
                 <div className="absolute -top-8 -right-8 w-40 h-40 rounded-full opacity-10 pointer-events-none"
                   style={{ background: 'radial-gradient(circle,#2563eb,transparent)' }} />
                 <h3 className="text-2xl font-black text-neutral-900 tracking-tight mb-8 flex items-center gap-3">
-                  <i className="fa-solid fa-chart-line text-blue-600" />
-                  Our Milestones
+                  <span className="text-3xl">📊</span> Our Achievements & Milestones
                 </h3>
-                <div className="space-y-5">
+                <div className="space-y-6">
                   {[
                     { icon: 'fa-user-graduate', label: 'Successfully guided 100+ students abroad', color: 'blue' },
-                    { icon: 'fa-earth-asia', label: 'Built network across 8+ countries worldwide', color: 'indigo' },
-                    { icon: 'fa-handshake', label: 'Established direct international university partnerships', color: 'purple' },
-                    { icon: 'fa-building', label: 'Opened official registered office in Vellore, Tamil Nadu', color: 'blue' },
-                    { icon: 'fa-star', label: 'Growing reputation through word-of-mouth trust', color: 'amber' },
-                    { icon: 'fa-comments', label: 'Positive testimonials from students & parents nationwide', color: 'green' },
+                    { icon: 'fa-earth-asia', label: 'Built network in 8+ countries', color: 'indigo' },
+                    { icon: 'fa-handshake', label: 'Established direct international partnerships', color: 'purple' },
+                    { icon: 'fa-building', label: 'Opened official office in Vellore, Tamil Nadu', color: 'blue' },
+                    { icon: 'fa-arrow-trend-up', label: 'Growing reputation through word-of-mouth trust', color: 'amber' },
+                    { icon: 'fa-comments', label: 'Positive testimonials from students & parents', color: 'green' },
                   ].map(({ icon, label, color }, i) => (
                     <motion.div key={i}
                       initial={{ opacity: 0, x: 16 }} whileInView={{ opacity: 1, x: 0 }}
                       viewport={{ once: true }} transition={{ duration: 0.4, delay: i * 0.08 }}
                       className="flex items-center gap-4"
                     >
-                      <div className={`w-9 h-9 rounded-xl flex items-center justify-center text-sm flex-shrink-0 ${color === 'blue' ? 'bg-blue-50 text-blue-600' :
-                        color === 'indigo' ? 'bg-indigo-50 text-indigo-600' :
-                          color === 'purple' ? 'bg-purple-50 text-purple-600' :
-                            color === 'amber' ? 'bg-amber-50 text-amber-600' :
-                              'bg-green-50 text-green-600'
+                      <div className={`w-10 h-10 rounded-xl flex items-center justify-center text-sm flex-shrink-0 shadow-sm ${color === 'blue' ? 'bg-blue-50 text-blue-600 border border-blue-100' :
+                        color === 'indigo' ? 'bg-indigo-50 text-indigo-600 border border-indigo-100' :
+                          color === 'purple' ? 'bg-purple-50 text-purple-600 border border-purple-100' :
+                            color === 'amber' ? 'bg-amber-50 text-amber-600 border border-amber-100' :
+                              'bg-green-50 text-green-600 border border-green-100'
                         }`}>
                         <i className={`fa-solid ${icon}`} />
                       </div>
-                      <span className="text-sm font-semibold text-neutral-700 leading-snug">{label}</span>
+                      <span className="text-sm md:text-[15px] font-bold text-neutral-800 leading-snug">{label}</span>
                     </motion.div>
                   ))}
                 </div>
@@ -1041,22 +1330,49 @@ export default function AboutPage() {
         />
 
         <div className="container relative z-10 mx-auto px-6 max-w-4xl text-center">
+
+          <motion.div
+            initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }} transition={{ duration: 0.8 }}
+            className="mb-16 pb-16 border-b border-white/10"
+          >
+            <h3 className="text-3xl font-black text-white mb-6">Our Promise</h3>
+            <p className="text-xl text-blue-200 font-medium mb-8">With Zenova GROUPS, you will get:</p>
+            <div className="flex flex-wrap justify-center gap-4">
+              {[
+                'Clear guidance',
+                'Genuine universities',
+                'Affordable solutions',
+                'Complete support',
+                'Peace of mind'
+              ].map((item, i) => (
+                <div key={i} className="flex items-center gap-3 px-6 py-4 rounded-xl bg-white/5 border border-white/10 backdrop-blur-md shadow-lg">
+                  <i className="fa-solid fa-check text-blue-400" />
+                  <span className="text-white font-semibold text-lg">{item}</span>
+                </div>
+              ))}
+            </div>
+          </motion.div>
+
           <motion.div
             initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }} transition={{ duration: 0.8 }}
           >
-            <span className="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-white/10 border border-white/20 text-blue-200 text-xs font-black tracking-[0.25em] uppercase backdrop-blur-md mb-8">
-              <motion.span className="w-1.5 h-1.5 rounded-full bg-blue-300" animate={{ scale: [1, 1.8, 1] }} transition={{ duration: 2, repeat: Infinity }} />
-              Start Your Journey Today
-            </span>
-
-            <h2 className="text-4xl md:text-6xl font-black text-white tracking-tighter mb-6 leading-tight">
-              Your Dream of Becoming<br />a <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-300 to-cyan-300">Doctor Awaits</span>
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-white tracking-tighter mb-8 leading-tight flex flex-col sm:flex-row items-center justify-center gap-4">
+              <span className="text-5xl md:text-6xl">📞</span>
+              <span>Start Your <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-300 to-cyan-300">Medical Journey</span> With Us</span>
             </h2>
 
-            <p className="text-xl text-blue-200 font-medium leading-relaxed mb-12 max-w-2xl mx-auto">
-              With ZENOVA GROUPS, you get clear guidance, genuine universities, affordable solutions, complete support, and total peace of mind — from admission to graduation.
+            <p className="text-xl text-blue-200 font-medium leading-relaxed mb-8 max-w-2xl mx-auto">
+              Your dream of becoming a doctor deserves the <span className="italic font-bold text-white">right guidance and the right partner</span>.
             </p>
+
+            <div className="mb-12 p-6 md:p-8 rounded-3xl bg-white/5 border border-white/10 max-w-3xl mx-auto shadow-2xl backdrop-blur-sm">
+              <p className="text-lg md:text-xl text-white font-medium flex flex-col sm:flex-row items-center justify-center gap-4 leading-relaxed">
+                <span className="text-3xl">👉</span>
+                <span>Choose <strong className="font-black text-cyan-300 tracking-wide">Zenova GROUPS PRIVATE LIMITED</strong> and take your first step toward a successful medical career.</span>
+              </p>
+            </div>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <motion.button

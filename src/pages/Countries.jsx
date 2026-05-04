@@ -400,25 +400,9 @@ const Countries = () => {
                         </p>
                     </motion.div>
 
-                    <motion.div
-                        initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }}
-                        transition={{ delay: 0.6 }}
-                        className="flex justify-center gap-4 mt-12"
-                    >
-                        {['Insta', 'FB', 'YT', 'WA'].map((name) => (
-                            <motion.button key={name} whileHover={{ y: -5, scale: 1.1 }}
-                                className="w-12 h-12 rounded-2xl glass-strong flex items-center justify-center text-xs font-bold border border-white/10 hover:border-white/20 transition-all"
-                            >{name[0]}</motion.button>
-                        ))}
-                    </motion.div>
+
                 </div>
 
-                <div className="absolute bottom-16 left-1/2 -translate-x-1/2 flex flex-col items-center gap-3 z-20">
-                    <span className="text-[10px] text-neutral-500 tracking-[0.3em] font-bold uppercase">Explore</span>
-                    <motion.div animate={{ y: [0, 8, 0] }} transition={{ repeat: Infinity, duration: 2 }}
-                        className="w-[1.5px] h-12 bg-gradient-to-b from-cyan-400 to-transparent"
-                    />
-                </div>
             </section>
 
             {/* ══ DESTINATION SCROLLER ══ */}

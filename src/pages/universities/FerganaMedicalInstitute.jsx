@@ -168,12 +168,6 @@ const FerganaMedicalInstitute = () => {
 
         {/* Left content */}
         <div className="relative z-10 px-6 md:px-16 max-w-3xl pt-28">
-          <motion.div initial={{ opacity: 0, x: -40 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.8 }}
-            className="inline-flex items-center gap-2 px-5 py-2 rounded-full border border-[#06b6d4]/40 bg-[#06b6d4]/10 backdrop-blur-md mb-8">
-            <MapPin className="w-4 h-4 text-[#06b6d4]" />
-            <span className="text-[#06b6d4] text-sm font-bold uppercase tracking-[0.25em]">Fergana — Gateway to Innovation</span>
-          </motion.div>
-
           <div className="mb-8">
             {['Fergana Medical', 'Institute of', 'Public Health'].map((word, i) => (
               <div key={i} className="overflow-hidden">
@@ -181,7 +175,7 @@ const FerganaMedicalInstitute = () => {
                   initial={{ x: -80, opacity: 0 }}
                   animate={{ x: 0, opacity: 1 }}
                   transition={{ duration: 0.9, delay: 0.2 + i * 0.18, ease: [0.16, 1, 0.3, 1] }}
-                  className="text-4xl md:text-6xl lg:text-7xl font-black leading-tight"
+                  className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-black leading-tight"
                   style={{ color: i === 1 ? '#06b6d4' : 'white' }}
                 >
                   {word}
@@ -190,9 +184,32 @@ const FerganaMedicalInstitute = () => {
             ))}
           </div>
 
+          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.8 }}
+            className="flex flex-wrap gap-4 mb-10">
+            <div className="group flex items-center gap-3 px-6 py-3 rounded-2xl border border-[#06b6d4]/30 bg-[#06b6d4]/5 backdrop-blur-xl hover:bg-[#06b6d4]/10 hover:border-[#06b6d4]/60 transition-all shadow-[0_0_20px_rgba(6,182,212,0.1)]">
+              <div className="w-10 h-10 rounded-xl bg-[#06b6d4]/20 flex items-center justify-center group-hover:scale-110 transition-transform">
+                <MapPin className="w-5 h-5 text-[#06b6d4]" />
+              </div>
+              <div className="flex flex-col">
+                <span className="text-[10px] text-[#06b6d4] font-black uppercase tracking-tighter opacity-70">Location</span>
+                <span className="text-white text-sm font-bold">Fergana, Uzbekistan</span>
+              </div>
+            </div>
+
+            <div className="group flex items-center gap-3 px-6 py-3 rounded-2xl border border-[#06b6d4]/30 bg-[#06b6d4]/5 backdrop-blur-xl hover:bg-[#06b6d4]/10 hover:border-[#06b6d4]/60 transition-all shadow-[0_0_20px_rgba(6,182,212,0.1)]">
+              <div className="w-10 h-10 rounded-xl bg-[#06b6d4]/20 flex items-center justify-center group-hover:scale-110 transition-transform">
+                <BadgeCheck className="w-5 h-5 text-[#06b6d4]" />
+              </div>
+              <div className="flex flex-col">
+                <span className="text-[10px] text-[#06b6d4] font-black uppercase tracking-tighter opacity-70">Established</span>
+                <span className="text-white text-sm font-bold">1991</span>
+              </div>
+            </div>
+          </motion.div>
+
           <motion.p initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 1, delay: 1 }}
             className="text-xl text-[#60a8b8] max-w-xl mb-12 leading-relaxed font-light">
-            Central Asia's rising hub for public health innovation. Where EU-partnered research meets intensive clinical methodology — forging tomorrow's global health leaders.
+            Fergana Medical Institute of Public Health is a government-recognized medical university in Uzbekistan known for quality education in medicine and public health. The institute offers affordable MBBS programs with strong clinical exposure in affiliated hospitals, making it a preferred choice for international students.
           </motion.p>
 
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1, delay: 1.2 }}
@@ -237,57 +254,24 @@ const FerganaMedicalInstitute = () => {
 
       </section>
 
-      {/* ═══ SECTION 2: STORY — Full-Width Immersive Banner ════════════════ */}
-      <section className="relative py-32 bg-[#010c0e] overflow-hidden">
-        <FloatingIcon icon={BookOpen} x="90%" y="40%" delay={1} size="w-16 h-16" />
-        <div className="max-w-7xl mx-auto px-6 relative z-10">
-          <div className="grid lg:grid-cols-5 gap-10 items-center">
-            {/* 3-col content */}
-            <div className="lg:col-span-3" data-aos="fade-right" data-aos-duration="1200">
-              <motion.span
-                animate={{ opacity: [0.5, 1, 0.5] }}
-                transition={{ duration: 3, repeat: Infinity }}
-                className="inline-block px-4 py-1.5 rounded-full bg-[#06b6d4]/15 border border-[#06b6d4]/25 text-[#06b6d4] text-xs font-bold uppercase tracking-widest mb-6"
-              >
-                Europe's Medical Partner in Fergana
-              </motion.span>
-              <h2 className="text-4xl md:text-5xl font-black text-white mb-8 leading-tight">
-                The Future of <span className="text-[#06b6d4]">Public Health</span><br />Starts Here
-              </h2>
-              <p className="text-[#4a9aaa] text-lg leading-loose mb-6" data-aos="fade-up" data-aos-delay="100">
-                Fergana Medical Institute of Public Health occupies a unique position in the medical world: it is the only institution in Uzbekistan specifically built around the disciplines of public health, preventive medicine, and epidemiology — backed by direct collaboration with European medical universities.
-              </p>
-              <p className="text-[#4a9aaa] text-lg leading-loose" data-aos="fade-up" data-aos-delay="200">
-                Indian students here find themselves not just studying medicine — they're immersed in a globally connected research ecosystem, working alongside faculty who have published in The Lancet, BMJ, and WHO's own technical bulletins. This is medicine at its most ambitious level.
-              </p>
-            </div>
-            {/* 2-col image */}
-            <div className="lg:col-span-2" data-aos="zoom-in-left" data-aos-delay="150">
-              <div className="relative group">
-                <div className="absolute -inset-4 bg-gradient-to-r from-[#0369a1]/20 to-[#06b6d4]/20 rounded-3xl blur-xl group-hover:blur-2xl transition-all" />
-                <LazyImage src={bgImg1} alt="" className="relative w-full max-w-[420px] h-[480px] object-cover rounded-3xl mx-auto border border-[#06b6d4]/20 shadow-[0_0_30px_rgba(6,182,212,0.15)] group-hover:scale-[1.02] transition-transform duration-700" />
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+
 
       {/* ═══ SECTION 3: WHY FMIPH — Icon Grid with Animated Borders ════════ */}
       <section className="relative py-32 bg-gradient-to-b from-[#010c0e] to-[#001a1e] overflow-hidden">
         <FloatingIcon icon={BadgeCheck} x="5%" y="60%" delay={2} size="w-20 h-20" />
         <div className="max-w-7xl mx-auto px-6 relative z-10">
-          <div className="text-center mb-20" data-aos="fade-down">
-            <h2 className="text-4xl md:text-5xl font-black text-white mb-4">Why <span className="text-[#06b6d4]">FMIPH?</span></h2>
+          <div className="text-center mb-16 md:mb-20" data-aos="fade-down">
+            <h2 className="text-3xl md:text-5xl font-black text-white mb-4 leading-tight">Why <span className="text-[#06b6d4]">Choose This University?</span></h2>
             <div className="w-24 h-1 bg-gradient-to-r from-[#0369a1] to-[#06b6d4] mx-auto rounded-full" />
           </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {[
-              { icon: ActivitySquare, title: 'Public Health Specialization', desc: 'The only Uzbekistan institution purpose-built around public health, prevention, and epidemiology.', aos: 'fade-up-right' },
-              { icon: BadgeCheck, title: 'EU Academic Partnerships', desc: 'Active academic partnerships with European medical schools for joint electives and research.', aos: 'fade-up' },
-              { icon: TestTube, title: 'State-of-the-Art Diagnostics', desc: 'Next-generation molecular biology, PCR diagnostics, and public health laboratory systems.', aos: 'fade-up-left' },
-              { icon: BookOpen, title: 'Research-First Culture', desc: 'Faculty publish in WHO bulletins, The Lancet, and BMJ. Students co-author from Year 2.', aos: 'fade-down-right' },
-              { icon: Globe2, title: 'Global Health Vision', desc: 'Curriculum designed for physicians who want to serve at WHO, UN, and international health NGOs.', aos: 'fade-down' },
-              { icon: ShieldCheck, title: 'NMC / WHO Listed', desc: 'Full global recognition. Pursue licensing in India, USA, UK, EU, Canada — anywhere.', aos: 'fade-down-left' },
+              { icon: BadgeCheck, title: 'Recognized medical university', desc: 'Fully accredited by international medical bodies, following WHO and NMC standards.', aos: 'fade-up-right' },
+              { icon: BookOpen, title: 'Affordable MBBS tuition fees', desc: 'High-quality medical education delivered with a globally competitive fee structure.', aos: 'fade-up' },
+              { icon: Globe2, title: 'English-medium program available', desc: 'A dedicated curriculum designed for seamless integration of international students.', aos: 'fade-up-left' },
+              { icon: ActivitySquare, title: 'Strong hospital-based clinical training', desc: 'Practical medical training conducted in advanced government and university clinics.', aos: 'fade-down-right' },
+              { icon: ShieldCheck, title: 'Safe and student-friendly environment', desc: 'A secure, multicultural campus fostering academic growth and personal safety.', aos: 'fade-down' },
+              { icon: Microscope, title: 'Indian food & hostel facilities', desc: 'Comprehensive residential support including specialized dietary accommodations.', aos: 'fade-down-left' },
             ].map(({ icon: Icon, title, desc, aos }, i) => (
               <motion.div key={title}
                 data-aos={aos}
@@ -307,12 +291,48 @@ const FerganaMedicalInstitute = () => {
         </div>
       </section>
 
+      {/* ═══ SECTION 5: PROGRAM DETAILS ══════════════════ */}
+      <section className="py-20 md:py-32 bg-[#010c0e]">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="text-center mb-16 md:mb-20" data-aos="fade-up">
+            <h2 className="text-3xl md:text-5xl font-black text-white mb-4 leading-tight">Program <span className="text-[#06b6d4]">Details</span></h2>
+            <p className="text-[#2a6a7a] text-sm md:text-base">Comprehensive MBBS program designed for global medical standards.</p>
+          </div>
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {[
+              { num: '01', icon: '🎓', color: '#06b6d4', title: 'Academic Program', desc: 'MBBS (General Medicine) — A comprehensive clinical degree program fully aligned with international medical standards.', aos: 'fade-up' },
+              { num: '02', icon: '⏳', color: '#0369a1', title: 'Course Duration', desc: '6 Years of intensive training, including a mandatory clinical internship in government-affiliated hospitals.', aos: 'fade-down' },
+              { num: '03', icon: '🗣️', color: '#06b6d4', title: 'Language of Instruction', desc: '100% English-medium curriculum, ensuring seamless comprehension for international medical aspirants.', aos: 'fade-up' },
+              { num: '04', icon: '💰', color: '#0369a1', title: '₹ 3 LAKHS', desc: 'Highly competitive tuition fee per annum, offering premium education at an accessible value.', aos: 'fade-down' },
+            ].map(({ num, icon, color, title, desc, aos }, i) => (
+              <motion.div key={num}
+                data-aos={aos}
+                data-aos-delay={i * 150}
+                whileHover={{ y: -10, scale: 1.02 }}
+                className="relative p-8 rounded-3xl bg-[#001a1e]/40 border border-white/5 hover:border-[#06b6d4]/40 transition-all duration-500 group overflow-hidden backdrop-blur-sm"
+              >
+                <div className="absolute top-0 left-0 w-full h-1 rounded-t-3xl" style={{ background: `linear-gradient(90deg, transparent, ${color}, transparent)` }} />
+                <div className="w-16 h-16 rounded-2xl bg-white/5 flex items-center justify-center text-4xl mb-6 group-hover:scale-110 group-hover:bg-[#06b6d4]/10 transition-all duration-500">{icon}</div>
+                <div className="text-[#06b6d4] text-[10px] font-black uppercase tracking-[0.3em] mb-3 opacity-60">Academic Spec {num}</div>
+                <h3 className="text-xl font-bold text-white mb-4 group-hover:text-[#06b6d4] transition-colors leading-tight">{title}</h3>
+                <p className="text-[#4a9aaa] text-sm leading-relaxed font-medium">{desc}</p>
+                <div className="absolute -bottom-4 -right-2 text-8xl font-black text-white/[0.03] group-hover:text-[#06b6d4]/10 transition-all duration-700 pointer-events-none">{num}</div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ═══ SECTION 6: ADMISSION PROTOCOL — ELIGIBILITY & DOSSIER ══════════ */}
+      <AdmissionProtocol themeAccent="#06b6d4" />
+
+
 
       {/* ═══ SECTION 4: CAMPUS GALLERY — Coverflow ══════════════════════════ */}
-      <section className="py-32 bg-[#001a1e] overflow-hidden">
-        <div className="max-w-7xl mx-auto px-6 mb-16 text-center" data-aos="fade-up">
-          <h2 className="text-4xl md:text-5xl font-black text-white mb-4">The <span className="text-[#06b6d4]">Fergana</span> Campus</h2>
-          <p className="text-[#2a6a7a] max-w-xl mx-auto">Where innovation thrives in a city that bridges ancient traditions and a bold medical future.</p>
+      <section className="py-20 md:py-32 bg-[#001a1e] overflow-hidden">
+        <div className="max-w-7xl mx-auto px-6 mb-12 md:mb-16 text-center" data-aos="fade-up">
+          <h2 className="text-3xl md:text-5xl font-black text-white mb-4">Life at <span className="text-[#06b6d4]">Fergana</span></h2>
+          <p className="text-[#2a6a7a] max-w-xl mx-auto text-sm md:text-base">Experience a world-class academic environment and vibrant student culture.</p>
         </div>
         <Swiper effect="coverflow" grabCursor centeredSlides slidesPerView="auto"
           coverflowEffect={{ rotate: 25, stretch: 0, depth: 220, modifier: 1.5, slideShadows: true }}
@@ -329,61 +349,18 @@ const FerganaMedicalInstitute = () => {
             </SwiperSlide>
           ))}
         </Swiper>
-      </section>
-
-      {/* ═══ SECTION 5: STUDENT JOURNEY — horizontal cards ══════════════════ */}
-      <section className="py-32 bg-[#010c0e]">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="text-center mb-20" data-aos="fade-up">
-            <h2 className="text-4xl md:text-5xl font-black text-white mb-4">Your Path at <span className="text-[#06b6d4]">FMIPH</span></h2>
-            <p className="text-[#2a6a7a]">Four transformational phases that take you from aspiration to global medical leadership.</p>
-          </div>
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {[
-              { num: '1', icon: '🌐', color: '#06b6d4', title: 'Global Aspiration', desc: 'You see medicine as more than a career — it\'s your calling to transform public health. We understand that vision.', aos: 'fade-up' },
-              { num: '2', icon: '📝', color: '#0369a1', title: 'Seamless Admission', desc: 'Our FMIPH specialists process your application, visa, and pre-arrival support from start to finish.', aos: 'fade-down' },
-              { num: '3', icon: '🔬', color: '#06b6d4', title: 'EU-Grade Research', desc: 'Join labs where faculty publish in The Lancet. Contribute to real public health research from Year 2.', aos: 'fade-up' },
-              { num: '4', icon: '🌍', color: '#0369a1', title: 'Global Health Leader', desc: 'Graduate with credentials that open doors at WHO, UN, and international health bodies worldwide.', aos: 'fade-down' },
-            ].map(({ num, icon, color, title, desc, aos }, i) => (
-              <motion.div key={num}
-                data-aos={aos}
-                data-aos-delay={i * 150}
-                whileHover={{ y: -10, scale: 1.02 }}
-                className="relative p-8 rounded-2xl bg-[#001a1e] border border-white/5 hover:border-[#06b6d4]/30 transition-all duration-500 group overflow-hidden"
-              >
-                <div className="absolute top-0 left-0 w-full h-1 rounded-t-2xl" style={{ background: `linear-gradient(90deg, transparent, ${color}, transparent)` }} />
-                <div className="text-4xl mb-5 group-hover:scale-125 transition-transform duration-500">{icon}</div>
-                <div className="text-[#06b6d4]/60 text-xs font-bold uppercase tracking-widest mb-3">Phase {num}</div>
-                <h3 className="text-xl font-bold text-white mb-3 group-hover:text-[#06b6d4] transition-colors">{title}</h3>
-                <p className="text-[#2a6a7a] text-sm leading-relaxed">{desc}</p>
-                <div className="absolute -bottom-2 -right-2 text-6xl font-black text-white/5 group-hover:text-[#06b6d4]/10 transition-colors">{num}</div>
-              </motion.div>
-            ))}
-          </div>
-
+        <div className="max-w-xl mx-auto mt-16 text-center" data-aos="fade-up">
+          <p className="text-[#60a8b8] text-lg font-light leading-relaxed">
+            Peaceful city, comfortable hostels, multicultural environment, and focused academic atmosphere for medical students.
+          </p>
         </div>
       </section>
 
-      {/* ═══ SECTION 6: ADMISSION PROTOCOL — ELIGIBILITY & DOSSIER ══════════ */}
-      <AdmissionProtocol themeAccent="#06b6d4" />
-
-      {/* ═══ COUNTERS ════════════════════════════════════════════════════════ */}
 
 
-      <section className="py-16 md:py-24 bg-[#001a1e] border-y border-white/5">
 
-        <div className="max-w-5xl mx-auto px-4 md:px-6 
-    grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 
-    gap-6 md:gap-8 text-center">
 
-          <Counter target={2800} label="Students Placed" suffix="+" />
-          <Counter target={12} label="EU Partner Schools" suffix="+" />
-          <Counter target={30} label="Global Countries" suffix="+" />
-          <Counter target={94} label="Clinical Pass Rate" suffix="%" />
 
-        </div>
-
-      </section>
 
 
 
@@ -398,10 +375,8 @@ const FerganaMedicalInstitute = () => {
         <div className="relative z-10 px-4 md:px-6 max-w-3xl mx-auto" data-aos="zoom-in-up">
 
           {/* Heading */}
-          <h2 className="text-3xl sm:text-4xl md:text-6xl font-black text-white mb-4 md:mb-6 leading-tight">
-            Heal the World-
-            <br className="hidden sm:block" />
-            <span className="text-[#06b6d4]">From Fergana.</span>
+          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-white mb-4 md:mb-6 leading-tight uppercase tracking-tight">
+            Start Your <span className="text-[#06b6d4]">Journey</span>
           </h2>
 
           {/* Paragraph */}
@@ -410,7 +385,8 @@ const FerganaMedicalInstitute = () => {
             data-aos="fade-up"
             data-aos-delay="200"
           >
-            Fergana Medical Institute of Public Health — where your medical journey becomes a global movement.
+            Your dream of becoming a doctor begins here. <br className="hidden md:block" />
+            Take the first step toward a global medical career today.
           </p>
 
           {/* Button */}
@@ -442,7 +418,7 @@ const FerganaMedicalInstitute = () => {
 
               {/* Content */}
               <span className="relative flex items-center justify-center gap-2 md:gap-3">
-                Apply to FMIPH
+                Apply now
                 <ArrowRight className="w-4 h-4 md:w-7 md:h-7 group-hover:translate-x-2 md:group-hover:translate-x-3 transition-transform duration-500" />
               </span>
 

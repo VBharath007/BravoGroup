@@ -90,12 +90,16 @@ function App() {
           <Route path="/register" element={<Register />} />
 
           {/* University Routes */}
-          <Route path="/university/tashkent-state-medical-university" element={<TashkentMedicalAcademy />} />
-          <Route path="/university/samarkand-state-medical-university" element={<SamarkandStateMedicalUniversity />} />
-          <Route path="/university/bukhara-state-medical-institute" element={<BukharaStateMedicalInstitute />} />
-          <Route path="/university/andijan-state-medical-university" element={<AndijanStateMedicalInstitute />} />
-          <Route path="/university/fergana-medical-institute" element={<FerganaMedicalInstitute />} />
           <Route path="/university/uzbekistan-medical-universities" element={<UzbekistanMedicalUniversities />} />
+          <Route path="/university/andijan-state-medical-university" element={<AndijanStateMedicalInstitute />} />
+          <Route path="/university/samarkand-state-medical-university" element={<SamarkandStateMedicalUniversity />} />
+          <Route path="/university/fergana-medical-institute" element={<FerganaMedicalInstitute />} />
+          <Route path="/university/bukhara-state-medical-institute" element={<BukharaStateMedicalInstitute />} />
+          <Route path="/university/tashkent-medical-academy" element={<TashkentMedicalAcademy />} />
+          <Route path="/university/tashkent-state-medical-university" element={<TashkentMedicalAcademy />} />
+          <Route path="/university/gulistan-state-medical-university" element={<UzbekistanMedicalUniversities />} />
+          <Route path="/university/namangan-state-medical-university" element={<UzbekistanMedicalUniversities />} />
+          <Route path="/university/karakalpakstan-medical-institute" element={<UzbekistanMedicalUniversities />} />
 
           {/* Generic University Routes */}
           <Route path="/university/:id" element={<Universities />} />

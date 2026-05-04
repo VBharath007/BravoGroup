@@ -4,6 +4,11 @@ import { motion, useInView } from 'framer-motion';
 import { MapPin, Star, GraduationCap, Globe2, BookOpen, ArrowRight, ShieldCheck, ClipboardCheck, CheckCircle2, HeartPulse, Building2, Plane, Utensils, Users, Microscope, Award, FileText } from 'lucide-react';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Autoplay, EffectCoverflow, Pagination } from 'swiper/modules';
+import 'swiper/css';
+import 'swiper/css/effect-coverflow';
+import 'swiper/css/pagination';
 
 // Assets (Using existing ones)
 const campusImg = '/assets/takshnet1.webp';
@@ -491,19 +496,53 @@ const UniversitySection = ({ uni, index }) => {
             <h3 className="text-4xl font-black text-white mb-4">{uni.lifeTitle || `Life at ${uni.name.split(' ')[0]}`}</h3>
             <p className="text-gray-400">{uni.lifeIntro || `Life at ${uni.name.split(' ')[0]} offers a perfect balance of academics and comfort.`}</p>
           </div>
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <div className="grid grid-cols-2 gap-4" data-aos="fade-right">
-              <img src={uni.images ? uni.images[0] : campusImg} alt="" className="rounded-3xl w-full h-48 object-cover shadow-2xl border border-white/10" />
-              <img src={uni.images ? uni.images[1] : campus2} alt="" className="rounded-3xl w-full h-48 object-cover shadow-2xl border border-white/10 mt-8" />
-              <img src={uni.images ? uni.images[2] : cityImg} alt="" className="rounded-3xl w-full h-48 object-cover shadow-2xl border border-white/10 col-span-2" />
+
+          <div className="space-y-16">
+            {/* 🌟 Dynamic Gallery Showcase 🌟 */}
+            <div data-aos="fade-up" className="relative">
+              <Swiper
+                modules={[Autoplay, EffectCoverflow, Pagination]}
+                effect="coverflow"
+                grabCursor={true}
+                centeredSlides={true}
+                slidesPerView="auto"
+                coverflowEffect={{
+                  rotate: 15,
+                  stretch: 0,
+                  depth: 150,
+                  modifier: 1,
+                  slideShadows: true,
+                }}
+                autoplay={{ delay: 3500, disableOnInteraction: false }}
+                pagination={{ clickable: true, dynamicBullets: true }}
+                className="w-full pb-16 !overflow-visible"
+              >
+                {(uni.images || [campusImg, campus2, cityImg]).map((img, idx) => (
+                  <SwiperSlide key={idx} className="!w-[300px] sm:!w-[500px]">
+                    <motion.div
+                      whileHover={{ y: -10, scale: 1.02 }}
+                      className="relative h-[250px] sm:h-[350px] rounded-[2.5rem] overflow-hidden border border-white/10 shadow-[0_20px_50px_rgba(0,0,0,0.4)] group"
+                    >
+                      <img
+                        src={img}
+                        alt={`${uni.abbr} Life ${idx + 1}`}
+                        className="w-full h-full object-cover transform transition-transform duration-1000 group-hover:scale-110"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                    </motion.div>
+                  </SwiperSlide>
+                ))}
+              </Swiper>
             </div>
-            <div className="grid gap-4" data-aos="fade-left">
+
+            {/* 🌟 Features List 🌟 */}
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" data-aos="fade-up">
               {uni.life.map((item, i) => (
-                <div key={i} className="flex items-center gap-4 p-5 rounded-2xl bg-white/5 border border-white/10 transition-all hover:bg-white/[0.08]" style={{ borderColor: 'rgba(255,255,255,0.05)' }}>
-                  <div className="w-10 h-10 rounded-full flex items-center justify-center" style={{ backgroundColor: `${theme.primary}1A`, color: theme.primary }}>
-                    {i === 0 ? <Building2 size={20} /> : i === 2 ? <Utensils size={20} /> : i === 3 ? <Users size={20} /> : <Microscope size={20} />}
+                <div key={i} className="flex items-center gap-4 p-6 rounded-2xl bg-white/5 border border-white/10 transition-all hover:bg-white/[0.08] hover:border-white/20 group" style={{ borderColor: 'rgba(255,255,255,0.05)' }}>
+                  <div className="w-12 h-12 rounded-xl flex items-center justify-center shrink-0 transition-transform group-hover:scale-110" style={{ backgroundColor: `${theme.primary}1A`, color: theme.primary }}>
+                    {i === 0 ? <Building2 size={24} /> : i === 2 ? <Utensils size={24} /> : i === 3 ? <Users size={24} /> : <Microscope size={24} />}
                   </div>
-                  <span className="text-gray-300 font-medium text-lg">{item}</span>
+                  <span className="text-gray-300 font-bold text-lg leading-tight">{item}</span>
                 </div>
               ))}
             </div>
@@ -685,7 +724,13 @@ const UzbekistanMedicalUniversities = () => {
         { label: 'Hospitals', value: '20+' },
         { label: 'FMGE Passing Rate', value: '85–90%' }
       ],
-      images: ['/assets/gulistan1.webp', '/assets/gulistan2.webp', '/assets/gulistan3.webp'],
+      images: [
+        '/assets/gulisatnnewimages/guli1.jpeg',
+        '/assets/gulisatnnewimages/guli2.jpeg',
+        '/assets/gulisatnnewimages/guli3.jpeg',
+        '/assets/gulisatnnewimages/guli4.jpeg',
+        '/assets/gulistan1.webp'
+      ],
       quotes: {
         heading: 'START YOUR JOURNEY TODAY',
         intro: [
@@ -737,10 +782,13 @@ const UzbekistanMedicalUniversities = () => {
         }
       },
       images: [
-        '/assets/Namangan1.webp',
+        '/assets/naman/namang1.jpeg',
+        '/assets/naman/namang2.jpeg',
         '/assets/Namangan2.webp',
-        '/assets/Namangan3.webp'
+        '/assets/Namangan3.webp',
       ],
+
+
       journey: [
         { step: '1', title: 'Consultation', desc: 'Expert guidance on the admission process' },
         { step: '2', title: 'Application', desc: 'Submit your scanned documents for review' },
@@ -823,10 +871,13 @@ const UzbekistanMedicalUniversities = () => {
       lifeTitle: 'Student Life in Nukus',
       lifeIntro: 'Nukus offers a calm and focused academic atmosphere, ideal for medical studies.',
       images: [
-        '/assets/karakalpakstan1.webp',
-        '/assets/karakalpakstan2.webp',
-        '/assets/asmu_hostel.jpg'
+        '/assets/karakal/frontview.jpeg',
+        '/assets/karakal/kara2.jpeg',
+        '/assets/karakal/kara3.jpeg',
+        '/assets/karakal/kara4.jpeg',
+        '/assets/karakal/kara5.jpeg',
       ],
+
       life: [
         'Peaceful and safe city environment',
         'Comfortable hostel facilities',
