@@ -120,15 +120,15 @@ function MegaDropdown() {
               <UniLink key={item.id} item={item} />
             ))}
           </ul>
-          
+
           {/* Quick Country Links */}
           <div className="mega-country-links" style={{ marginTop: '20px', display: 'flex', flexDirection: 'column', gap: '8px' }}>
-            <Link to="/universities?country=Tajikistan" className="mega-country-btn" style={{ 
-              padding: '10px 14px', 
-              backgroundColor: 'rgba(37,99,235,0.06)', 
-              borderRadius: '10px', 
-              fontSize: '11px', 
-              fontWeight: '800', 
+            <Link to="/universities?country=Tajikistan" className="mega-country-btn" style={{
+              padding: '10px 14px',
+              backgroundColor: 'rgba(37,99,235,0.06)',
+              borderRadius: '10px',
+              fontSize: '11px',
+              fontWeight: '800',
               color: '#1e40af',
               display: 'flex',
               alignItems: 'center',
@@ -138,12 +138,12 @@ function MegaDropdown() {
             }}>
               <span style={{ fontSize: '16px' }}>🇹🇯</span> MBBS IN TAJIKISTAN
             </Link>
-            <Link to="/universities?country=Vietnam" className="mega-country-btn" style={{ 
-              padding: '10px 14px', 
-              backgroundColor: 'rgba(239,68,68,0.06)', 
-              borderRadius: '10px', 
-              fontSize: '11px', 
-              fontWeight: '800', 
+            <Link to="/universities?country=Vietnam" className="mega-country-btn" style={{
+              padding: '10px 14px',
+              backgroundColor: 'rgba(239,68,68,0.06)',
+              borderRadius: '10px',
+              fontSize: '11px',
+              fontWeight: '800',
               color: '#b91c1c',
               display: 'flex',
               alignItems: 'center',
@@ -153,12 +153,12 @@ function MegaDropdown() {
             }}>
               <span style={{ fontSize: '16px' }}>🇻🇳</span> MBBS IN VIETNAM
             </Link>
-            <Link to="/universities?country=Philippines" className="mega-country-btn" style={{ 
-              padding: '10px 14px', 
-              backgroundColor: 'rgba(14,165,233,0.06)', 
-              borderRadius: '10px', 
-              fontSize: '11px', 
-              fontWeight: '800', 
+            <Link to="/universities?country=Philippines" className="mega-country-btn" style={{
+              padding: '10px 14px',
+              backgroundColor: 'rgba(14,165,233,0.06)',
+              borderRadius: '10px',
+              fontSize: '11px',
+              fontWeight: '800',
               color: '#0369a1',
               display: 'flex',
               alignItems: 'center',
@@ -228,9 +228,9 @@ export default function Navbar() {
               +91 91504 84747
             </a>
             <div className="nav-topbar-emails flex gap-4">
-              <a href="mailto:bravogroups@gmail.com" className="nav-topbar-item nav-topbar-link">
+              <a href="mailto:zenovagroups26@gmail.com" className="nav-topbar-item nav-topbar-link">
                 <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" /><polyline points="22,6 12,13 2,6" /></svg>
-                bravogroups@gmail.com
+                zenovagroups26@gmail.com
               </a>
 
             </div>

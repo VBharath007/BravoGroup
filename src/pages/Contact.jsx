@@ -38,7 +38,7 @@ const services = [
 const quickActions = [
   { icon: '📞', label: 'Call Now', href: 'tel:+919150484747', color: 'from-blue-500 to-blue-600' },
   { icon: '💬', label: 'WhatsApp', href: 'https://wa.me/919150484747', color: 'from-green-500 to-green-600' },
-  { icon: '📧', label: 'Send Email', href: 'mailto:bravogroups@gmail.com', color: 'from-purple-500 to-purple-600' },
+  { icon: '📧', label: 'Send Email', href: 'mailto:zenovagroups26@gmail.com', color: 'from-purple-500 to-purple-600' },
   { icon: '🌍', label: 'Visit Office', href: 'https://maps.google.com/?q=No:+265,+Regional+Transport+Office+Rd,+Sathuvachari,+Vellore', color: 'from-orange-500 to-orange-600' },
 ];
 
@@ -183,8 +183,8 @@ const Contact = () => {
                   },
                   {
                     icon: '📧', label: 'Email Address',
-                    content: 'bravogroups@gmail.com',
-                    href: 'mailto:bravogroups@gmail.com',
+                    content: 'zenovagroups26@gmail.com',
+                    href: 'mailto:zenovagroups26@gmail.com',
                     color: 'from-purple-500 to-pink-400',
                   },
                   {

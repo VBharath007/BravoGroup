@@ -99,7 +99,7 @@ export default function Footer() {
         <div className="footer-contact">
           <div className="footer-col-title">Contact Us</div>
           <div className="footer-contact-item">
-            <span className="icon"><i className="fa-solid fa-envelope"></i></span> bravogroups.edu@gmail.com
+            <span className="icon"><i className="fa-solid fa-envelope"></i></span> zenovagroups26@gmail.com
           </div>
           <div className="footer-contact-item">
             <span className="icon"><i className="fa-solid fa-phone"></i></span> +91 91504 84747
