@@ -73,6 +73,14 @@ export default function VideoGallery() {
     window.scrollTo(0, 0);
   }, []);
 
+  const handleVideoClick = (video) => {
+    if (video.type === 'instagram' || video.url.includes('instagram.com')) {
+      window.open(video.url, '_blank', 'noopener,noreferrer');
+    } else {
+      setActiveVideo(video);
+    }
+  };
+
   return (
     <div className="video-gallery-page">
       {/* ─── Hero Section ─── */}
@@ -97,7 +105,7 @@ export default function VideoGallery() {
         <div className="vg-container">
           <div className="vg-grid">
             {videos.map((video) => (
-              <TiltVideoCard key={video.id} video={video} onClick={setActiveVideo} />
+              <TiltVideoCard key={video.id} video={video} onClick={handleVideoClick} />
             ))}
           </div>
         </div>

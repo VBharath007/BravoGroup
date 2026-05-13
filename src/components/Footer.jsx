@@ -11,7 +11,8 @@ const navigationLinks = [
   { name: 'About Us', href: '/about' },
   { name: 'Contact Us', href: '/contact' },
   { name: 'Latest Blogs', href: '/blog' },
-  { name: 'Our Services', href: '/services' }
+  { name: 'Our Services', href: '/services' },
+  { name: 'Privacy Policy', href: '/privacy-policy' }
 ];
 
 export default function Footer() {
@@ -42,7 +43,7 @@ export default function Footer() {
             <a href="https://www.facebook.com/share/1B4gYpAW5H/" target="_blank" rel="noopener noreferrer" title="Facebook" style={{ transform: 'translateZ(0)' }}>
               <i className="fa-brands fa-facebook-f"></i>
             </a>
-            <a href="https://www.instagram.com/zenova_consultants?igsh=MTgzeXU1OThvcnVlZA==" target="_blank" rel="noopener noreferrer" title="Instagram" style={{ transform: 'translateZ(0)' }}>
+            <a href="https://www.instagram.com/zenova_consultants?igsh=MWF0cmFtOTVkZDQ0ZQ==" target="_blank" rel="noopener noreferrer" title="Instagram" style={{ transform: 'translateZ(0)' }}>
               <i className="fa-brands fa-instagram"></i>
             </a>
             <a href="javascript:void(0)" title="YouTube" style={{ transform: 'translateZ(0)' }}>
@@ -116,7 +117,7 @@ export default function Footer() {
             GET FREE COUNSELING NOW
           </button>
         </div>
-        <span>© 2026 Zenova Groups. All rights reserved.</span>
+        <span>© 2026 Zenova Groups. All rights reserved. | <Link to="/privacy-policy" className="hover:text-blue-500 transition-colors">Privacy Policy</Link></span>
       </div>
     </footer>
   );

@@ -226,7 +226,7 @@ const Contact = () => {
               >
                 <span className="text-xs text-gray-400 font-bold uppercase tracking-widest">Follow Us:</span>
                 {[
-                  { icon: 'fab fa-instagram', href: 'https://www.instagram.com/zenova_consultants?igsh=MTgzeXU1OThvcnVlZA==', color: 'hover:bg-gradient-to-br hover:from-purple-500 hover:to-pink-500' },
+                  { icon: 'fab fa-instagram', href: 'https://www.instagram.com/zenova_consultants?igsh=MWF0cmFtOTVkZDQ0ZQ==', color: 'hover:bg-gradient-to-br hover:from-purple-500 hover:to-pink-500' },
                   { icon: 'fab fa-facebook-f', href: 'https://www.facebook.com/share/1B4gYpAW5H/', color: 'hover:bg-blue-600' },
                   { icon: 'fab fa-youtube', href: '#', color: 'hover:bg-red-600' },
                   { icon: 'fab fa-whatsapp', href: 'https://wa.me/919150484747', color: 'hover:bg-green-500' },

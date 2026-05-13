@@ -10,7 +10,7 @@ export default function FloatingSocials() {
 
   return (
     <div className="floating-socials">
-      <a href="https://www.instagram.com/zenova_consultants?igsh=MTgzeXU1OThvcnVlZA==" target="_blank" rel="noopener noreferrer" className="floating-link instagram" title="Instagram">
+      <a href="https://www.instagram.com/zenova_consultants?igsh=MWF0cmFtOTVkZDQ0ZQ==" target="_blank" rel="noopener noreferrer" className="floating-link instagram" title="Instagram">
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
       </a>
       <a href="https://www.facebook.com/share/1B4gYpAW5H/" target="_blank" rel="noopener noreferrer" className="floating-link facebook" title="Facebook">

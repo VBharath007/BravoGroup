@@ -373,6 +373,14 @@ export default function HomePage() {
 
   const handleUniClick = useCallback((id) => { navigate(`/university/${id}`); }, [navigate]);
 
+  const handleVideoClick = useCallback((video) => {
+    if (video.type === 'instagram' || video.url.includes('instagram.com')) {
+      window.open(video.url, '_blank', 'noopener,noreferrer');
+    } else {
+      setActiveVideo(video);
+    }
+  }, []);
+
   useEffect(() => {
     const handleResize = () => setIsMobile(window.innerWidth < 768);
     handleResize();
@@ -554,7 +562,7 @@ export default function HomePage() {
         </div>
         <div className="video-grid">
           {galleryVideos?.length > 0
-            ? galleryVideos.map((video, idx) => <VideoCard key={video.id} video={video} idx={idx} onClick={setActiveVideo} />)
+            ? galleryVideos.map((video, idx) => <VideoCard key={video.id} video={video} idx={idx} onClick={handleVideoClick} />)
             : <p style={{ color: 'rgba(200,210,240,0.6)', textAlign: 'center', padding: '40px' }}>No videos available</p>
           }
         </div>
