@@ -65,13 +65,38 @@ function TiltVideoCard({ video, onClick }) {
   );
 }
 
+import axios from 'axios';
+
 export default function VideoGallery() {
   const [activeVideo, setActiveVideo] = useState(null);
+  const [dynamicVideos, setDynamicVideos] = useState([]);
+  const API_BASE_URL = import.meta.env.VITE_BACKEND_URL || 'https://zenovagroupsbackend-production.up.railway.app';
 
   useEffect(() => {
     // AOS initialized globally
     window.scrollTo(0, 0);
+    const fetchVideos = async () => {
+      try {
+        const response = await axios.get(`${API_BASE_URL}/api/videos`);
+        if (response.data.success) {
+          setDynamicVideos(response.data.data);
+        }
+      } catch (error) {
+        console.error("Error fetching videos:", error);
+      }
+    };
+    fetchVideos();
   }, []);
+
+  const allVideos = [...videos, ...dynamicVideos.map(v => ({
+    id: v._id,
+    title: v.title,
+    desc: v.description || v.desc,
+    thumb: v.thumbnail || v.thumb,
+    url: v.url,
+    badge: v.badge || "Student Story",
+    type: v.type || 'youtube'
+  }))];
 
   const handleVideoClick = (video) => {
     if (video.type === 'instagram' || video.url.includes('instagram.com')) {
@@ -104,7 +129,7 @@ export default function VideoGallery() {
       <section className="vg-grid-section">
         <div className="vg-container">
           <div className="vg-grid">
-            {videos.map((video) => (
+            {allVideos.map((video) => (
               <TiltVideoCard key={video.id} video={video} onClick={handleVideoClick} />
             ))}
           </div>

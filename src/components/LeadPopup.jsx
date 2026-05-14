@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { useLocation } from 'react-router-dom';
+import useAdmissionStatus from '../hooks/useAdmissionStatus';
 import './LeadPopup.css';
 // Assets are now served from the public/assets directory
 const logo = '/assets/logo.jpeg';
@@ -31,6 +32,7 @@ const LeadPopup = () => {
   const [focused, setFocused] = useState(null);
   const timerRef = useRef(null);
   const location = useLocation();
+  const { currentYear, isClosed } = useAdmissionStatus();
 
   const open = useCallback(() => {
     setPhase('entering');
@@ -214,8 +216,8 @@ const LeadPopup = () => {
               <div className="lp-right-header">
                 <h2 className="lp-right-title">Start Your MBBS<br />Journey Abroad</h2>
                 <div className="lp-admission-status">
-                  <span className="lp-pulse-dot"></span>
-                  2026-2027 ADMISSION OPEN
+                  <span className={`lp-pulse-dot ${isClosed ? 'lp-pulse-dot--closed' : ''}`}></span>
+                  {currentYear} ADMISSION {isClosed ? 'CLOSED' : 'OPEN'}
                 </div>
                 <p className="lp-right-sub">Get a response within 24 hours.</p>
               </div>

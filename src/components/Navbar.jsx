@@ -42,6 +42,7 @@ const navLinks = [
   },
   { label: 'Testimonials', href: '/testimonials' },
   { label: 'Blog', href: '/blog' },
+  { label: 'FAQ', href: '/faq' },
   { label: 'Contact', href: '/contact' },
 ];
 

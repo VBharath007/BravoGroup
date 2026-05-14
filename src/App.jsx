@@ -27,6 +27,7 @@ const Testimonials = lazy(() => import("./pages/Testimonials"));
 const Login = lazy(() => import("./pages/Contact")); // Redirect to Contact
 const Register = lazy(() => import("./pages/Contact")); // Redirect to Contact
 const PrivacyPolicy = lazy(() => import("./pages/PrivacyPolicy"));
+const FAQ = lazy(() => import("./pages/FAQPage"));
 
 // Lazy load university pages
 const TashkentMedicalAcademy = lazy(() => import("./pages/universities/TashkentMedicalAcademy"));
@@ -90,6 +91,7 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
           <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+          <Route path="/faq" element={<FAQ />} />
 
           {/* University Routes */}
           <Route path="/university/uzbekistan-medical-universities" element={<UzbekistanMedicalUniversities />} />

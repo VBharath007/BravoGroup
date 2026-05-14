@@ -12,6 +12,7 @@ const navigationLinks = [
   { name: 'Contact Us', href: '/contact' },
   { name: 'Latest Blogs', href: '/blog' },
   { name: 'Our Services', href: '/services' },
+  { name: 'Frequently Asked Questions', href: '/faq' },
   { name: 'Privacy Policy', href: '/privacy-policy' }
 ];
 

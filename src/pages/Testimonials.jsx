@@ -69,12 +69,28 @@ const testimonialsData = [
   }
 ];
 
+import axios from 'axios';
+
 export default function Testimonials() {
   const listRef = useRef(null);
+  const [dynamicTestimonials, setDynamicTestimonials] = React.useState([]);
+  const API_BASE_URL = import.meta.env.VITE_BACKEND_URL || 'https://zenovagroupsbackend-production.up.railway.app';
 
   useEffect(() => {
     // AOS initialized globally
     window.scrollTo(0, 0);
+
+    const fetchTestimonials = async () => {
+      try {
+        const response = await axios.get(`${API_BASE_URL}/api/testimonials`);
+        if (response.data.success) {
+          setDynamicTestimonials(response.data.data);
+        }
+      } catch (error) {
+        console.error("Error fetching testimonials:", error);
+      }
+    };
+    fetchTestimonials();
 
     let ctx = gsap.context(() => {
       gsap.utils.toArray(".review-card").forEach((card, index) => {
@@ -97,7 +113,18 @@ export default function Testimonials() {
     }, listRef);
 
     return () => ctx.revert();
-  }, []);
+  }, [dynamicTestimonials]);
+
+  const allTestimonials = [...testimonialsData, ...dynamicTestimonials.map(t => ({
+    id: t._id,
+    name: t.name,
+    location: t.location || "Student",
+    university: t.designation || t.university || "Medical University",
+    rating: t.rating || 5,
+    text: t.message || t.text,
+    gradient: "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
+    initials: t.name.split(' ').map(n => n[0]).join('')
+  }))];
 
   return (
     <div className="testimonials-page">
@@ -135,7 +162,7 @@ export default function Testimonials() {
       <section className="tm-grid-section" ref={listRef}>
         <div className="tm-container">
           <div className="tm-masonry-grid">
-            {testimonialsData.map((review) => (
+            {allTestimonials.map((review) => (
               <div key={review.id} className="review-card">
                 <div className="rc-quote-icon">“</div>
 

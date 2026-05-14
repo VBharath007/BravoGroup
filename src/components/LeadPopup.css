@@ -387,6 +387,11 @@
   animation: dotPulse 1.8s ease-in-out infinite;
 }
 
+.lp-pulse-dot--closed {
+  background: #ef4444;
+  box-shadow: 0 0 10px rgba(239, 68, 68, 0.6);
+}
+
 /* ─── Form ──────────────────────────────────────────────── */
 .lp-form {
   display: flex;

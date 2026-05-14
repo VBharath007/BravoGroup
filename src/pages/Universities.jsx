@@ -160,16 +160,52 @@ const UniCard = memo(({ uni, navigate }) => {
 });
 
 // ── MAIN ──────────────────────────────────────────────────────────────────
+import axios from 'axios';
+
 const Universities = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const [filterCountry, setFilterCountry] = useState('Kyrgyzstan');
+  const [dynamicUnis, setDynamicUnis] = useState([]);
+  const API_BASE_URL = import.meta.env.VITE_BACKEND_URL || 'https://zenovagroupsbackend-production.up.railway.app';
+
+  useEffect(() => {
+    const fetchUnis = async () => {
+      try {
+        const response = await axios.get(`${API_BASE_URL}/api/universities`);
+        if (response.data.success) {
+          setDynamicUnis(response.data.data);
+        }
+      } catch (error) {
+        console.error("Error fetching universities:", error);
+      }
+    };
+    fetchUnis();
+  }, []);
+
+  const allUniversities = useMemo(() => [
+    ...universities,
+    ...dynamicUnis.map(u => ({
+      id: u._id,
+      name: u.name,
+      image: u.image,
+      badge: u.badge || 'NMC Approved',
+      badgeColor: u.badgeColor || 'from-blue-600 to-indigo-400',
+      glowColor: u.glowColor || 'rgba(37,99,235,0.3)',
+      desc: u.description || u.desc,
+      details: u.details || ['NMC Approved', 'WHO Recognized', 'English Medium'],
+      fees: u.fees || 'Contact for Details',
+      duration: u.duration || '6 Years',
+      country: u.country || 'Uzbekistan',
+      location: u.location || u.country
+    }))
+  ], [dynamicUnis]);
 
   const handleScrollToSection = useCallback(() => {
     const path = location.pathname;
     const idToScroll = path.includes('/university/') ? path.split('/').pop() : '';
     if (idToScroll) {
-      const targetUni = universities.find(u => u.id === idToScroll);
+      const targetUni = allUniversities.find(u => u.id === idToScroll);
       if (targetUni) setFilterCountry(targetUni.country);
       const rafId = requestAnimationFrame(() => {
         const el = document.getElementById(idToScroll);
@@ -178,7 +214,7 @@ const Universities = () => {
       return rafId;
     }
     return null;
-  }, [location.pathname]);
+  }, [location.pathname, allUniversities]);
 
   useEffect(() => {
     const rafId = handleScrollToSection();
@@ -199,9 +235,10 @@ const Universities = () => {
       }, 100);
     }
   }, [location.search, countries]);
+
   const filteredUniversities = useMemo(() =>
-    universities.filter(u => u.country === filterCountry),
-    [filterCountry]
+    allUniversities.filter(u => u.country === filterCountry),
+    [filterCountry, allUniversities]
   );
 
   return (

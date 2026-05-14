@@ -134,10 +134,36 @@ function BlogCard({ post, index }) {
 }
 
 
+import axios from 'axios';
+
 const Blog = () => {
+  const [dynamicBlogs, setDynamicBlogs] = React.useState([]);
+  const API_BASE_URL = import.meta.env.VITE_BACKEND_URL || 'https://zenovagroupsbackend-production.up.railway.app';
+
   useEffect(() => {
     window.scrollTo(0, 0);
+    const fetchBlogs = async () => {
+      try {
+        const response = await axios.get(`${API_BASE_URL}/api/blogs`);
+        if (response.data.success) {
+          setDynamicBlogs(response.data.data);
+        }
+      } catch (error) {
+        console.error("Error fetching blogs:", error);
+      }
+    };
+    fetchBlogs();
   }, []);
+
+  const allBlogs = [...blogPosts, ...dynamicBlogs.map(b => ({
+    id: b._id,
+    slug: b.slug || b._id,
+    title: b.title,
+    category: b.category || "General",
+    date: new Date(b.publishDate || b.createdAt).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' }),
+    image: b.image,
+    excerpt: b.excerpt
+  }))];
 
   return (
     <div className="font-dm text-[#333] bg-[#f8fafc] overflow-x-hidden pt-[110px]">
@@ -201,7 +227,7 @@ const Blog = () => {
 
         <div className="max-w-[1280px] mx-auto px-6 relative z-10">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 gap-y-12" style={{ perspective: "1500px" }}>
-            {blogPosts.map((post, idx) => (
+            {allBlogs.map((post, idx) => (
               <BlogCard key={post.id || idx} post={post} index={idx} />
             ))}
           </div>

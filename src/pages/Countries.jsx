@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState, useMemo, memo } from 'react';
+import axios from 'axios';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { countryData } from '../components/data/countryData';
@@ -303,9 +304,16 @@ const FaqSection = memo(({ activeCountry, accent, activeId }) => {
                                         transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
                                         style={{ overflow: 'hidden' }}
                                     >
-                                        <p className="px-7 pb-6 text-neutral-400 text-sm leading-relaxed">
-                                            {faq.answer}
-                                        </p>
+                                        <div className="px-7 pb-6 space-y-3">
+                                            {faq.category && (
+                                                <span className="inline-block px-2 py-0.5 rounded-md bg-white/5 border border-white/10 text-[9px] font-black uppercase tracking-wider text-neutral-500">
+                                                    {faq.category}
+                                                </span>
+                                            )}
+                                            <p className="text-neutral-400 text-sm leading-relaxed">
+                                                {faq.answer}
+                                            </p>
+                                        </div>
                                     </motion.div>
                                 )}
                             </AnimatePresence>
@@ -322,7 +330,23 @@ const Countries = () => {
     const location = useLocation();
     const navigate = useNavigate();
     const [activeId, setActiveId] = useState('uzbekistan');
+    const [dynamicFaqs, setDynamicFaqs] = useState([]);
     const scrollContainerRef = useRef(null);
+    const API_BASE_URL = import.meta.env.VITE_BACKEND_URL || 'https://zenovagroupsbackend-production.up.railway.app';
+
+    useEffect(() => {
+        const fetchFaqs = async () => {
+            try {
+                const response = await axios.get(`${API_BASE_URL}/api/faqs`);
+                if (response.data.success) {
+                    setDynamicFaqs(response.data.data);
+                }
+            } catch (error) {
+                console.error("Error fetching FAQs:", error);
+            }
+        };
+        fetchFaqs();
+    }, []);
 
     // Layout stability improvements
     const scrollToDetails = () => setTimeout(() => {
@@ -343,7 +367,31 @@ const Countries = () => {
         return () => { if (timer) clearTimeout(timer); };
     }, [location.hash]);
 
-    const activeCountry = countryData[activeId];
+    const activeCountry = useMemo(() => {
+        const country = { ...countryData[activeId] };
+        if (country) {
+            const relevantFaqs = dynamicFaqs.filter(f => {
+                const faqCountry = f.country?.toLowerCase();
+                // Show if:
+                // 1. No country assigned (legacy)
+                // 2. Marked as "General"
+                // 3. Matches current active country
+                return !faqCountry || faqCountry === 'general' || faqCountry === activeId.toLowerCase();
+            }).map(f => ({
+                question: f.question,
+                answer: f.answer,
+                category: f.category
+            }));
+
+            // Merge and avoid duplicate questions
+            const existingQuestions = new Set(country.faqs?.map(f => f.question.toLowerCase()) || []);
+            const filteredNewFaqs = relevantFaqs.filter(f => !existingQuestions.has(f.question.toLowerCase()));
+            
+            country.faqs = [...(country.faqs || []), ...filteredNewFaqs];
+        }
+        return country;
+    }, [activeId, dynamicFaqs]);
+
     const accent = ACCENTS[activeId] || ACCENTS.uzbekistan;
 
     const countries = useMemo(() => {

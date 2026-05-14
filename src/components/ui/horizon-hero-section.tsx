@@ -2,6 +2,7 @@
 
 import React, { useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import useAdmissionStatus from "../../hooks/useAdmissionStatus";
 const logo = "/assets/bgremovedlogo-small.webp";
 
 // ─── Constants ────────────────────────────────────────────────────────────────
@@ -47,6 +48,7 @@ const PHASES = [
 // ─── Component ────────────────────────────────────────────────────────────────
 export default function FrameInjection() {
   const navigate = useNavigate();
+  const { currentYear, isClosed } = useAdmissionStatus();
 
   const sectionRef = useRef<HTMLDivElement>(null);
   const pinnedRef = useRef<HTMLDivElement>(null);
@@ -325,7 +327,9 @@ export default function FrameInjection() {
         {/* ══ PHASE 3: ADMISSION ══════════════════════════════════════ */}
         <div ref={admissionRef} style={{ position: "absolute", top: 0, left: 0, width: "clamp(340px,95vw,620px)", height: "100%", display: "flex", flexDirection: "column", justifyContent: "center", padding: "0 clamp(1rem,4vw,4rem)", opacity: 0, willChange: "transform,opacity" }}>
           <div style={{ background: "rgba(4,10,28,0.7)", backdropFilter: "blur(20px)", WebkitBackdropFilter: "blur(20px)", border: "1px solid rgba(255,255,255,0.15)", borderRadius: "2rem", padding: "clamp(1.5rem,3vw,2.75rem)", boxShadow: "0 24px 80px rgba(0,0,0,0.7),inset 0 1px 1px rgba(255,255,255,0.12)", maxHeight: "76vh", overflowY: "auto", display: "flex", flexDirection: "column" }}>
-            <h4 style={{ fontSize: "clamp(1.2rem,2.2vw,1.8rem)", fontWeight: 900, color: "#fff", marginBottom: "0.5rem", fontFamily: "system-ui,sans-serif", lineHeight: 1.1 }}>🎓 MBBS ADMISSION OPEN <span style={{ color: "#60a5fa", fontStyle: "italic", whiteSpace: "nowrap" }}>2026–2027</span></h4>
+            <h4 style={{ fontSize: "clamp(1.2rem,2.2vw,1.8rem)", fontWeight: 900, color: "#fff", marginBottom: "0.5rem", fontFamily: "system-ui,sans-serif", lineHeight: 1.1 }}>
+              🎓 MBBS ADMISSION {isClosed ? 'CLOSED' : 'OPEN'} <span style={{ color: isClosed ? "#ef4444" : "#60a5fa", fontStyle: "italic", whiteSpace: "nowrap" }}>{currentYear}</span>
+            </h4>
             <p style={{ fontSize: "clamp(0.85rem,1.2vw,1rem)", color: "rgba(180,180,180,1)", marginBottom: "1.5rem", fontFamily: "system-ui,sans-serif" }}>Study MBBS Abroad in <span style={{ color: "#3b82f6", fontWeight: 700 }}>Top Countries</span></p>
 
             <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(130px, 1fr))", gap: "0.75rem", marginBottom: "2.2rem" }}>

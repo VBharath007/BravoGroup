@@ -74,12 +74,32 @@ function TiltPhotoCard({ photo, onClick }) {
   );
 }
 
+import axios from 'axios';
+
 export default function GalleryPage() {
   const [activePhoto, setActivePhoto] = useState(null);
+  const [dynamicPhotos, setDynamicPhotos] = useState([]);
+  const API_BASE_URL = import.meta.env.VITE_BACKEND_URL || 'https://zenovagroupsbackend-production.up.railway.app';
 
   useEffect(() => {
     window.scrollTo(0, 0);
+    const fetchGallery = async () => {
+      try {
+        const response = await axios.get(`${API_BASE_URL}/api/gallery`);
+        if (response.data.success) {
+          setDynamicPhotos(response.data.data);
+        }
+      } catch (error) {
+        console.error("Error fetching gallery:", error);
+      }
+    };
+    fetchGallery();
   }, []);
+
+  const allPhotos = [...photos, ...dynamicPhotos.map(p => ({
+    id: p._id,
+    url: p.url || p.image
+  }))];
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -133,7 +153,7 @@ export default function GalleryPage() {
             whileInView="show"
             viewport={{ once: true, margin: "-100px" }}
           >
-            {photos.map((photo) => (
+            {allPhotos.map((photo) => (
               <TiltPhotoCard key={photo.id} photo={photo} onClick={setActivePhoto} />
             ))}
           </motion.div>

@@ -9,6 +9,8 @@ import './HomePage.css';
 import HorizonHeroSection from '../components/ui/horizon-hero-section.tsx';
 import LazyImage from '../components/Lazyimage';
 import { videos as centralVideos } from '../data/videoData';
+import axios from 'axios';
+
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -369,7 +371,114 @@ export default function HomePage() {
   const [isMobile, setIsMobile] = useState(false);
   const [activeVideo, setActiveVideo] = useState(null);
   const navigate = useNavigate();
-  const galleryVideos = centralVideos.slice(0, 4);
+  const [dynamicBlogs, setDynamicBlogs] = useState([]);
+  const [dynamicTestimonials, setDynamicTestimonials] = useState([]);
+  const [dynamicUnis, setDynamicUnis] = useState([]);
+  const [dynamicGallery, setDynamicGallery] = useState([]);
+  const [dynamicVideos, setDynamicVideos] = useState([]);
+
+  const API_BASE_URL = import.meta.env.VITE_BACKEND_URL || 'https://zenovagroupsbackend-production.up.railway.app';
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const [blogRes, testRes, uniRes, galRes, vidRes] = await Promise.all([
+          axios.get(`${API_BASE_URL}/api/blogs`),
+          axios.get(`${API_BASE_URL}/api/testimonials`),
+          axios.get(`${API_BASE_URL}/api/universities`),
+          axios.get(`${API_BASE_URL}/api/gallery`),
+          axios.get(`${API_BASE_URL}/api/videos`)
+        ]);
+
+        if (blogRes.data.success) setDynamicBlogs(blogRes.data.data);
+        if (testRes.data.success) setDynamicTestimonials(testRes.data.data);
+        if (uniRes.data.success) setDynamicUnis(uniRes.data.data);
+        if (galRes.data.success) setDynamicGallery(galRes.data.data);
+        if (vidRes.data.success) setDynamicVideos(vidRes.data.data);
+      } catch (error) {
+        console.error("Error fetching dynamic data:", error);
+      }
+    };
+    fetchData();
+  }, []);
+
+  const allBlogs = [...blogs, ...dynamicBlogs.map(b => ({
+    slug: b.slug || b._id,
+    image: b.image,
+    date: new Date(b.publishDate || b.createdAt).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' }),
+    title: b.title,
+    excerpt: b.excerpt
+  }))];
+
+  const allGalleryPhoto = [...galleryPhoto, ...dynamicGallery.map(g => ({
+    id: g._id,
+    url: g.url || g.image
+  }))];
+
+  const allVideos = [...centralVideos, ...dynamicVideos.map(v => ({
+    id: v._id,
+    title: v.title,
+    desc: v.description || v.desc,
+    thumb: v.thumbnail || v.thumb,
+    url: v.url,
+    type: v.type || 'youtube'
+  }))];
+
+  const galleryVideos = allVideos.slice(0, 4);
+
+  const allTestimonials = [
+    { delay: 0, type: 'video', media: <iframe width="100%" height="100%" src="https://www.youtube.com/embed/EhrRTJqBqfc" title="Student Story" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen style={{ border: 'none' }} />, text: '"ZENOVA Groups Educational Consultants made my MBBS journey smooth from day one. Their support in documentation and visa was exceptional."', initials: 'DS', name: 'Deepika Sharma', meta: 'MBBS • Tashkent Medical Academy', gradient: '135deg,#667eea 0%,#764ba2 100%' },
+    { delay: .1, type: 'image', media: <LazyImage src={g2} alt="Student testimonial" />, text: '"From counseling to campus settlement, they were with me at every step. Truly grateful for their guidance."', initials: 'RK', name: 'Ravi Kumar', meta: 'MBBS • Samarkand State Medical', gradient: '135deg,#f093fb 0%,#f5576c 100%' },
+    { delay: .2, type: 'image', media: <LazyImage src={g3} alt="Student testimonial" />, text: '"Best decision I made was choosing ZENOVA Groups Educational Consultants. Their transparency and local support in Vellore made all the difference."', initials: 'PM', name: 'Priya Menon', meta: 'MBBS • Bukhara State Medical', gradient: '135deg,#4facfe 0%,#00f2fe 100%' },
+    ...dynamicTestimonials.map((t, i) => ({
+      delay: 0.1 * (i + 3),
+      type: t.videoUrl ? 'video' : 'image',
+      media: t.videoUrl ? (
+        <iframe width="100%" height="100%" src={t.videoUrl.replace('watch?v=', 'embed/')} title={t.name} frameBorder="0" allowFullScreen style={{ border: 'none' }} />
+      ) : (
+        <LazyImage src={t.image} alt={t.name} />
+      ),
+      text: t.message || t.text,
+      initials: t.name.split(' ').map(n => n[0]).join(''),
+      name: t.name,
+      meta: t.designation || t.meta,
+      gradient: '135deg,#667eea 0%,#764ba2 100%'
+    }))
+  ];
+
+  // Group dynamic unis by country if needed, or just append to Uzbekistan for now as a default
+  // Ideally, dynamicUnis should have a country field.
+  const allDestinations = [...destinations, ...dynamicUnis.filter(u => u.country === 'Uzbekistan').map(u => ({
+    id: u._id,
+    name: u.name,
+    image: u.image,
+    sub: u.description || u.sub,
+    theme: u.theme || 'linear-gradient(135deg,rgba(37,99,235,0.5),rgba(49,46,129,0.8))'
+  }))];
+
+  const allKyrgyzstanUnis = [...kyrgyzstanUnis, ...dynamicUnis.filter(u => u.country === 'Kyrgyzstan').map(u => ({
+    id: u._id,
+    name: u.name,
+    image: u.image,
+    sub: u.description || u.sub,
+    theme: u.theme || 'linear-gradient(135deg,rgba(14,165,233,0.5),rgba(30,58,138,0.8))'
+  }))];
+
+  const allGeorgiaUnis = [...georgiaUnis, ...dynamicUnis.filter(u => u.country === 'Georgia').map(u => ({
+    id: u._id,
+    name: u.name,
+    image: u.image,
+    sub: u.description || u.sub,
+    theme: u.theme || 'linear-gradient(135deg,rgba(236,72,153,0.5),rgba(159,18,57,0.8))'
+  }))];
+
+  const allRussiaUnis = [...russiaUnis, ...dynamicUnis.filter(u => u.country === 'Russia').map(u => ({
+    id: u._id,
+    name: u.name,
+    image: u.image,
+    sub: u.description || u.sub,
+    theme: u.theme || 'linear-gradient(135deg,rgba(30,64,175,0.5),rgba(15,23,42,0.8))'
+  }))];
 
   const handleUniClick = useCallback((id) => { navigate(`/university/${id}`); }, [navigate]);
 
@@ -475,10 +584,10 @@ export default function HomePage() {
       </FadeSection>
 
       {/* ── UNIVERSITIES — lazy per-card animation ── */}
-      <UniversitySection tag="Elite Uzbekistan University" title="Top Medical Universities — Uzbekistan" unis={destinations} onUniClick={handleUniClick} className="section-uzbekistan" style={sectionGpuStyle} exploreLink="/mbbs-in-uzbekistan" exploreLabel="Explore More Universities" />
-      <UniversitySection tag="Kyrgyzstan University" title="Top Medical Universities — Kyrgyzstan" unis={kyrgyzstanUnis} onUniClick={handleUniClick} className="section-kyrgyzstan" style={sectionGpuStyle} />
-      <UniversitySection tag="Georgia University" title="Top Medical Universities — Georgia" unis={georgiaUnis} onUniClick={handleUniClick} className="section-georgia" style={sectionGpuStyle} />
-      <UniversitySection tag="Russian University" title="Top Medical Universities — Russia" unis={russiaUnis} onUniClick={handleUniClick} className="section-russia" style={sectionGpuStyle} />
+      <UniversitySection tag="Elite Uzbekistan University" title="Top Medical Universities — Uzbekistan" unis={allDestinations} onUniClick={handleUniClick} className="section-uzbekistan" style={sectionGpuStyle} exploreLink="/mbbs-in-uzbekistan" exploreLabel="Explore More Universities" />
+      <UniversitySection tag="Kyrgyzstan University" title="Top Medical Universities — Kyrgyzstan" unis={allKyrgyzstanUnis} onUniClick={handleUniClick} className="section-kyrgyzstan" style={sectionGpuStyle} />
+      <UniversitySection tag="Georgia University" title="Top Medical Universities — Georgia" unis={allGeorgiaUnis} onUniClick={handleUniClick} className="section-georgia" style={sectionGpuStyle} />
+      <UniversitySection tag="Russian University" title="Top Medical Universities — Russia" unis={allRussiaUnis} onUniClick={handleUniClick} className="section-russia" style={sectionGpuStyle} />
 
       {/* ── WHAT WE HELP YOU WITH ── */}
       <section className="section help-you">
@@ -531,7 +640,7 @@ export default function HomePage() {
           ].map((row, ri) => (
             <div key={ri} className={`carousel-row ${row.dir}`} style={row.speed ? { '--carousel-speed': row.speed } : {}}>
               <div className="carousel-track" style={row.speed ? { animationDuration: row.speed } : {}}>
-                {[...galleryPhoto, ...galleryPhoto].map((photo, idx) => (
+                {[...allGalleryPhoto, ...allGalleryPhoto].map((photo, idx) => (
                   <div className="carousel-item" key={`r${ri}-${idx}`}>
                     <LazyImage src={photo.url} alt={`Gallery moment ${photo.id}`} loading="lazy" />
                   </div>
@@ -601,11 +710,7 @@ export default function HomePage() {
             <p className="testimonials-subtitle">Real students, real journeys — hear from those who made their MBBS dreams a reality with ZENOVA Groups Educational Consultants</p>
           </div>
           <div className="testimonials-grid">
-            {[
-              { delay: 0, type: 'video', media: <iframe width="100%" height="100%" src="https://www.youtube.com/embed/EhrRTJqBqfc" title="Student Story" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen style={{ border: 'none' }} />, text: '"ZENOVA Groups Educational Consultants made my MBBS journey smooth from day one. Their support in documentation and visa was exceptional."', initials: 'DS', name: 'Deepika Sharma', meta: 'MBBS • Tashkent Medical Academy', gradient: '135deg,#667eea 0%,#764ba2 100%' },
-              { delay: .1, type: 'image', media: <LazyImage src={g2} alt="Student testimonial" />, text: '"From counseling to campus settlement, they were with me at every step. Truly grateful for their guidance."', initials: 'RK', name: 'Ravi Kumar', meta: 'MBBS • Samarkand State Medical', gradient: '135deg,#f093fb 0%,#f5576c 100%' },
-              { delay: .2, type: 'image', media: <LazyImage src={g3} alt="Student testimonial" />, text: '"Best decision I made was choosing ZENOVA Groups Educational Consultants. Their transparency and local support in Vellore made all the difference."', initials: 'PM', name: 'Priya Menon', meta: 'MBBS • Bukhara State Medical', gradient: '135deg,#4facfe 0%,#00f2fe 100%' },
-            ].map((t, i) => (
+            {allTestimonials.map((t, i) => (
               <motion.div key={i} className={`testimonial-card ${t.type}-card`}
                 initial={{ opacity: 0, y: 32, scale: 0.95 }}
                 whileInView={{ opacity: 1, y: 0, scale: 1 }}
@@ -664,7 +769,7 @@ export default function HomePage() {
             <div className="gold-line" />
           </div>
           <div className="blog-grid">
-            {blogs.map((b, idx) => <BlogCard key={b.slug} b={b} idx={idx} />)}
+            {allBlogs.map((b, idx) => <BlogCard key={b.slug} b={b} idx={idx} />)}
           </div>
           <div className="gallery-cta flex justify-center w-full" data-aos="fade-up" data-aos-delay="100">
             <Link to="/blog" className="no-underline">
