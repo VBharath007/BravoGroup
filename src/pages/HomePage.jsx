@@ -765,7 +765,7 @@ export default function HomePage() {
           </div>
           <div className="testimonials-grid">
             {allTestimonials.map((t, i) => (
-              <motion.div key={i} className={`testimonial-card ${t.type}-card`}
+              <motion.div key={i} className={`testimonial-card testimonial-${t.type}-card`}
                 initial={{ opacity: 0, y: 32, scale: 0.95 }}
                 whileInView={{ opacity: 1, y: 0, scale: 1 }}
                 viewport={{ once: true }}
