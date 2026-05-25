@@ -478,10 +478,10 @@ export default function HomePage() {
           style={{ width: '100%', height: '100%', objectFit: 'cover' }}
         />
       ),
-      text: `Velinaatula MBBS padikanum nu dream ah?\nInga college life, hostel, food ellam comfortable ah irukku\nQuality education & safe environment 💯\n🎓 Zenova Groups oda support la\nTop universities in Uzbekistan la padikka chance!\nAdmission open – unga doctor dream ah start pannunga\nIppo than join pannunga & seat secure pannunga\nContact: +91 9150484747, +91 9150464949\n#MBBSAbroad #UzbekistanMBBS #ZenovaGroups #StudyAbroad #MedicalStudent #DoctorDream #AdmissionOpen #MBBSLife`,
-      initials: 'ZS',
-      name: 'ZENOVA STUDENT',
-      meta: 'Uzbekistan • Top Universities in Uzbekistan',
+      text: `Velinaatula MBBS padikanum nu dream ah?\nInga college life, hostel, food ellam comfortable ah irukku\nQuality education & safe environment 💯\n🎓 Zenova Groups oda support la\nTop universities in Uzbekistan la padikka chance!\nAdmission open – unga doctor dream ah start pannunga\nIppo  than join pannunga & seat secure pannunga`,
+      initials: 'A',
+      name: 'ASHWIN',
+      meta: 'Tirupur • Andijan State medical university',
       gradient: '135deg,#4facfe 0%,#00f2fe 100%'
     },
     ...dynamicTestimonials.map((t, i) => ({
