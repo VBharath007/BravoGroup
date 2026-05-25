@@ -27,7 +27,7 @@ const testimonialsData = [
     text: `Feels like home here in Uzbekistan\nSafe, hygienic and very comfortable, good faculty\nSouth Indian food makes it even better\nThanks to Zenova Groups for making everything easy`,
     gradient: "linear-gradient(135deg, #f5576c 0%, #f093fb 100%)",
     initials: "D",
-    media: <video src="/assets/testimonial 2.MOV" controls playsInline style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+    media: <video src="/assets/testimonial 2.mp4" controls playsInline style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
   },
   {
     id: 3,

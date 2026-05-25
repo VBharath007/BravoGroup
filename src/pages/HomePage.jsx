@@ -454,7 +454,7 @@ export default function HomePage() {
       type: 'video',
       media: (
         <video
-          src="/assets/testimonial 2.MOV"
+          src="/assets/testimonial 2.mp4"
           controls
           playsInline
           style={{ width: '100%', height: '100%', objectFit: 'cover' }}
