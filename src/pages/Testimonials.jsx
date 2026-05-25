@@ -31,13 +31,13 @@ const testimonialsData = [
   },
   {
     id: 3,
-    name: "ZENOVA STUDENT",
-    location: "Uzbekistan",
-    university: "Top Universities in Uzbekistan",
+    name: "ASHWIN",
+    location: "Tirupur",
+    university: "Andijan State medical university",
     rating: 5,
-    text: `Velinaatula MBBS padikanum nu dream ah?\nInga college life, hostel, food ellam comfortable ah irukku\nQuality education & safe environment 💯\n🎓 Zenova Groups oda support la\nTop universities in Uzbekistan la padikka chance!\nAdmission open – unga doctor dream ah start pannunga\nIppo than join pannunga & seat secure pannunga\nContact: +91 9150484747, +91 9150464949\n#MBBSAbroad #UzbekistanMBBS #ZenovaGroups #StudyAbroad #MedicalStudent #DoctorDream #AdmissionOpen #MBBSLife`,
+    text: `Velinaatula MBBS padikanum nu dream ah?\nInga college life, hostel, food ellam comfortable ah irukku\nQuality education & safe environment 💯\n🎓 Zenova Groups oda support la\nTop universities in Uzbekistan la padikka chance!\nAdmission open – unga doctor dream ah start pannunga\nIppo  than join pannunga & seat secure pannunga`,
     gradient: "linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)",
-    initials: "ZS",
+    initials: "A",
     media: <video src="/assets/instagram_testimonial.mp4" poster="/assets/instagram_testimonial_thumb.jpg" controls playsInline style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
   }
 ];
