@@ -437,7 +437,7 @@ export default function HomePage() {
       type: 'video',
       media: (
         <video
-          src="/assets/Student testimonial.mp4"
+          src="/assets/Student_testimonial_min.mp4"
           controls
           playsInline
           style={{ width: '100%', height: '100%', objectFit: 'cover' }}

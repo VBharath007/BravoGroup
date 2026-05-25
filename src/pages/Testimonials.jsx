@@ -16,7 +16,7 @@ const testimonialsData = [
     text: `“Zenova made my MBBS dream possible!”\nFrom admission to visa, everything was smooth\nNo confusion, no stress\nToday, I’m studying MBBS in Uzbekistan 🇺🇿`,
     gradient: "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
     initials: "S",
-    media: <video src="/assets/Student testimonial.mp4" controls playsInline style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+    media: <video src="/assets/Student_testimonial_min.mp4" controls playsInline style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
   },
   {
     id: 2,
