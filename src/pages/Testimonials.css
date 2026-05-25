@@ -209,6 +209,7 @@
   margin-bottom: 2rem;
   position: relative;
   z-index: 2;
+  white-space: pre-line;
 }
 
 .rc-footer {

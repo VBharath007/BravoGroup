@@ -148,7 +148,7 @@ export default function VideoGallery() {
             </button>
             <div className="vg-iframe-wrapper">
               <iframe
-                src={`${activeVideo.url}?autoplay=1`}
+                src={`${activeVideo.url.replace('shorts/', 'embed/').replace('watch?v=', 'embed/')}?autoplay=1`}
                 title={activeVideo.title}
                 frameBorder="0"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"

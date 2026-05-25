@@ -5,10 +5,15 @@ import './GalleryPage.css';
 import LazyImage from '../components/Lazyimage';
 
 // Assets are now served from the public/assets/gallery directory
-const photos = Array.from({ length: 23 }, (_, i) => ({
-  id: i + 1,
-  url: `/assets/gallery/gallery${i + 1}.jpeg`
-}));
+const photos = [
+  { id: 'c1', url: '/assets/gallery1.jpeg' },
+  { id: 'c2', url: '/assets/gallery2.jpeg' },
+  { id: 'c3', url: '/assets/gallery3.jpeg' },
+  ...Array.from({ length: 23 }, (_, i) => ({
+    id: i + 1,
+    url: `/assets/gallery/gallery${i + 1}.jpeg`
+  }))
+];
 
 const itemVariants = {
   hidden: { opacity: 0, y: 60, scale: 0.8, rotate: -2 },

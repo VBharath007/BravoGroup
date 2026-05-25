@@ -9,63 +9,36 @@ gsap.registerPlugin(ScrollTrigger);
 const testimonialsData = [
   {
     id: 1,
-    name: "Deepika Sharma",
-    location: "Chennai, Tamil Nadu",
-    university: "Tashkent Medical Academy",
+    name: "SARVESH",
+    location: "Krishnagiri, Tamil Nadu",
+    university: "Andijan State Medical University, Uzbekistan",
     rating: 5,
-    text: "Thanks to Zenova Groups, I got into a top medical university in Uzbekistan. They were honest, responsive, and treated me like family throughout the journey. The documentation process was incredibly smooth.",
+    text: `“Zenova made my MBBS dream possible!”\nFrom admission to visa, everything was smooth\nNo confusion, no stress\nToday, I’m studying MBBS in Uzbekistan 🇺🇿`,
     gradient: "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
-    initials: "DS"
+    initials: "S",
+    media: <video src="/assets/Student testimonial.mp4" controls playsInline style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
   },
   {
     id: 2,
-    name: "Faizan M.",
-    location: "Hyderabad, Telangana",
-    university: "Samarkand State Medical University",
+    name: "DEVIKA",
+    location: "Kerala",
+    university: "Andijan State Medical University, Uzbekistan",
     rating: 5,
-    text: "Zenova Groups made the entire admission process stress-free. From selecting the university to getting my visa approved, everything was handled professionally and on time.",
-    gradient: "linear-gradient(135deg, #ff0844 0%, #ffb199 100%)",
-    initials: "FM"
+    text: `Feels like home here in Uzbekistan\nSafe, hygienic and very comfortable, good faculty\nSouth Indian food makes it even better\nThanks to Zenova Groups for making everything easy`,
+    gradient: "linear-gradient(135deg, #f5576c 0%, #f093fb 100%)",
+    initials: "D",
+    media: <video src="/assets/testimonial 2.MOV" controls playsInline style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
   },
   {
     id: 3,
-    name: "Ravi Kumar",
-    location: "Coimbatore, Tamil Nadu",
-    university: "Bukhara State Medical Institute",
+    name: "ZENOVA STUDENT",
+    location: "Uzbekistan",
+    university: "Top Universities in Uzbekistan",
     rating: 5,
-    text: "I had no clue where to start, but they guided me step-by-step. Their support with documents, visa, and travel was excellent. Highly recommend them to any medical aspirant!",
+    text: `Velinaatula MBBS padikanum nu dream ah?\nInga college life, hostel, food ellam comfortable ah irukku\nQuality education & safe environment 💯\n🎓 Zenova Groups oda support la\nTop universities in Uzbekistan la padikka chance!\nAdmission open – unga doctor dream ah start pannunga\nIppo than join pannunga & seat secure pannunga\nContact: +91 9150484747, +91 9150464949\n#MBBSAbroad #UzbekistanMBBS #ZenovaGroups #StudyAbroad #MedicalStudent #DoctorDream #AdmissionOpen #MBBSLife`,
     gradient: "linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)",
-    initials: "RK"
-  },
-  {
-    id: 4,
-    name: "Sameera J.",
-    location: "Bangalore, Karnataka",
-    university: "Kyrgyz State Medical Academy",
-    rating: 5,
-    text: "The team is incredibly professional. They helped me with bank loans as well, making the financial part of my MBBS journey much easier to manage.",
-    gradient: "linear-gradient(135deg, #43e97b 0%, #38f9d7 100%)",
-    initials: "SJ"
-  },
-  {
-    id: 5,
-    name: "Manoj Kumar",
-    location: "Salem, Tamil Nadu",
-    university: "Andijan State Medical Institute",
-    rating: 5,
-    text: "I was worried about the language barrier, but Zenova Groups provided great preparatory sessions. I'm now studying at a top university with total confidence.",
-    gradient: "linear-gradient(135deg, #fa709a 0%, #fee140 100%)",
-    initials: "MK"
-  },
-  {
-    id: 6,
-    name: "Preeti M.",
-    location: "Madurai, Tamil Nadu",
-    university: "Osh State University",
-    rating: 5,
-    text: "From airport pickup to hostel settlement, Zenova Groups was there on the ground for me. I never felt alone in a new country thanks to their local team support.",
-    gradient: "linear-gradient(135deg, #a18cd1 0%, #fbc2eb 100%)",
-    initials: "PM"
+    initials: "ZS",
+    media: <video src="/assets/instagram_testimonial.mp4" poster="/assets/instagram_testimonial_thumb.jpg" controls playsInline style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
   }
 ];
 
@@ -77,7 +50,6 @@ export default function Testimonials() {
   const API_BASE_URL = import.meta.env.VITE_BACKEND_URL || 'https://zenovagroupsbackend-production.up.railway.app';
 
   useEffect(() => {
-    // AOS initialized globally
     window.scrollTo(0, 0);
 
     const fetchTestimonials = async () => {
@@ -91,7 +63,9 @@ export default function Testimonials() {
       }
     };
     fetchTestimonials();
+  }, []);
 
+  useEffect(() => {
     let ctx = gsap.context(() => {
       gsap.utils.toArray(".review-card").forEach((card, index) => {
         gsap.fromTo(card,
@@ -115,16 +89,24 @@ export default function Testimonials() {
     return () => ctx.revert();
   }, [dynamicTestimonials]);
 
-  const allTestimonials = [...testimonialsData, ...dynamicTestimonials.map(t => ({
-    id: t._id,
-    name: t.name,
-    location: t.location || "Student",
-    university: t.designation || t.university || "Medical University",
-    rating: t.rating || 5,
-    text: t.message || t.text,
-    gradient: "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
-    initials: t.name.split(' ').map(n => n[0]).join('')
-  }))];
+  const allTestimonials = [
+    ...testimonialsData.map(t => ({ ...t, initials: t.initials || t.name.split(' ').map(n => n[0]).join('') })),
+    ...dynamicTestimonials.map(t => ({
+      id: t._id,
+      name: t.name,
+      location: t.location || "Student",
+      university: t.designation || t.university || "Medical University",
+      rating: t.rating || 5,
+      text: t.message || t.text,
+      gradient: "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
+      initials: t.name.split(' ').map(n => n[0]).join(''),
+      media: t.videoUrl ? (
+        <iframe width="100%" height="100%" src={t.videoUrl.replace('watch?v=', 'embed/')} title={t.name} frameBorder="0" allowFullScreen style={{ border: 'none' }} />
+      ) : t.image ? (
+        <img src={t.image} alt={t.name} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+      ) : null
+    }))
+  ];
 
   return (
     <div className="testimonials-page">
@@ -173,6 +155,12 @@ export default function Testimonials() {
                     </svg>
                   ))}
                 </div>
+
+                {review.media && (
+                  <div className="rc-media" style={{ marginBottom: '1.5rem', borderRadius: '16px', overflow: 'hidden', aspectRatio: '16/10', background: 'rgba(0,0,0,0.2)' }}>
+                    {review.media}
+                  </div>
+                )}
 
                 <p className="rc-text">{review.text}</p>
 

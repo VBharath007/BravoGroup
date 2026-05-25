@@ -109,10 +109,15 @@ const blogs = [
   { slug: 'is-it-safe-for-indian-students-abroad', image: '/assets/blogimages/blog4.jpeg', date: 'April 17, 2026', title: 'Is It Safe for Indian Students Abroad?', excerpt: 'One of the biggest questions parents ask is about safety and community support in major destinations.' },
   { slug: 'best-countries-for-indian-students-to-study-mbbs', image: '/assets/blogimages/blog5.jpeg', date: 'April 17, 2026', title: 'Which Countries Are Best for Indian Students to Study MBBS?', excerpt: 'Compare top locations like Uzbekistan, Russia, and more to find your perfect fit.' },
 ];
-const galleryPhoto = Array.from({ length: 23 }, (_, i) => ({
-  id: i + 1,
-  url: `/assets/gallery/gallery${i + 1}.jpeg`
-}));
+const galleryPhoto = [
+  { id: 'c1', url: '/assets/gallery1.jpeg' },
+  { id: 'c2', url: '/assets/gallery2.jpeg' },
+  { id: 'c3', url: '/assets/gallery3.jpeg' },
+  ...Array.from({ length: 23 }, (_, i) => ({
+    id: i + 1,
+    url: `/assets/gallery/gallery${i + 1}.jpeg`
+  }))
+];
 const helpIcons = [
   <svg key={0} width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" /><circle cx="12" cy="7" r="4" /></svg>,
   <svg key={1} width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" /><polyline points="9 22 9 12 15 12 15 22" /></svg>,
@@ -427,9 +432,58 @@ export default function HomePage() {
   const galleryVideos = allVideos.slice(0, 4);
 
   const allTestimonials = [
-    { delay: 0, type: 'video', media: <iframe width="100%" height="100%" src="https://www.youtube.com/embed/EhrRTJqBqfc" title="Student Story" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen style={{ border: 'none' }} />, text: '"ZENOVA Groups Educational Consultants made my MBBS journey smooth from day one. Their support in documentation and visa was exceptional."', initials: 'DS', name: 'Deepika Sharma', meta: 'MBBS • Tashkent Medical Academy', gradient: '135deg,#667eea 0%,#764ba2 100%' },
-    { delay: .1, type: 'image', media: <LazyImage src={g2} alt="Student testimonial" />, text: '"From counseling to campus settlement, they were with me at every step. Truly grateful for their guidance."', initials: 'RK', name: 'Ravi Kumar', meta: 'MBBS • Samarkand State Medical', gradient: '135deg,#f093fb 0%,#f5576c 100%' },
-    { delay: .2, type: 'image', media: <LazyImage src={g3} alt="Student testimonial" />, text: '"Best decision I made was choosing ZENOVA Groups Educational Consultants. Their transparency and local support in Vellore made all the difference."', initials: 'PM', name: 'Priya Menon', meta: 'MBBS • Bukhara State Medical', gradient: '135deg,#4facfe 0%,#00f2fe 100%' },
+    {
+      delay: 0,
+      type: 'video',
+      media: (
+        <video
+          src="/assets/Student testimonial.mp4"
+          controls
+          playsInline
+          style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+        />
+      ),
+      text: `“Zenova made my MBBS dream possible!”\nFrom admission to visa, everything was smooth\nNo confusion, no stress\nToday, I’m studying MBBS in Uzbekistan 🇺🇿`,
+      initials: 'S',
+      name: 'SARVESH',
+      meta: 'Krishnagiri, Tamil Nadu • Joined Andijan State Medical University Uzbekistan',
+      gradient: '135deg,#667eea 0%,#764ba2 100%'
+    },
+    {
+      delay: 0.1,
+      type: 'video',
+      media: (
+        <video
+          src="/assets/testimonial 2.MOV"
+          controls
+          playsInline
+          style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+        />
+      ),
+      text: `Feels like home here in Uzbekistan\nSafe, hygienic and very comfortable, good faculty\nSouth Indian food makes it even better\nThanks to Zenova Groups for making everything easy`,
+      initials: 'D',
+      name: 'DEVIKA',
+      meta: 'Kerala • Joined Andijan State Medical University Uzbekistan',
+      gradient: '135deg,#f5576c 0%,#f093fb 100%'
+    },
+    {
+      delay: 0.2,
+      type: 'video',
+      media: (
+        <video
+          src="/assets/instagram_testimonial.mp4"
+          poster="/assets/instagram_testimonial_thumb.jpg"
+          controls
+          playsInline
+          style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+        />
+      ),
+      text: `Velinaatula MBBS padikanum nu dream ah?\nInga college life, hostel, food ellam comfortable ah irukku\nQuality education & safe environment 💯\n🎓 Zenova Groups oda support la\nTop universities in Uzbekistan la padikka chance!\nAdmission open – unga doctor dream ah start pannunga\nIppo than join pannunga & seat secure pannunga\nContact: +91 9150484747, +91 9150464949\n#MBBSAbroad #UzbekistanMBBS #ZenovaGroups #StudyAbroad #MedicalStudent #DoctorDream #AdmissionOpen #MBBSLife`,
+      initials: 'ZS',
+      name: 'ZENOVA STUDENT',
+      meta: 'Uzbekistan • Top Universities in Uzbekistan',
+      gradient: '135deg,#4facfe 0%,#00f2fe 100%'
+    },
     ...dynamicTestimonials.map((t, i) => ({
       delay: 0.1 * (i + 3),
       type: t.videoUrl ? 'video' : 'image',
@@ -682,7 +736,7 @@ export default function HomePage() {
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="18" y1="6" x2="6" y2="18" /><line x1="6" y1="6" x2="18" y2="18" /></svg>
               </button>
               <div className="vg-iframe-wrapper">
-                <iframe src={`${activeVideo.url.replace('watch?v=', 'embed/')}?autoplay=1`} title={activeVideo.title} frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen />
+                <iframe src={`${activeVideo.url.replace('shorts/', 'embed/').replace('watch?v=', 'embed/')}?autoplay=1`} title={activeVideo.title} frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen />
               </div>
               <div className="vg-modal-info">
                 <h2 className="text-white text-xl font-bold mb-2">{activeVideo.title}</h2>
